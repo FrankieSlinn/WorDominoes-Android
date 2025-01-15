@@ -13,6 +13,14 @@ export const s= StyleSheet.create({
         letterSpacing: -0.08,
         marginTop: 55,
       },
+      body: {
+        marginTop: -50,
+        flex: 6,
+        paddingTop: 15,
+        paddingLeft: 15,
+        paddingRight: 15,
+        textAlign: "center",
+      },
     logo:{
         fontSize: 35,
         fontWeight: "bold",
@@ -29,22 +37,29 @@ export const s= StyleSheet.create({
 
   header: {
     flex: 1,
-    height: 70,
+    maxHeight: 65,
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "baseline",
     marginTop: 10,
+
   },
+  instructionBox:{
+    flex:1,
+    alignItems: "top",
+    margin: 20,
+    
 
-
-  body: {
-    marginTop: -50,
-    flex: 6,
-    paddingTop: 15,
-    paddingLeft: 15,
-    paddingRight: 15,
+  },
+  instructionText:{
+    fontSize: 20,
     textAlign: "center",
-  },
+
+
+  }
+
+
+
       
 
 

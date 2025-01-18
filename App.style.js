@@ -1,45 +1,42 @@
-import {StyleSheet} from "react-native"
+import { StyleSheet } from "react-native";
 
-export const s= StyleSheet.create({
-    app: {
-        // flex: 1,
-        paddingTop: 15,
-        paddingLeft: 15,
-        paddingRight: 15,
-        color: "#353839",
-        fontSize: 30, // Roughly equivalent to 1.25rem (20px)
-        backgroundColor: "white",
-        fontFamily: "Arial",
-        letterSpacing: -0.08,
-        marginTop: 55,
-      },
-      body: {
-        // marginTop: -50,
-        // flex: 1,
-        paddingTop: 15,
-        paddingLeft: 15,
-        paddingRight: 15,
-        textAlign: "center",
-      },
-    logo:{
-        fontSize: 35,
-        fontWeight: "bold",
-        letterSpacing: 0.2,
-        shadowColor: "#000",
-        textAlign: "center"
-    },
-    icons:{
-        height: 30,
-        width: 30,
-        margin:20,
-
-    }, 
-    headerContainer:{
- 
-      backgroundColor:"lightBlue",
-     height: 50,
-
-    },
+export const s = StyleSheet.create({
+  app: {
+    // flex: 1,
+    paddingTop: 15,
+    paddingLeft: 15,
+    paddingRight: 15,
+    color: "#353839",
+    fontSize: 30, // Roughly equivalent to 1.25rem (20px)
+    backgroundColor: "white",
+    fontFamily: "Arial",
+    letterSpacing: -0.08,
+    marginTop: 55,
+  },
+  body: {
+    // marginTop: -50,
+    // flex: 1,
+    paddingTop: 15,
+    paddingLeft: 15,
+    paddingRight: 15,
+    textAlign: "center",
+  },
+  logo: {
+    fontSize: 35,
+    fontWeight: "bold",
+    letterSpacing: 0.2,
+    shadowColor: "#000",
+    textAlign: "center",
+  },
+  icons: {
+    height: 30,
+    width: 30,
+    margin: 20,
+  },
+  headerContainer: {
+    backgroundColor: "lightBlue",
+    height: 50,
+  },
 
   header: {
     position: "absolute",
@@ -52,92 +49,63 @@ export const s= StyleSheet.create({
     justifyContent: "space-evenly",
     alignItems: "baseline",
     marginTop: 10,
-
   },
-  instructionBox:{
-
+  instructionBox: {
     margin: 20,
     // backgroundColor: "yellow",
     height: 50,
-    
-
   },
-  instructionText:{
+  instructionText: {
     fontSize: 17,
     textAlign: "center",
     fontWeight: "bold",
     // maxHeight: 40,
-
-
-
   },
-  gridContainer:{
-   alignItems: "center",
-
-
+  gridContainer: {
+    alignItems: "center",
   },
-  grid:{
-
-height: 200,
-width: 240,
-
-
+  grid: {
+    height: 200,
+    width: 240,
   },
-  horizontalDominoContainer:{
-   justifyContent: "center",
-  //  flex: 1,
-   flexDirection: "row",
-  //  justifyContent: "center",
-
-
-
-
+  horizontalDominoContainer: {
+    justifyContent: "center",
+    //  flex: 1,
+    flexDirection: "row",
+    //  justifyContent: "center",
   },
-  domino:{
-    borderWidth: 2,
+  domino: {
+    borderWidth: 3,
     borderColor: "darkgrey",
     borderRadius: 10,
-
   },
-  horizontalDomino:{
-
+  horizontalDomino: {
     height: 30,
     width: 60,
-
-
   },
-
-  verticalDomino:{
+  verticalDomino: {
     height: 60,
     width: 30,
-
-
-
   },
-  verticalDominoContainer:{
-flexDirection: "row",
-justifyContent: "space-between",
+  verticalDominoContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
-  displayDominoContainer:{
-flexDirection:"row",
-justifyContent: "space-around",
-
-height: 50,
+  displayDominoContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    height: 70,
   },
-  displayDomino:{
+  displayDomino: {
     height: 70,
     width: 35,
-    backgoundColor: "grey", 
+    backgoundColor: "grey",
     borderColor: "darkgrey",
-    borderWidth: 4,
+    borderWidth: 3,
     borderRadius: 10,
     margin: 5,
-  }
-
-
-
-
-      
-
-
+  },
+  instructionTextBelow: {
+    marginTop: 30,
+  },
 });

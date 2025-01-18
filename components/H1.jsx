@@ -7,11 +7,11 @@ export function H1(){
 
 return <>
 
-<View style={s.horizontalDominoContainer}>
-<View style={s.horizontalDomino}>
+
+<View style={[s.horizontalDomino, s.domino]}>
 
 </View>
-</View>
+
 
 </>
 

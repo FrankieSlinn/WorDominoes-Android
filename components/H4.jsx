@@ -3,15 +3,14 @@ import {s} from "../App.style";
 
 export function H4(){
 
+    return <>
 
-return <>
 
-<View style={s.horizontalDominoContainer}>
-<View style={s.horizontalDomino}>
-
-</View>
-</View>
-
-</>
-
-}
+    <View style={[s.horizontalDomino, s.domino]}>
+    
+    </View>
+    
+    
+    </>
+    
+    }

@@ -93,12 +93,24 @@ width: 240,
 
 
   },
-  verticalDomino:{
-    height: 60,
-    width: 30,
+  domino:{
     borderWidth: 2,
     borderColor: "darkgrey",
     borderRadius: 10,
+
+  },
+  horizontalDomino:{
+
+    height: 30,
+    width: 60,
+
+
+  },
+
+  verticalDomino:{
+    height: 60,
+    width: 30,
+
 
 
   },
@@ -110,16 +122,6 @@ justifyContent: "space-between",
 
   },
 
-  horizontalDomino:{
-
-    height: 30,
-    width: 60,
-    borderWidth: 2,
-    // backgroundColor: "lightgrey",
-    borderColor: "darkgrey",
-    borderRadius: 10,
-
-  }
 
 
 

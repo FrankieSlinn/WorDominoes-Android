@@ -78,7 +78,7 @@ export const s= StyleSheet.create({
   },
   grid:{
 
-height: 300,
+height: 200,
 width: 240,
 
 
@@ -117,10 +117,22 @@ width: 240,
   verticalDominoContainer:{
 flexDirection: "row",
 justifyContent: "space-between",
-
-
-
   },
+  displayDominoContainer:{
+flexDirection:"row",
+justifyContent: "space-around",
+
+height: 50,
+  },
+  displayDomino:{
+    height: 70,
+    width: 35,
+    backgoundColor: "grey", 
+    borderColor: "darkgrey",
+    borderWidth: 4,
+    borderRadius: 10,
+    margin: 5,
+  }
 
 
 

@@ -2,7 +2,7 @@ import {StyleSheet} from "react-native"
 
 export const s= StyleSheet.create({
     app: {
-        flex: 1,
+        // flex: 1,
         paddingTop: 15,
         paddingLeft: 15,
         paddingRight: 15,
@@ -14,8 +14,8 @@ export const s= StyleSheet.create({
         marginTop: 55,
       },
       body: {
-        marginTop: -50,
-        flex: 6,
+        // marginTop: -50,
+        // flex: 1,
         paddingTop: 15,
         paddingLeft: 15,
         paddingRight: 15,
@@ -34,10 +34,20 @@ export const s= StyleSheet.create({
         margin:20,
 
     }, 
+    headerContainer:{
+ 
+      backgroundColor:"lightBlue",
+     height: 50,
+
+    },
 
   header: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
     flex: 1,
-    maxHeight: 65,
+    // maxHeight: 65,
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "baseline",
@@ -45,16 +55,69 @@ export const s= StyleSheet.create({
 
   },
   instructionBox:{
-    flex:1,
-    alignItems: "top",
+
     margin: 20,
+    // backgroundColor: "yellow",
+    height: 50,
     
 
   },
   instructionText:{
-    fontSize: 20,
+    fontSize: 17,
     textAlign: "center",
+    fontWeight: "bold",
+    // maxHeight: 40,
 
+
+
+  },
+  gridContainer:{
+   alignItems: "center",
+
+
+  },
+  grid:{
+
+height: 300,
+width: 240,
+
+
+  },
+  horizontalDominoContainer:{
+   justifyContent: "center",
+  //  flex: 1,
+   flexDirection: "row",
+  //  justifyContent: "center",
+
+
+
+
+  },
+  verticalDomino:{
+    height: 60,
+    width: 30,
+    borderWidth: 2,
+    borderColor: "darkgrey",
+    borderRadius: 10,
+
+
+  },
+  verticalDominoContainer:{
+flexDirection: "row",
+justifyContent: "space-between",
+
+
+
+  },
+
+  horizontalDomino:{
+
+    height: 30,
+    width: 60,
+    borderWidth: 2,
+    // backgroundColor: "lightgrey",
+    borderColor: "darkgrey",
+    borderRadius: 10,
 
   }
 

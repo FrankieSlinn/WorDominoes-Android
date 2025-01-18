@@ -5,22 +5,20 @@ import {Grid} from "../components/Grid";
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <View >
+      <View style={s.headerContainer}>
       <Header/>
+      </View>
+      <View style={s.body}>
       <View style={s.instructionBox}>
         <Text style={s.instructionText}>
           Fill the grid with dominoes to achieve Word Domination.
           </Text>
       </View>
-      <View>
+      <View style={s.gridContainer}>
       <Grid/>
 
+      </View>
       </View>
 
     </View>

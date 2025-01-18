@@ -15,16 +15,7 @@ return( <>
     <Logo/>
     <StatsIcon/>
 
-{/* <HelpIcon/>
-// content = {content}
-// setContent = {setContent}
-// onPress={() => setIcon("help")}
-/>
-<Logo/>
-<StatsIcon
-content = {content}
-setContent = {setContent}
-onPress={() => setIcon("stats")} */}
+
 
 
 </View>

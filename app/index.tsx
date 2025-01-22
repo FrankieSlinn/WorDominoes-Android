@@ -3,7 +3,7 @@ import {useState} from "react";
 import { s } from "../App.style.js";
 import { Header } from "../components/Header";
 import { Grid } from "../components/Grid";
-import {DisplayDominoes} from "../components/DisplayDominoes";
+import {HandDominoes} from "../components/HandDominoes.jsx";
 
 
 export default function Index() {
@@ -22,7 +22,7 @@ export default function Index() {
         <View style={s.gridContainer}>
           <Grid />
         </View>
-     <DisplayDominoes
+     <HandDominoes
      gameStart={gameStart}
      setGameStart ={setGameStart}/>
         <View style={s.instructionTextBelow}>

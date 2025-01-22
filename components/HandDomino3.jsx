@@ -1,10 +1,10 @@
 import { View } from "react-native";
 import { s } from "../App.style";
 
-export function DisplayDomino3() {
+export function HandDomino3() {
   return (
     <>
-      <View style={s.displayDomino}></View>
+      <View style={s.handDomino}></View>
     </>
   );
 }

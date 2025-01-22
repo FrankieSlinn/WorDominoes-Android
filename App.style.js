@@ -91,15 +91,15 @@ export const s = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
-  displayDominoContainer: {
+ handDominoContainer: {
     flexDirection: "row",
     justifyContent: "center",
     height: 70,
   },
-  displayDomino: {
+ handDomino: {
     height: 70,
     width: 35,
-    backgoundColor: "grey",
+    backgoundColor: "darkgrey",
     borderColor: "darkgrey",
     borderWidth: 3,
     borderRadius: 10,

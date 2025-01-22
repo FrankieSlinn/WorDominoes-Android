@@ -1,10 +1,9 @@
-import { View, Image} from "react-native";
+import { View} from "react-native";
 // import { DisplayDomino1 } from "../components/DisplayDomino1.jsx";
 // import { DisplayDomino2 } from "../components/DisplayDomino2.jsx";
 // import { DisplayDomino3 } from "../components/DisplayDomino3.jsx";
 // import { DisplayDomino4 } from "../components/DisplayDomino4.jsx";
 import { allocateDominoes, getDominoHand } from "../utils/allocateDominoes.js";
-import {dominoImageMappings} from "../utils/dominoImageMappings";
 import { s } from "../App.style";
 
 const displayDominoComponents = [
@@ -15,21 +14,16 @@ const displayDominoComponents = [
   ];
 
 export function DisplayDominoes({gameStart, setGameStart}) {
-  allocateDominoes();
-  console.log("dominoHand", getDominoHand())
-  const dominoesInHand = getDominoHand();
-  // console.log("image", `../assets/images/${Object.keys(domino)}.png`)
+  console.log("dominoHand", dominoHand)
   return (
     <>
          <View style={[s.displayDominoContainer]}>
-         {dominoesInHand.map((domino, index) => (
+         {dominoHand.map((domino, index) => (
         <View key={index} style={s.displayDomino}>
-          {console.log("show  ind dominoh", dominoImageMappings[Object.keys(domino)[0]])}
-          {console.log(typeof Object.keys(domino).value)}
           <Image
-        source={dominoImageMappings[Object.keys(domino)[0]]} // Use the mapping object
-        style={{ width: 30, height: 60 }}
-      />
+            source={require(`../assets/images/${Object.keys(domino)[0]}.png`)}
+            style={{ width: 30, height: 60 }}
+          />
         </View>
       ))}
           

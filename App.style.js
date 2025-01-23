@@ -108,4 +108,18 @@ export const s = StyleSheet.create({
   instructionTextBelow: {
     marginTop: 30,
   },
+  displayDominoContainer:{
+
+
+    alignItems: "center",
+
+
+  },
+  displayDomino:{
+    height: 80,
+    width: 40,
+    transform: [{ rotate: "45deg" }]
+
+
+  }
 });

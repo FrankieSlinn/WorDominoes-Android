@@ -4,10 +4,13 @@ import { s } from "../App.style.js";
 import { Header } from "../components/Header";
 import { Grid } from "../components/Grid";
 import {HandDominoes} from "../components/HandDominoes.jsx";
+import {DisplayDomino} from "../components/DisplayDomino.jsx";
 
 
 export default function Index() {
   const[gameStart, setGameStart]=useState(true);
+  const[displayDomino, setDisplayDomino]=useState(true);
+  const[wordSubmitted, setWordSubmitted]=useState(true);
   return (
     <View>
       <View style={s.headerContainer}>
@@ -24,13 +27,26 @@ export default function Index() {
         </View>
      <HandDominoes
      gameStart={gameStart}
-     setGameStart ={setGameStart}/>
+     setGameStart ={setGameStart}
+     displayDomino={displayDomino}
+     setDisplayDomino={setDisplayDomino}
+     
+     />
         <View style={s.instructionTextBelow}>
          <Text style={s.instructionText}>
          Choose a domino above. You'll create 2 words for this tile: the word length is the number of dots on its side of the domino.
 
 
           </Text>
+        </View>
+        <View style={s.displayDominoContainer}>
+          <DisplayDomino 
+          displayDomino={displayDomino} 
+          setDisplayDomino={setDisplayDomino}
+          
+          />
+
+
         </View>
       </View>
     </View>

@@ -11,14 +11,17 @@ const displayDominoComponents = [
     require("./HandDomino4.jsx").HandDomino4,
   ];
 
-export function HandDominoes({gameStart, setGameStart, displayDomino, setDisplayDomino}) {
+export function HandDominoes({gameStart, setGameStart, displayDomino, setDisplayDomino, wordSubmitted, setWordSubmitted}) {
   if(getDominoHand().length<4){
   allocateDominoes();}
   console.log("dominoHand", getDominoHand())
   const dominoesInHand = getDominoHand();
 
   function handleClick(selectedDomino){
+    if(wordSubmitted ===false){
     setDisplayDomino(selectedDomino)
+    setWordSubmitted(true)
+    }
 
 
   }

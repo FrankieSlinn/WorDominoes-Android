@@ -3,14 +3,14 @@ import {dominoImageMappings} from "../utils/dominoImageMappings.js";
 import { s } from "../App.style";
 
 
-export function DisplayDomino({displayDomino, setDisplayDomino}) {
+export function DisplayDomino({displayDomino, wordSubmitted, setWordSubmitted}) {
     console.log("displayDomino in DisplayDomino", displayDomino)
   return (
     <>
       <View style={s.displayDomino}>
 
       <Image
-        source={dominoImageMappings[displayDomino]} // Use the mapping object
+        source={dominoImageMappings[displayDomino]} 
         style={s.displayDomino}
       />
       </View>

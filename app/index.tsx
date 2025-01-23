@@ -10,7 +10,7 @@ import {DisplayDomino} from "../components/DisplayDomino.jsx";
 export default function Index() {
   const[gameStart, setGameStart]=useState(true);
   const[displayDomino, setDisplayDomino]=useState(true);
-  const[wordSubmitted, setWordSubmitted]=useState(true);
+  const[wordSubmitted, setWordSubmitted]=useState(false); //ensures that domino can only be selected once for each turn
   return (
     <View>
       <View style={s.headerContainer}>
@@ -30,6 +30,8 @@ export default function Index() {
      setGameStart ={setGameStart}
      displayDomino={displayDomino}
      setDisplayDomino={setDisplayDomino}
+     wordSubmitted={wordSubmitted}
+     setWordSubmitted={setWordSubmitted}
      
      />
         <View style={s.instructionTextBelow}>
@@ -43,6 +45,8 @@ export default function Index() {
           <DisplayDomino 
           displayDomino={displayDomino} 
           setDisplayDomino={setDisplayDomino}
+          wordSubmitted={wordSubmitted}
+          setWordSubmitted={setWordSubmitted}
           
           />
 

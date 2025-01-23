@@ -5,12 +5,14 @@ import { Header } from "../components/Header";
 import { Grid } from "../components/Grid";
 import {HandDominoes} from "../components/HandDominoes.jsx";
 import {DisplayDomino} from "../components/DisplayDomino.jsx";
+import {MakeWords} from "../components/MakeWords.jsx";
 
 
 export default function Index() {
   const[gameStart, setGameStart]=useState(true);
-  const[displayDomino, setDisplayDomino]=useState(true);
+  const[displayDomino, setDisplayDomino]=useState(); //to populate selected domino to make word from
   const[wordSubmitted, setWordSubmitted]=useState(false); //ensures that domino can only be selected once for each turn
+  const[showMakeWord, setShowMakeWord]=useState(false);
   return (
     <View>
       <View style={s.headerContainer}>
@@ -32,6 +34,8 @@ export default function Index() {
      setDisplayDomino={setDisplayDomino}
      wordSubmitted={wordSubmitted}
      setWordSubmitted={setWordSubmitted}
+     showMakeWord={showMakeWord}
+     setShowMakeWord={setShowMakeWord}
      
      />
         <View style={s.instructionTextBelow}>
@@ -49,6 +53,11 @@ export default function Index() {
           setWordSubmitted={setWordSubmitted}
           
           />
+          <View>
+           {showMakeWord===true?<MakeWords/>:null}
+
+
+          </View>
 
 
         </View>

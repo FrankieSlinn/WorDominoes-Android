@@ -11,7 +11,9 @@ const displayDominoComponents = [
     require("./HandDomino4.jsx").HandDomino4,
   ];
 
-export function HandDominoes({gameStart, setGameStart, displayDomino, setDisplayDomino, wordSubmitted, setWordSubmitted}) {
+export function HandDominoes({gameStart, setGameStart, displayDomino, setDisplayDomino, wordSubmitted, setWordSubmitted,
+  showMakeWord, setShowMakeWord
+}) {
   if(getDominoHand().length<4){
   allocateDominoes();}
   console.log("dominoHand", getDominoHand())
@@ -21,11 +23,12 @@ export function HandDominoes({gameStart, setGameStart, displayDomino, setDisplay
     if(wordSubmitted ===false){
     setDisplayDomino(selectedDomino)
     setWordSubmitted(true)
+    setShowMakeWord(true) //Make word section can be displayed
     }
 
 
   }
-  // console.log("image", `../assets/images/${Object.keys(domino)}.png`)
+
   return (
     <>
          <View style={[s.handDominoContainer]}>

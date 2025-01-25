@@ -121,5 +121,15 @@ export const s = StyleSheet.create({
     transform: [{ rotate: "135deg" }]
 
 
+  },
+  input:{
+    marginTop: 20,
+    padding: 10,
+    backgroundColor: "lightyellow",
+    height: 25,
+    borderRadius: 10,
+
+    
+
   }
 });

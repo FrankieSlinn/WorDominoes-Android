@@ -12,6 +12,7 @@ export default function Index() {
   const [displayDomino, setDisplayDomino] = useState(); //to populate selected domino to make word from
   const [wordSubmitted, setWordSubmitted] = useState(false); //ensures that domino can only be selected once for each turn
   const [showMakeWord, setShowMakeWord] = useState(false);
+  const [showChooseDominoText, setShowChooseDominoText] = useState(true);
   const [selectedDominoObject, setSelectedDominoObject] = useState();
   return (
     <View>
@@ -53,7 +54,15 @@ export default function Index() {
             setWordSubmitted={setWordSubmitted}
             selectedDominoObject={selectedDominoObject}
             setSelectedDominoObject={setSelectedDominoObject}
+            showChooseDominoText={showChooseDominoText}
+            setShowChooseDominoText={setShowChooseDominoText}
           />
+          <View>
+          {/* <Text style={s.instructionText}>
+              {showChooseDominoText === true? "Choose a domino" : null}
+            </Text> */}
+
+          </View>
           <View>
             {showMakeWord === true ? (
               <MakeWords
@@ -61,6 +70,8 @@ export default function Index() {
                 setDisplayDomino={setDisplayDomino}
                 selectedDominoObject={selectedDominoObject}
                 setSelectedDominoObject={setSelectedDominoObject}
+                showChooseDominoText={showChooseDominoText}
+                setShowChooseDominoText={setShowChooseDominoText}
               />
             ) : null}
           </View>

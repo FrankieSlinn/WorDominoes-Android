@@ -1,11 +1,12 @@
-import { View, Image } from "react-native";
+import { View, Text, TextInput} from "react-native";
 import { s } from "../App.style";
 
 
-export function HandDomino1() {
+export function InputLeft() {
   return (
     <>
-      <View style={s.handDomino}></View>
+      <TextInput style={s.input} placeholder ="Select letter tiles below to make a word." placeholderTextColor="#aaa">
+    </TextInput>
     </>
   );
 }

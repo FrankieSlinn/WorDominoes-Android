@@ -3,7 +3,7 @@ import {dominoImageMappings} from "../utils/dominoImageMappings.js";
 import { s } from "../App.style";
 
 
-export function DisplayDomino({displayDomino, wordSubmitted, setWordSubmitted}) {
+export function DisplayDomino({displayDomino, wordSubmitted, setWordSubmitted, selectedDominoObject, setSelectedDominoObject}) {
     console.log("displayDomino in DisplayDomino", displayDomino)
   return (
     <>

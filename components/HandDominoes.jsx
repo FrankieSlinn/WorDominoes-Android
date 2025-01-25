@@ -12,16 +12,17 @@ const displayDominoComponents = [
   ];
 
 export function HandDominoes({gameStart, setGameStart, displayDomino, setDisplayDomino, wordSubmitted, setWordSubmitted,
-  showMakeWord, setShowMakeWord
+  showMakeWord, setShowMakeWord, selectedDominoObject, setSelectedDominoObject
 }) {
   if(getDominoHand().length<4){
   allocateDominoes();}
   console.log("dominoHand", getDominoHand())
   const dominoesInHand = getDominoHand();
 
-  function handleClick(selectedDomino){
+  function handleClick(selectedDomino, domino){
     if(wordSubmitted ===false){
     setDisplayDomino(selectedDomino)
+    setSelectedDominoObject(domino)
     setWordSubmitted(true)
     setShowMakeWord(true) //Make word section can be displayed
     }
@@ -36,7 +37,7 @@ export function HandDominoes({gameStart, setGameStart, displayDomino, setDisplay
         <View key={index} style={s.handDomino}>
           {console.log("show  ind dominoh", dominoImageMappings[Object.keys(domino)[0]])}
 
-          <TouchableOpacity onPress={()=>{handleClick(Object.keys(domino)[0])}}>
+          <TouchableOpacity onPress={()=>{handleClick(Object.keys(domino)[0], domino)}}>
           {console.log("show selected domino", displayDomino)}
           <Image
         source={dominoImageMappings[Object.keys(domino)[0]]} // Use the mapping object

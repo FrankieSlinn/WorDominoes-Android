@@ -118,7 +118,7 @@ export const s = StyleSheet.create({
   displayDomino:{
     height: 80,
     width: 40,
-    transform: [{ rotate: "45deg" }]
+    transform: [{ rotate: "135deg" }]
 
 
   }

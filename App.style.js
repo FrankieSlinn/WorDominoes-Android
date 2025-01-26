@@ -126,10 +126,35 @@ export const s = StyleSheet.create({
     marginTop: 20,
     padding: 10,
     backgroundColor: "lightyellow",
-    height: 25,
+    height: 35,
     borderRadius: 10,
 
     
+
+  },
+
+  lettersContainer:{
+
+     flexDirection: "row", 
+     flexWrap: "wrap", 
+     marginTop: 15,
+     marginBottom: 70,
+     alignItems: "center",
+     justifyContent: "center",
+
+
+  },
+  letter:{
+    minWidth: 25,
+   
+    fontWeight: "bold",
+    padding: 10,
+    margin: 3,
+    // borderColor: "grey",
+     borderWidth: 2,
+    borderRadius: 10,
+
+
 
   }
 });

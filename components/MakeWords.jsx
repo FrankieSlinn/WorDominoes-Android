@@ -1,7 +1,9 @@
 import { View, Text, Image } from "react-native";
 import {useState, useEffect} from "react";
-import {dominoes} from "../utils/dominoes";
+
+import {letters} from "../utils/letters";
 import {FirstWord} from "./FirstWord";
+import {LetterTiles} from "./LetterTiles";
 import { s } from "../App.style";
 
 
@@ -10,6 +12,8 @@ export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject
 }) {
   const [wordLength1, setWordLength1] = useState("");
   const [wordLength2, setWordLength2] = useState("");
+  const [inputString1, setInputString1] = useState("");
+  const [inputString2, setInputString2] = useState("");
 
 
 
@@ -29,7 +33,13 @@ export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject
     
     wordLength1 = {wordLength1}
     setWordLength1= {setWordLength1}
+    inputString1={inputString1}
+    setInputString1={setInputString1}
  
+    />
+    <LetterTiles
+        inputString1={inputString1}
+        setInputString1={setInputString1}
     
     />
 

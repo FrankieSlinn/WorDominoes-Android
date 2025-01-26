@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { Text, View, ScrollView } from "react-native";
 import { useState } from "react";
 import { s } from "../App.style.js";
 import { Header } from "../components/Header";
@@ -19,7 +19,7 @@ export default function Index() {
       <View style={s.headerContainer}>
         <Header />
       </View>
-      <View style={s.body}>
+      <ScrollView style={s.body}>
         <View style={s.instructionBox}>
           <Text style={s.instructionText}>
             Fill the grid with dominoes to achieve Word Domination.
@@ -76,7 +76,7 @@ export default function Index() {
             ) : null}
           </View>
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 }

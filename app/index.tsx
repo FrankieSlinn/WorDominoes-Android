@@ -9,6 +9,7 @@ import { MakeWords } from "../components/MakeWords.jsx";
 
 export default function Index() {
   const [gameStart, setGameStart] = useState(true);
+  const [turnStart, setTurnStart] = useState(true);
   const [displayDomino, setDisplayDomino] = useState(); //to populate selected domino to make word from
   const [wordSubmitted, setWordSubmitted] = useState(false); //ensures that domino can only be selected once for each turn
   const [showMakeWord, setShowMakeWord] = useState(false);
@@ -39,6 +40,8 @@ export default function Index() {
           setShowMakeWord={setShowMakeWord}
           selectedDominoObject={selectedDominoObject}
           setSelectedDominoObject={setSelectedDominoObject}
+          turnStart ={turnStart}
+          setTurnStart={setTurnStart}
         />
         <View style={s.instructionTextBelow}>
           <Text style={s.instructionText}>
@@ -72,6 +75,8 @@ export default function Index() {
                 setSelectedDominoObject={setSelectedDominoObject}
                 showChooseDominoText={showChooseDominoText}
                 setShowChooseDominoText={setShowChooseDominoText}
+                turnStart ={turnStart}
+                setTurnStart={setTurnStart}
               />
             ) : null}
           </View>

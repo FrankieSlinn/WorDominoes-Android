@@ -145,14 +145,16 @@ export const s = StyleSheet.create({
 
   },
   letter:{
-    minWidth: 25,
+    width: 35,
    
     fontWeight: "bold",
     padding: 10,
-    margin: 3,
+    margin: 4,
     // borderColor: "grey",
      borderWidth: 2,
     borderRadius: 10,
+    justifyContent: "center",
+    textAlign: "center",
 
 
 

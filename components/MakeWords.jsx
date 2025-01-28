@@ -1,4 +1,4 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity} from "react-native";
 import {useState, useEffect} from "react";
 
 import {letters} from "../utils/letters";
@@ -49,6 +49,12 @@ export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject
         setTurnStart={setTurnStart}
     
     />
+    <TouchableOpacity>
+      <Text>Redo Word 1</Text>
+    </TouchableOpacity>
+    <TouchableOpacity>
+      <Text>Submit</Text>
+    </TouchableOpacity>
 
     </>
   );

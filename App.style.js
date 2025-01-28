@@ -122,14 +122,28 @@ export const s = StyleSheet.create({
 
 
   },
+  placeholder:{
+    fontWeight: "normal", 
+    fontSize: 17,
+    color: "darkGrey",
+
+
+  },
   input:{
     marginTop: 20,
     padding: 10,
     backgroundColor: "lightyellow",
-    height: 35,
+    height: 40,
     borderRadius: 10,
-
-    
+    textAlign: "center",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  inputText:{
+    fontSize: 20,
+    fontWeight: "bold",
+    letterSpacing: 0.75,
+   
 
   },
 

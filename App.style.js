@@ -137,7 +137,8 @@ export const s = StyleSheet.create({
     borderRadius: 10,
     textAlign: "center",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    width: "auto",
   },
   inputText:{
     fontSize: 20,
@@ -169,7 +170,38 @@ export const s = StyleSheet.create({
     borderRadius: 10,
     justifyContent: "center",
     textAlign: "center",
+  }, 
+  selectedLetter:{
+    color: "#777",
+    borderStyle: "dashed",
+    borderColor: "gray",
 
+  },
+  wordButtonContainer:{
+    marginTop: 20,
+    flexDirection: "row",
+    justifyContent:"center",
+    alignItems: "center",
+
+
+
+
+  },
+  wordButton:{
+    backgroundColor: "lightyellow", 
+    borderWidth: 2,
+    borderColor: "darkgray", 
+    borderRadius: 10,
+    padding: 10,
+
+    marginTop: -10,
+    margin: 10,
+ 
+
+  }, 
+  wordButtonText:{
+    color: "#353839",
+    fontWeight: "bold",
 
 
   }

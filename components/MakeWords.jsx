@@ -16,6 +16,7 @@ export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject
   const [inputString1, setInputString1] = useState([]);
   const [inputString2, setInputString2] = useState([]);
   const [selectedLetters, setSelectedLetters]=useState([]);
+  const [wordForAPI, setWordForAPI]=useState("");
 
 
   console.log("selectedDomino in MakeWords",  selectedDominoObject);
@@ -40,6 +41,8 @@ export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject
     setTurnStart={setTurnStart}
     selectedLetters={selectedLetters}
     setSelectedLetters={setSelectedLetters} 
+    wordForAPI={wordForAPI}
+    setWordForAPI={setWordForAPI}
  
     />
     <LetterTiles
@@ -51,6 +54,9 @@ export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject
         setTurnStart={setTurnStart}
         selectedLetters={selectedLetters}
         setSelectedLetters={setSelectedLetters} 
+        wordForAPI={wordForAPI}
+        setWordForAPI={setWordForAPI}
+     
     
     />
    

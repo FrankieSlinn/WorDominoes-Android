@@ -7,6 +7,10 @@ import { HandDominoes } from "../components/HandDominoes.jsx";
 import { DisplayDomino } from "../components/DisplayDomino.jsx";
 import { MakeWords } from "../components/MakeWords.jsx";
 
+
+
+//Make sure cannot submit one letter more than once
+
 export default function Index() {
   const [gameStart, setGameStart] = useState(true);
   const [turnStart, setTurnStart] = useState(true);
@@ -15,6 +19,7 @@ export default function Index() {
   const [showMakeWord, setShowMakeWord] = useState(false);
   const [showChooseDominoText, setShowChooseDominoText] = useState(true);
   const [selectedDominoObject, setSelectedDominoObject] = useState();
+  const [word1Success, setWord1Success]=useState(false);
   return (
     <View>
       <View style={s.headerContainer}>
@@ -43,12 +48,28 @@ export default function Index() {
           turnStart ={turnStart}
           setTurnStart={setTurnStart}
         />
-        <View style={s.instructionTextBelow}>
+       {word1Success===false?  
+     
+       <View style={s.instructionTextBelow}>
           <Text style={s.instructionText}>
             Choose a domino above. You'll create 2 words for this tile: the word
             length is the number of dots on its side of the domino.
           </Text>
         </View>
+     
+     
+        :
+     
+     
+          <View style={s.instructionTextBelow}>
+             <Text style={s.instructionText}>
+             The first word is complete {"\u2713"} You can now create the second word. Its
+             length is the number of dots the right hand side of the domino.
+             </Text>
+           </View>
+        
+  
+        }
         <View style={s.displayDominoContainer}>
           <DisplayDomino
             displayDomino={displayDomino}
@@ -77,6 +98,8 @@ export default function Index() {
                 setShowChooseDominoText={setShowChooseDominoText}
                 turnStart ={turnStart}
                 setTurnStart={setTurnStart}
+                word1Success={word1Success} 
+                setWord1Success={setWord1Success}
               />
             ) : null}
           </View>

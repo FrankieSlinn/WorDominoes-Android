@@ -3,16 +3,15 @@ import { Alert } from "react-native";
 //To ensure all words are included
 const dictionary = ["is", "be", "was", "look"];
 
-function validateWord(validationInformation, letterString, wordLength) {
+let word1Successful = false; 
+let word2Successful = false; 
+
+function validateWord(validationInformation, letterString, wordLength, wordNumber, setWord1Success) {
   console.log("validationINformation", validationInformation);
-  console.log("wordLength", wordLength);
-  console.log("type of wordLength", typeof wordLength);
-  console.log("letterString", letterString);
+  console.log("wordNumber, wordNumber")
+
   console.log("letterstringlength", letterString.length);
-  console.log(
-    "letterstringlength=wordlength",
-    letterString.length === wordLength
-  );
+
 
   if (
     //check valid word(length of response isn't equal to error message length) - valid word
@@ -23,12 +22,19 @@ function validateWord(validationInformation, letterString, wordLength) {
     letterString.length === Number(wordLength)
   ) {
     console.log("word is validated in validatewd function");
+    if(wordNumber===1)
+    {setWord1Success(true);
+    console.log("word1Successful in validate word function")}
+    else if(wordNumber===2){
+        word2Successful = true
+    }
   } else {
     console.log("word could not be validated in validate word");
+    validationSuccessful = false; 
   }
 }
 
-async function submitWordToAPI(letterString, wordLength) {
+async function submitWordToAPI(letterString, wordLength, wordNumber, setWord1Success) {
   console.log("wordLength:", wordLength);
   console.log("inputString1 in submitWordToAPI:", letterString);
 
@@ -68,7 +74,7 @@ async function submitWordToAPI(letterString, wordLength) {
     console.log("API Response (JSON):", data);
 
     // Call validation function
-    validateWord(validationInformation, letterString, wordLength);
+    validateWord(validationInformation, letterString, wordLength, wordNumber, setWord1Success);
   } catch (error) {
     console.error("API Error:", error);
     Alert.alert("Error", `Failed to validate the word: ${error.message}`);

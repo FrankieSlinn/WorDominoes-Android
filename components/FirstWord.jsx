@@ -5,7 +5,13 @@ import {InputLeft} from "./InputLeft";
 import {submitWordToAPI} from "../utils/apiCalls"
 
 
-export function FirstWord({wordLength1, setWordLength1, inputString1, setInputString1, selectedLetters, setSelectedLetters, wordForAPI, setWordForAPI}) {
+export function FirstWord({wordLength1, setWordLength1, wordLength2, setWordLength2, inputString1, setInputString1, inputString2, setInputString2,
+  selectedLetters, setSelectedLetters, 
+  wordForAPI, setWordForAPI,
+word1Success, setWord1Success, wordNum, setWordNum
+
+
+}) {
   // const{word1Text, setWord1Text}=useState("");
 
     function handleRedoPress(){
@@ -17,29 +23,41 @@ export function FirstWord({wordLength1, setWordLength1, inputString1, setInputSt
 
     }
     function handleSubmitPress(inputString1) {
-      console.log("inputString1 in FirstWord:", inputString1);
+    
       console.log("handleSubmitPress running");
+      //shows if first word or second word submitted
+      const wordNumber = 1;
     
       // Convert letters to lowercase and join them into a string
       let letterArray = inputString1.map((letter) => letter.toLowerCase()).join("");
     
-      console.log("letterArray:", letterArray);
+   
  
     
       // Pass the updated value directly to the API function
-      submitWordToAPI(letterArray, wordLength1);
+      submitWordToAPI(letterArray, wordLength1, wordNumber, setWord1Success);
     }
 
   return (
     <>
           <View >
+            {word1Success===false?
         <Text style={s.instructionText}>
             {`Make a word with ${wordLength1} letters.`}
 
         </Text>
+        :<Text style={s.instructionText}>
+           The first word is complete {"\u2713"}
+           {"\n"}
+           {`Now make a word with ${wordLength2} letters.`}
+          </Text>}
         <InputLeft
         inputString1={inputString1}
         setInputString1={setInputString1}
+        inputString2={inputString2}
+        setInputString2={setInputString2}
+        wordNum={wordNum}
+        setWordNum={setWordNum}
         />
         <View style={s.wordButtonContainer}>
             <TouchableOpacity style={s.wordButton} onPress={()=>{handleRedoPress()}}>

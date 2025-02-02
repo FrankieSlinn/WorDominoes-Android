@@ -4,7 +4,9 @@ import {letters} from "../utils/letters";
 import { s } from "../App.style";
 
 
-export function LetterTiles({inputString1, setInputString1, wordLength1, turnStart, setTurnStart, selectedLetters, setSelectedLetters}) {
+export function LetterTiles({inputString1, setInputString1, wordLength1, turnStart, setTurnStart, selectedLetters, setSelectedLetters,
+  wordNum, setWordNum
+}) {
     const [letterHand, setLetterHand] = useState([]);
     const letterHandLength = 15;
     
@@ -34,10 +36,7 @@ export function LetterTiles({inputString1, setInputString1, wordLength1, turnSta
         if (inputString1.length < wordLength1) {
           setInputString1((prevInputString1) => [...prevInputString1, letter]);
     
-          // Remove the selected letter from `letterHand`
-        //   setLetterHand((prevHand) =>
-        //     prevHand.filter((handLetter, index) => index !== prevHand.indexOf(letter))
-        //   );
+ 
 
         selectedLetters.push(index);
         console.log("selectedletters in LetterTiles", selectedLetters)

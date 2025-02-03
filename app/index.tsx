@@ -20,6 +20,7 @@ export default function Index() {
   const [showChooseDominoText, setShowChooseDominoText] = useState(true);
   const [selectedDominoObject, setSelectedDominoObject] = useState();
   const [word1Success, setWord1Success]=useState(false);
+  const [word2Success, setWord2Success]=useState(false);
   return (
     <View>
       <View style={s.headerContainer}>
@@ -100,6 +101,8 @@ export default function Index() {
                 setTurnStart={setTurnStart}
                 word1Success={word1Success} 
                 setWord1Success={setWord1Success}
+                word2Success={word2Success}
+                setWord2Success={setWord2Success}
               />
             ) : null}
           </View>

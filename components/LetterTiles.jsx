@@ -4,7 +4,8 @@ import {letters} from "../utils/letters";
 import { s } from "../App.style";
 
 
-export function LetterTiles({inputString1, setInputString1, wordLength1, turnStart, setTurnStart, selectedLetters, setSelectedLetters,
+export function LetterTiles({inputString1, setInputString1, inputString2, setInputString2,  wordLength1, wordLength2, turnStart, setTurnStart, 
+  selectedLetters, setSelectedLetters,
   wordNum, setWordNum
 }) {
     const [letterHand, setLetterHand] = useState([]);
@@ -33,20 +34,34 @@ export function LetterTiles({inputString1, setInputString1, wordLength1, turnSta
     //   }, [selectedLetters])
 
       function handlePress(letter, index) {
-        if (inputString1.length < wordLength1) {
-          setInputString1((prevInputString1) => [...prevInputString1, letter]);
+   
+     
     
- 
+           let inputString =wordNum===1?inputString = inputString1:inputString = inputString2;
+           let wordLength = wordNum===1?wordLength = wordLength1: wordLength = wordLength2;
+           console.log("inputstring in lettertiles", inputString)
+           console.log("wordLength in Lettertiles", wordLength)
+    
+        if (inputString.length < wordLength) {
+          if(wordNum===1){
+          setInputString1((prevInputString1) => [...prevInputString1, letter]);}
+          
+          else if (wordNum===2){
+            setInputString2((prevInputString2) => [...prevInputString2, letter]);}
+          
+        } else {
+          console.log("Max word length reached, here is the full string:", inputString1);
+        }
+        
 
         selectedLetters.push(index);
         console.log("selectedletters in LetterTiles", selectedLetters)
     
           console.log("Input string 1", [...inputString1, letter]);
           console.log("Updated letterHand after selection:", letterHand);
-        } else {
-          console.log("Max word length reached, here is the full string:", inputString1);
-        }
       }
+ 
+      
 
       
   return (

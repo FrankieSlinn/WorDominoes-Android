@@ -8,7 +8,7 @@ import {submitWordToAPI} from "../utils/apiCalls"
 export function FirstWord({wordLength1, setWordLength1, wordLength2, setWordLength2, inputString1, setInputString1, inputString2, setInputString2,
   selectedLetters, setSelectedLetters, 
   wordForAPI, setWordForAPI,
-word1Success, setWord1Success, wordNum, setWordNum
+word1Success, setWord1Success, word2Success, setWord2Success, wordNum, setWordNum
 
 
 }) {
@@ -17,6 +17,7 @@ word1Success, setWord1Success, wordNum, setWordNum
     function handleRedoPress(){
 
         setInputString1([]);
+        setInputString2([])
         setSelectedLetters([]);
         console.log("input string after redo")
 
@@ -26,16 +27,15 @@ word1Success, setWord1Success, wordNum, setWordNum
     
       console.log("handleSubmitPress running");
       //shows if first word or second word submitted
-      const wordNumber = 1;
+   let wordNumber = wordNum;
+   let wordLength = wordNum===1?wordLength1:wordLength2;
+   let setWordSuccess = wordNum===1?setWord1Success: setWord2Success;
     
       // Convert letters to lowercase and join them into a string
       let letterArray = inputString1.map((letter) => letter.toLowerCase()).join("");
     
-   
- 
-    
       // Pass the updated value directly to the API function
-      submitWordToAPI(letterArray, wordLength1, wordNumber, setWord1Success);
+      submitWordToAPI(letterArray, wordLength, wordNumber, setWord1Success);
     }
 
   return (
@@ -49,7 +49,7 @@ word1Success, setWord1Success, wordNum, setWordNum
         :<Text style={s.instructionText}>
            The first word is complete {"\u2713"}
            {"\n"}
-           {`Now make a word with ${wordLength2} letters.`}
+           {`Now make a second word with ${wordLength2} letters.`}
           </Text>}
         <InputLeft
         inputString1={inputString1}
@@ -62,10 +62,10 @@ word1Success, setWord1Success, wordNum, setWordNum
         <View style={s.wordButtonContainer}>
             <TouchableOpacity style={s.wordButton} onPress={()=>{handleRedoPress()}}>
            
-      <Text style={s.wordButtonText}>Redo Word 1</Text>
+      <Text style={s.wordButtonText}>Redo Word</Text>
     </TouchableOpacity>
     <TouchableOpacity style={s.wordButton} onPress={()=>handleSubmitPress(inputString1)}>
-      <Text style={s.wordButtonText} >Submit Word 1</Text>
+      <Text style={s.wordButtonText} >Submit Word</Text>
     </TouchableOpacity>
     </View>
 

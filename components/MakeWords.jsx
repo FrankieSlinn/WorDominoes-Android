@@ -8,7 +8,7 @@ import { s } from "../App.style";
 
 
 export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject, setSelectedDominoObject,  showChooseDominoText, setShowChooseDominoText,
-  turnStart, setTurnStart, word1Success, setWord1Success
+  turnStart, setTurnStart, word1Success, setWord1Success, word2Success, setWord2Success
 
 }) {
   const [wordLength1, setWordLength1] = useState("");
@@ -68,6 +68,8 @@ export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject
     setWordForAPI={setWordForAPI}
     word1Success={word1Success}
     setWord1Success={setWord1Success}
+    word2Success={word2Success}
+    setWord2Success={setWord2Success}
     wordNum={wordNum}
     setWordNum={setWordNum}
  
@@ -75,7 +77,10 @@ export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject
     <LetterTiles
         inputString1={inputString1}
         setInputString1={setInputString1}
+        inputString2={inputString2}
+        setInputString2={setInputString2}
         wordLength1={wordLength1}
+        wordLength2 = {wordLength2}
         setWordLength1={setWordLength1}
         turnStart={turnStart}
         setTurnStart={setTurnStart}

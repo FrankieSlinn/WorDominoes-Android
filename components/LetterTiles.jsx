@@ -5,7 +5,7 @@ import { s } from "../App.style";
 
 
 export function LetterTiles({inputString1, setInputString1, inputString2, setInputString2,  wordLength1, wordLength2, turnStart, setTurnStart, 
-  selectedLetters, setSelectedLetters,
+  selectedLetters1, setSelectedLetters1, selectedLetters2, setSelectedLetters2,
   wordNum, setWordNum
 }) {
     const [letterHand, setLetterHand] = useState([]);
@@ -53,9 +53,12 @@ export function LetterTiles({inputString1, setInputString1, inputString2, setInp
           console.log("Max word length reached, here is the full string:", inputString1);
         }
         
+if(wordNum===1){
+        selectedLetters1.push(index);}
+        else{selectedLetters2.push(index)
 
-        selectedLetters.push(index);
-        console.log("selectedletters in LetterTiles", selectedLetters)
+        }
+        console.log("selectedletters2 in LetterTiles", selectedLetters2)
     
           console.log("Input string 1", [...inputString1, letter]);
           console.log("Updated letterHand after selection:", letterHand);
@@ -69,7 +72,7 @@ export function LetterTiles({inputString1, setInputString1, inputString2, setInp
     <View style={s.lettersContainer}>
 {letterHand.map((letter, index) => (
     <TouchableOpacity key={index} onPress={() => handlePress(letter, index)}>
-  <Text style={[s.letter, selectedLetters.includes(index) ? s.selectedLetter : null]}>{letter}</Text>
+  <Text style={[s.letter, selectedLetters1.includes(index)||selectedLetters2.includes(index) ? s.selectedLetter : null]}>{letter}</Text>
   </TouchableOpacity>
 ))}
 </View>

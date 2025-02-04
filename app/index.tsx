@@ -60,14 +60,14 @@ export default function Index() {
      
      
         :
+     null
      
-     
-          <View style={s.instructionTextBelow}>
-             <Text style={s.instructionText}>
-             The first word is complete {"\u2713"} You can now create the second word. Its
-             length is the number of dots the right hand side of the domino.
-             </Text>
-           </View>
+          // <View style={s.instructionTextBelow}>
+          //    <Text style={s.instructionText}>
+          //    The first word is complete {"\u2713"} You can now create the second word. Its
+          //    length is the number of dots the right hand side of the domino.
+          //    </Text>
+          //  </View>
         
   
         }

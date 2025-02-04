@@ -15,7 +15,8 @@ export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject
   const [wordLength2, setWordLength2] = useState("");
   const [inputString1, setInputString1] = useState([]);
   const [inputString2, setInputString2] = useState([]);
-  const [selectedLetters, setSelectedLetters]=useState([]);
+  const [selectedLetters1, setSelectedLetters1]=useState([]);
+  const [selectedLetters2, setSelectedLetters2]=useState([]);
   const [wordForAPI, setWordForAPI]=useState("");
   //shows if word 1 or word2
   const[wordNum, setWordNum]=useState(1);
@@ -62,8 +63,10 @@ export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject
     setInputString2={setInputString2}
     turnStart={turnStart}
     setTurnStart={setTurnStart}
-    selectedLetters={selectedLetters}
-    setSelectedLetters={setSelectedLetters} 
+    selectedLetters1={selectedLetters1}
+    setSelectedLetters1={setSelectedLetters1} 
+    selectedLetters2={selectedLetters2}
+    setSelectedLetters2={setSelectedLetters2} 
     wordForAPI={wordForAPI}
     setWordForAPI={setWordForAPI}
     word1Success={word1Success}
@@ -84,8 +87,10 @@ export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject
         setWordLength1={setWordLength1}
         turnStart={turnStart}
         setTurnStart={setTurnStart}
-        selectedLetters={selectedLetters}
-        setSelectedLetters={setSelectedLetters} 
+        selectedLetters1={selectedLetters1}
+        setSelectedLetters1={setSelectedLetters1} 
+        selectedLetters2={selectedLetters2}
+        setSelectedLetters2={setSelectedLetters2} 
         wordForAPI={wordForAPI}
         setWordForAPI={setWordForAPI}
         wordNum={wordNum}

@@ -42,7 +42,7 @@ export function LetterTiles({inputString1, setInputString1, inputString2, setInp
            console.log("inputstring in lettertiles", inputString)
            console.log("wordLength in Lettertiles", wordLength)
     
-        if (inputString.length < wordLength) {
+        if (inputString.length < wordLength && !selectedLetters1.includes(index)) {
           if(wordNum===1){
           setInputString1((prevInputString1) => [...prevInputString1, letter]);}
           

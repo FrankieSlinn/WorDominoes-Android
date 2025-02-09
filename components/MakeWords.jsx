@@ -2,7 +2,7 @@ import { View, Text, Image, TouchableOpacity} from "react-native";
 import {useState, useEffect} from "react";
 import {word1Successful, word2Successful} from "../utils/apiCalls";
 import {letters} from "../utils/letters";
-import {FirstWord} from "./FirstWord";
+import {Word} from "./Word";
 import {LetterTiles} from "./LetterTiles";
 import { s } from "../App.style";
 
@@ -22,7 +22,7 @@ export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject
   const[wordNum, setWordNum]=useState(1);
 
 
-  console.log("selectedDomino in MakeWords",  selectedDominoObject);
+  console.log("word2Success in MakeWords", word2Success)
 
   useEffect (() => {
     console.log("word1Successful useEffect running. word1Successfulstats =", word1Success)
@@ -49,9 +49,10 @@ export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject
     // console.log("firstWord", firstWord);
   return (
     <>
+  
     
  
-    <FirstWord
+    <Word
     
     wordLength1 = {wordLength1}
     setWordLength1= {setWordLength1}

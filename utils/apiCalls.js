@@ -3,10 +3,9 @@ import { Alert } from "react-native";
 //To ensure all words are included
 const dictionary = ["is", "be", "was", "look"];
 
-let word1Successful = false; 
-let word2Successful = false; 
 
-function validateWord(validationInformation, letterString, wordLength, wordNumber, setWord1Success) {
+
+function validateWord(validationInformation, letterString, wordLength, wordNumber, setWord1Success, setWord2Success, setValidationError) {
   console.log("validationINformation", validationInformation);
   console.log("wordNumber, wordNumber")
 
@@ -25,16 +24,16 @@ function validateWord(validationInformation, letterString, wordLength, wordNumbe
     if(wordNumber===1)
     {setWord1Success(true);
     console.log("word1Successful in validate word function")}
-    else if(wordNumber===2){
-        word2Successful = true
-    }
+    else if(wordNumber===2)
+      {setWord2Success(true)}
+    
   } else {
     console.log("word could not be validated in validate word");
     validationSuccessful = false; 
   }
 }
 
-async function submitWordToAPI(letterString, wordLength, wordNumber, setWord1Success) {
+async function submitWordToAPI(letterString, wordLength, wordNumber, setWord1Success, setWord2Success, setValidationError) {
   console.log("wordLength:", wordLength);
   console.log("inputString1 in submitWordToAPI:", letterString);
 
@@ -74,7 +73,7 @@ async function submitWordToAPI(letterString, wordLength, wordNumber, setWord1Suc
     console.log("API Response (JSON):", data);
 
     // Call validation function
-    validateWord(validationInformation, letterString, wordLength, wordNumber, setWord1Success);
+    validateWord(validationInformation, letterString, wordLength, wordNumber, setWord1Success, setWord2Success, setValidationError);
   } catch (error) {
     console.error("API Error:", error);
     Alert.alert("Error", `Failed to validate the word: ${error.message}`);

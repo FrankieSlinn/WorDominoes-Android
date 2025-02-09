@@ -1,0 +1,102 @@
+import { View, Text, TouchableOpacity} from "react-native";
+import {useState} from "react";
+import { s } from "../App.style";
+import {Input} from "./Input";
+import {submitWordToAPI} from "../utils/apiCalls"
+
+
+export function Word({wordLength1, setWordLength1, wordLength2, setWordLength2, inputString1, setInputString1, inputString2, setInputString2,
+  selectedLetters1, setSelectedLetters1, selectedLetters2, setSelectedLetters2,
+  wordForAPI, setWordForAPI,
+word1Success, setWord1Success, word2Success, setWord2Success, wordNum, setWordNum
+
+
+}) {
+   const[validationError, setValidationError]=useState(false);
+   const[lengthError, setLengthError]=useState(false);
+
+   console.log("word2Success in Word", word2Success)
+
+    function handleRedoPress(){
+      if(wordNum===1){
+
+        setInputString1([]);
+        setSelectedLetters1([]);}
+        else{
+        setInputString2([])
+        setSelectedLetters2([]);}
+
+
+
+    }
+    function handleSubmitPress(inputString1, inputString2) {
+      
+    
+
+      //shows if first word or second word submitted
+   let wordNumber = wordNum;
+   let wordLength = wordNum===1?wordLength1:wordLength2;
+   let inputString = wordNum===1?winputString1:inputString2;
+  //  let setWordSuccess = wordNum===1?setWord1Success: setWord2Success;
+   //Convert letters to lower case and convert to string
+   let letterArray = wordNum===1?inputString1.map((letter) => letter.toLowerCase()).join(""):inputString2.map((letter) => letter.toLowerCase()).join("")
+   if(inputString<wordLength){
+    setLengthError(false)
+   }
+
+      // Pass the updated value directly to the API function
+      submitWordToAPI(letterArray, wordLength, wordNumber, setWord1Success, setWord2Success, setValidationError);
+    }
+
+  return (
+    <>
+
+          <View >
+            {word1Success===false?
+        <Text style={s.instructionText}>
+            {`Make a word with ${wordLength1} letters.`}
+
+        </Text>
+        :<Text style={s.instructionText}>
+           The first word is complete {"\u2713"}
+           {"\n"}
+           <Text>{inputString1}</Text>
+           {"\n"}
+           {`Now make a second word with ${wordLength2} letters.`}
+          </Text>}
+         
+          {validationError===true?
+          <Text style={[s.instructionText, s.errorMessage]}>
+      
+            This is not a valid word - Try again</Text>
+          :null
+        
+        }
+
+        <Input
+        inputString1={inputString1}
+        setInputString1={setInputString1}
+        inputString2={inputString2}
+        setInputString2={setInputString2}
+        wordNum={wordNum}
+        setWordNum={setWordNum}
+        wordLength1={wordLength1}
+        wordLength2={wordLength2}
+        />
+        <View style={s.wordButtonContainer}>
+            <TouchableOpacity style={s.wordButton} onPress={()=>{handleRedoPress()}}>
+           
+      <Text style={s.wordButtonText}>Redo Word</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={s.wordButton} onPress={()=>handleSubmitPress(inputString1, inputString2)}>
+      <Text style={s.wordButtonText} >Submit Word</Text>
+    </TouchableOpacity>
+    </View>
+
+
+
+      </View>
+
+    </>
+  );
+}

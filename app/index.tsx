@@ -89,7 +89,7 @@ export default function Index() {
 
           </View>
           <View>
-            {showMakeWord === true ? (
+            {showMakeWord === true && word2Success===false? (
               <MakeWords
                 displayDomino={displayDomino}
                 setDisplayDomino={setDisplayDomino}
@@ -105,6 +105,19 @@ export default function Index() {
                 setWord2Success={setWord2Success}
               />
             ) : null}
+          </View>
+          <View>
+            {word2Success===true?
+            <Text style={s.instructionText}>
+
+Congratulations, you won a tile!{"\n"}{"\n"}
+
+Click on a space in the domino grid on the top to place your tile. Remember: dominoes can only be placed next to each other if they have the same number of dots on their connecting sides.
+{"\n"}{"\n"}
+To rotate, click on the domino above.
+            </Text>:null}
+
+
           </View>
         </View>
       </ScrollView>

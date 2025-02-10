@@ -1,116 +1,136 @@
-import { View, Text, TouchableOpacity} from "react-native";
-import {useState} from "react";
+import { View, Text, TouchableOpacity } from "react-native";
+import { useState, useEffect } from "react";
 import { s } from "../App.style";
-import {Input} from "./Input";
-import {submitWordToAPI} from "../utils/apiCalls"
+import { Input } from "./Input";
+import { submitWordToAPI } from "../utils/apiCalls";
 
-
-export function Word({wordLength1, setWordLength1, wordLength2, setWordLength2, inputString1, setInputString1, inputString2, setInputString2,
-  selectedLetters1, setSelectedLetters1, selectedLetters2, setSelectedLetters2,
-  wordForAPI, setWordForAPI,
-word1Success, setWord1Success, word2Success, setWord2Success, wordNum, setWordNum
-
-
+export function Word({
+  wordLength1,
+  setWordLength1,
+  wordLength2,
+  setWordLength2,
+  inputString1,
+  setInputString1,
+  inputString2,
+  setInputString2,
+  selectedLetters1,
+  setSelectedLetters1,
+  selectedLetters2,
+  setSelectedLetters2,
+  wordForAPI,
+  setWordForAPI,
+  word1Success,
+  setWord1Success,
+  word2Success,
+  setWord2Success,
+  wordNum,
+  setWordNum,
 }) {
-   const[validationError, setValidationError]=useState(false);
-   const[lengthError, setLengthError]=useState(false);
+  const [validationError, setValidationError] = useState(false);
+  const [lengthError, setLengthError] = useState(false);
 
-   console.log("word2Success in Word", word2Success)
+  console.log("word2Success in Word", word2Success);
+  console.log("validationError in Word", validationError);
 
-    function handleRedoPress(){
-      if(wordNum===1){
-
-        setInputString1([]);
-        setSelectedLetters1([]);}
-        else{
-        setInputString2([])
-        setSelectedLetters2([]);}
-        setLengthError(false);
-
-
-
+  function handleRedoPress() {
+    if (wordNum === 1) {
+      setInputString1([]);
+      setSelectedLetters1([]);
+    } else {
+      setInputString2([]);
+      setSelectedLetters2([]);
     }
-    function handleSubmitPress(inputString1, inputString2) {
-      
-    
+    setLengthError(false);
+    setValidationError(false);
+  }
+  function handleSubmitPress(inputString1, inputString2) {
+    //shows if first word or second word submitted
+    let wordNumber = wordNum;
+    let wordLength = wordNum === 1 ? wordLength1 : wordLength2;
+    let inputString = wordNum === 1 ? inputString1 : inputString2;
+    //  let setWordSuccess = wordNum===1?setWord1Success: setWord2Success;
+    //Convert letters to lower case and convert to string
+    let letterArray =
+      wordNum === 1
+        ? inputString1.map((letter) => letter.toLowerCase()).join("")
+        : inputString2.map((letter) => letter.toLowerCase()).join("");
 
-      //shows if first word or second word submitted
-   let wordNumber = wordNum;
-   let wordLength = wordNum===1?wordLength1:wordLength2;
-   let inputString = wordNum===1?inputString1:inputString2;
-  //  let setWordSuccess = wordNum===1?setWord1Success: setWord2Success;
-   //Convert letters to lower case and convert to string
-   let letterArray = wordNum===1?inputString1.map((letter) => letter.toLowerCase()).join(""):inputString2.map((letter) => letter.toLowerCase()).join("")
-   if(inputString.length<wordLength){
-    console.log("wordLengthError", inputString.length)
-    setLengthError(true)
-   }
-   else{
-
+    if (inputString.length < wordLength) {
+      console.log("wordLengthError", inputString.length);
+      setLengthError(true);
+    } else {
       // Pass the updated value directly to the API function
-      submitWordToAPI(letterArray, wordLength, wordNumber, setWord1Success, setWord2Success, setValidationError);
+      submitWordToAPI(
+        letterArray,
+        wordLength,
+        wordNumber,
+        setWord1Success,
+        setWord2Success,
+        setValidationError
+      );
     }
   }
 
   return (
     <>
-
-          <View >
-
-           {word1Success===false && lengthError===false?
-        <Text style={s.instructionText}>
-            {`Make a word with ${wordLength1} letters.`}
-
-        </Text>
-        :lengthError===true?
+      <View>
+        {word1Success === false 
+        ? (
           <Text style={s.instructionText}>
-          Not the right number of letters. The word needs {wordNum===1?wordLength1:wordLength2} letters.
+            {`Make a word with ${wordLength1} letters.`}
           </Text>
-     :word1Success===true?
-        <Text style = {s.instructionText}>
-           The first word is complete {"\u2713"}
-           {"\n"}
-           <Text style={s.instructionText}>{inputString1}</Text>
+        ) : 
+        <Text style={s.instructionText}>
+        The first word is complete {"\u2713"}
+        {"\n"}
+        <Text style={s.instructionText}>{inputString1}</Text>
+        {"\n"}
+        {`Now make a second word with ${wordLength2} letters.`}
+      </Text>}
         
-           {"\n"}
-           {`Now make a second word with ${wordLength2} letters.`}
+        
+        {
+        lengthError === true ? (
+          <Text style={[s.instructionText, s.errorMessageText]}>
+             {"\n"}
+            Not the right number of letters. 
           </Text>
-          :null}
+        ) : validationError === true ? (
+          <Text style={[s.instructionText, s.errorMessageText]}>
+             {"\n"}
+            This is not a valid word - Try again. 
           
+          </Text>
+        ) : null}
           
-         
-          {/* {validationError===true?
-          <Text style={[s.instructionText, s.errorMessage]}>
-      
-            This is not a valid word - Try again</Text>
-          :null
-        
-        } */}
 
         <Input
-        inputString1={inputString1}
-        setInputString1={setInputString1}
-        inputString2={inputString2}
-        setInputString2={setInputString2}
-        wordNum={wordNum}
-        setWordNum={setWordNum}
-        wordLength1={wordLength1}
-        wordLength2={wordLength2}
+          inputString1={inputString1}
+          setInputString1={setInputString1}
+          inputString2={inputString2}
+          setInputString2={setInputString2}
+          wordNum={wordNum}
+          setWordNum={setWordNum}
+          wordLength1={wordLength1}
+          wordLength2={wordLength2}
         />
         <View style={s.wordButtonContainer}>
-            <TouchableOpacity style={s.wordButton} onPress={()=>{handleRedoPress()}}>
-           
-      <Text style={s.wordButtonText}>Redo Word</Text>
-    </TouchableOpacity>
-    <TouchableOpacity style={s.wordButton} onPress={()=>handleSubmitPress(inputString1, inputString2)}>
-      <Text style={s.wordButtonText} >Submit Word</Text>
-    </TouchableOpacity>
-    </View>
-
-
-
+          <TouchableOpacity
+            style={s.wordButton}
+            onPress={() => {
+              handleRedoPress();
+            }}
+          >
+            <Text style={s.wordButtonText}>Redo Word</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={s.wordButton}
+            onPress={() => handleSubmitPress(inputString1, inputString2)}
+          >
+            <Text style={s.wordButtonText}>Submit Word</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-
     </>
   );
 }

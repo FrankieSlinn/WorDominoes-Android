@@ -61,6 +61,11 @@ export const s = StyleSheet.create({
     fontWeight: "bold",
     // maxHeight: 40,
   },
+  errorMessageText:{
+    backgroundColor: "lightorange",
+
+
+  },
   gridContainer: {
     alignItems: "center",
   },

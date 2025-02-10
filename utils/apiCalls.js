@@ -23,18 +23,21 @@ function validateWord(validationInformation, letterString, wordLength, wordNumbe
     console.log("word is validated in validatewd function");
     if(wordNumber===1)
     {setWord1Success(true);
+   
     console.log("word1Successful in validate word function")}
     else if(wordNumber===2)
       {setWord2Success(true)}
     
   } else {
     console.log("word could not be validated in validate word");
-    validationSuccessful = false; 
+    setValidationError(true)
+  
+
   }
 }
 
 async function submitWordToAPI(letterString, wordLength, wordNumber, setWord1Success, setWord2Success, setValidationError) {
-  console.log("wordLength:", wordLength);
+
   console.log("inputString1 in submitWordToAPI:", letterString);
 
   const url = `https://lingua-robot.p.rapidapi.com/language/v1/entries/en/${letterString}`;
@@ -76,7 +79,7 @@ async function submitWordToAPI(letterString, wordLength, wordNumber, setWord1Suc
     validateWord(validationInformation, letterString, wordLength, wordNumber, setWord1Success, setWord2Success, setValidationError);
   } catch (error) {
     console.error("API Error:", error);
-    Alert.alert("Error", `Failed to validate the word: ${error.message}`);
+   
   }
 }
 

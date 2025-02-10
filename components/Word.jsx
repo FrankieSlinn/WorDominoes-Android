@@ -25,6 +25,7 @@ word1Success, setWord1Success, word2Success, setWord2Success, wordNum, setWordNu
         else{
         setInputString2([])
         setSelectedLetters2([]);}
+        setLengthError(false);
 
 
 
@@ -36,42 +37,55 @@ word1Success, setWord1Success, word2Success, setWord2Success, wordNum, setWordNu
       //shows if first word or second word submitted
    let wordNumber = wordNum;
    let wordLength = wordNum===1?wordLength1:wordLength2;
-   let inputString = wordNum===1?winputString1:inputString2;
+   let inputString = wordNum===1?inputString1:inputString2;
   //  let setWordSuccess = wordNum===1?setWord1Success: setWord2Success;
    //Convert letters to lower case and convert to string
    let letterArray = wordNum===1?inputString1.map((letter) => letter.toLowerCase()).join(""):inputString2.map((letter) => letter.toLowerCase()).join("")
-   if(inputString<wordLength){
-    setLengthError(false)
+   if(inputString.length<wordLength){
+    console.log("wordLengthError", inputString.length)
+    setLengthError(true)
    }
+   else{
 
       // Pass the updated value directly to the API function
       submitWordToAPI(letterArray, wordLength, wordNumber, setWord1Success, setWord2Success, setValidationError);
     }
+  }
 
   return (
     <>
 
           <View >
-            {word1Success===false?
+
+           {word1Success===false && lengthError===false?
         <Text style={s.instructionText}>
             {`Make a word with ${wordLength1} letters.`}
 
         </Text>
-        :<Text style={s.instructionText}>
+        :lengthError===true?
+          <Text style={s.instructionText}>
+          Not the right number of letters. The word needs {wordNum===1?wordLength1:wordLength2} letters.
+          </Text>
+     :word1Success===true?
+        <Text style = {s.instructionText}>
            The first word is complete {"\u2713"}
            {"\n"}
-           <Text>{inputString1}</Text>
+           <Text style={s.instructionText}>{inputString1}</Text>
+        
            {"\n"}
            {`Now make a second word with ${wordLength2} letters.`}
-          </Text>}
+          </Text>
+          :null}
+          
+          
          
-          {validationError===true?
+          {/* {validationError===true?
           <Text style={[s.instructionText, s.errorMessage]}>
       
             This is not a valid word - Try again</Text>
           :null
         
-        }
+        } */}
 
         <Input
         inputString1={inputString1}

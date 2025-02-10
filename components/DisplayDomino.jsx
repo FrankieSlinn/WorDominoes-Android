@@ -1,4 +1,4 @@
-import { View, Image } from "react-native";
+import { View, Image, TouchableOpacity } from "react-native";
 import {dominoImageMappings} from "../utils/dominoImageMappings.js";
 import { s } from "../App.style";
 
@@ -10,6 +10,7 @@ export function DisplayDomino({displayDomino, wordSubmitted, setWordSubmitted, s
   return (
     <>
       <View style={s.displayDomino}>
+
 
       <Image
         source={dominoImageMappings[displayDomino]} 

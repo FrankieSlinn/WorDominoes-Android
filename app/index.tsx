@@ -7,8 +7,6 @@ import { HandDominoes } from "../components/HandDominoes.jsx";
 import { DisplayDomino } from "../components/DisplayDomino.jsx";
 import { MakeWords } from "../components/MakeWords.jsx";
 
-
-
 //Make sure cannot submit one letter more than once
 
 export default function Index() {
@@ -19,8 +17,9 @@ export default function Index() {
   const [showMakeWord, setShowMakeWord] = useState(false);
   const [showChooseDominoText, setShowChooseDominoText] = useState(true);
   const [selectedDominoObject, setSelectedDominoObject] = useState();
-  const [word1Success, setWord1Success]=useState(false);
-  const [word2Success, setWord2Success]=useState(false);
+  const [word1Success, setWord1Success] = useState(false);
+  const [word2Success, setWord2Success] = useState(false);
+  const [dominoRotated, setDominoRotated] = useState(false);
   return (
     <View>
       <View style={s.headerContainer}>
@@ -46,31 +45,19 @@ export default function Index() {
           setShowMakeWord={setShowMakeWord}
           selectedDominoObject={selectedDominoObject}
           setSelectedDominoObject={setSelectedDominoObject}
-          turnStart ={turnStart}
+          turnStart={turnStart}
           setTurnStart={setTurnStart}
+          dominoRotated={dominoRotated}
+          setDominoRotated={setDominoRotated}
         />
-       {word1Success===false?  
-     
-       <View style={s.instructionTextBelow}>
-          <Text style={s.instructionText}>
-            Choose a domino above. You'll create 2 words for this tile: the word
-            length is the number of dots on its side of the domino.
-          </Text>
-        </View>
-     
-     
-        :
-     null
-     
-          // <View style={s.instructionTextBelow}>
-          //    <Text style={s.instructionText}>
-          //    The first word is complete {"\u2713"} You can now create the second word. Its
-          //    length is the number of dots the right hand side of the domino.
-          //    </Text>
-          //  </View>
-        
-  
-        }
+        {word1Success === false ? (
+          <View style={s.instructionTextBelow}>
+            <Text style={s.instructionText}>
+              Choose a domino above. You'll create 2 words for this tile: the
+              word length is the number of dots on its side of the domino.
+            </Text>
+          </View>
+        ) : null}
         <View style={s.displayDominoContainer}>
           <DisplayDomino
             displayDomino={displayDomino}
@@ -81,15 +68,14 @@ export default function Index() {
             setSelectedDominoObject={setSelectedDominoObject}
             showChooseDominoText={showChooseDominoText}
             setShowChooseDominoText={setShowChooseDominoText}
+            dominoRotated={dominoRotated}
+            setDominoRotated={setDominoRotated}
+            word2Success={word2Success}
+            setWord2Success={setWord2Success}
           />
+          <View></View>
           <View>
-          {/* <Text style={s.instructionText}>
-              {showChooseDominoText === true? "Choose a domino" : null}
-            </Text> */}
-
-          </View>
-          <View>
-            {showMakeWord === true && word2Success===false? (
+            {showMakeWord === true && word2Success === false ? (
               <MakeWords
                 displayDomino={displayDomino}
                 setDisplayDomino={setDisplayDomino}
@@ -97,9 +83,9 @@ export default function Index() {
                 setSelectedDominoObject={setSelectedDominoObject}
                 showChooseDominoText={showChooseDominoText}
                 setShowChooseDominoText={setShowChooseDominoText}
-                turnStart ={turnStart}
+                turnStart={turnStart}
                 setTurnStart={setTurnStart}
-                word1Success={word1Success} 
+                word1Success={word1Success}
                 setWord1Success={setWord1Success}
                 word2Success={word2Success}
                 setWord2Success={setWord2Success}
@@ -107,17 +93,18 @@ export default function Index() {
             ) : null}
           </View>
           <View>
-            {word2Success===true?
-            <Text style={s.instructionText}>
-
-Congratulations, you won a tile!{"\n"}{"\n"}
-
-Click on a space in the domino grid on the top to place your tile. Remember: dominoes can only be placed next to each other if they have the same number of dots on their connecting sides.
-{"\n"}{"\n"}
-To rotate, click on the domino above.
-            </Text>:null}
-
-
+            {word2Success === true ? (
+              <Text style={s.instructionText}>
+                Congratulations, you won a tile!{"\n"}
+                {"\n"}
+                Click on a space in the domino grid on the top to place your
+                tile. Remember: dominoes can only be placed next to each other
+                if they have the same number of dots on their connecting sides.
+                {"\n"}
+                {"\n"}
+                To rotate, click on the domino above.
+              </Text>
+            ) : null}
           </View>
         </View>
       </ScrollView>

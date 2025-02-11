@@ -114,16 +114,24 @@ export const s = StyleSheet.create({
     marginTop: 30,
   },
   displayDominoContainer:{
+    // height: 80,
 
 
-    alignItems: "center",
+   alignItems: "center",
 
 
   },
   displayDomino:{
     height: 80,
     width: 40,
-    transform: [{ rotate: "135deg" }]
+  
+  },
+  displayDominoUnrotated:{
+    transform: [{ rotate: "270deg" }],
+
+  },
+  displayDominoRotated:{
+    transform: [{ rotate: "90deg" }],
 
 
   },

@@ -1,22 +1,42 @@
-import { View, Image, TouchableOpacity } from "react-native";
+import { View, Image, Pressable } from "react-native";
 import {dominoImageMappings} from "../utils/dominoImageMappings.js";
 import { s } from "../App.style";
 
 
 export function DisplayDomino({displayDomino, wordSubmitted, setWordSubmitted, selectedDominoObject, setSelectedDominoObject,
-  showChooseDominoText, setShowChooseDominoText
+  showChooseDominoText, setShowChooseDominoText, dominoRotated, setDominoRotated, word2Success, setWord2Success
 }) {
-    console.log("displayDomino in DisplayDomino", displayDomino)
+   function handlePress(){
+    if(word2Success===true){
+    setDominoRotated(!dominoRotated)
+    }
+   }
+
   return (
     <>
-      <View style={s.displayDomino}>
-
+     
+<Pressable onPress={()=>{handlePress()}}>
+<View style={s.displayDominoContainer}>
+  {dominoRotated===false?
 
       <Image
         source={dominoImageMappings[displayDomino]} 
-        style={s.displayDomino}
+        style={[s.displayDomino, s.displayDominoUnrotated]}
       />
-      </View>
+  
+
+      :
+ 
+      <Image
+      source={dominoImageMappings[displayDomino]} 
+      style={[s.displayDomino, s.displayDominoRotated]}
+    />
+
+  }
+  </View>
+
+      </Pressable>
+
     </>
   );
 }

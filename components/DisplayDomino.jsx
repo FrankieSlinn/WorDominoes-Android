@@ -4,11 +4,13 @@ import { s } from "../App.style";
 
 
 export function DisplayDomino({displayDomino, wordSubmitted, setWordSubmitted, selectedDominoObject, setSelectedDominoObject,
-  showChooseDominoText, setShowChooseDominoText, dominoRotated, setDominoRotated, word2Success, setWord2Success
+  showChooseDominoText, setShowChooseDominoText, dominoRotated, setDominoRotated, word2Success, setWord2Success, tilePlaced
 }) {
    function handlePress(){
-    if(word2Success===true){
+    if(word2Success===true && tilePlaced===false){
+      console.log("Domino rotated before rotation?", dominoRotated)
     setDominoRotated(!dominoRotated)
+    console.log("Domino rotated?", dominoRotated)
     }
    }
 

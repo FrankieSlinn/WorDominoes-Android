@@ -38,6 +38,8 @@ export default function Index() {
           displayDomino={displayDomino}
           tilePlaced={tilePlaced}
           setTilePlaced={setTilePlaced}
+          dominoRotated={dominoRotated}
+          setDominoRotated={setDominoRotated}
           
           />
         </View>
@@ -79,6 +81,8 @@ export default function Index() {
             setDominoRotated={setDominoRotated}
             word2Success={word2Success}
             setWord2Success={setWord2Success}
+            tilePlaced={tilePlaced}
+            setTilePlaced={setTilePlaced}
           />
           <View></View>
           <View>

@@ -16,7 +16,7 @@ import {V4}  from "./V4";
 import {s} from "../App.style";
 
 export function Grid({word2Success, dominoRotated, displayDomino, tilePlaced, setTilePlaced}){
-    const[tilePlaced,  setTilePlaced] = useState(false);
+
     // const[tilePlaced,  setTilePlaced] = useState(false);
 
 
@@ -25,7 +25,7 @@ return <>
 <View style={s.horizontalDominoContainer}>
 <H1
 word2Success={word2Success}
-domnoRotated={dominoRotated}
+dominoRotated={dominoRotated}
 tilePlaced={tilePlaced}
 setTilePlaced={setTilePlaced}
 displayDomino={displayDomino}

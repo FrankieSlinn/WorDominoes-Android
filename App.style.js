@@ -61,10 +61,8 @@ export const s = StyleSheet.create({
     fontWeight: "bold",
     // maxHeight: 40,
   },
-  errorMessageText:{
+  errorMessageText: {
     backgroundColor: "lightorange",
-
-
   },
   gridContainer: {
     alignItems: "center",
@@ -79,49 +77,32 @@ export const s = StyleSheet.create({
     borderColor: "darkgrey",
     borderRadius: 10,
   },
-  selectedTile:{
-    // flex: 1,
+  selectedTile: {
     width: 26,
-    height:52,
-    resizeMode: "stretch", 
+    height: 52,
+    resizeMode: "stretch",
     borderRadius: 10,
-    // borderWidth: 3,
-    // borderColor: "black"
   },
 
-  // selectedTile: {
-  //   flex: 1,  // Makes it take up full space inside TouchableOpacity
-  //   width: "100%", 
-  //   height: "100%",
-  //   resizeMode: "contain",  // Ensures it scales properly
-  // },
-  
-  selectedTileRotated:{
-    transform: [{ rotate: "270deg" }],
-
-
-  },
-  selectedTileUnrotated:{
+  selectedTileRotated: {
     transform: [{ rotate: "90deg" }],
-    backgroundColor: "purple", 
-    borderColor: "pink"
-
-
+  },
+  selectedTileUnrotated: {
+    transform: [{ rotate: "270deg" }],
   },
 
   horizontalDominoContainer: {
     justifyContent: "center",
     alignItems: "center",
-    //  flex: 1,
+
     flexDirection: "row",
-    //  justifyContent: "center",
   },
   horizontalDomino: {
     height: 30,
     width: 60,
     justifyContent: "center",
     alignItems: "center",
-    
+
     overflow: "hidden",
   },
   verticalDomino: {
@@ -132,12 +113,12 @@ export const s = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
- handDominoContainer: {
+  handDominoContainer: {
     flexDirection: "row",
     justifyContent: "center",
     height: 70,
   },
- handDomino: {
+  handDomino: {
     height: 70,
     width: 35,
     backgoundColor: "darkgrey",
@@ -149,36 +130,27 @@ export const s = StyleSheet.create({
   instructionTextBelow: {
     marginTop: 30,
   },
-  displayDominoContainer:{
+  displayDominoContainer: {
     // height: 80,
 
-
-   alignItems: "center",
-
-
+    alignItems: "center",
   },
-  displayDomino:{
+  displayDomino: {
     height: 80,
     width: 40,
-  
   },
-  displayDominoUnrotated:{
+  displayDominoUnrotated: {
     transform: [{ rotate: "270deg" }],
-
   },
-  displayDominoRotated:{
+  displayDominoRotated: {
     transform: [{ rotate: "90deg" }],
-
-
   },
-  placeholder:{
-    fontWeight: "normal", 
+  placeholder: {
+    fontWeight: "normal",
     fontSize: 17,
     color: "darkGrey",
-
-
   },
-  input:{
+  input: {
     marginTop: 20,
     padding: 10,
     backgroundColor: "lightyellow",
@@ -189,69 +161,55 @@ export const s = StyleSheet.create({
     alignItems: "center",
     width: "auto",
   },
-  inputText:{
+  inputText: {
     fontSize: 20,
     fontWeight: "bold",
     letterSpacing: 0.75,
-   
-
   },
 
-  lettersContainer:{
-
-     flexDirection: "row", 
-     flexWrap: "wrap", 
-     marginTop: 15,
-     marginBottom: 70,
-     alignItems: "center",
-     justifyContent: "center",
-
-
+  lettersContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    marginTop: 15,
+    marginBottom: 70,
+    alignItems: "center",
+    justifyContent: "center",
   },
-  letter:{
+  letter: {
     width: 35,
-   
+
     fontWeight: "bold",
     padding: 10,
     margin: 4,
     // borderColor: "grey",
-     borderWidth: 2,
+    borderWidth: 2,
     borderRadius: 10,
     justifyContent: "center",
     textAlign: "center",
-  }, 
-  selectedLetter:{
+  },
+  selectedLetter: {
     color: "#777",
     borderStyle: "dashed",
     borderColor: "gray",
-
   },
-  wordButtonContainer:{
+  wordButtonContainer: {
     marginTop: 20,
     flexDirection: "row",
-    justifyContent:"center",
+    justifyContent: "center",
     alignItems: "center",
-
-
-
-
   },
-  wordButton:{
-    backgroundColor: "lightyellow", 
+  wordButton: {
+    backgroundColor: "lightyellow",
     borderWidth: 2,
-    borderColor: "darkgray", 
+    borderColor: "darkgray",
     borderRadius: 10,
     padding: 10,
 
     marginTop: -10,
     margin: 10,
- 
-
-  }, 
-  wordButtonText:{
+  },
+  wordButtonText: {
     color: "#353839",
     fontWeight: "bold",
-
-
-  }
+  },
 });

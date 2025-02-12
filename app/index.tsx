@@ -20,6 +20,7 @@ export default function Index() {
   const [word1Success, setWord1Success] = useState(false);
   const [word2Success, setWord2Success] = useState(false);
   const [dominoRotated, setDominoRotated] = useState(false);
+  const[tilePlaced,  setTilePlaced] = useState(false);
   return (
     <View>
       <View style={s.headerContainer}>
@@ -32,7 +33,13 @@ export default function Index() {
           </Text>
         </View>
         <View style={s.gridContainer}>
-          <Grid />
+          <Grid 
+          word2Success={word2Success}
+          displayDomino={displayDomino}
+          tilePlaced={tilePlaced}
+          setTilePlaced={setTilePlaced}
+          
+          />
         </View>
         <HandDominoes
           gameStart={gameStart}

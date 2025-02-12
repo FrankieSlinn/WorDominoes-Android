@@ -73,20 +73,56 @@ export const s = StyleSheet.create({
     height: 200,
     width: 240,
   },
-  horizontalDominoContainer: {
-    justifyContent: "center",
-    //  flex: 1,
-    flexDirection: "row",
-    //  justifyContent: "center",
-  },
+
   domino: {
     borderWidth: 3,
     borderColor: "darkgrey",
     borderRadius: 10,
   },
+  selectedTile:{
+    // flex: 1,
+    width: 26,
+    height:52,
+    resizeMode: "stretch", 
+    borderRadius: 10,
+    // borderWidth: 3,
+    // borderColor: "black"
+  },
+
+  // selectedTile: {
+  //   flex: 1,  // Makes it take up full space inside TouchableOpacity
+  //   width: "100%", 
+  //   height: "100%",
+  //   resizeMode: "contain",  // Ensures it scales properly
+  // },
+  
+  selectedTileRotated:{
+    transform: [{ rotate: "270deg" }],
+
+
+  },
+  selectedTileUnrotated:{
+    transform: [{ rotate: "90deg" }],
+    backgroundColor: "purple", 
+    borderColor: "pink"
+
+
+  },
+
+  horizontalDominoContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    //  flex: 1,
+    flexDirection: "row",
+    //  justifyContent: "center",
+  },
   horizontalDomino: {
     height: 30,
     width: 60,
+    justifyContent: "center",
+    alignItems: "center",
+    
+    overflow: "hidden",
   },
   verticalDomino: {
     height: 60,

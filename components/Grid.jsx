@@ -1,5 +1,6 @@
 
 import {Text, View} from "react-native";
+import{useState} from "react";
 import {H1} from "./H1";
 import {H2} from "./H2";
 import {H3} from "./H3";
@@ -14,13 +15,22 @@ import {V3}  from "./V3";
 import {V4}  from "./V4";
 import {s} from "../App.style";
 
-export function Grid(){
+export function Grid({word2Success, dominoRotated, displayDomino, tilePlaced, setTilePlaced}){
+    const[tilePlaced,  setTilePlaced] = useState(false);
+    // const[tilePlaced,  setTilePlaced] = useState(false);
 
 
 return <>
 <View style={s.grid}>
 <View style={s.horizontalDominoContainer}>
-<H1/>
+<H1
+word2Success={word2Success}
+domnoRotated={dominoRotated}
+tilePlaced={tilePlaced}
+setTilePlaced={setTilePlaced}
+displayDomino={displayDomino}
+
+/>
 <H2/>
 <H3/>
 <H4/>

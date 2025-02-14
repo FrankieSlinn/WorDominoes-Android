@@ -39,8 +39,8 @@ export function LetterTiles({inputString1, setInputString1, inputString2, setInp
     
            let inputString =wordNum===1?inputString = inputString1:inputString = inputString2;
            let wordLength = wordNum===1?wordLength = wordLength1: wordLength = wordLength2;
-           console.log("inputstring in lettertiles", inputString)
-           console.log("wordLength in Lettertiles", wordLength)
+          //  console.log("inputstring in lettertiles", inputString)
+          //  console.log("wordLength in Lettertiles", wordLength)
     
         if (inputString.length < wordLength && !selectedLetters1.includes(index)) {
           if(wordNum===1){
@@ -58,10 +58,10 @@ if(wordNum===1){
         else{selectedLetters2.push(index)
 
         }
-        console.log("selectedletters2 in LetterTiles", selectedLetters2)
+        // console.log("selectedletters2 in LetterTiles", selectedLetters2)
     
-          console.log("Input string 1", [...inputString1, letter]);
-          console.log("Updated letterHand after selection:", letterHand);
+        //   console.log("Input string 1", [...inputString1, letter]);
+        //   console.log("Updated letterHand after selection:", letterHand);
       }
  
       

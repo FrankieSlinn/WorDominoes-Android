@@ -1,8 +1,8 @@
 
 import {Text, View} from "react-native";
 import{useState} from "react";
-import {H1} from "./H1";
-import {H2} from "./H2";
+import {HorizontalTileTop1} from "./HorizlontalTileTop1";
+import {HorizontalTileTop2} from "./HorizontalTileTop2";
 import {H3} from "./H3";
 import {H4} from "./H4";
 import {H5} from "./H5";
@@ -15,23 +15,45 @@ import {V3}  from "./V3";
 import {V4}  from "./V4";
 import {s} from "../App.style";
 
-export function Grid({word2Success, dominoRotated, displayDomino, tilePlaced, setTilePlaced}){
+export function Grid({ dominoRotated, displayDomino, tilePlaced, setTilePlaced, turnStart, setTurnStart,
+    wordSubmitted, setWordSubmitted, selectedDominoObject, setSelectedDominoObject, word1Success, setWord1Success, 
+    word2Success, setWord2Success,  setDisplayDomino, showMakeWord, setShowMakeWord, numberDominoesInGrid, setNumberDominoesInGrid, 
+    dominoesInGrid, setDominoesInGrid
+}){
 
-    // const[tilePlaced,  setTilePlaced] = useState(false);
+
+
 
 
 return <>
 <View style={s.grid}>
 <View style={s.horizontalDominoContainer}>
-<H1
+<HorizontalTileTop1
 word2Success={word2Success}
 dominoRotated={dominoRotated}
 tilePlaced={tilePlaced}
 setTilePlaced={setTilePlaced}
 displayDomino={displayDomino}
+setDisplayDomino={setDisplayDomino}
+turnStart = {turnStart}
+setTurnStart={setTurnStart}
+wordSubmitted = {wordSubmitted}
+setWordSubmitted={setWordSubmitted}
+selectedDominoObject={selectedDominoObject}
+setSelectedDominoObject={setSelectedDominoObject}
+word1Success={word1Success}
+setWord1Success={setWord1Success}
+word2Success={word2Success}
+setWord2Success={setWord2Success}
+showMakeWord={showMakeWord}
+setShowMakeWord={setShowMakeWord}
+numberDominoesInGrid={numberDominoesInGrid}
+setNumberDominoesOnGrid={setNumberDominoesInGrid}
+dominoesInGrid={dominoesInGrid}
+setDominoesInGrid={setDominoesInGrid}
 
 />
-<H2/>
+<HorizontalTileTop2/>
 <H3/>
 <H4/>
 </View>

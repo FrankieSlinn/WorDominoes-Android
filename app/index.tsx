@@ -13,6 +13,7 @@ export default function Index() {
   const [gameStart, setGameStart] = useState(true);
   const [turnStart, setTurnStart] = useState(true);
   const [displayDomino, setDisplayDomino] = useState(); //to populate selected domino to make word from
+  //maybe can remove
   const [wordSubmitted, setWordSubmitted] = useState(false); //ensures that domino can only be selected once for each turn
   const [showMakeWord, setShowMakeWord] = useState(false);
   const [showChooseDominoText, setShowChooseDominoText] = useState(true);
@@ -21,6 +22,8 @@ export default function Index() {
   const [word2Success, setWord2Success] = useState(false);
   const [dominoRotated, setDominoRotated] = useState(false);
   const[tilePlaced,  setTilePlaced] = useState(false);
+  const[dominoesInGrid, setDominoesInGrid]=useState([]);
+  const[numberDominoesInGrid, setNumberDominoesInGrid]=useState(0);
   return (
     <View>
       <View style={s.headerContainer}>
@@ -40,6 +43,26 @@ export default function Index() {
           setTilePlaced={setTilePlaced}
           dominoRotated={dominoRotated}
           setDominoRotated={setDominoRotated}
+          turnStart = {turnStart}
+          setTurnStart={setTurnStart}
+          wordSubmitted = {wordSubmitted}
+          setWordSubmitted={setWordSubmitted}
+          showChooseDominoText={showChooseDominoText}
+          setShowChooseDominoText={setShowChooseDominoText}
+          selectedDominoObject={selectedDominoObject}
+          setSelectedDominoObject={setSelectedDominoObject}
+          word1Success={word1Success}
+          setWord1Success={setWord1Success}
+          word2Success={word2Success}
+          setWord2Success={setWord2Success}
+          displayDomino={displayDomino}
+          setDisplayDomino={setDisplayDomino}
+          showMakeWord={showMakeWord}
+          setShowMakeWord={setShowMakeWord}
+          dominoesInGrid={dominoesInGrid}
+          setDominoesInGrid={setDominoesInGrid}
+          numberDominoesInGrid={numberDominoesInGrid}
+          setNumberDominoesInGrid={setNumberDominoesInGrid}
           
           />
         </View>
@@ -58,6 +81,10 @@ export default function Index() {
           setTurnStart={setTurnStart}
           dominoRotated={dominoRotated}
           setDominoRotated={setDominoRotated}
+          dominoesInGrid={dominoesInGrid}
+          setDominoesInGrid={setDominoesInGrid}
+          numberDominoesInGrid={numberDominoesInGrid}
+          setNumberDominoesInGrid={setNumberDominoesInGrid}
         />
         {word1Success === false ? (
           <View style={s.instructionTextBelow}>
@@ -83,6 +110,8 @@ export default function Index() {
             setWord2Success={setWord2Success}
             tilePlaced={tilePlaced}
             setTilePlaced={setTilePlaced}
+            dominoesInGrid={dominoesInGrid}
+            setDominoesInGrid={setDominoesInGrid}
           />
           <View></View>
           <View>
@@ -100,6 +129,8 @@ export default function Index() {
                 setWord1Success={setWord1Success}
                 word2Success={word2Success}
                 setWord2Success={setWord2Success}
+                dominoesInGrid={dominoesInGrid}
+                setDominoesInGrid={setDominoesInGrid}
               />
             ) : null}
           </View>

@@ -8,7 +8,7 @@ import { s } from "../App.style";
 
 
 export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject, setSelectedDominoObject,  showChooseDominoText, setShowChooseDominoText,
-  turnStart, setTurnStart, word1Success, setWord1Success, word2Success, setWord2Success
+  turnStart, setTurnStart, word1Success, setWord1Success, word2Success, setWord2Success, dominoesInGrid
 
 }) {
   const [wordLength1, setWordLength1] = useState("");
@@ -23,6 +23,8 @@ export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject
 
 
   console.log("word2Success in MakeWords", word2Success)
+
+  console.log("dominoesInGrid in MakeWords", dominoesInGrid)
 
   useEffect (() => {
     console.log("word1Successful useEffect running. word1Successfulstats =", word1Success)

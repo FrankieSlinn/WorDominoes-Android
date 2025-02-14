@@ -29,8 +29,8 @@ export function Word({
   const [validationError, setValidationError] = useState(false);
   const [lengthError, setLengthError] = useState(false);
 
-  console.log("word2Success in Word", word2Success);
-  console.log("validationError in Word", validationError);
+  // console.log("word2Success in Word", word2Success);
+  // console.log("validationError in Word", validationError);
 
   function handleRedoPress() {
     if (wordNum === 1) {

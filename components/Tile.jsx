@@ -5,27 +5,16 @@ import {s} from "../App.style.js";
 import {dominoImageMappings} from "../utils/dominoImageMappings.js";
 
 
-export function HorizontalTileTop1({dominoRotated, tilePlaced, setTilePlaced, displayDomino, turnStart, setTurnStart, 
+export function Tile({dominoRotated, tilePlaced, setTilePlaced, displayDomino, turnStart, setTurnStart, 
     wordSubmitted, setWordSubmitted, selectedDominoObject, setSelectedDominoObject, word1Success, setWord1Success, 
     word2Success, setWord2Success, setDisplayDomino, showMakeWord, setShowMakeWord,  dominoesInGrid, setDominoesInGrid, 
     numberDominoesInGrid, setNumberDominoesInGrid
 }){
-    // let dominoesInGrid=[];
 
-    // useEffect(()=>{
-       
-       
 
-    //     console.log("dominoesInGrid in useEffect in tile", dominoesInGrid, "numberDominoesOnGrid", numberDominoesInGrid);
-        
-  
-    // }, [dominoesInGrid])
-
-   
-    
     function handlePress(){
         console.log("tile pressed!!!")
-        console.log("dominoesInGrid in useEffect in tile in handlePress in H1", dominoesInGrid, "numberDominoesOnGrid", numberDominoesInGrid);
+        console.log("dominoesInGrid in useEffect in tile in handlePress in tile", dominoesInGrid, "numberDominoesOnGrid", numberDominoesInGrid);
         console.log("word2Success", word2Success, "tilePlaced", tilePlaced)
     
  

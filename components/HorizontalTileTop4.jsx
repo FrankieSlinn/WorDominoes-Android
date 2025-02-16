@@ -1,8 +1,7 @@
 import {View} from "react-native";
 import {s} from "../App.style";
 
-export function H5(){
-
+export function HorizontalTileTop4(){
 
     return <>
 

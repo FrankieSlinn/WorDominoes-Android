@@ -23,7 +23,11 @@ export default function Index() {
   const [dominoRotated, setDominoRotated] = useState(false);
   const[tilePlaced,  setTilePlaced] = useState(false);
   const[dominoesInGrid, setDominoesInGrid]=useState([]);
+  const[topHorizontalTilesInGrid, setTopHorizontalTilesInGrid]=useState(["empty", "empty", "empty", "empty"])
   const[numberDominoesInGrid, setNumberDominoesInGrid]=useState(0);
+  const[tileFullError, setTileFullError]=useState(false);
+
+  console.log("tileFullError in index", tileFullError)
   return (
     <View>
       <View style={s.headerContainer}>
@@ -31,9 +35,21 @@ export default function Index() {
       </View>
       <ScrollView style={s.body}>
         <View style={s.instructionBox}>
+          {!tileFullError===true&&tilePlaced===false?
           <Text style={s.instructionText}>
             Fill the grid with dominoes to achieve Word Domination.
           </Text>
+          :!tileFullError===true&&tilePlaced===true?
+          <Text style={s.instructionText}>
+          Congratulations, you placed a tile!!!
+        </Text>
+        :
+        <Text style={s.instructionText}>
+        This space is already taken. Try somewhere else.
+      </Text>
+
+}
+
         </View>
         <View style={s.gridContainer}>
           <Grid 
@@ -61,8 +77,12 @@ export default function Index() {
           setShowMakeWord={setShowMakeWord}
           dominoesInGrid={dominoesInGrid}
           setDominoesInGrid={setDominoesInGrid}
+          topHorizontalTilesInGrid={topHorizontalTilesInGrid}
+          setTopHorizontalTilesInGrid={setTopHorizontalTilesInGrid}
           numberDominoesInGrid={numberDominoesInGrid}
           setNumberDominoesInGrid={setNumberDominoesInGrid}
+          tileFullError={tileFullError}
+          setTileFullError={setTileFullError}
           
           />
         </View>
@@ -131,6 +151,8 @@ export default function Index() {
                 setWord2Success={setWord2Success}
                 dominoesInGrid={dominoesInGrid}
                 setDominoesInGrid={setDominoesInGrid}
+                tilePlaced={tilePlaced}
+                setTilePlaced={setTilePlaced}
               />
             ) : null}
           </View>

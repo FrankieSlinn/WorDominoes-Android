@@ -25,6 +25,8 @@ export function Word({
   setWord2Success,
   wordNum,
   setWordNum,
+  tilePlaced,
+  setTilePlaced
 }) {
   const [validationError, setValidationError] = useState(false);
   const [lengthError, setLengthError] = useState(false);
@@ -66,6 +68,7 @@ export function Word({
         wordNumber,
         setWord1Success,
         setWord2Success,
+        setTilePlaced,
         setValidationError
       );
     }

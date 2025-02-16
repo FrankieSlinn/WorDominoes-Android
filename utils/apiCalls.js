@@ -5,7 +5,7 @@ const dictionary = ["is", "be", "was", "look"];
 
 
 
-function validateWord(validationInformation, letterString, wordLength, wordNumber, setWord1Success, setWord2Success, setValidationError) {
+function validateWord(validationInformation, letterString, wordLength, wordNumber, setWord1Success, setWord2Success, setTilePlaced, setValidationError) {
   console.log("validationINformation", validationInformation);
   console.log("wordNumber, wordNumber")
 
@@ -26,7 +26,9 @@ function validateWord(validationInformation, letterString, wordLength, wordNumbe
    
     console.log("word1Successful in validate word function")}
     else if(wordNumber===2)
-      {setWord2Success(true)}
+      {setWord2Success(true);
+        setTilePlaced(false);
+      }
     
   } else {
     console.log("word could not be validated in validate word");
@@ -36,7 +38,7 @@ function validateWord(validationInformation, letterString, wordLength, wordNumbe
   }
 }
 
-async function submitWordToAPI(letterString, wordLength, wordNumber, setWord1Success, setWord2Success, setValidationError) {
+async function submitWordToAPI(letterString, wordLength, wordNumber, setWord1Success, setWord2Success, setTilePlaced, setValidationError) {
 
   console.log("inputString1 in submitWordToAPI:", letterString);
 
@@ -76,7 +78,7 @@ async function submitWordToAPI(letterString, wordLength, wordNumber, setWord1Suc
     console.log("API Response (JSON):", data);
 
     // Call validation function
-    validateWord(validationInformation, letterString, wordLength, wordNumber, setWord1Success, setWord2Success, setValidationError);
+    validateWord(validationInformation, letterString, wordLength, wordNumber, setWord1Success, setWord2Success, setTilePlaced, setValidationError);
   } catch (error) {
     console.error("API Error:", error);
    

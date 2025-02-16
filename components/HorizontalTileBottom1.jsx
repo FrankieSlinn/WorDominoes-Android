@@ -1,7 +1,7 @@
 import {View} from "react-native";
 import {s} from "../App.style";
 
-export function H8(){
+export function HorizontalTileBottom1(){
 
 
     return <>

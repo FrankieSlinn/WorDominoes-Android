@@ -1,14 +1,14 @@
 
 import {Text, View} from "react-native";
-import{useState} from "react";
-import {HorizontalTileTop1} from "./HorizlontalTileTop1";
+import{useState, useEffect} from "react";
+import {HorizontalTileTop1} from "./HorizontalTileTop1";
 import {HorizontalTileTop2} from "./HorizontalTileTop2";
-import {H3} from "./H3";
-import {H4} from "./H4";
-import {H5} from "./H5";
-import {H6} from "./H6";
-import {H7} from "./H7";
-import {H8} from "./H8";
+import {HorizontalTileTop3} from "./HorizontalTileTop3";
+import {HorizontalTileTop4} from "./HorizontalTileTop4";
+import {HorizontalTileBottom1} from "./HorizontalTileBottom1";
+import {HorizontalTileBottom2} from "./HorizontalTileBottom2";
+import {HorizontalTileBottom3} from "./HorizontalTileBottom3";
+import {HorizontalTileBottom4} from "./HorizontalTileBottom4";
 import {V1}  from "./V1";
 import {V2}  from "./V2";
 import {V3}  from "./V3";
@@ -18,8 +18,19 @@ import {s} from "../App.style";
 export function Grid({ dominoRotated, displayDomino, tilePlaced, setTilePlaced, turnStart, setTurnStart,
     wordSubmitted, setWordSubmitted, selectedDominoObject, setSelectedDominoObject, word1Success, setWord1Success, 
     word2Success, setWord2Success,  setDisplayDomino, showMakeWord, setShowMakeWord, numberDominoesInGrid, setNumberDominoesInGrid, 
-    dominoesInGrid, setDominoesInGrid
+    dominoesInGrid, setDominoesInGrid, topHorizontalTilesInGrid, setTopHorizontalTilesInGrid, tileFullError, setTileFullError
 }){
+    //Needed to rerender after values changed in handleTilePress function
+    useEffect(() => {
+        console.log("tilePlaced", tilePlaced, "turnStart", turnStart, "wordSubmitted", wordSubmitted, "selectedDominoObject",
+            selectedDominoObject
+        )
+    }, [tilePlaced])
+
+    console.log("topHorizontalTilesin grid in grid component", topHorizontalTilesInGrid)
+    console.log("tile placed in grid component", tilePlaced)
+
+
 
 
 
@@ -51,11 +62,15 @@ numberDominoesInGrid={numberDominoesInGrid}
 setNumberDominoesOnGrid={setNumberDominoesInGrid}
 dominoesInGrid={dominoesInGrid}
 setDominoesInGrid={setDominoesInGrid}
+topHorizontalTilesInGrid={topHorizontalTilesInGrid}
+setTopHorizontalTilesInGrid={setTopHorizontalTilesInGrid}
+tileFullError={tileFullError}
+setTileFullError={setTileFullError}
 
 />
 <HorizontalTileTop2/>
-<H3/>
-<H4/>
+<HorizontalTileTop3/>
+<HorizontalTileTop4/>
 </View>
 <View style={s.verticalDominoContainer}>
 <View style={s.verticalDominoContainerLeft}>
@@ -69,10 +84,10 @@ setDominoesInGrid={setDominoesInGrid}
 </View>
 <View style={s.horizontalDominoContainer}>
 
-<H5/>
-<H6/>
-<H7/>
-<H8/>
+<HorizontalTileBottom1/>
+<HorizontalTileBottom2/>
+<HorizontalTileBottom3/>
+<HorizontalTileBottom4/>
 </View>
 </View>
 

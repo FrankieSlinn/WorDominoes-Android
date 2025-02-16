@@ -1,7 +1,8 @@
 import {View} from "react-native";
 import {s} from "../App.style";
 
-export function H6(){
+export function HorizontalTileBottom4(){
+
 
     return <>
 

@@ -1,5 +1,6 @@
     function handleTilePress(word2Success, tilePlaced, setTilePlaced, setTurnStart, setSelectedDominoObject, setWord1Success, setWord2Success, 
-        displayDomino, setDisplayDomino, setShowMakeWord, setWordSubmitted,  topHorizontalTilesInGrid, setTopHorizontalTilesInGrid, tileId, tileFullError, setTileFullError){
+        displayDomino, setDisplayDomino, setShowMakeWord, setWordSubmitted,  topHorizontalTilesInGrid, setTopHorizontalTilesInGrid, tileId, 
+        tileFullError, setTileFullError, setGameStart){
         console.log("tile pressed!!!")
  
         console.log("word2Success", word2Success, "tilePlaced", tilePlaced)
@@ -27,6 +28,8 @@
             setWord2Success(false);
             setDisplayDomino("");
             setShowMakeWord(false);
+            setGameStart(true);
+            
             }
             else{
                 console.log("setting tileFullError to true in handleTilePress")

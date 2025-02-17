@@ -7,7 +7,7 @@ import { HandDominoes } from "../components/HandDominoes.jsx";
 import { DisplayDomino } from "../components/DisplayDomino.jsx";
 import { MakeWords } from "../components/MakeWords.jsx";
 
-//Make sure cannot submit one letter more than once
+//Make sure cannot submit one letter more than once - 2nd word
 
 export default function Index() {
   const [gameStart, setGameStart] = useState(true);
@@ -83,6 +83,8 @@ export default function Index() {
           setNumberDominoesInGrid={setNumberDominoesInGrid}
           tileFullError={tileFullError}
           setTileFullError={setTileFullError}
+          gameStart={gameStart}
+          setGameStart={setGameStart}
           
           />
         </View>

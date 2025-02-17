@@ -11,34 +11,20 @@ export function HorizontalTileTop1({dominoRotated, tilePlaced, setTilePlaced, di
     wordSubmitted, setWordSubmitted, selectedDominoObject, setSelectedDominoObject, word1Success, setWord1Success, 
     word2Success, setWord2Success, setDisplayDomino, showMakeWord, setShowMakeWord,  dominoesInGrid, setDominoesInGrid, 
     topHorizontalTilesInGrid, setTopHorizontalTilesInGrid,
-    numberDominoesInGrid, setNumberDominoesInGrid, tileFullError, setTileFullError,
+    numberDominoesInGrid, setNumberDominoesInGrid, tileFullError, setTileFullError,gameStart, setGameStart
 }){
     const tileId=0;
+    //Ensures tileRotated cannot be changed after domino placed
+    const[tile0Placed, setTile0Placed]=useState(false)
+    //Added as dominoRotated applies to new domino. Need to keep rotation separate for each domino. 
+    const[tile0Rotated, setTile0Rotated]=useState(false)
 
-
-    
-
-    // function handleTilePress(){
-    //     console.log("tile pressed!!!")
-    //     console.log("dominoesInGrid in useEffect in tile in handlePress in H1", dominoesInGrid, "numberDominoesOnGrid", numberDominoesInGrid);
-    //     console.log("word2Success", word2Success, "tilePlaced", tilePlaced)
-    
- 
-    //     if(word2Success===true && tilePlaced===false){
-            
-    //         setTilePlaced(true);
-    //         setTurnStart(true);
-    //         setWordSubmitted(false);
-    //         setSelectedDominoObject(null);
-    //         setWord1Success(false);
-    //         setWord2Success(false);
-    //         setDisplayDomino("");
-    //         setShowMakeWord(false);
-            
-
-
-    //     }
-    // }
+    useEffect(()=>{
+        console.log("dominoRotated in Tile0 useEffect", dominoRotated)
+        if(tile0Placed===false){
+            setTile0Rotated(dominoRotated)
+        }
+    }, [dominoRotated])
 
 
 
@@ -53,17 +39,27 @@ return <>
 <TouchableOpacity  
 
 style={[s.horizontalDomino, s.domino]} 
-onPress={()=>handleTilePress(word2Success, tilePlaced, setTilePlaced, setTurnStart, setSelectedDominoObject, setWord1Success, setWord2Success, 
+onPress={()=>{handleTilePress(word2Success, tilePlaced, setTilePlaced, setTurnStart, setSelectedDominoObject, setWord1Success, setWord2Success, 
     displayDomino, setDisplayDomino, setShowMakeWord, setWordSubmitted,  topHorizontalTilesInGrid, setTopHorizontalTilesInGrid, tileId, tileFullError,
-    setTileFullError
-)}>
+    setTileFullError, setGameStart
+);
+if(tile0Placed===false){
+
+// console.log("tileRotated in tile0", tile0Rotated)
+setTile0Placed(true);
+
+}
+}
+
+}>
     {
-   dominoRotated===false?(
+   !tile0Rotated?(
     <Image
     source={dominoImageMappings[topHorizontalTilesInGrid[tileId]]} 
     style={[s.selectedTile, s.selectedTileUnrotated]}
    resizeMode="cover" 
-    />):(
+    />
+):(
     <Image
     source={dominoImageMappings[topHorizontalTilesInGrid[tileId]]} 
     style={[s.selectedTile, s.selectedTileRotated]}

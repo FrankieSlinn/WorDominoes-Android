@@ -18,7 +18,7 @@ import {s} from "../App.style";
 export function Grid({ dominoRotated, displayDomino, tilePlaced, setTilePlaced, turnStart, setTurnStart,
     wordSubmitted, setWordSubmitted, selectedDominoObject, setSelectedDominoObject, word1Success, setWord1Success, 
     word2Success, setWord2Success,  setDisplayDomino, showMakeWord, setShowMakeWord, numberDominoesInGrid, setNumberDominoesInGrid, 
-    dominoesInGrid, setDominoesInGrid, topHorizontalTilesInGrid, setTopHorizontalTilesInGrid, tileFullError, setTileFullError
+    dominoesInGrid, setDominoesInGrid, topHorizontalTilesInGrid, setTopHorizontalTilesInGrid, tileFullError, setTileFullError, gameStart, setGameStart
 }){
     //Needed to rerender after values changed in handleTilePress function
     useEffect(() => {
@@ -66,6 +66,8 @@ topHorizontalTilesInGrid={topHorizontalTilesInGrid}
 setTopHorizontalTilesInGrid={setTopHorizontalTilesInGrid}
 tileFullError={tileFullError}
 setTileFullError={setTileFullError}
+gameStart={gameStart}
+setGameStart={setGameStart}
 
 />
 <HorizontalTileTop2/>

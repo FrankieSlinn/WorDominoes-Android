@@ -7,7 +7,6 @@ import { HandDominoes } from "../components/HandDominoes.jsx";
 import { DisplayDomino } from "../components/DisplayDomino.jsx";
 import { MakeWords } from "../components/MakeWords.jsx";
 
-//Make sure cannot submit one letter more than once - 2nd word
 
 export default function Index() {
   const [gameStart, setGameStart] = useState(true);
@@ -23,7 +22,9 @@ export default function Index() {
   const [dominoRotated, setDominoRotated] = useState(false);
   const[tilePlaced,  setTilePlaced] = useState(false);
   const[dominoesInGrid, setDominoesInGrid]=useState([]);
-  const[topHorizontalTilesInGrid, setTopHorizontalTilesInGrid]=useState(["empty", "empty", "empty", "empty"])
+  const[topHorizontalTilesInGrid, setTopHorizontalTilesInGrid]=useState(["empty", "empty", "empty", "empty"]);
+  //relates to domino id(key) and number of dots on each side(value)
+  const[topSelectedDominoObjects, setTopSelectedDominoObjects]=useState(["empty", "empty", "empty", "empty"]);
   const[numberDominoesInGrid, setNumberDominoesInGrid]=useState(0);
   const[tileFullError, setTileFullError]=useState(false);
 

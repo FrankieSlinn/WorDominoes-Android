@@ -1,7 +1,7 @@
 import { Alert } from "react-native";
 
 //To ensure all words are included
-const dictionary = ["is", "be", "was", "look"];
+const dictionary = ["is", "be", "was", "look", "dose"];
 
 
 
@@ -21,6 +21,7 @@ function validateWord(validationInformation, letterString, wordLength, wordNumbe
     letterString.length === Number(wordLength)
   ) {
     console.log("word is validated in validatewd function");
+    
     if(wordNumber===1)
     {setWord1Success(true);
    

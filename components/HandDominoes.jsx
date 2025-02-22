@@ -19,11 +19,14 @@ export function HandDominoes({gameStart, setGameStart, displayDomino, setDisplay
   allocateDominoes();}
   // console.log("dominoHand", getDominoHand())
   console.log("gameStart in HandDominoes", gameStart);
+  console.log("wordSubmitted", wordSubmitted);
   const dominoesInHand = getDominoHand();
 
   function handleClick(selectedDomino, domino){
     if(wordSubmitted ===false && gameStart===true){
     setDisplayDomino(selectedDomino)
+
+    console.log("selectedDominoObject in HandDominoes", selectedDominoObject)
     // setDominoesInGrid((prev) => [...prev, selectedDomino]);
     // console.log("dominoesInGrid in handDominoes after set", dominoesInGrid)
     // setNumberDominoesInGrid((prev) => prev + 1);
@@ -32,7 +35,6 @@ export function HandDominoes({gameStart, setGameStart, displayDomino, setDisplay
     setShowMakeWord(true) //Make word section can be displayed
     setGameStart(false)
     setDominoRotated(false)
-    console.log("selectedDominoObject in HandDominoes", selectedDominoObject)
 
   }
 

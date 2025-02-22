@@ -29,9 +29,6 @@ export function LetterTiles({inputString1, setInputString1, inputString2, setInp
         }
       }, [turnStart, setTurnStart]);
 
-    //   useEffect(() => {
-    //     selectedLetters.forEach(()=>)
-    //   }, [selectedLetters])
 
       function handlePress(letter, index) {
    

@@ -8,7 +8,8 @@ import { s } from "../App.style";
 
 
 export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject, setSelectedDominoObject,  showChooseDominoText, setShowChooseDominoText,
-  turnStart, setTurnStart, word1Success, setWord1Success, word2Success, setWord2Success, dominoesInGrid, tilePlaced, setTilePlaced
+  turnStart, setTurnStart, word1Success, setWord1Success, word2Success, setWord2Success, dominoesInGrid, tilePlaced, setTilePlaced, wordSubmitted, 
+  setWordSubmitted
 
 }) {
   const [wordLength1, setWordLength1] = useState("");
@@ -19,6 +20,7 @@ export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject
   const [selectedLetters2, setSelectedLetters2]=useState([]);
   const [wordForAPI, setWordForAPI]=useState("");
   //shows if word 1 or word2
+
   const[wordNum, setWordNum]=useState(1);
 
 
@@ -80,6 +82,8 @@ export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject
     setWordNum={setWordNum}
     tilePlaced={tilePlaced}
     setTilePlaced={setTilePlaced}
+    wordSubmitted={wordSubmitted}
+    setWordSubmitted={setWordSubmitted}
  
     />
     <LetterTiles

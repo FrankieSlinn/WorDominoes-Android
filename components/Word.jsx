@@ -26,13 +26,13 @@ export function Word({
   wordNum,
   setWordNum,
   tilePlaced,
-  setTilePlaced
+  setTilePlaced, 
+  wordSubmitted, setWordSubmitted
 }) {
   const [validationError, setValidationError] = useState(false);
   const [lengthError, setLengthError] = useState(false);
 
-  // console.log("word2Success in Word", word2Success);
-  // console.log("validationError in Word", validationError);
+
 
   function handleRedoPress() {
     if (wordNum === 1) {
@@ -69,6 +69,8 @@ export function Word({
         setWord1Success,
         setWord2Success,
         setTilePlaced,
+        wordSubmitted, 
+        setWordSubmitted,
         setValidationError
       );
     }

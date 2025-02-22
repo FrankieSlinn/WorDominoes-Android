@@ -16,7 +16,7 @@ export default function Index() {
   const [wordSubmitted, setWordSubmitted] = useState(false); //ensures that domino can only be selected once for each turn
   const [showMakeWord, setShowMakeWord] = useState(false);
   const [showChooseDominoText, setShowChooseDominoText] = useState(true);
-  const [selectedDominoObject, setSelectedDominoObject] = useState();
+  const [selectedDominoObject, setSelectedDominoObject] = useState("");
   const [word1Success, setWord1Success] = useState(false);
   const [word2Success, setWord2Success] = useState(false);
   const [dominoRotated, setDominoRotated] = useState(false);
@@ -27,8 +27,10 @@ export default function Index() {
   const[topSelectedDominoObjects, setTopSelectedDominoObjects]=useState(["empty", "empty", "empty", "empty"]);
   const[numberDominoesInGrid, setNumberDominoesInGrid]=useState(0);
   const[tileFullError, setTileFullError]=useState(false);
+  const[wrongTileError, setWrongTileError]=useState(false);
 
   console.log("tileFullError in index", tileFullError)
+  console.log("wrong Tile Error in index", wrongTileError)
   return (
     <View>
       <View style={s.headerContainer}>
@@ -36,18 +38,25 @@ export default function Index() {
       </View>
       <ScrollView style={s.body}>
         <View style={s.instructionBox}>
-          {!tileFullError===true&&tilePlaced===false?
+          {tileFullError===false&&wrongTileError===false&&tilePlaced===false?
           <Text style={s.instructionText}>
             Fill the grid with dominoes to achieve Word Domination.
           </Text>
-          :!tileFullError===true&&tilePlaced===true?
+          :!tileFullError===true&&!wrongTileError===true&&tilePlaced===true?
           <Text style={s.instructionText}>
           Congratulations, you placed a tile!!!
         </Text>
-        :
+        :wrongTileError===true?
+        <Text style={s.instructionText}>
+        The tile does not have the same amount of dots as the tile next to it. Try somewhere else.
+      </Text>
+      :
+      tileFullError===true?
+
         <Text style={s.instructionText}>
         This space is already taken. Try somewhere else.
       </Text>
+      :null
 
 }
 
@@ -86,6 +95,10 @@ export default function Index() {
           setTileFullError={setTileFullError}
           gameStart={gameStart}
           setGameStart={setGameStart}
+          topSelectedDominoObjects={topSelectedDominoObjects}
+          setTopSelectedDominoObjects={setTopSelectedDominoObjects}
+          wrongTileError={wrongTileError}
+          setWrongTileError={setWrongTileError}
           
           />
         </View>
@@ -156,6 +169,8 @@ export default function Index() {
                 setDominoesInGrid={setDominoesInGrid}
                 tilePlaced={tilePlaced}
                 setTilePlaced={setTilePlaced}
+            wordSubmitted={wordSubmitted}
+
               />
             ) : null}
           </View>

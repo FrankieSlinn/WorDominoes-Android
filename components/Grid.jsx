@@ -19,7 +19,9 @@ import {s} from "../App.style";
 export function Grid({ dominoRotated, displayDomino, tilePlaced, setTilePlaced, turnStart, setTurnStart,
     wordSubmitted, setWordSubmitted, selectedDominoObject, setSelectedDominoObject, word1Success, setWord1Success, 
     word2Success, setWord2Success,  setDisplayDomino, showMakeWord, setShowMakeWord, numberDominoesInGrid, setNumberDominoesInGrid, 
-    dominoesInGrid, setDominoesInGrid, topHorizontalTilesInGrid, setTopHorizontalTilesInGrid, tileFullError, setTileFullError, gameStart, setGameStart
+    dominoesInGrid, setDominoesInGrid, topHorizontalTilesInGrid, setTopHorizontalTilesInGrid, tileFullError, setTileFullError, wrongTileError, setWrongTileError, 
+    gameStart, setGameStart,
+    topSelectedDominoObjects, setTopSelectedDominoObjects, 
 }){
 
     const horizontalTopTileIds = [0, 1, 2, 3]; 
@@ -31,6 +33,7 @@ export function Grid({ dominoRotated, displayDomino, tilePlaced, setTilePlaced, 
         )
     }, [tilePlaced])
 
+    console.log("TopSelectedHorizontal Top DominoObjects in grid", topSelectedDominoObjects)
     console.log("topHorizontalTilesin grid in grid component", topHorizontalTilesInGrid)
     console.log("tile placed in grid component", tilePlaced)
     console.log("selectedDominoObject", selectedDominoObject)
@@ -63,6 +66,10 @@ return <>
                 numberDominoesInGrid={numberDominoesInGrid} setNumberDominoesInGrid={setNumberDominoesInGrid}
                 tileFullError={tileFullError} setTileFullError={setTileFullError}
                 gameStart={gameStart} setGameStart={setGameStart}
+                topSelectedDominoObjects={topSelectedDominoObjects} 
+                setTopSelectedDominoObjects={setTopSelectedDominoObjects}
+                wrongTileError={wrongTileError} 
+                setWrongTileError={setWrongTileError}
             />
         ))}
     </View>

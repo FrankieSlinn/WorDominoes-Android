@@ -53,13 +53,13 @@ export const s = StyleSheet.create({
   instructionBox: {
     margin: 20,
     // backgroundColor: "yellow",
-    height: 50,
+    height: 65,
   },
   instructionText: {
     fontSize: 17,
     textAlign: "center",
     fontWeight: "bold",
-    // maxHeight: 40,
+
   },
   errorMessageText: {
     backgroundColor: "lightorange",

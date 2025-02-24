@@ -121,6 +121,10 @@ export default function Index() {
           setDominoesInGrid={setDominoesInGrid}
           numberDominoesInGrid={numberDominoesInGrid}
           setNumberDominoesInGrid={setNumberDominoesInGrid}
+          word1Success={word1Success}
+          setWord1Success={setWord1Success}
+          word2Success={word2Success}
+          setWord2Success={setWord2Success}
         />
         {word1Success === false ? (
           <View style={s.instructionTextBelow}>

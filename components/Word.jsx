@@ -69,8 +69,6 @@ export function Word({
         setWord1Success,
         setWord2Success,
         setTilePlaced,
-        wordSubmitted, 
-        setWordSubmitted,
         setValidationError
       );
     }

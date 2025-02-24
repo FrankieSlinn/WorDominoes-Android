@@ -21,7 +21,6 @@ function validateWord(validationInformation, letterString, wordLength, wordNumbe
     letterString.length === Number(wordLength)
   ) {
     console.log("word is validated in validatewd function");
-    
     if(wordNumber===1)
     {setWord1Success(true);
    

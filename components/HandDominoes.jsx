@@ -13,7 +13,8 @@ const displayDominoComponents = [
 
 export function HandDominoes({gameStart, setGameStart, displayDomino, setDisplayDomino, wordSubmitted, setWordSubmitted,
   showMakeWord, setShowMakeWord, selectedDominoObject, setSelectedDominoObject, dominoesInGrid, setDominoesInGrid,
-  numberDominoesInGrid, setNumberDominoesInGrid, dominoRotated, setDominoRotated
+  numberDominoesInGrid, setNumberDominoesInGrid, dominoRotated, setDominoRotated, word1Success, setWord1Success,
+  word2Success, setWord2Success
 }) {
   if(getDominoHand().length<4){
   allocateDominoes();}
@@ -35,6 +36,8 @@ export function HandDominoes({gameStart, setGameStart, displayDomino, setDisplay
     setShowMakeWord(true) //Make word section can be displayed
     setGameStart(false)
     setDominoRotated(false)
+    setWord1Success(false);
+    setWord2Success(false);
 
   }
 

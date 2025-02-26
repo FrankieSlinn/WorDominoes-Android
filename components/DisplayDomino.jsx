@@ -8,7 +8,7 @@ export function DisplayDomino({displayDomino, wordSubmitted, setWordSubmitted, s
 }) {
    function handlePress(){
     if(word2Success===true && tilePlaced===false){
-      console.log("Domino rotated before rotation?", dominoRotated)
+      console.log("display domino", displayDomino)
     setDominoRotated(!dominoRotated)
     console.log("Domino rotated?", dominoRotated)
     }

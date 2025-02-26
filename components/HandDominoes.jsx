@@ -11,30 +11,28 @@ const displayDominoComponents = [
     require("./HandDomino4.jsx").HandDomino4,
   ];
 
-export function HandDominoes({gameStart, setGameStart, displayDomino, setDisplayDomino, wordSubmitted, setWordSubmitted,
-  showMakeWord, setShowMakeWord, selectedDominoObject, setSelectedDominoObject, dominoesInGrid, setDominoesInGrid,
-  numberDominoesInGrid, setNumberDominoesInGrid, dominoRotated, setDominoRotated, word1Success, setWord1Success,
+export function HandDominoes({ turnStart, setTurnStart, displayDomino, setDisplayDomino, wordSubmitted, setWordSubmitted,
+  showMakeWord, setShowMakeWord, selectedDominoObject, setSelectedDominoObject, 
+ setDominoRotated, word1Success, setWord1Success,
   word2Success, setWord2Success
 }) {
   if(getDominoHand().length<4){
   allocateDominoes();}
   // console.log("dominoHand", getDominoHand())
-  console.log("gameStart in HandDominoes", gameStart);
+  console.log("turnStart in HandDominoes", turnStart);
   console.log("wordSubmitted", wordSubmitted);
   const dominoesInHand = getDominoHand();
 
   function handleClick(selectedDomino, domino){
-    if(wordSubmitted ===false && gameStart===true){
+    if(wordSubmitted ===false && turnStart===true){
     setDisplayDomino(selectedDomino)
 
     console.log("selectedDominoObject in HandDominoes", selectedDominoObject)
-    // setDominoesInGrid((prev) => [...prev, selectedDomino]);
-    // console.log("dominoesInGrid in handDominoes after set", dominoesInGrid)
-    // setNumberDominoesInGrid((prev) => prev + 1);
+
     setSelectedDominoObject(domino)
     setWordSubmitted(true)
     setShowMakeWord(true) //Make word section can be displayed
-    setGameStart(false)
+    // setTurnStart(false)
     setDominoRotated(false)
     setWord1Success(false);
     setWord2Success(false);

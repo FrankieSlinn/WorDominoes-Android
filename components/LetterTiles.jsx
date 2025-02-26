@@ -10,6 +10,7 @@ export function LetterTiles({inputString1, setInputString1, inputString2, setInp
 }) {
     const [letterHand, setLetterHand] = useState([]);
     const letterHandLength = 15;
+    console.log("letter Tiles element");
     
 
     useEffect(() => {

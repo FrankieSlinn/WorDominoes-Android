@@ -29,8 +29,8 @@ export default function Index() {
   const[tileFullError, setTileFullError]=useState(false);
   const[wrongTileError, setWrongTileError]=useState(false);
 
-  console.log("tileFullError in index", tileFullError)
-  console.log("wrong Tile Error in index", wrongTileError)
+  console.log("showMakeWord in index", showMakeWord)
+  console.log("word2Success in index", word2Success)
   return (
     <View>
       <View style={s.headerContainer}>

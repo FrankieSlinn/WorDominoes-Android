@@ -2,18 +2,13 @@
 import {Text, View} from "react-native";
 import{useState, useEffect} from "react";
 import{HorizontalTileTop} from "./HorizontalTileTop";
-import {HorizontalTileTop1} from "./HorizontalTileTop1";
-import {HorizontalTileTop2} from "./HorizontalTileTop2";
-import {HorizontalTileTop3} from "./HorizontalTileTop3";
-import {HorizontalTileTop4} from "./HorizontalTileTop4";
 import {HorizontalTileBottom1} from "./HorizontalTileBottom1";
 import {HorizontalTileBottom2} from "./HorizontalTileBottom2";
 import {HorizontalTileBottom3} from "./HorizontalTileBottom3";
 import {HorizontalTileBottom4} from "./HorizontalTileBottom4";
-import {V1}  from "./V1";
-import {V2}  from "./V2";
-import {V3}  from "./V3";
-import {V4}  from "./V4";
+import {V3} from "./V3";
+import{V4} from "./V4"
+import {VerticalTileRight} from "./VerticalTileRight";
 import {s} from "../App.style";
 
 export function Grid({ dominoRotated, displayDomino, tilePlaced, setTilePlaced, turnStart, setTurnStart,
@@ -25,6 +20,7 @@ export function Grid({ dominoRotated, displayDomino, tilePlaced, setTilePlaced, 
 }){
 
     const horizontalTopTileIds = [0, 1, 2, 3]; 
+    const verticalRightTileIds=[4,5];
 
     //Needed to rerender after values changed in handleTilePress function
     useEffect(() => {
@@ -47,7 +43,7 @@ export function Grid({ dominoRotated, displayDomino, tilePlaced, setTilePlaced, 
 return <>
 <View style={s.grid}>
 <View style={s.horizontalDominoContainer}>
-        {horizontalTopTileIds.map((id) => (
+{horizontalTopTileIds.map((id) => (
             <HorizontalTileTop
                 key={id}
                 tileId={id}
@@ -75,12 +71,35 @@ return <>
     </View>
 <View style={s.verticalDominoContainer}>
 <View style={s.verticalDominoContainerLeft}>
-<V1/>
-<V2/>
+<V3/>
+<V4/>
 </View>
-<View style={s.verticalDominoContainerRight}>
-    <V3/>
-    <V4/>
+<View >
+{verticalRightTileIds.map((id) => (
+            <VerticalTileRight
+                key={id}
+                tileId={id}
+                dominoRotated={dominoRotated}
+                tilePlaced={tilePlaced} setTilePlaced={setTilePlaced}
+                displayDomino={displayDomino}
+                turnStart={turnStart} setTurnStart={setTurnStart}
+                wordSubmitted={wordSubmitted} setWordSubmitted={setWordSubmitted}
+                selectedDominoObject={selectedDominoObject} setSelectedDominoObject={setSelectedDominoObject}
+                word1Success={word1Success} setWord1Success={setWord1Success}
+                word2Success={word2Success} setWord2Success={setWord2Success}
+                setDisplayDomino={setDisplayDomino}
+                showMakeWord={showMakeWord} setShowMakeWord={setShowMakeWord}
+                dominoesInGrid={dominoesInGrid} setDominoesInGrid={setDominoesInGrid}
+                topHorizontalTilesInGrid={topHorizontalTilesInGrid} setTopHorizontalTilesInGrid={setTopHorizontalTilesInGrid}
+                numberDominoesInGrid={numberDominoesInGrid} setNumberDominoesInGrid={setNumberDominoesInGrid}
+                tileFullError={tileFullError} setTileFullError={setTileFullError}
+                gameStart={gameStart} setGameStart={setGameStart}
+                topSelectedDominoObjects={topSelectedDominoObjects} 
+                setTopSelectedDominoObjects={setTopSelectedDominoObjects}
+                wrongTileError={wrongTileError} 
+                setWrongTileError={setWrongTileError}
+            />
+        ))}
 </View>
 </View>
 <View style={s.horizontalDominoContainer}>

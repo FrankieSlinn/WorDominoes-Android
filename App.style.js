@@ -113,6 +113,10 @@ export const s = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
+  verticalDominoContainerRight: {
+  //  flexDirection: "column",
+    // justifyContent: "space-between",
+  },
   handDominoContainer: {
     flexDirection: "row",
     justifyContent: "center",

@@ -10,9 +10,11 @@ export function HorizontalTileTop({
     wordSubmitted, setWordSubmitted, selectedDominoObject, setSelectedDominoObject,
     word1Success, setWord1Success, word2Success, setWord2Success, setDisplayDomino,
     showMakeWord, setShowMakeWord, dominoesInGrid, setDominoesInGrid,
-    topHorizontalTilesInGrid, setTopHorizontalTilesInGrid,
+    selectedDominoObjects, setSelectedDominoObjects, 
+
+    dominoIdsInGrid, setDominoIdsInGrid,
     numberDominoesInGrid, setNumberDominoesInGrid, tileFullError, setTileFullError,
-    gameStart, setGameStart, topSelectedDominoObjects, setTopSelectedDominoObjects, 
+    gameStart, setGameStart, gridSelectedDominoObjects, setGridSelectedDominoObjects, 
     wrongTileError, setWrongTileError
 }) {
     //Only applies to this tile
@@ -21,7 +23,7 @@ export function HorizontalTileTop({
     const [tileRotatedState, setTileRotatedState] = useState(false);
     const[wrongTileErrorInSpecificTile, setWrongTileErrorInSpecificTile] = useState(false);
     console.log("electedDominoObject", selectedDominoObject);
-    console.log("topSelectedDominoObjects[tileId -1]", topSelectedDominoObjects[tileId - 1]);
+    console.log("gridSelectedDominoObjects[tileId -1]", gridSelectedDominoObjects[tileId - 1]);
     console.log("wrongTileError generic", wrongTileError)
 
 
@@ -46,17 +48,16 @@ export function HorizontalTileTop({
                         setTilePlaced,
                         setTurnStart,
                         selectedDominoObject,
-                        setWord2Success,
                         displayDomino,
                         setDisplayDomino,
                         setShowMakeWord,
                         setWordSubmitted,
-                        topHorizontalTilesInGrid,
-                        setTopHorizontalTilesInGrid,
-                        topSelectedDominoObjects,
-                        setTopSelectedDominoObjects,
+                        dominoIdsInGrid,
+                        setDominoIdsInGrid,
+                        gridSelectedDominoObjects,
+                        setGridSelectedDominoObjects,
                         tileId,
-                        tileFullError, 
+                        tileFullError,
                         setTileFullError,
                         setGameStart,
                         wrongTileError,
@@ -78,14 +79,14 @@ export function HorizontalTileTop({
                 
                 :!tileRotatedState ? (
                     <Image
-                        source={dominoImageMappings[topHorizontalTilesInGrid[tileId]]}
-                        style={[s.selectedTile, s.selectedTileUnrotated]}
+                        source={dominoImageMappings[dominoIdsInGrid[tileId]]}
+                        style={[s.selectedTile, s.selectedTileHOrizontal, s.selectedTileUnrotated]}
                         resizeMode="cover"
                     />
                 ) : (
                     <Image
-                        source={dominoImageMappings[topHorizontalTilesInGrid[tileId]]}
-                        style={[s.selectedTile, s.selectedTileRotated]}
+                        source={dominoImageMappings[dominoIdsInGrid[tileId]]}
+                        style={[s.selectedTile, s.selectedTileHorizontal, s.selectedTileRotated]}
                         resizeMode="cover"
                     />
                 )}

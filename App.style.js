@@ -78,10 +78,21 @@ export const s = StyleSheet.create({
     borderRadius: 10,
   },
   selectedTile: {
-    width: 26,
-    height: 52,
+
     resizeMode: "stretch",
     borderRadius: 10,
+    width: 26,
+    height: 52,
+  },
+  selectedTileorizontal:{
+    width: 26,
+    height: 52,
+
+  },
+  selectedTileVertical:{
+    width: 26,
+    height: 52,
+    transform: [{ rotate: "0deg" }],
   },
 
   selectedTileRotated: {

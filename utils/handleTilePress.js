@@ -4,15 +4,14 @@ function handleTilePress(
   setTilePlaced,
   setTurnStart,
   selectedDominoObject,
-  setWord2Success,
   displayDomino,
   setDisplayDomino,
   setShowMakeWord,
   setWordSubmitted,
-  topHorizontalTilesInGrid,
-  setTopHorizontalTilesInGrid,
-  topSelectedDominoObjects,
-  setTopSelectedDominoObjects,
+  dominoIdsInGrid,
+  setDominoIdsInGrid,
+  gridSelectedDominoObjects,
+  setGridSelectedDominoObjects,
   tileId,
   tileFullError,
   setTileFullError,
@@ -35,7 +34,7 @@ function handleTilePress(
 
   getNeighborsAndCurrentTile(
     selectedDominoObject,
-    topSelectedDominoObjects,
+    gridSelectedDominoObjects,
     tileId,
     tileData,
     setWrongTileError,
@@ -43,60 +42,7 @@ function handleTilePress(
     setTileFullError
   );
 
-  // checkTileCanBePlaced(
-  //   setTilePlaced,
-  //   setTurnStart,
-  //   selectedDominoObject,
-  //   word2Success,
-  //   displayDomino,
-  //   setDisplayDomino,
-  //   setShowMakeWord,
-  //   setWordSubmitted,
-  //   topHorizontalTilesInGrid,
-  //   setTopHorizontalTilesInGrid,
-  //   topSelectedDominoObjects,
-  //   setTopSelectedDominoObjects,
-  //   tileId,
-  //   tileFullError,
-  //   setTileFullError,
-  //   setGameStart,
-  //   wrongTileError,
-  //   setWrongTileError,
-  //   wrongTileErrorInSpecificTile,
-  //   setWrongTileErrorInSpecificTile,
-  //   setTilePlacedState,
-  //   dominoRotated,
-  //   tileData
-  // );
 
-  //Checks if tile can be placed
-  // function checkTileCanBePlaced(
-  //   setTilePlaced,
-  //   setTurnStart,
-  //   selectedDominoObject,
-  //   word2Success,
-  //   displayDomino,
-  //   setDisplayDomino,
-  //   setShowMakeWord,
-  //   setWordSubmitted,
-  //   topHorizontalTilesInGrid,
-  //   setTopHorizontalTilesInGrid,
-  //   topSelectedDominoObjects,
-  //   setTopSelectedDominoObjects,
-  //   tileId,
-  //   tileFullError,
-  //   setTileFullError,
-  //   setGameStart,
-  //   wrongTileError,
-  //   setWrongTileError,
-  //   wrongTileErrorInSpecificTile,
-  //   setWrongTileErrorInSpecificTile,
-  //   setTilePlacedState,
-  //   dominoRotated,
-  //   tileData
-  // ) {
-  //   console.log("check tile is ok function running");
-  //   console.log("word2Success", word2Success, "tilePlacedS", tilePlaced);
 
     if (word2Success === true && tilePlaced === false) {
       //for individual tile
@@ -114,11 +60,11 @@ function handleTilePress(
         setWrongTileError,
         wrongTileErrorInSpecificTile,
         setWrongTileErrorInSpecificTile,
-        topHorizontalTilesInGrid,
-        setTopHorizontalTilesInGrid,
+        dominoIdsInGrid,
+        setDominoIdsInGrid,
         selectedDominoObject,
-        topSelectedDominoObjects,
-        setTopSelectedDominoObjects,
+        gridSelectedDominoObjects,
+        setGridSelectedDominoObjects,
         displayDomino,
         setDisplayDomino,
         setShowMakeWord,
@@ -134,7 +80,7 @@ function handleTilePress(
 
 function getNeighborsAndCurrentTile(
   selectedDominoObject,
-  topSelectedDominoObjects,
+  gridSelectedDominoObjects,
   tileId,
   tileData,
   setWrongTileError,
@@ -142,23 +88,25 @@ function getNeighborsAndCurrentTile(
   setTileFullError
 ) {
   console.log("get Neighbours running");
+  console.log("gridSelectedDominoObjects in handle tile press", gridSelectedDominoObjects)
   setWrongTileError(false);
   setWrongTileErrorInSpecificTile(false);
   setTileFullError(false);
-
-  if (topSelectedDominoObjects[tileId - 1]) {
+if(tileId<6){
+  if (gridSelectedDominoObjects[tileId - 1]) {
     tileData.leftNeighbor =
-      topSelectedDominoObjects[tileId - 1] === "empty"
+      gridSelectedDominoObjects[tileId - 1] === "empty"
         ? "empty"
-        : topSelectedDominoObjects[tileId - 1].toString()[1];
+        : gridSelectedDominoObjects[tileId - 1].toString()[1];
   }
 
-  if (topSelectedDominoObjects[tileId + 1]) {
+  if (gridSelectedDominoObjects[tileId + 1]) {
     tileData.rightNeighbor =
-      topSelectedDominoObjects[tileId + 1] === "empty"
+      gridSelectedDominoObjects[tileId + 1] === "empty"
         ? "empty"
-        : topSelectedDominoObjects[tileId + 1].toString()[0];
-  }
+        : gridSelectedDominoObjects[tileId + 1].toString()[0];
+  }}
+
 
   tileData.currentTile = Object.values(selectedDominoObject).toString();
 
@@ -184,11 +132,11 @@ function dominoRotatedChecksDoesNotFit(
   setWrongTileError,
   wrongTileErrorInSpecificTile,
   setWrongTileErrorInSpecificTile,
-  topHorizontalTilesInGrid,
-  setTopHorizontalTilesInGrid,
+  dominoIdsInGrid,
+  setDominoIdsInGrid,
   selectedDominoObject,
-  topSelectedDominoObjects,
-  setTopSelectedDominoObjects,
+  gridSelectedDominoObjects,
+  setGridSelectedDominoObjects,
   displayDomino,
   setDisplayDomino,
   setShowMakeWord,
@@ -235,11 +183,11 @@ function dominoRotatedChecksDoesNotFit(
         tilePlaced,
         setTilePlaced,
         tileFullError,
-        topHorizontalTilesInGrid,
-        setTopHorizontalTilesInGrid,
+        dominoIdsInGrid,
+        setDominoIdsInGrid,
         selectedDominoObject,
-        topSelectedDominoObjects,
-        setTopSelectedDominoObjects,
+        gridSelectedDominoObjects,
+        setGridSelectedDominoObjects,
         dominoRotated,
         setTilePlacedState,
         setTurnStart,
@@ -284,11 +232,11 @@ function checkTileAlreadyPlaced(
   tilePlaced,
   setTilePlaced,
   tileFullError,
-  topHorizontalTilesInGrid,
-  setTopHorizontalTilesInGrid,
+  dominoIdsInGrid,
+  setDominoIdsInGrid,
   selectedDominoObject,
-  topSelectedDominoObjects,
-  setTopSelectedDominoObjects,
+  gridSelectedDominoObjects,
+  setGridSelectedDominoObjects,
   dominoRotated,
   setTilePlacedState,
   setTurnStart,
@@ -300,15 +248,15 @@ function checkTileAlreadyPlaced(
 ) {
   console.log("checking if tile already placed");
   console.log(
-    "topSelectedDominoObjects",
-    topSelectedDominoObjects,
+    "gridSelectedDominoObjects",
+    gridSelectedDominoObjects,
     "tileId",
     tileId
   );
 
   if (
-    topSelectedDominoObjects[tileId] &&
-    topSelectedDominoObjects[tileId] != "empty" &&
+    gridSelectedDominoObjects[tileId] &&
+    gridSelectedDominoObjects[tileId] != "empty" &&
     wrongTileErrorInSpecificTile === false
   ) {
     setTileFullError(true);
@@ -321,10 +269,10 @@ function checkTileAlreadyPlaced(
       wrongTileErrorInSpecificTile,
       tileFullError,
       displayDomino,
-      topHorizontalTilesInGrid,
-      setTopHorizontalTilesInGrid,
+      dominoIdsInGrid,
+      setDominoIdsInGrid,
       selectedDominoObject,
-      setTopSelectedDominoObjects,
+      setGridSelectedDominoObjects,
       dominoRotated,
       setTilePlaced,
       setTilePlacedState,
@@ -342,10 +290,10 @@ function handleTileFits(
   wrongTileErrorInSpecificTile,
   tileFullError,
   displayDomino,
-  topHorizontalTilesInGrid,
-  setTopHorizontalTilesInGrid,
+  dominoIdsInGrid,
+  setDominoIdsInGrid,
   selectedDominoObject,
-  setTopSelectedDominoObjects,
+  setGridSelectedDominoObjects,
   dominoRotated,
   setTilePlaced,
   setTilePlacedState,
@@ -361,18 +309,18 @@ function handleTileFits(
 
   console.log(
     "tile good to be placed",
-    "topHorizontalTilesInGrid empty, can add tile to it.displaydomino:",
+    "dominoIdsInGrid empty, can add tile to it.displaydomino:",
     displayDomino
   );
 
   //Is this needed? E.g. to check if grid full with uniqiue tiles?
-  setTopHorizontalTilesInGrid((prevTiles) =>
+  setDominoIdsInGrid((prevTiles) =>
     prevTiles.map((tile, index) => (index === tileId ? displayDomino : tile))
   );
-  console.log("topHorizontalTilesin grid", topHorizontalTilesInGrid);
+  console.log("topHorizontalTilesin grid", dominoIdsInGrid);
 
   //Adds number of dots to array
-  setTopSelectedDominoObjects((prevDominos) =>
+  setGridSelectedDominoObjects((prevDominos) =>
     prevDominos.map((domino, index) =>
       index === tileId
         ? dominoRotated

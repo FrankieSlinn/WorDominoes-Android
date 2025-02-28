@@ -22,9 +22,10 @@ export default function Index() {
   const [dominoRotated, setDominoRotated] = useState(false);
   const[tilePlaced,  setTilePlaced] = useState(false);
   const[dominoesInGrid, setDominoesInGrid]=useState([]);
-  const[topHorizontalTilesInGrid, setTopHorizontalTilesInGrid]=useState(["empty", "empty", "empty", "empty"]);
+  const[dominoIdsInGrid, setDominoIdsInGrid]=useState(["empty", "empty", "empty", "empty", "empty", "empty"]);
   //relates to domino id(key) and number of dots on each side(value)
-  const[topSelectedDominoObjects, setTopSelectedDominoObjects]=useState(["empty", "empty", "empty", "empty"]);
+  const[gridSelectedDominoObjects, setGridSelectedDominoObjects]=useState(["empty", "empty", "empty", "empty", "empty", "empty"]);
+
   const[numberDominoesInGrid, setNumberDominoesInGrid]=useState(0);
   const[tileFullError, setTileFullError]=useState(false);
   const[wrongTileError, setWrongTileError]=useState(false);
@@ -87,16 +88,17 @@ export default function Index() {
           setShowMakeWord={setShowMakeWord}
           dominoesInGrid={dominoesInGrid}
           setDominoesInGrid={setDominoesInGrid}
-          topHorizontalTilesInGrid={topHorizontalTilesInGrid}
-          setTopHorizontalTilesInGrid={setTopHorizontalTilesInGrid}
+          dominoIdsInGrid={dominoIdsInGrid}
+          setDominoIdsInGrid={setDominoIdsInGrid}
           numberDominoesInGrid={numberDominoesInGrid}
           setNumberDominoesInGrid={setNumberDominoesInGrid}
           tileFullError={tileFullError}
           setTileFullError={setTileFullError}
           gameStart={gameStart}
           setGameStart={setGameStart}
-          topSelectedDominoObjects={topSelectedDominoObjects}
-          setTopSelectedDominoObjects={setTopSelectedDominoObjects}
+          gridSelectedDominoObjects={gridSelectedDominoObjects}
+          setGridSelectedDominoObjects={setGridSelectedDominoObjects}
+        
           wrongTileError={wrongTileError}
           setWrongTileError={setWrongTileError}
           

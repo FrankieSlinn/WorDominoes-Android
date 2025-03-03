@@ -75,6 +75,7 @@ function handleTilePress(
         setGameStart
       );
     }
+  
 //   }
 // }
 
@@ -92,7 +93,7 @@ function getNeighborsAndCurrentTile(
   setWrongTileError(false);
   setWrongTileErrorInSpecificTile(false);
   setTileFullError(false);
-if(tileId<6){
+
   if (gridSelectedDominoObjects[tileId - 1]) {
     tileData.leftNeighbor =
       gridSelectedDominoObjects[tileId - 1] === "empty"
@@ -105,7 +106,7 @@ if(tileId<6){
       gridSelectedDominoObjects[tileId + 1] === "empty"
         ? "empty"
         : gridSelectedDominoObjects[tileId + 1].toString()[0];
-  }}
+  }
 
 
   tileData.currentTile = Object.values(selectedDominoObject).toString();
@@ -148,9 +149,9 @@ function dominoRotatedChecksDoesNotFit(
 ) {
   console.log("checking if domino doesn't fit");
 
-  if (!dominoRotated) {
-    console.log("checking for domino not rotated)");
-    if (
+ 
+
+    if (!dominoRotated &&
       //check If tiles don't match
 
       (tileData.currentTile[0] !== tileData.leftNeighbor &&
@@ -158,15 +159,20 @@ function dominoRotatedChecksDoesNotFit(
         tileData.leftNeighbor != null) ||
       (tileData.currentTile[1] !== tileData.rightNeighbor &&
         tileData.rightNeighbor != "empty" &&
-        tileData.rightNeighbor != null) ||
-      (dominoRotated &&
-        tileData.currentTile[1] !== tileData.leftNeighbor &&
+        tileData.rightNeighbor != null)
+        ||
+
+      dominoRotated &&
+        (tileData.currentTile[1] !== tileData.leftNeighbor &&
         tileData.leftNeighbor != "empty" &&
         tileData.leftNeighbor != null) ||
       (tileData.currentTile[0] !== tileData.rightNeighbor &&
         tileData.rightNeighbor != "empty" &&
         tileData.rightNeighbor != null)
-    ) {
+      )
+      
+ {
+  console.log("domino doesn't fit)");
       handleDominoDoesNotFit(
         tileId,
         wrongTileError,
@@ -199,7 +205,8 @@ function dominoRotatedChecksDoesNotFit(
       );
     }
   }
-}
+
+
 function handleDominoDoesNotFit(
   tileId,
   wrongTileError,
@@ -340,5 +347,6 @@ function handleTileFits(
   setGameStart(true);
 }
 }
+
 
 export { handleTilePress };

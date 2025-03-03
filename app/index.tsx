@@ -22,9 +22,9 @@ export default function Index() {
   const [dominoRotated, setDominoRotated] = useState(false);
   const[tilePlaced,  setTilePlaced] = useState(false);
   const[dominoesInGrid, setDominoesInGrid]=useState([]);
-  const[dominoIdsInGrid, setDominoIdsInGrid]=useState(["empty", "empty", "empty", "empty", "empty", "empty"]);
+  const[dominoIdsInGrid, setDominoIdsInGrid]=useState(["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"]);
   //relates to domino id(key) and number of dots on each side(value)
-  const[gridSelectedDominoObjects, setGridSelectedDominoObjects]=useState(["empty", "empty", "empty", "empty", "empty", "empty"]);
+  const[gridSelectedDominoObjects, setGridSelectedDominoObjects]=useState(["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"]);
 
   const[numberDominoesInGrid, setNumberDominoesInGrid]=useState(0);
   const[tileFullError, setTileFullError]=useState(false);

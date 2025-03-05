@@ -95,7 +95,7 @@ export const s = StyleSheet.create({
     transform: [{ rotate: "deg" }],
   },
 
-  selectedTileRotated: {
+  selectedHorizontalTileRotated: {
     transform: [{ rotate: "90deg" }],
   },
   selectedTileVerticalRotated:{

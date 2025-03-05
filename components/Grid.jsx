@@ -47,6 +47,7 @@ export function Grid({
   const horizontalTopTileIds = [0, 1, 2, 3];
   const verticalRightTileIds = [4, 5];
   const horizontalBottomIds=[9,8,7,6];
+  const verticalLeftIds=[11,10];
 
   //Needed to rerender after values changed in handleTilePress function
   useEffect(() => {

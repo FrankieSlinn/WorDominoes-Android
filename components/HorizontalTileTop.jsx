@@ -87,7 +87,7 @@ export function HorizontalTileTop({
                 ) : (
                     <Image
                         source={dominoImageMappings[dominoIdsInGrid[tileId]]}
-                        style={[s.selectedTile, s.selectedTileHorizontal, s.selectedTileRotated]}
+                        style={[s.selectedTile, s.selectedTileHorizontal, s.selectedHorizontalTileRotated]}
                         resizeMode="cover"
                     />
                 )}

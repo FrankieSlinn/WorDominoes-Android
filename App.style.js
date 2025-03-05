@@ -92,11 +92,15 @@ export const s = StyleSheet.create({
   selectedTileVertical:{
     width: 26,
     height: 52,
-    transform: [{ rotate: "0deg" }],
+    transform: [{ rotate: "deg" }],
   },
 
   selectedTileRotated: {
     transform: [{ rotate: "90deg" }],
+  },
+  selectedTileVerticalRotated:{
+    transform: [{ rotate: "180deg" }],
+
   },
   selectedTileUnrotated: {
     transform: [{ rotate: "270deg" }],

@@ -4,6 +4,7 @@ function handleTilePress(
   setTilePlaced,
   setTurnStart,
   selectedDominoObject,
+  setSelectedDominoObject,
   displayDomino,
   setDisplayDomino,
   setShowMakeWord,
@@ -33,7 +34,9 @@ function handleTilePress(
   let tileData = { leftNeighbor: null, rightNeighbor: null, currentTile: null };
 
   getNeighborsAndCurrentTile(
+    dominoRotated,
     selectedDominoObject,
+    setSelectedDominoObject,
     gridSelectedDominoObjects,
     tileId,
     tileData,
@@ -49,7 +52,7 @@ function handleTilePress(
       console.log("doing all checks for whether domino can be placed");
 
       //Check for tile does not fit
-      dominoRotatedChecksDoesNotFit(
+      checkDominoDoesNotFit(
         tileId,
         tilePlaced,
         setTilePlaced,
@@ -80,7 +83,9 @@ function handleTilePress(
 // }
 
 function getNeighborsAndCurrentTile(
+  dominoRotated,
   selectedDominoObject,
+  setSelectedDominoObject,
   gridSelectedDominoObjects,
   tileId,
   tileData,
@@ -93,20 +98,102 @@ function getNeighborsAndCurrentTile(
   setWrongTileError(false);
   setWrongTileErrorInSpecificTile(false);
   setTileFullError(false);
+  //change selectedDominoObject if the tile is rotated first so it can be compared to neighbors
+  if (dominoRotated) {
+    let key = Object.keys(selectedDominoObject)[0]; // Get the only key
+    let value = selectedDominoObject[key].toString(); // Convert value to string
+  
+    // Reverse the string representation of the value
+    let reversedValue = value.split("").reverse().join("");
+  
+    // Assign the reversed value back to the object
+    selectedDominoObject[key] = reversedValue;
+  
+    // Update state
+  setSelectedDominoObject({ ...selectedDominoObject });
+  
+    console.log("stringNewValue in getNeighbors if rotated", reversedValue);
+    console.log("selectedDominoObject for Rotated", selectedDominoObject);
+  }
 
+  //Check as after 6 tileIds in reverse order
+if(tileId<6){
   if (gridSelectedDominoObjects[tileId - 1]) {
     tileData.leftNeighbor =
       gridSelectedDominoObjects[tileId - 1] === "empty"
         ? "empty"
         : gridSelectedDominoObjects[tileId - 1].toString()[1];
   }
-
   if (gridSelectedDominoObjects[tileId + 1]) {
     tileData.rightNeighbor =
       gridSelectedDominoObjects[tileId + 1] === "empty"
         ? "empty"
         : gridSelectedDominoObjects[tileId + 1].toString()[0];
   }
+}
+//Left stays the same, right different Id
+if(tileId===5){
+  //stays same as above
+  if (gridSelectedDominoObjects[tileId - 1]) {
+    tileData.leftNeighbor =
+      gridSelectedDominoObjects[tileId - 1] === "empty"
+        ? "empty"
+        : gridSelectedDominoObjects[tileId - 1].toString()[1];
+  }
+  if (gridSelectedDominoObjects[9]) {
+    tileData.rightNeighbor =
+      gridSelectedDominoObjects[9] === "empty"
+        ? "empty"
+        : gridSelectedDominoObjects[9].toString()[1];
+  }
+
+
+}
+//right stays the same, left different Id
+//tile 9 on bottom right
+if(tileId===9){
+
+  if (gridSelectedDominoObjects[5]) {
+    tileData.leftNeighbor =
+      gridSelectedDominoObjects[5] === "empty"
+        ? "empty"
+        : gridSelectedDominoObjects[5].toString()[1];
+  }
+
+//tile on rightis tile 8 
+
+  if (gridSelectedDominoObjects[tileId - 1]) {
+    tileData.rightNeighbor =
+      gridSelectedDominoObjects[tileId - 1] === "empty"
+        ? "empty"
+        : gridSelectedDominoObjects[tileId - 1].toString()[1];
+  }
+
+
+}
+
+//left and right neighbours swapped as order different.
+//right neighbour in sense of array so itile is actually to left
+if(tileId>6){
+//actual tile to right
+  if (gridSelectedDominoObjects[tileId + 1]) {
+    tileData.leftNeighbor =
+      gridSelectedDominoObjects[tileId + 1] === "empty"
+        ? "empty"
+        : gridSelectedDominoObjects[tileId + 1].toString()[0];
+  }
+
+  //actual tile to left. rightNeighbor for comparison
+  if (gridSelectedDominoObjects[tileId - 1]) {
+    tileData.rightNeighbor =
+      gridSelectedDominoObjects[tileId - 1] === "empty"
+        ? "empty"
+        : gridSelectedDominoObjects[tileId - 1].toString()[1];
+  }
+
+}
+
+
 
 
   tileData.currentTile = Object.values(selectedDominoObject).toString();
@@ -122,7 +209,7 @@ function getNeighborsAndCurrentTile(
   );
 }
 
-function dominoRotatedChecksDoesNotFit(
+function checkDominoDoesNotFit(
   tileId,
   tilePlaced,
   setTilePlaced,
@@ -310,32 +397,60 @@ function handleTileFits(
   setShowMakeWord,
   setGameStart
 ) {
-  let rotatedDominoObject = [];
-  rotatedDominoObject.push(selectedDominoObject[0]);
-  rotatedDominoObject.push(selectedDominoObject[1]);
 
+  let selectedDominoObjectString = Object.values(selectedDominoObject).join("");
+  let reverseSelectedDominoObject = selectedDominoObjectString[1] + selectedDominoObjectString[0];
   console.log(
     "tile good to be placed",
     "dominoIdsInGrid empty, can add tile to it.displaydomino:",
-    displayDomino
+    displayDomino, "domino rotated?",
+    dominoRotated
   );
+  console.log("selectedDominoObject", selectedDominoObject, "reverseSelectedDomino Object", reverseSelectedDominoObject);
 
-  //Is this needed? E.g. to check if grid full with uniqiue tiles?
-  setDominoIdsInGrid((prevTiles) =>
-    prevTiles.map((tile, index) => (index === tileId ? displayDomino : tile))
-  );
-  console.log("topHorizontalTilesin grid", dominoIdsInGrid);
 
-  //Adds number of dots to array
+setDominoIdsInGrid((prevDominos) =>
+  prevDominos.map((domino, index) =>
+    index === tileId
+      ? Object.keys(selectedDominoObject).toString()
+      :domino
+  )
+);
+
+
+
+  if(tileId<6){
+    // Adds number of dots to the array
+setGridSelectedDominoObjects((prevDominos) =>
+  prevDominos.map((domino, index) =>
+    index === tileId
+      ? Object.values(selectedDominoObject).join("") // Converts to string correctly
+      : domino
+  )
+);
+
+
+  }
+
+
+else{
   setGridSelectedDominoObjects((prevDominos) =>
     prevDominos.map((domino, index) =>
       index === tileId
-        ? dominoRotated
-          ? rotatedDominoObject
-          : Object.values(selectedDominoObject)
-        : domino
+      
+          ? reverseSelectedDominoObject
+    
+        :domino
     )
   );
+}
+console.log("dominoes in grid", dominoIdsInGrid);
+console.log("gridSelectedDominoObjects after set in tile pressed", gridSelectedDominoObjects);
+
+
+
+
+
 
   setTilePlaced(true);
   //For individual tile

@@ -47,6 +47,7 @@ export function HorizontalTileBottom({
                         setTilePlaced,
                         setTurnStart,
                         selectedDominoObject,
+                        setSelectedDominoObject,
                         displayDomino,
                         setDisplayDomino,
                         setShowMakeWord,

@@ -48,6 +48,7 @@ export function HorizontalTileTop({
                         setTilePlaced,
                         setTurnStart,
                         selectedDominoObject,
+                        setSelectedDominoObject,
                         displayDomino,
                         setDisplayDomino,
                         setShowMakeWord,

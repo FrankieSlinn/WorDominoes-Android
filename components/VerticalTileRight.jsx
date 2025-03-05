@@ -71,6 +71,7 @@ export function VerticalTileRight({
             setTilePlaced,
             setTurnStart,
             selectedDominoObject,
+            setSelectedDominoObject,
             displayDomino,
             setDisplayDomino,
             setShowMakeWord,
@@ -109,7 +110,7 @@ export function VerticalTileRight({
             style={[
               s.selectedTile,
               s.selectedTileVertical,
-              s.selectedTileRotated,
+              s.selectedTileVerticalRotated,
             ]}
             resizeMode="cover"
           />

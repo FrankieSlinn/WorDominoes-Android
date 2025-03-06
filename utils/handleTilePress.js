@@ -200,8 +200,10 @@ if(tileId>6){
 
 
   console.log(
+    "!!!!dominoRotated?", dominoRotated,
     "!!!!!currentTile[0] in handleTilePress",
     tileData.currentTile[0],
+    "!!!currentTile[1] in handleTilePress", tileData.currentTile[1],
     "!!!leftNeighbor",
     tileData.leftNeighbor,
     "!!!rightNeighbor",
@@ -238,25 +240,27 @@ function checkDominoDoesNotFit(
 
  
 
-    if (!dominoRotated &&
+    // if (!dominoRotated &&
       //check If tiles don't match
+
+      if(
 
       (tileData.currentTile[0] !== tileData.leftNeighbor &&
         tileData.leftNeighbor != "empty" &&
         tileData.leftNeighbor != null) ||
       (tileData.currentTile[1] !== tileData.rightNeighbor &&
         tileData.rightNeighbor != "empty" &&
-        tileData.rightNeighbor != null)
-        ||
+        tileData.rightNeighbor != null))
+      //   ||
 
-      dominoRotated &&
-        (tileData.currentTile[1] !== tileData.leftNeighbor &&
-        tileData.leftNeighbor != "empty" &&
-        tileData.leftNeighbor != null) ||
-      (tileData.currentTile[0] !== tileData.rightNeighbor &&
-        tileData.rightNeighbor != "empty" &&
-        tileData.rightNeighbor != null)
-      )
+      // dominoRotated &&
+      //   (tileData.currentTile[1] !== tileData.leftNeighbor &&
+      //   tileData.leftNeighbor != "empty" &&
+      //   tileData.leftNeighbor != null) ||
+      // (tileData.currentTile[0] !== tileData.rightNeighbor &&
+      //   tileData.rightNeighbor != "empty" &&
+      //   tileData.rightNeighbor != null)
+      // )
       
  {
   console.log("domino doesn't fit)");

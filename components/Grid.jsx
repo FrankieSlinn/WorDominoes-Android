@@ -5,6 +5,7 @@ import {HorizontalTileBottom} from "./HorizontalTileBottom";
 import { V3 } from "./V3";
 import { V4 } from "./V4";
 import { VerticalTileRight } from "./VerticalTileRight";
+import {VerticalTileLeft } from "./VerticalTileLeft";
 import { s } from "../App.style";
 
 export function Grid({
@@ -46,8 +47,8 @@ export function Grid({
 }) {
   const horizontalTopTileIds = [0, 1, 2, 3];
   const verticalRightTileIds = [4, 5];
-  const horizontalBottomIds=[9,8,7,6];
-  const verticalLeftIds=[11,10];
+  const horizontalBottomTileIds=[9,8,7,6];
+  const verticalLeftTileIds=[11,10];
 
   //Needed to rerender after values changed in handleTilePress function
   useEffect(() => {
@@ -117,8 +118,45 @@ export function Grid({
         </View>
         <View style={s.verticalDominoContainer}>
           <View style={s.verticalDominoContainerLeft}>
-            <V3 />
-            <V4 />
+          {verticalLeftTileIds.map((id) => (
+              <VerticalTileLeft
+                key={id}
+                tileId={id}
+                dominoRotated={dominoRotated}
+                tilePlaced={tilePlaced}
+                setTilePlaced={setTilePlaced}
+                displayDomino={displayDomino}
+                turnStart={turnStart}
+                setTurnStart={setTurnStart}
+                wordSubmitted={wordSubmitted}
+                setWordSubmitted={setWordSubmitted}
+                selectedDominoObject={selectedDominoObject}
+                setSelectedDominoObject={setSelectedDominoObject}
+                word1Success={word1Success}
+                setWord1Success={setWord1Success}
+                word2Success={word2Success}
+                setWord2Success={setWord2Success}
+                setDisplayDomino={setDisplayDomino}
+                showMakeWord={showMakeWord}
+                setShowMakeWord={setShowMakeWord}
+                dominoesInGrid={dominoesInGrid}
+                setDominoesInGrid={setDominoesInGrid}
+                dominoIdsInGrid={dominoIdsInGrid}
+                setDominoIdsInGrid={setDominoIdsInGrid}
+                numberDominoesInGrid={numberDominoesInGrid}
+                setNumberDominoesInGrid={setNumberDominoesInGrid}
+                tileFullError={tileFullError}
+                setTileFullError={setTileFullError}
+                gameStart={gameStart}
+                setGameStart={setGameStart}
+                selectedDominoObjects={selectedDominoObjects}
+                setSelectedDominoObjects={setSelectedDominoObjects}
+                wrongTileError={wrongTileError}
+                setWrongTileError={setWrongTileError}
+                gridSelectedDominoObjects={gridSelectedDominoObjects}
+                setGridSelectedDominoObjects={setGridSelectedDominoObjects}
+              />
+            ))}
           </View>
           <View>
             {verticalRightTileIds.map((id) => (
@@ -163,7 +201,7 @@ export function Grid({
           </View>
         </View>
         <View style={s.horizontalDominoContainer}>
-        {horizontalBottomIds.map((id) => (
+        {horizontalBottomTileIds.map((id) => (
               <HorizontalTileBottom
                 key={id}
                 tileId={id}

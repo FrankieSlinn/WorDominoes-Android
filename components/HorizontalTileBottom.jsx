@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { s } from "../App.style.js";
 import { dominoImageMappings } from "../utils/dominoImageMappings.js";
 import { handleTilePress } from "../utils/handleTilePress.js";
+import { allocateDominoes } from "../utils/allocateDominoes.js";
 
 export function HorizontalTileBottom({
     tileId, 
@@ -15,7 +16,7 @@ export function HorizontalTileBottom({
     dominoIdsInGrid, setDominoIdsInGrid,
     numberDominoesInGrid, setNumberDominoesInGrid, tileFullError, setTileFullError,
     gameStart, setGameStart, gridSelectedDominoObjects, setGridSelectedDominoObjects, 
-    wrongTileError, setWrongTileError
+    wrongTileError, setWrongTileError, dominoesInHand, setDominoesInHand
 }) {
     //Only applies to this tile
     const [tilePlacedState, setTilePlacedState] = useState(false);
@@ -23,17 +24,26 @@ export function HorizontalTileBottom({
     const [tileRotatedState, setTileRotatedState] = useState(false);
     const[wrongTileErrorInSpecificTile, setWrongTileErrorInSpecificTile] = useState(false);
     console.log("electedDominoObject", selectedDominoObject);
+    console.log("dominoesInHand in tile", dominoesInHand)
 
 
 
 
     useEffect(() => {
-        console.log(`dominoRotated in Tile ${tileId} useEffect`, dominoRotated);
-        console.log("tileplaced state in domino rotation prevention in tile", tilePlacedState)
+  
         if (!tilePlacedState) {
             setTileRotatedState(dominoRotated);
         }
     }, [dominoRotated]);
+
+    // useEffect(() => {
+    //     if(tilePlacedState ){
+    //         if (tilePlacedState===true){
+
+    //             console.log("!!!!!!running function to allocate dominoes")
+    //             allocateDominoes()}
+    //     }
+    // }, [tilePlacedState]);
 
 
     return (
@@ -66,8 +76,13 @@ export function HorizontalTileBottom({
                         setWrongTileErrorInSpecificTile,
                         tilePlacedState,
                         setTilePlacedState,
-                        dominoRotated
+                        dominoRotated, 
+                        dominoesInHand, 
+                        setDominoesInHand
+                      
                     );
+
+      
 
               
                 }}

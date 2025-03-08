@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { s } from "../App.style.js";
 import { dominoImageMappings } from "../utils/dominoImageMappings.js";
 import { handleTilePress } from "../utils/handleTilePress.js";
+import { allocateDominoes } from "../utils/allocateDominoes.js";
 
 export function VerticalTileRight({
   tileId,
@@ -38,6 +39,8 @@ export function VerticalTileRight({
 
   wrongTileError,
   setWrongTileError,
+  dominoesInHand, 
+  setDominoesInHand
 }) {
   //Only applies to this tile
   const [tilePlacedState, setTilePlacedState] = useState(false);
@@ -90,7 +93,10 @@ export function VerticalTileRight({
             setWrongTileErrorInSpecificTile,
             tilePlacedState,
             setTilePlacedState,
-            dominoRotated
+            dominoRotated,
+            dominoesInHand,
+            setDominoesInHand,
+            allocateDominoes
           );
         }}
       >

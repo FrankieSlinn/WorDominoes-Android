@@ -44,11 +44,15 @@ export function Grid({
   setRightVerticalTilesInGrid,
   selectedDominoObjects,
   setSelectedDominoObjects,
+  dominoesInHand, 
+  setDominoesInHand
 }) {
   const horizontalTopTileIds = [0, 1, 2, 3];
   const verticalRightTileIds = [4, 5];
   const horizontalBottomTileIds=[9,8,7,6];
   const verticalLeftTileIds=[11,10];
+
+  console.log("dominoesInHand in grid", dominoesInHand)
 
   //Needed to rerender after values changed in handleTilePress function
   useEffect(() => {
@@ -113,6 +117,8 @@ export function Grid({
               setSelectedDominoObjects={setSelectedDominoObjects}
               wrongTileError={wrongTileError}
               setWrongTileError={setWrongTileError}
+              dominoesInHand={dominoesInHand}
+              setDominoesInHand={setDominoesInHand}
             />
           ))}
         </View>
@@ -155,6 +161,8 @@ export function Grid({
                 setWrongTileError={setWrongTileError}
                 gridSelectedDominoObjects={gridSelectedDominoObjects}
                 setGridSelectedDominoObjects={setGridSelectedDominoObjects}
+                dominoesInHand={dominoesInHand}
+                setDominoesInHand={setDominoesInHand}
               />
             ))}
           </View>
@@ -196,6 +204,8 @@ export function Grid({
                 setWrongTileError={setWrongTileError}
                 gridSelectedDominoObjects={gridSelectedDominoObjects}
                 setGridSelectedDominoObjects={setGridSelectedDominoObjects}
+                dominoesInHand={dominoesInHand}
+                setDominoesInHand={setDominoesInHand}
               />
             ))}
           </View>
@@ -238,6 +248,8 @@ export function Grid({
                 setWrongTileError={setWrongTileError}
                 gridSelectedDominoObjects={gridSelectedDominoObjects}
                 setGridSelectedDominoObjects={setGridSelectedDominoObjects}
+                dominoesInHand={dominoesInHand}
+                setDominoesInHand={setDominoesInHand}
               />
             ))}
         </View>

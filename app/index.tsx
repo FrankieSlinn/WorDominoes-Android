@@ -29,7 +29,7 @@ export default function Index() {
   const[numberDominoesInGrid, setNumberDominoesInGrid]=useState(0);
   const[tileFullError, setTileFullError]=useState(false);
   const[wrongTileError, setWrongTileError]=useState(false);
-
+  const[dominoesInHand, setDominoesInHand]=useState([]);
   console.log("showMakeWord in index", showMakeWord)
   console.log("word2Success in index", word2Success)
   return (
@@ -101,6 +101,8 @@ export default function Index() {
         
           wrongTileError={wrongTileError}
           setWrongTileError={setWrongTileError}
+          dominoesInHand={dominoesInHand}
+          setDominoesInHand={setDominoesInHand}
           
           />
         </View>
@@ -127,6 +129,8 @@ export default function Index() {
           setWord1Success={setWord1Success}
           word2Success={word2Success}
           setWord2Success={setWord2Success}
+          dominoesInHand={dominoesInHand}
+          setDominoesInHand={setDominoesInHand}
         />
         {word1Success === false ? (
           <View style={s.instructionTextBelow}>

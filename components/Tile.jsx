@@ -3,45 +3,39 @@ import { useEffect, useState } from "react";
 import { s } from "../App.style.js";
 import { dominoImageMappings } from "../utils/dominoImageMappings.js";
 import { handleTilePress } from "../utils/handleTilePress.js";
-import { allocateDominoes } from "../utils/allocateDominoes.js";
 
-export function HorizontalTileTop({
+export function Tile({
     tileId, 
-    dominoRotated, tilePlaced, setTilePlaced, displayDomino, turnStart, setTurnStart,
-    wordSubmitted, setWordSubmitted, selectedDominoObject, setSelectedDominoObject,
-    word1Success, setWord1Success, word2Success, setWord2Success, setDisplayDomino,
+    dominoRotated, tilePlaced, setTilePlaced, displayDomino,  setTurnStart,
+  setWordSubmitted, selectedDominoObject, setSelectedDominoObject,
+   setWord1Success, word2Success, setWord2Success, setDisplayDomino,
     showMakeWord, setShowMakeWord, dominoesInGrid, setDominoesInGrid,
-    selectedDominoObjects, setSelectedDominoObjects, 
-
     dominoIdsInGrid, setDominoIdsInGrid,
     numberDominoesInGrid, setNumberDominoesInGrid, tileFullError, setTileFullError,
     gameStart, setGameStart, gridSelectedDominoObjects, setGridSelectedDominoObjects, 
     wrongTileError, setWrongTileError, dominoesInHand, setDominoesInHand
-}) {
-    //Only applies to this tile
-    const [tilePlacedState, setTilePlacedState] = useState(false);
-    //Only applies to this tile
-    const [tileRotatedState, setTileRotatedState] = useState(false);
-    const[wrongTileErrorInSpecificTile, setWrongTileErrorInSpecificTile] = useState(false);
-    console.log("electedDominoObject", selectedDominoObject);
-    console.log("gridSelectedDominoObjects[tileId -1]", gridSelectedDominoObjects[tileId - 1]);
-    console.log("wrongTileError generic", wrongTileError)
-
-
+}){
+        //Only applies to this tile
+        const [tilePlacedState, setTilePlacedState] = useState(false);
+        //Only applies to this tile
+        const [tileRotatedState, setTileRotatedState] = useState(false);
+        const[wrongTileErrorInSpecificTile, setWrongTileErrorInSpecificTile] = useState(false);
+        console.log("electedDominoObject", selectedDominoObject);
+        console.log("dominoesInHand in tile", dominoesInHand)
 
     useEffect(() => {
-        console.log(`dominoRotated in Tile ${tileId} useEffect`, dominoRotated);
-        console.log("tileplaced state in domino rotation prevention in tile", tilePlacedState)
+  
         if (!tilePlacedState) {
             setTileRotatedState(dominoRotated);
         }
     }, [dominoRotated]);
+    
 
-
-    return (
-        <View>
+    return(
+<>
+<View>
             <TouchableOpacity
-                style={[s.horizontalDomino, s.domino]}
+                style={[(tileId >= 0 && tileId <= 3) || (tileId >= 6 && tileId <= 9) ?s.horizontalDomino: s.verticalDomino, s.domino]}
                 onPress={() => {
                     handleTilePress(
                         word2Success,
@@ -68,16 +62,15 @@ export function HorizontalTileTop({
                         setWrongTileErrorInSpecificTile,
                         tilePlacedState,
                         setTilePlacedState,
-                        dominoRotated,
+                        dominoRotated, 
                         dominoesInHand, 
-                        setDominoesInHand,
-                        allocateDominoes
+                        setDominoesInHand
+                      
                     );
-
-              
+      
                 }}
-            >
-                {
+                >
+                    {
                     wrongTileErrorInSpecificTile?
               null
                  
@@ -85,17 +78,30 @@ export function HorizontalTileTop({
                 :!tileRotatedState ? (
                     <Image
                         source={dominoImageMappings[dominoIdsInGrid[tileId]]}
-                        style={[s.selectedTile, s.selectedTileHorizontal, s.selectedTileUnrotated]}
+                        style={[s.selectedTile, (tileId >= 0 && tileId <= 3) || (tileId >= 6 && tileId <= 9) ?s.selectedTileHorizontal: s.selectedTileVertical,
+                            (tileId >= 0 && tileId <= 3) || (tileId >= 6 && tileId <= 9) ? s.selectedHorizontalTileUnrotated:null
+                        ]}
                         resizeMode="cover"
                     />
                 ) : (
                     <Image
                         source={dominoImageMappings[dominoIdsInGrid[tileId]]}
-                        style={[s.selectedTile, s.selectedTileHorizontal, s.selectedHorizontalTileRotated]}
+                        style={[s.selectedTile, (tileId >= 0 && tileId <= 3) || (tileId >= 6 && tileId <= 9) ?s.selectedTileHorizontal: s.selectedTileVertical,s.selectedHorizontalTileRotated]}
                         resizeMode="cover"
                     />
                 )}
-            </TouchableOpacity>
-        </View>
-    );
+
+
+
+</TouchableOpacity>
+</View>
+</>
+
+    )
+
+
+
+
+
+
 }

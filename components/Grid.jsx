@@ -1,11 +1,11 @@
 import { Text, View } from "react-native";
 import { useState, useEffect } from "react";
-import { HorizontalTileTop } from "./HorizontalTileTop";
-import {HorizontalTileBottom} from "./HorizontalTileBottom";
-import { V3 } from "./V3";
-import { V4 } from "./V4";
-import { VerticalTileRight } from "./VerticalTileRight";
-import {VerticalTileLeft } from "./VerticalTileLeft";
+import {Tile} from "./Tile";
+// import { HorizontalTileTop } from "./HorizontalTileTop";
+// import {HorizontalTileBottom} from "./HorizontalTileBottom";
+
+// import { VerticalTileRight } from "./VerticalTileRight";
+// import {VerticalTileLeft } from "./VerticalTileLeft";
 import { s } from "../App.style";
 
 export function Grid({
@@ -81,7 +81,7 @@ export function Grid({
       <View style={s.grid}>
         <View style={s.horizontalDominoContainer}>
           {horizontalTopTileIds.map((id) => (
-            <HorizontalTileTop
+            <Tile
               key={id}
               tileId={id}
               dominoRotated={dominoRotated}
@@ -125,7 +125,7 @@ export function Grid({
         <View style={s.verticalDominoContainer}>
           <View style={s.verticalDominoContainerLeft}>
           {verticalLeftTileIds.map((id) => (
-              <VerticalTileLeft
+              <Tile
                 key={id}
                 tileId={id}
                 dominoRotated={dominoRotated}
@@ -168,7 +168,7 @@ export function Grid({
           </View>
           <View>
             {verticalRightTileIds.map((id) => (
-              <VerticalTileRight
+              <Tile
                 key={id}
                 tileId={id}
                 dominoRotated={dominoRotated}
@@ -212,7 +212,7 @@ export function Grid({
         </View>
         <View style={s.horizontalDominoContainer}>
         {horizontalBottomTileIds.map((id) => (
-              <HorizontalTileBottom
+              <Tile
                 key={id}
                 tileId={id}
                 dominoRotated={dominoRotated}

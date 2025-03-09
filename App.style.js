@@ -84,15 +84,17 @@ export const s = StyleSheet.create({
     width: 26,
     height: 52,
   },
-  selectedTileorizontal:{
+selectedTileHorizontal:{
     width: 26,
     height: 52,
+    color: "green",
 
   },
-  selectedTileVertical:{
+selectedTileVertical:{
     width: 26,
     height: 52,
     transform: [{ rotate: "deg" }],
+    color: "pink"
   },
 
   selectedHorizontalTileRotated: {
@@ -102,7 +104,7 @@ export const s = StyleSheet.create({
     transform: [{ rotate: "180deg" }],
 
   },
-  selectedTileUnrotated: {
+  selectedHorizontalTileUnrotated: {
     transform: [{ rotate: "270deg" }],
   },
 

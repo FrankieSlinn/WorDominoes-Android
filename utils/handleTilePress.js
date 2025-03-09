@@ -34,6 +34,7 @@ function handleTilePress(
   console.log("word2Success", word2Success, "tilePlacedState", tilePlacedState);
   console.log("tilePlaced", tilePlaced);
   console.log("dominoes in hand in tilePress", dominoesInHand)
+  console.log("selectedDominoObject in handleTilePress", selectedDominoObject);
 
   //With tiles as objects simpler to update in function
   let tileData = { leftNeighbor: null, rightNeighbor: null, currentTile: null };

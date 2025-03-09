@@ -36,14 +36,7 @@ export function HorizontalTileBottom({
         }
     }, [dominoRotated]);
 
-    // useEffect(() => {
-    //     if(tilePlacedState ){
-    //         if (tilePlacedState===true){
 
-    //             console.log("!!!!!!running function to allocate dominoes")
-    //             allocateDominoes()}
-    //     }
-    // }, [tilePlacedState]);
 
 
     return (

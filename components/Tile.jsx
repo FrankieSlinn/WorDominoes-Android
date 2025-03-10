@@ -86,7 +86,10 @@ export function Tile({
                 ) : (
                     <Image
                         source={dominoImageMappings[dominoIdsInGrid[tileId]]}
-                        style={[s.selectedTile, (tileId >= 0 && tileId <= 3) || (tileId >= 6 && tileId <= 9) ?s.selectedTileHorizontal: s.selectedTileVertical,s.selectedHorizontalTileRotated]}
+                        style={[s.selectedTile, (tileId >= 0 && tileId <= 3) || (tileId >= 6 && tileId <= 9) ?s.selectedTileHorizontal: s.selectedTileVertical,
+                            (tileId >= 0 && tileId <= 3) || (tileId >= 6 && tileId <= 9)?s.selectedHorizontalTileRotated:s.selectedVerticalTileRotated
+                        
+                        ]}
                         resizeMode="cover"
                     />
                 )}

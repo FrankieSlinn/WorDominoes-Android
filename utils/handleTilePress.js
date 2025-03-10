@@ -29,11 +29,11 @@ function handleTilePress(
   dominoesInHand,
   setDominoesInHand
 ) {
-  console.log("tile pressed!!!");
+  console.log("tile pressed!!! for tileId:", tileId);
 
   console.log("word2Success", word2Success, "tilePlacedState", tilePlacedState);
   console.log("tilePlaced", tilePlaced);
-  console.log("dominoes in hand in tilePress", dominoesInHand)
+  console.log("dominoes in hand in tilePress", dominoesInHand);
   console.log("selectedDominoObject in handleTilePress", selectedDominoObject);
 
   //With tiles as objects simpler to update in function
@@ -127,7 +127,21 @@ function handleTilePress(
     }
 
     //Check as after 6 tileIds in reverse order
-    if (tileId < 6) {
+    if (tileId === 0) {
+      if (gridSelectedDominoObjects[11]) {
+        tileData.leftNeighbor =
+          gridSelectedDominoObjects[11] === "empty"
+            ? "empty"
+            : gridSelectedDominoObjects[11].toString()[1];
+      }
+      if (gridSelectedDominoObjects[tileId + 1]) {
+        tileData.rightNeighbor =
+          gridSelectedDominoObjects[tileId + 1] === "empty"
+            ? "empty"
+            : gridSelectedDominoObjects[tileId + 1].toString()[0];
+      }
+    }
+    if (tileId > 0 && tileId < 6) {
       if (gridSelectedDominoObjects[tileId - 1]) {
         tileData.leftNeighbor =
           gridSelectedDominoObjects[tileId - 1] === "empty"
@@ -179,7 +193,7 @@ function handleTilePress(
 
     //left and right neighbours swapped as order different.
     //right neighbour in sense of array so itile is actually to left
-    if (tileId > 6) {
+    if (tileId > 6 < 11) {
       //actual tile to right
       if (gridSelectedDominoObjects[tileId + 1]) {
         tileData.leftNeighbor =
@@ -194,6 +208,23 @@ function handleTilePress(
           gridSelectedDominoObjects[tileId - 1] === "empty"
             ? "empty"
             : gridSelectedDominoObjects[tileId - 1].toString()[1];
+      }
+    }
+    if (tileId === 11) {
+      //actual tile to right
+      if (gridSelectedDominoObjects[tileId + 1]) {
+        tileData.leftNeighbor =
+          gridSelectedDominoObjects[tileId + 1] === "empty"
+            ? "empty"
+            : gridSelectedDominoObjects[tileId + 1].toString()[0];
+      }
+      if (gridSelectedDominoObjects[0]) {
+        if (gridSelectedDominoObjects[0]) {
+          tileData.leftNeighbor =
+            gridSelectedDominoObjects[0] === "empty"
+              ? "empty"
+              : gridSelectedDominoObjects[0].toString()[0];
+        }
       }
     }
 
@@ -462,23 +493,20 @@ function handleTilePress(
     let dominoesInHandCopy = [...dominoesInHand];
 
     let index = dominoesInHandCopy.indexOf(selectedDominoObject);
-    console.log("INDEX", index)
-    
+    console.log("INDEX", index);
+
     if (index !== -1) {
       dominoesInHandCopy.splice(index, 1); // ✅ Removes only selectedDominoObject
     }
-    
+
     console.log("dominoesInHand before shortened", dominoesInHand);
-    
+
     setDominoesInHand(dominoesInHandCopy); // ✅ Updates state with the correct array
-    
 
-      console.log("DOMINOES IN HAND AFTER shortened", dominoesInHand);
-
-
+    console.log("DOMINOES IN HAND AFTER shortened", dominoesInHand);
 
     setSelectedDominoObject(null);
-   allocateDominoes(dominoesInHandCopy, setDominoesInHand);
+    allocateDominoes(dominoesInHandCopy, setDominoesInHand);
     setTilePlaced(true);
     //For individual tile
     setTilePlacedState(true);

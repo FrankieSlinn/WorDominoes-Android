@@ -100,7 +100,7 @@ selectedTileVertical:{
   selectedHorizontalTileRotated: {
     transform: [{ rotate: "90deg" }],
   },
-  selectedTileVerticalRotated:{
+  selectedVerticalTileRotated:{
     transform: [{ rotate: "180deg" }],
 
   },

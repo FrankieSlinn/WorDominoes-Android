@@ -6,10 +6,10 @@ const dictionary = ["is", "be", "was", "look", "dose", "door"];
 
 
 function validateWord(validationInformation, letterString, wordLength, wordNumber, setWord1Success, setWord2Success, setTilePlaced, setValidationError) {
-  console.log("validationINformation", validationInformation);
-  console.log("wordNumber, wordNumber")
+  // console.log("validationINformation", validationInformation);
+  // console.log("wordNumber, wordNumber")
 
-  console.log("letterstringlength", letterString.length);
+  // console.log("letterstringlength", letterString.length);
 
 
   if (
@@ -23,6 +23,8 @@ function validateWord(validationInformation, letterString, wordLength, wordNumbe
     console.log("word is validated in validatewd function");
     if(wordNumber===1)
     {setWord1Success(true);
+      //to ensure display domino doesn't disappear
+      setTilePlaced(false);
    
     console.log("word1Successful in validate word function")}
     else if(wordNumber===2)

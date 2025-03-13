@@ -1,11 +1,14 @@
 import { Text, View, ScrollView } from "react-native";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { s } from "../App.style.js";
 import { Header } from "../components/Header";
 import { Grid } from "../components/Grid";
 import { HandDominoes } from "../components/HandDominoes.jsx";
 import { DisplayDomino } from "../components/DisplayDomino.jsx";
 import { MakeWords } from "../components/MakeWords.jsx";
+import { TextAbove} from "../components/TextAbove.jsx";
+import { ChooseDominoText} from "../components/ChooseDominoText.jsx";
+import {HelpText} from "../components/HelpText.jsx";
 
 
 export default function Index() {
@@ -30,38 +33,29 @@ export default function Index() {
   const[tileFullError, setTileFullError]=useState(false);
   const[wrongTileError, setWrongTileError]=useState(false);
   const[dominoesInHand, setDominoesInHand]=useState([]);
+  const[showHelpText, setShowHelpText]=useState(false);
+  const[showStats, setShowStats]=useState(false);
   console.log("showMakeWord in index", showMakeWord)
   console.log("word2Success in index", word2Success)
   return (
+
+
     <View>
       <View style={s.headerContainer}>
-        <Header />
+        <Header 
+        showHelpText = {showHelpText}
+        setShowHelpText = {setShowHelpText}
+        />
       </View>
+      {showHelpText===false && showStats===false?
       <ScrollView style={s.body}>
-        <View style={s.instructionBox}>
-          {tileFullError===false&&wrongTileError===false&&tilePlaced===false?
-          <Text style={s.instructionText}>
-            Fill the grid with dominoes to achieve Word Domination.
-          </Text>
-          :!tileFullError===true&&!wrongTileError===true&&tilePlaced===true?
-          <Text style={s.instructionText}>
-          Congratulations, you placed a tile!!!
-        </Text>
-        :wrongTileError===true?
-        <Text style={s.instructionText}>
-        The tile does not have the same amount of dots as the tile next to it. Try somewhere else.
-      </Text>
-      :
-      tileFullError===true?
+        <TextAbove
+        wrongTileError={wrongTileError}
+        tileFullError={tileFullError}
+        tilePlaced={tilePlaced}
+        
+        />
 
-        <Text style={s.instructionText}>
-        This space is already taken. Try somewhere else.
-      </Text>
-      :null
-
-}
-
-        </View>
         <View style={s.gridContainer}>
           <Grid 
           word2Success={word2Success}
@@ -132,15 +126,14 @@ export default function Index() {
           dominoesInHand={dominoesInHand}
           setDominoesInHand={setDominoesInHand}
         />
-        {word1Success === false ? (
-          <View style={s.instructionTextBelow}>
-            <Text style={s.instructionText}>
-              Choose a domino above. You'll create 2 words for this tile: the
-              word length is the number of dots on its side of the domino.
-            </Text>
-          </View>
-        ) : null}
+
+        <ChooseDominoText
+        word1Success={word1Success}
+        />
+       
+        { tilePlaced === false ?
         <View style={s.displayDominoContainer}>
+          
           <DisplayDomino
             displayDomino={displayDomino}
             setDisplayDomino={setDisplayDomino}
@@ -159,7 +152,8 @@ export default function Index() {
             dominoesInGrid={dominoesInGrid}
             setDominoesInGrid={setDominoesInGrid}
           />
-          <View></View>
+         </View>
+         :null}
           <View>
             {showMakeWord === true && word2Success === false ? (
               <MakeWords
@@ -187,6 +181,7 @@ export default function Index() {
           <View>
             {word2Success === true ? (
               <Text style={s.instructionText}>
+                {"\n"}
                 Congratulations, you won a tile!{"\n"}
                 {"\n"}
                 Click on a space in the domino grid on the top to place your
@@ -198,8 +193,17 @@ export default function Index() {
               </Text>
             ) : null}
           </View>
-        </View>
+    
       </ScrollView>
+      :showStats===false?
+      <HelpText
+      showHelpText={showHelpText}
+      setShowHelpText={setShowHelpText}
+      
+      />:
+      null
+          }
+      
     </View>
-  );
+  )
 }

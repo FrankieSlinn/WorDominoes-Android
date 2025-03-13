@@ -14,8 +14,6 @@ export const s = StyleSheet.create({
     marginTop: 55,
   },
   body: {
-    // marginTop: -50,
-    // flex: 1,
     paddingTop: 15,
     paddingLeft: 15,
     paddingRight: 15,
@@ -50,6 +48,63 @@ export const s = StyleSheet.create({
     alignItems: "baseline",
     marginTop: 10,
   },
+
+  popupHeadingContainer: {
+    // flex: 1,
+    // flexDirection: "column",
+    // justifyContent: "space-around",
+    alignItems: "center",
+    marginTop: 30,
+    marginBottom: -50,
+  
+    
+    // textAlign: "center",
+
+  },
+
+  popupTop:{
+  //  marginBottom: -2,
+
+  },
+  closeButtonContainer: {
+    marginTop: 30,
+    marginRight: 25,
+    marginBottom: -50,
+    flexDirection: "row",
+    justifyContent: "flex-end", // Aligns the button to the right
+  },
+  closeButton: {
+    padding: 8,
+    backgroundColor: "#ADD8E6", // Light blue color
+    borderRadius: 15,
+  },
+  close:{
+    fontWeight: "bold",
+  },
+  popupHeading: {
+    fontWeight: "bold",
+    alignItems: "center",
+    flexDirection:"row",
+    fontSize: 22,
+    marginBottom: -8,
+   
+
+  },
+  helpTextContainer:{
+    top: 40,
+margin: 32,
+
+
+
+  },
+
+  helpText:{
+    marginTop: -20,
+    fontSize:17,
+
+    textAlign: "center",
+  },
+  
   instructionBox: {
     margin: 20,
     // backgroundColor: "yellow",
@@ -59,7 +114,6 @@ export const s = StyleSheet.create({
     fontSize: 17,
     textAlign: "center",
     fontWeight: "bold",
-
   },
   errorMessageText: {
     backgroundColor: "lightorange",
@@ -78,31 +132,28 @@ export const s = StyleSheet.create({
     borderRadius: 10,
   },
   selectedTile: {
-
     resizeMode: "stretch",
     borderRadius: 10,
     width: 26,
     height: 52,
   },
-selectedTileHorizontal:{
+  selectedTileHorizontal: {
     width: 26,
     height: 52,
     color: "green",
-
   },
-selectedTileVertical:{
+  selectedTileVertical: {
     width: 26,
     height: 52,
     transform: [{ rotate: "deg" }],
-    color: "pink"
+    color: "pink",
   },
 
   selectedHorizontalTileRotated: {
     transform: [{ rotate: "90deg" }],
   },
-  selectedVerticalTileRotated:{
+  selectedVerticalTileRotated: {
     transform: [{ rotate: "180deg" }],
-
   },
   selectedHorizontalTileUnrotated: {
     transform: [{ rotate: "270deg" }],
@@ -131,7 +182,7 @@ selectedTileVertical:{
     justifyContent: "space-between",
   },
   verticalDominoContainerRight: {
-  //  flexDirection: "column",
+    //  flexDirection: "column",
     // justifyContent: "space-between",
   },
   handDominoContainer: {
@@ -149,10 +200,11 @@ selectedTileVertical:{
     margin: 5,
   },
   instructionTextBelow: {
-    marginTop: 30,
+    marginTop: 20,
   },
   displayDominoContainer: {
     // height: 80,
+    marginTop: 0,
 
     alignItems: "center",
   },

@@ -19,6 +19,9 @@ export const s = StyleSheet.create({
     paddingRight: 15,
     textAlign: "center",
   },
+  bold:{
+    fontWeight: "bold", 
+  },
   logo: {
     fontSize: 35,
     fontWeight: "bold",
@@ -49,27 +52,27 @@ export const s = StyleSheet.create({
     marginTop: 10,
   },
 
-  popupHeadingContainer: {
-    // flex: 1,
-    // flexDirection: "column",
-    // justifyContent: "space-around",
-    alignItems: "center",
-    marginTop: 30,
-    marginBottom: -50,
+  // popupHeadingContainer: {
+  //   // flex: 1,
+  //   // flexDirection: "column",
+  //   // justifyContent: "space-around",
+  //   alignItems: "center",
+  //   marginTop: 30,
+  //   marginBottom: -50,
   
     
-    // textAlign: "center",
+  //   // textAlign: "center",
 
-  },
+  // },
 
-  popupTop:{
-  //  marginBottom: -2,
+  // popupTop:{
+  // //  marginBottom: -2,
 
-  },
+  // },
   closeButtonContainer: {
     marginTop: 30,
     marginRight: 25,
-    marginBottom: -50,
+    marginBottom: -35,
     flexDirection: "row",
     justifyContent: "flex-end", // Aligns the button to the right
   },
@@ -91,7 +94,7 @@ export const s = StyleSheet.create({
 
   },
   helpTextContainer:{
-    top: 40,
+    top: 10,
 margin: 32,
 
 

@@ -9,8 +9,7 @@ import { MakeWords } from "../components/MakeWords.jsx";
 import { TextAbove} from "../components/TextAbove.jsx";
 import { ChooseDominoText} from "../components/ChooseDominoText.jsx";
 import {HelpText} from "../components/HelpText.jsx";
-
-
+import {StatsContent} from "../components/StatsContent.jsx";
 export default function Index() {
   const [gameStart, setGameStart] = useState(true);
   const [turnStart, setTurnStart] = useState(true);
@@ -45,6 +44,8 @@ export default function Index() {
         <Header 
         showHelpText = {showHelpText}
         setShowHelpText = {setShowHelpText}
+        showStats={showStats}
+        setShowStats={setShowStats}
         />
       </View>
       {showHelpText===false && showStats===false?
@@ -200,8 +201,12 @@ export default function Index() {
       showHelpText={showHelpText}
       setShowHelpText={setShowHelpText}
       
-      />:
-      null
+      />
+      :<StatsContent
+      showStats={showStats}
+      setShowStats={setShowStats}
+      />
+
           }
       
     </View>

@@ -3,6 +3,7 @@ import {
   tileData,
   getNeighborsAndCurrentTile,
 } from "./getNeighborsAndCurrentTile";
+import { handleTileFits } from "./handleTileFits";
 
 function handleTilePress(
   word2Success,
@@ -33,7 +34,9 @@ function handleTilePress(
   setTilePlacedState,
   dominoRotated,
   dominoesInHand,
-  setDominoesInHand
+  setDominoesInHand,
+  gamesArray,
+  setGamesArray
 ) {
   console.log("tile pressed!!! for tileId:", tileId);
   console.log("word2Success", word2Success, "tilePlacedState", tilePlacedState);
@@ -86,7 +89,9 @@ function handleTilePress(
       setTurnStart,
       setGameStart,
       dominoesInHand,
-      setDominoesInHand
+      setDominoesInHand,
+      gamesArray,
+      setGamesArray
     );
   }
 
@@ -120,7 +125,9 @@ function handleTilePress(
     setTurnStart,
     setGameStart,
     dominoesInHand,
-    setDominoesInHand
+    setDominoesInHand,
+    gamesArray,
+    setGamesArray
   ) {
     console.log("checking if domino doesn't fit");
 
@@ -223,7 +230,9 @@ function handleTilePress(
     setShowMakeWord,
     setGameStart,
     dominoesInHand,
-    setDominoesInHand
+    setDominoesInHand,
+    gamesArray,
+    setGamesArray
   ) {
     console.log("checking if tile already placed");
     console.log(
@@ -254,6 +263,7 @@ function handleTilePress(
         setSelectedDominoObject,
         dominoSelected,
         setDominoSelected,
+        gridSelectedDominoObjects,
         setGridSelectedDominoObjects,
         dominoRotated,
         setTilePlaced,
@@ -264,106 +274,14 @@ function handleTilePress(
         setShowMakeWord,
         setGameStart,
         dominoesInHand,
-        setDominoesInHand
+        setDominoesInHand,
+        gamesArray,
+        setGamesArray
       );
     }
-  }
-
-  function handleTileFits(
-    tileId,
-    wrongTileErrorInSpecificTile,
-    tileFullError,
-    displayDomino,
-    dominoIdsInGrid,
-    setDominoIdsInGrid,
-    selectedDominoObject,
-    setSelectedDominoObject,
-    dominoSelected,
-    setDominoSelected,
-    setGridSelectedDominoObjects,
-    dominoRotated,
-    setTilePlaced,
-    setTilePlacedState,
-    setTurnStart,
-    setWordSubmitted,
-    setDisplayDomino,
-    setShowMakeWord,
-    setGameStart,
-    dominoesInHand,
-    setDominoesInHand
-  ) {
-    let selectedDominoObjectString =
-      Object.values(selectedDominoObject).join("");
-    let reverseSelectedDominoObject =
-      selectedDominoObjectString[1] + selectedDominoObjectString[0];
-    console.log(
-      "tile good to be placed",
-      "dominoIdsInGrid empty, can add tile to it.displaydomino:",
-      displayDomino,
-      "domino rotated?",
-      dominoRotated
-    );
-    console.log(
-      "selectedDominoObject",
-      selectedDominoObject,
-      "reverseSelectedDomino Object",
-      reverseSelectedDominoObject
-    );
-
-    setDominoIdsInGrid((prevDominos) =>
-      prevDominos.map((domino, index) =>
-        index === tileId ? Object.keys(selectedDominoObject).toString() : domino
-      )
-    );
-
-    if (tileId < 6) {
-      // Adds number of dots to the array
-      setGridSelectedDominoObjects((prevDominos) =>
-        prevDominos.map((domino, index) =>
-          index === tileId
-            ? Object.values(selectedDominoObject).join("") // Converts to string correctly
-            : domino
-        )
-      );
-    } else {
-      setGridSelectedDominoObjects((prevDominos) =>
-        prevDominos.map((domino, index) =>
-          index === tileId ? reverseSelectedDominoObject : domino
-        )
-      );
-    }
-    console.log("dominoes in grid", dominoIdsInGrid);
-    console.log(
-      "gridSelectedDominoObjects after set in tile pressed",
-      gridSelectedDominoObjects
-    );
-    let dominoesInHandCopy = [...dominoesInHand];
-
-    let index = dominoesInHandCopy.indexOf(selectedDominoObject);
-    console.log("INDEX", index);
-
-    if (index !== -1) {
-      dominoesInHandCopy.splice(index, 1); // ✅ Removes only selectedDominoObject
-    }
-
-    console.log("dominoesInHand before shortened", dominoesInHand);
-
-    setDominoesInHand(dominoesInHandCopy); // ✅ Updates state with the correct array
-
-    console.log("DOMINOES IN HAND AFTER shortened", dominoesInHand);
-
-    setSelectedDominoObject(null);
-    allocateDominoes(dominoesInHandCopy, setDominoesInHand);
-    setTilePlaced(true);
-    //For individual tile
-    setTilePlacedState(true);
-    setTurnStart(true);
-    setWordSubmitted(false);
-    setDisplayDomino("");
-    setShowMakeWord(false);
-    setGameStart(true);
-    setDominoSelected(false);
   }
 }
 
-export { handleTilePress };
+ 
+
+export { handleTilePress }

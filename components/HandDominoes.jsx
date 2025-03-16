@@ -1,15 +1,16 @@
 import { View, Image, TouchableOpacity} from "react-native";
 import {useState, useEffect} from "react";
 
+
 import { allocateDominoes } from "../utils/allocateDominoes.js";
 import {dominoImageMappings} from "../utils/dominoImageMappings.js";
 import { s } from "../App.style.js";
 
 
 export function HandDominoes({ turnStart, setTurnStart, displayDomino, setDisplayDomino, wordSubmitted, setWordSubmitted,
-  showMakeWord, setShowMakeWord, selectedDominoObject, setSelectedDominoObject, 
+  showMakeWord, setShowMakeWord, selectedDominoObject, setSelectedDominoObject, dominoSelected, setDominoSelected,
  setDominoRotated, word1Success, setWord1Success,
-  word2Success, setWord2Success, dominoesInHand, setDominoesInHand
+  word2Success, setWord2Success, dominoesInHand, setDominoesInHand, tilePlaced, setTilePlaced
 }) {
 
   useEffect(() => {
@@ -35,6 +36,8 @@ export function HandDominoes({ turnStart, setTurnStart, displayDomino, setDispla
     setDominoRotated(false)
     setWord1Success(false);
     setWord2Success(false);
+    setTilePlaced(false);
+    setDominoSelected(true);
 
   }
 

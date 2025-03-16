@@ -52,23 +52,6 @@ export const s = StyleSheet.create({
     marginTop: 10,
   },
 
-  // popupHeadingContainer: {
-  //   // flex: 1,
-  //   // flexDirection: "column",
-  //   // justifyContent: "space-around",
-  //   alignItems: "center",
-  //   marginTop: 30,
-  //   marginBottom: -50,
-  
-    
-  //   // textAlign: "center",
-
-  // },
-
-  // popupTop:{
-  // //  marginBottom: -2,
-
-  // },
   closeButtonContainer: {
     marginTop: 30,
     marginRight: 25,
@@ -78,11 +61,12 @@ export const s = StyleSheet.create({
   },
   closeButton: {
     padding: 8,
-    backgroundColor: "#ADD8E6", // Light blue color
+    backgroundColor: "#053e4c",
     borderRadius: 15,
   },
   close:{
     fontWeight: "bold",
+    color: "white",
   },
   popupHeading: {
     fontWeight: "bold",
@@ -96,9 +80,6 @@ export const s = StyleSheet.create({
   helpTextContainer:{
     top: 10,
 margin: 32,
-
-
-
   },
 
   helpText:{
@@ -210,6 +191,7 @@ margin: 32,
     marginTop: 0,
 
     alignItems: "center",
+
   },
   displayDomino: {
     height: 80,

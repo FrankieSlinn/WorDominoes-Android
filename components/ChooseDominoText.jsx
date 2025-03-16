@@ -3,12 +3,14 @@ import {useEffect, useState} from "react";
 import { s } from "../App.style";
 
 
-export function ChooseDominoText({word1Success}) {
+export function ChooseDominoText({word1Success, dominoSelected, setDominoSelected}) {
+  console.log("dominoSelected in ChooseDominoText", dominoSelected);
+  console.log("word1Success in choose dominoText", word1Success);
 
 
   return (
     <>
- {word1Success === false ? (
+ {dominoSelected===false? (
           <View style={s.instructionTextBelow}>
             <Text style={s.instructionText}>
               Choose a domino above. You'll create 2 words for this tile: the

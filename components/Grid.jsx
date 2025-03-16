@@ -1,11 +1,6 @@
 import { Text, View } from "react-native";
 import { useState, useEffect } from "react";
 import {Tile} from "./Tile";
-// import { HorizontalTileTop } from "./HorizontalTileTop";
-// import {HorizontalTileBottom} from "./HorizontalTileBottom";
-
-// import { VerticalTileRight } from "./VerticalTileRight";
-// import {VerticalTileLeft } from "./VerticalTileLeft";
 import { s } from "../App.style";
 
 export function Grid({
@@ -19,6 +14,8 @@ export function Grid({
   setWordSubmitted,
   selectedDominoObject,
   setSelectedDominoObject,
+  dominoSelected,
+  setDominoSelected,
   word1Success,
   setWord1Success,
   word2Success,
@@ -45,7 +42,9 @@ export function Grid({
   selectedDominoObjects,
   setSelectedDominoObjects,
   dominoesInHand, 
-  setDominoesInHand
+  setDominoesInHand,
+  gamesArray,
+  setGamesArray
 }) {
   const horizontalTopTileIds = [0, 1, 2, 3];
   const verticalRightTileIds = [4, 5];
@@ -94,6 +93,8 @@ export function Grid({
               setWordSubmitted={setWordSubmitted}
               selectedDominoObject={selectedDominoObject}
               setSelectedDominoObject={setSelectedDominoObject}
+              dominoSelected={dominoSelected}
+              setDominoSelected={setDominoSelected}
               word1Success={word1Success}
               setWord1Success={setWord1Success}
               word2Success={word2Success}
@@ -119,6 +120,8 @@ export function Grid({
               setWrongTileError={setWrongTileError}
               dominoesInHand={dominoesInHand}
               setDominoesInHand={setDominoesInHand}
+              gamesArray={gamesArray}
+              setGamesArray={setGamesArray}
             />
           ))}
         </View>
@@ -138,6 +141,8 @@ export function Grid({
                 setWordSubmitted={setWordSubmitted}
                 selectedDominoObject={selectedDominoObject}
                 setSelectedDominoObject={setSelectedDominoObject}
+                dominoSelected={dominoSelected}
+                setDominoSelected={setDominoSelected}
                 word1Success={word1Success}
                 setWord1Success={setWord1Success}
                 word2Success={word2Success}
@@ -181,6 +186,8 @@ export function Grid({
                 setWordSubmitted={setWordSubmitted}
                 selectedDominoObject={selectedDominoObject}
                 setSelectedDominoObject={setSelectedDominoObject}
+                dominoSelected={dominoSelected}
+                setDominoSelected={setDominoSelected}
                 word1Success={word1Success}
                 setWord1Success={setWord1Success}
                 word2Success={word2Success}
@@ -225,6 +232,8 @@ export function Grid({
                 setWordSubmitted={setWordSubmitted}
                 selectedDominoObject={selectedDominoObject}
                 setSelectedDominoObject={setSelectedDominoObject}
+                dominoSelected={dominoSelected}
+                setDominoSelected={setDominoSelected}
                 word1Success={word1Success}
                 setWord1Success={setWord1Success}
                 word2Success={word2Success}

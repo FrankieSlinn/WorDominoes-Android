@@ -19,6 +19,7 @@ export default function Index() {
   const [showMakeWord, setShowMakeWord] = useState(false);
   const [showChooseDominoText, setShowChooseDominoText] = useState(true);
   const [selectedDominoObject, setSelectedDominoObject] = useState("");
+  const [dominoSelected, setDominoSelected] = useState(false);
   const [word1Success, setWord1Success] = useState(false);
   const [word2Success, setWord2Success] = useState(false);
   const [dominoRotated, setDominoRotated] = useState(false);
@@ -34,8 +35,16 @@ export default function Index() {
   const[dominoesInHand, setDominoesInHand]=useState([]);
   const[showHelpText, setShowHelpText]=useState(false);
   const[showStats, setShowStats]=useState(false);
+  const[gamesArray, setGamesArray]=useState([]);
+
   console.log("showMakeWord in index", showMakeWord)
   console.log("word2Success in index", word2Success)
+  
+
+
+  useEffect(()=>{
+    console.log("!!!!dominoSelected in index", dominoSelected);
+  },[dominoSelected])
   return (
 
 
@@ -73,6 +82,8 @@ export default function Index() {
           setShowChooseDominoText={setShowChooseDominoText}
           selectedDominoObject={selectedDominoObject}
           setSelectedDominoObject={setSelectedDominoObject}
+          dominoSelected={dominoSelected}
+          setDominoSelected={setDominoSelected}
           word1Success={word1Success}
           setWord1Success={setWord1Success}
           word2Success={word2Success}
@@ -93,11 +104,12 @@ export default function Index() {
           setGameStart={setGameStart}
           gridSelectedDominoObjects={gridSelectedDominoObjects}
           setGridSelectedDominoObjects={setGridSelectedDominoObjects}
-        
           wrongTileError={wrongTileError}
           setWrongTileError={setWrongTileError}
           dominoesInHand={dominoesInHand}
           setDominoesInHand={setDominoesInHand}
+          gamesArray={gamesArray}
+          setGamesArray={setGamesArray}
           
           />
         </View>
@@ -112,6 +124,8 @@ export default function Index() {
           setShowMakeWord={setShowMakeWord}
           selectedDominoObject={selectedDominoObject}
           setSelectedDominoObject={setSelectedDominoObject}
+          dominoSelected={dominoSelected}
+          setDominoSelected={setDominoSelected}
           turnStart={turnStart}
           setTurnStart={setTurnStart}
           dominoRotated={dominoRotated}
@@ -126,11 +140,16 @@ export default function Index() {
           setWord2Success={setWord2Success}
           dominoesInHand={dominoesInHand}
           setDominoesInHand={setDominoesInHand}
+          tilePlaced={tilePlaced}
+          setTilePlaced={setTilePlaced}
         />
-
+       
         <ChooseDominoText
         word1Success={word1Success}
+        dominoSelected={dominoSelected}
+        setDominoSelected={setDominoSelected}
         />
+      
        
         { tilePlaced === false ?
         <View style={s.displayDominoContainer}>
@@ -180,9 +199,9 @@ export default function Index() {
             ) : null}
           </View>
           <View>
-            {word2Success === true ? (
+            {word2Success === true && tilePlaced===false?(
               <Text style={s.instructionText}>
-                {"\n"}
+        
                 Congratulations, you won a tile!{"\n"}
                 {"\n"}
                 Click on a space in the domino grid on the top to place your

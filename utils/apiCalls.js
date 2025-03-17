@@ -1,7 +1,7 @@
 import { Alert } from "react-native";
 
 //To ensure all words are included
-const dictionary = ["is", "be", "was", "look", "dose", "door"];
+const dictionary = ["is", "be", "was", "look", "dose", "door", "touch"];
 
 
 

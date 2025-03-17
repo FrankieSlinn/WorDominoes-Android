@@ -44,7 +44,11 @@ export function Grid({
   dominoesInHand, 
   setDominoesInHand,
   gamesArray,
-  setGamesArray
+  setGamesArray,
+  worDomination,
+  setWorDomination, 
+  worDominationCount,
+  setWorDominationCount
 }) {
   const horizontalTopTileIds = [0, 1, 2, 3];
   const verticalRightTileIds = [4, 5];
@@ -122,6 +126,10 @@ export function Grid({
               setDominoesInHand={setDominoesInHand}
               gamesArray={gamesArray}
               setGamesArray={setGamesArray}
+              worDomination={worDomination}
+              setWorDomination={setWorDomination}
+              worDominationCount={worDominationCount}
+              setWorDominationCount={setWorDominationCount}
             />
           ))}
         </View>
@@ -168,6 +176,8 @@ export function Grid({
                 setGridSelectedDominoObjects={setGridSelectedDominoObjects}
                 dominoesInHand={dominoesInHand}
                 setDominoesInHand={setDominoesInHand}
+                gamesArray={gamesArray}
+                setGamesArray={setGamesArray}
               />
             ))}
           </View>
@@ -213,6 +223,8 @@ export function Grid({
                 setGridSelectedDominoObjects={setGridSelectedDominoObjects}
                 dominoesInHand={dominoesInHand}
                 setDominoesInHand={setDominoesInHand}
+                gamesArray={gamesArray}
+                setGamesArray={setGamesArray}
               />
             ))}
           </View>
@@ -259,6 +271,8 @@ export function Grid({
                 setGridSelectedDominoObjects={setGridSelectedDominoObjects}
                 dominoesInHand={dominoesInHand}
                 setDominoesInHand={setDominoesInHand}
+                gamesArray={gamesArray}
+                setGamesArray={setGamesArray}
               />
             ))}
         </View>

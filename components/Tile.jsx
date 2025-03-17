@@ -39,7 +39,11 @@ export function Tile({
   dominoesInHand,
   setDominoesInHand,
   gamesArray, 
-  setGamesArray
+  setGamesArray,
+  worDomination, 
+  setWorDomination, 
+  worDominationCount,
+  setWorDominationCount
 }) {
   //Only applies to this tile
   const [tilePlacedState, setTilePlacedState] = useState(false);
@@ -96,7 +100,13 @@ export function Tile({
               setTilePlacedState,
               dominoRotated,
               dominoesInHand,
-              setDominoesInHand
+              setDominoesInHand,
+              gamesArray, 
+              setGamesArray,
+              worDomination, 
+              setWorDomination, 
+              worDominationCount,
+              setWorDominationCount
             )
             // ,
             // getStats(gamesArray, setGamesArray)

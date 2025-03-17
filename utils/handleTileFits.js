@@ -1,4 +1,5 @@
 import { allocateDominoes } from "./allocateDominoes";
+import {storeGamesArray }from"./asynchStorageUtils";
 
 function handleTileFits(
     tileId,
@@ -24,8 +25,13 @@ function handleTileFits(
     dominoesInHand,
     setDominoesInHand,
     gamesArray,
-    setGamesArray
+        setGamesArray,
+        worDomination, 
+        setWorDomination, 
+        worDominationCount,
+        setWorDominationCount
   ) {
+
     let selectedDominoObjectString =
       Object.values(selectedDominoObject).join("");
     let reverseSelectedDominoObject =
@@ -37,12 +43,7 @@ function handleTileFits(
       "domino rotated?",
       dominoRotated
     );
-    // console.log(
-    //   "selectedDominoObject",
-    //   selectedDominoObject,
-    //   "reverseSelectedDomino Object",
-    //   reverseSelectedDominoObject
-    // );
+ 
 
     setDominoIdsInGrid((prevDominos) =>
       prevDominos.map((domino, index) =>
@@ -74,18 +75,18 @@ function handleTileFits(
     let dominoesInHandCopy = [...dominoesInHand];
 
     let index = dominoesInHandCopy.indexOf(selectedDominoObject);
-    console.log("INDEX", index);
+    // console.log("INDEX", index);
 
     if (index !== -1) {
       dominoesInHandCopy.splice(index, 1); // ✅ Removes only selectedDominoObject
     }
 
-    console.log("dominoesInHand before shortened", dominoesInHand);
+    // console.log("dominoesInHand before shortened", dominoesInHand);
 
     setDominoesInHand(dominoesInHandCopy); // ✅ Updates state with the correct array
 
-    console.log("DOMINOES IN HAND AFTER shortened", dominoesInHand);
-
+    // console.log("DOMINOES IN HAND AFTER shortened", dominoesInHand);
+    addScoreToScoreArray(selectedDominoObject, gamesArray, setGamesArray, worDominationCount, setWorDominationCount)
     setSelectedDominoObject(null);
     allocateDominoes(dominoesInHandCopy, setDominoesInHand);
     setTilePlaced(true);
@@ -97,6 +98,25 @@ function handleTileFits(
     setShowMakeWord(false);
     setGameStart(true);
     setDominoSelected(false);
+  }
+
+  function addScoreToScoreArray(selectedDominoObject, gamesArray, setGamesArray, worDominationCount, setWorDominationCount){
+    let dominoDots = Object.values(selectedDominoObject).join("")
+    console.log("dominoDots", dominoDots)
+    console.log("Number(dominoDots[0])", Number(dominoDots[0]))
+    console.log("worDominationCount", worDominationCount)
+    console.log("worDominationCount*30", worDominationCount+30)
+    let score= Number(dominoDots[0])+ Number(dominoDots[1])+worDominationCount*30;
+    console.log("score", score)
+    let newGamesArray=[]
+    newGamesArray.push(score);
+    setGamesArray(newGamesArray);
+    storeGamesArray(newGamesArray);
+    console.log("updatedgames array", gamesArray)
+
+    
+
+
   }
 
   export {handleTileFits}

@@ -36,6 +36,8 @@ export default function Index() {
   const[showHelpText, setShowHelpText]=useState(false);
   const[showStats, setShowStats]=useState(false);
   const[gamesArray, setGamesArray]=useState([]);
+  const[worDomination, setWorDomination]=useState(false);
+  const[worDominationCount, setWorDominationCount]=useState(0);
 
   console.log("showMakeWord in index", showMakeWord)
   console.log("word2Success in index", word2Success)
@@ -110,6 +112,11 @@ export default function Index() {
           setDominoesInHand={setDominoesInHand}
           gamesArray={gamesArray}
           setGamesArray={setGamesArray}
+          worDomination={worDomination}
+          setWorDomination={setWorDomination}
+          worDominationCount={worDominationCount}
+          setWorDominationCount={setWorDominationCount}
+    
           
           />
         </View>
@@ -224,6 +231,8 @@ export default function Index() {
       :<StatsContent
       showStats={showStats}
       setShowStats={setShowStats}
+      gamesArray={gamesArray}
+      setGamesArray={setGamesArray}
       />
 
           }

@@ -1,4 +1,4 @@
-import { allocateDominoes } from "./allocateDominoes";
+
 import {
   tileData,
   getNeighborsAndCurrentTile,
@@ -36,7 +36,11 @@ function handleTilePress(
   dominoesInHand,
   setDominoesInHand,
   gamesArray,
-  setGamesArray
+  setGamesArray,
+  worDomination, 
+  setWorDomination, 
+  worDominationCount,
+  setWorDominationCount
 ) {
   console.log("tile pressed!!! for tileId:", tileId);
   console.log("word2Success", word2Success, "tilePlacedState", tilePlacedState);
@@ -91,7 +95,11 @@ function handleTilePress(
       dominoesInHand,
       setDominoesInHand,
       gamesArray,
-      setGamesArray
+      setGamesArray,
+      worDomination, 
+      setWorDomination, 
+      worDominationCount,
+      setWorDominationCount
     );
   }
 
@@ -127,7 +135,11 @@ function handleTilePress(
     dominoesInHand,
     setDominoesInHand,
     gamesArray,
-    setGamesArray
+    setGamesArray,
+    worDomination, 
+    setWorDomination, 
+    worDominationCount,
+    setWorDominationCount
   ) {
     console.log("checking if domino doesn't fit");
 
@@ -176,7 +188,13 @@ function handleTilePress(
         setShowMakeWord,
         setGameStart,
         dominoesInHand,
-        setDominoesInHand
+        setDominoesInHand,
+        gamesArray,
+        setGamesArray,
+        worDomination, 
+        setWorDomination, 
+        worDominationCount,
+        setWorDominationCount
       );
     }
   }
@@ -232,7 +250,11 @@ function handleTilePress(
     dominoesInHand,
     setDominoesInHand,
     gamesArray,
-    setGamesArray
+    setGamesArray,
+    worDomination, 
+    setWorDomination, 
+    worDominationCount,
+    setWorDominationCount
   ) {
     console.log("checking if tile already placed");
     console.log(
@@ -276,7 +298,11 @@ function handleTilePress(
         dominoesInHand,
         setDominoesInHand,
         gamesArray,
-        setGamesArray
+        setGamesArray,
+        worDomination, 
+        setWorDomination, 
+        worDominationCount,
+        setWorDominationCount
       );
     }
   }

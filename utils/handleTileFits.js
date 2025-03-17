@@ -1,5 +1,6 @@
 import { allocateDominoes } from "./allocateDominoes";
-import {storeGamesArray }from"./asynchStorageUtils";
+import {storeGamesArray, getGamesArray }from"./asynchStorageUtils";
+import AsyncStorage from '@react-native-async-storage/async-storage'; 
 
 function handleTileFits(
     tileId,
@@ -100,7 +101,7 @@ function handleTileFits(
     setDominoSelected(false);
   }
 
-  function addScoreToScoreArray(selectedDominoObject, gamesArray, setGamesArray, worDominationCount, setWorDominationCount){
+  async function addScoreToScoreArray(selectedDominoObject, gamesArray, setGamesArray, worDominationCount, setWorDominationCount){
     let dominoDots = Object.values(selectedDominoObject).join("")
     console.log("dominoDots", dominoDots)
     console.log("Number(dominoDots[0])", Number(dominoDots[0]))
@@ -108,15 +109,18 @@ function handleTileFits(
     console.log("worDominationCount*30", worDominationCount+30)
     let score= Number(dominoDots[0])+ Number(dominoDots[1])+worDominationCount*30;
     console.log("score", score)
-    let newGamesArray=[]
-    newGamesArray.push(score);
-    setGamesArray(newGamesArray);
-    storeGamesArray(newGamesArray);
-    console.log("updatedgames array", gamesArray)
-
-    
-
-
+    try {
+      const games = await getGamesArray(); // Await for the stored games array
+      console.log("Retrieved gamesArray:", games);
+  
+      let newGamesArray = games.concat(score); // Properly concatenate the score
+      setGamesArray(newGamesArray); // Update state
+      await storeGamesArray(newGamesArray); // Store updated array in AsyncStorage
+  
+      console.log("Updated games array:", newGamesArray);
+    } catch (error) {
+      console.error("Error updating games array:", error);
+    }
   }
 
   export {handleTileFits}

@@ -7,18 +7,51 @@ import{useState, useEffect} from "react";
 
 export function StatsContent({showStats, setShowStats, gamesArray, setGamesArray}){
 
+  const [averageScore, setAverageScore] = useState(0);
+  console.log("!!!!!in Staaats!!!!")
+
     function closeStatsSection(){
         console.log("!!!close button pressed")
         setShowStats(false);
     }
 
     useEffect(() => {
+      console.log("useEffect in Stats running2");
+    
       const fetchData = async () => {
-        const storedGames = await newGamesArray();
-        setgamesArray(storedGames);
+        try {
+          const storedGames = await getGamesArray(); // Call the correct function
+          console.log("!!!!storedGames in Stats", storedGames);
+    
+          if (!storedGames || storedGames.length === 0) {
+            console.log("No games found, setting average score to 0");
+            setGamesArray([]);
+            setAverageScore(0);
+            return;
+          }
+    
+          setGamesArray(storedGames);
+    
+          let totalScore = storedGames.reduce((sum, num) => sum + num, 0).toFixed(1);
+          console.log("!!!!!!!!totalScore", totalScore);
+    
+          setAverageScore(totalScore / storedGames.length); // Use storedGames.length instead
+    
+        } catch (error) {
+          console.error("Error fetching game data:", error);
+        }
       };
+    
       fetchData();
     }, []);
+    
+
+    // function getAverageScore(){
+    //   let totalScore = newGamesArray.reduce((sum, num) => sum + num, 0);
+    //   setAverageScore(totalScore / gamesArray.length)
+      
+    // }
+    // getAverageScore();
 
 return(<>
       <View style={s.closeButtonContainer}>
@@ -39,7 +72,14 @@ return(<>
        
           <Text>
 
-          {gamesArray}
+          Score: {gamesArray[gamesArray.length-1]}
+          {"\n"}
+          {"\n"}
+          Games Played: {gamesArray.length}
+          {"\n"}
+          {"\n"}
+          Average Score: {averageScore}
+
 
           </Text>
           </ScrollView>

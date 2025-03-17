@@ -178,6 +178,10 @@ export function Grid({
                 setDominoesInHand={setDominoesInHand}
                 gamesArray={gamesArray}
                 setGamesArray={setGamesArray}
+                worDomination={worDomination}
+                setWorDomination={setWorDomination}
+                worDominationCount={worDominationCount}
+                setWorDominationCount={setWorDominationCount}
               />
             ))}
           </View>
@@ -225,6 +229,10 @@ export function Grid({
                 setDominoesInHand={setDominoesInHand}
                 gamesArray={gamesArray}
                 setGamesArray={setGamesArray}
+                worDomination={worDomination}
+                setWorDomination={setWorDomination}
+                worDominationCount={worDominationCount}
+                setWorDominationCount={setWorDominationCount}
               />
             ))}
           </View>
@@ -273,6 +281,10 @@ export function Grid({
                 setDominoesInHand={setDominoesInHand}
                 gamesArray={gamesArray}
                 setGamesArray={setGamesArray}
+                worDomination={worDomination}
+                setWorDomination={setWorDomination}
+                worDominationCount={worDominationCount}
+                setWorDominationCount={setWorDominationCount}
               />
             ))}
         </View>

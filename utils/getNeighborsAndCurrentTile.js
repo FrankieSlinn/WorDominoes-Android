@@ -21,9 +21,10 @@
     setWrongTileErrorInSpecificTile(false);
     setTileFullError(false);
     //change selectedDominoObject if the tile is rotated first so it can be compared to neighbors
+    let key = Object.keys(selectedDominoObject)[0]; // Get the only key
+    let value = selectedDominoObject[key].toString();
     if (dominoRotated&&selectedDominoObject) {
-      let key = Object.keys(selectedDominoObject)[0]; // Get the only key
-      let value = selectedDominoObject[key].toString(); // Convert value to string
+ // Convert value to string
 
       // Reverse the string representation of the value
       let reversedValue = value.split("").reverse().join("");
@@ -37,6 +38,13 @@
       console.log("stringNewValue in getNeighbors if rotated", reversedValue);
       console.log("selectedDominoObject for Rotated", selectedDominoObject);
       console.log("in get neighbours gridSelecteddominoObjects[tileId+1", gridSelectedDominoObjects[tileId + 1])
+    }else if(!dominoRotated && selectedDominoObject){
+
+      selectedDominoObject[key] = value;
+    
+
+
+
     }
 
     //Check as after 6 tileIds in reverse order

@@ -36,6 +36,7 @@
 
       console.log("stringNewValue in getNeighbors if rotated", reversedValue);
       console.log("selectedDominoObject for Rotated", selectedDominoObject);
+      console.log("in get neighbours gridSelecteddominoObjects[tileId+1", gridSelectedDominoObjects[tileId + 1])
     }
 
     //Check as after 6 tileIds in reverse order
@@ -53,18 +54,23 @@
             : gridSelectedDominoObjects[tileId + 1].toString()[0];
       }
     }
-    if (tileId > 0 && tileId < 6) {
+    if (tileId > 0 && tileId < 5) {
+      console.log("tileid between 0 and 4");
+      console.log("ggridSelectedDominoObjects[tileId - 1] for tileId-1", gridSelectedDominoObjects[tileId - 1] )
+      console.log("ggridSelectedDominoObjects[tileId - 1] for tileId-1= EMPTy?", gridSelectedDominoObjects[tileId - 1] ==="empty")
       if (gridSelectedDominoObjects[tileId - 1]) {
         tileData.leftNeighbor =
           gridSelectedDominoObjects[tileId - 1] === "empty"
             ? "empty"
             : gridSelectedDominoObjects[tileId - 1].toString()[1];
+            console.log("tileData.leftNeighbot", tileData.leftNeighbor)
       }
       if (gridSelectedDominoObjects[tileId + 1]) {
         tileData.rightNeighbor =
           gridSelectedDominoObjects[tileId + 1] === "empty"
             ? "empty"
             : gridSelectedDominoObjects[tileId + 1].toString()[0];
+            console.log("tileData.rightNeighbot", tileData.rightNeighbor)
       }
     }
     //Left stays the same, right different Id
@@ -122,7 +128,7 @@
 
     //left and right neighbours swapped as order different.
     //right neighbour in sense of array so itile is actually to left
-    if (tileId > 6 < 11) {
+    if (tileId > 6 &&tileId< 11) {
       //actual tile to right
       if (gridSelectedDominoObjects[tileId + 1]) {
         tileData.leftNeighbor =

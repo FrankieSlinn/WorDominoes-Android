@@ -37,6 +37,7 @@ export function Word({
   function handleRedoPress() {
     if (wordNum === 1) {
       setInputString1([]);
+      console.log("inputString1", inputString1)
       setSelectedLetters1([]);
     } else {
       setInputString2([]);

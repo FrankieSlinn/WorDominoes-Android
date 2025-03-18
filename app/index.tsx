@@ -42,7 +42,8 @@ export default function Index() {
   console.log("showMakeWord in index", showMakeWord)
   console.log("word2Success in index", word2Success)
   
-
+//rotated then unrotated might not work. 
+//one of used letters stayed after redo word. 
 
   useEffect(()=>{
     console.log("!!!!dominoSelected in index", dominoSelected);

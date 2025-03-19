@@ -62,7 +62,7 @@ export const s = StyleSheet.create({
   closeButton: {
     padding: 8,
     backgroundColor: "#053e4c",
-    borderRadius: 15,
+    borderRadius: 10,
   },
   close:{
     fontWeight: "bold",
@@ -270,4 +270,18 @@ margin: 32,
     color: "#353839",
     fontWeight: "bold",
   },
+  finishGameContainer:{
+    alignItems:"center",
+  },
+  finishGameButton:{
+    padding: 8,
+    borderRadius: 10,
+   backgroundColor:"#C14432",
+   borderColor: "black",
+   borderWidth: 1,
+  },
+  finishGameText:{
+    fontWeight: "bold",
+    color: "#eeeeee",
+  }
 });

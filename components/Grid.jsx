@@ -45,6 +45,8 @@ export function Grid({
   setDominoesInHand,
   gamesArray,
   setGamesArray,
+  scoreArraySingleGame,
+  setScoreArraySingleGame,
   worDomination,
   setWorDomination, 
   worDominationCount,

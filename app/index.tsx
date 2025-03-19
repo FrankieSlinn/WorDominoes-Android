@@ -10,6 +10,7 @@ import { TextAbove} from "../components/TextAbove.jsx";
 import { ChooseDominoText} from "../components/ChooseDominoText.jsx";
 import {HelpText} from "../components/HelpText.jsx";
 import {StatsContent} from "../components/StatsContent.jsx";
+import {FinishGame} from "../components/FinishGame.jsx";
 export default function Index() {
   const [gameStart, setGameStart] = useState(true);
   const [turnStart, setTurnStart] = useState(true);
@@ -38,6 +39,7 @@ export default function Index() {
   const[gamesArray, setGamesArray]=useState([]);
   const[worDomination, setWorDomination]=useState(false);
   const[worDominationCount, setWorDominationCount]=useState(0);
+  const[scoreArraySingleGame, setScoreArraySingleGame]=useState([]);
 
   console.log("showMakeWord in index", showMakeWord)
   console.log("word2Success in index", word2Success)
@@ -113,6 +115,8 @@ export default function Index() {
           setDominoesInHand={setDominoesInHand}
           gamesArray={gamesArray}
           setGamesArray={setGamesArray}
+          scoreArraySingleGame={scoreArraySingleGame}
+          setScoreArraySingleGame={setScoreArraySingleGame}
           worDomination={worDomination}
           setWorDomination={setWorDomination}
           worDominationCount={worDominationCount}
@@ -221,6 +225,7 @@ export default function Index() {
               </Text>
             ) : null}
           </View>
+          <FinishGame/>
     
       </ScrollView>
       :showStats===false?
@@ -234,6 +239,8 @@ export default function Index() {
       setShowStats={setShowStats}
       gamesArray={gamesArray}
       setGamesArray={setGamesArray}
+      scoreArraySingleGame={scoreArraySingleGame}
+      setScoreArraySingleGame={setScoreArraySingleGame}
       />
 
           }

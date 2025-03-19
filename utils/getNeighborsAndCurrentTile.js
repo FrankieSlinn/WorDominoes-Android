@@ -13,10 +13,10 @@
     setTileFullError
   ) {
     console.log("get Neighbours running");
-    console.log(
-      "gridSelectedDominoObjects in handle tile press",
-      gridSelectedDominoObjects
-    );
+    // console.log(
+    //   "gridSelectedDominoObjects in handle tile press",
+    //   gridSelectedDominoObjects
+    // );
     setWrongTileError(false);
     setWrongTileErrorInSpecificTile(false);
     setTileFullError(false);
@@ -35,9 +35,9 @@
       // Update state
       setSelectedDominoObject({ ...selectedDominoObject });
 
-      console.log("stringNewValue in getNeighbors if rotated", reversedValue);
-      console.log("selectedDominoObject for Rotated", selectedDominoObject);
-      console.log("in get neighbours gridSelecteddominoObjects[tileId+1", gridSelectedDominoObjects[tileId + 1])
+      // console.log("stringNewValue in getNeighbors if rotated", reversedValue);
+      // console.log("selectedDominoObject for Rotated", selectedDominoObject);
+      // console.log("in get neighbours gridSelecteddominoObjects[tileId+1", gridSelectedDominoObjects[tileId + 1])
     }else if(!dominoRotated && selectedDominoObject){
 
       selectedDominoObject[key] = value;

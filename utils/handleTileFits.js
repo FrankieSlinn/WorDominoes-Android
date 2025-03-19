@@ -32,6 +32,7 @@ function handleTileFits(
         worDominationCount,
         setWorDominationCount
   ) {
+    let numberTiles =12;
 
     let selectedDominoObjectString =
       Object.values(selectedDominoObject).join("");

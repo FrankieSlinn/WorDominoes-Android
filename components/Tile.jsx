@@ -51,8 +51,8 @@ export function Tile({
   const [tileRotatedState, setTileRotatedState] = useState(false);
   const [wrongTileErrorInSpecificTile, setWrongTileErrorInSpecificTile] =
     useState(false);
-  console.log("electedDominoObject", selectedDominoObject);
-  console.log("dominoesInHand in tile", dominoesInHand);
+  // console.log("electedDominoObject", selectedDominoObject);
+  // console.log("dominoesInHand in tile", dominoesInHand);
 
   useEffect(() => {
     if (!tilePlacedState) {

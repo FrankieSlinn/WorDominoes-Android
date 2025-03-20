@@ -88,6 +88,13 @@ margin: 32,
 
     textAlign: "center",
   },
+  statsText:{
+    fontWeight: 550,
+    fontSize: 17,
+    textAlign: "center", 
+
+
+  },
   
   instructionBox: {
     margin: 20,
@@ -272,6 +279,7 @@ margin: 32,
   },
   finishGameContainer:{
     alignItems:"center",
+    marginTop: 20,
   },
   finishGameButton:{
     padding: 8,

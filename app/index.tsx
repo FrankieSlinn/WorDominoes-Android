@@ -40,6 +40,7 @@ export default function Index() {
   const[worDomination, setWorDomination]=useState(false);
   const[worDominationCount, setWorDominationCount]=useState(0);
   const[scoreArraySingleGame, setScoreArraySingleGame]=useState([]);
+  const[gameFinished, setGameFinished]=useState(false);
 
   console.log("showMakeWord in index", showMakeWord)
   console.log("word2Success in index", word2Success)
@@ -117,6 +118,8 @@ export default function Index() {
           setGamesArray={setGamesArray}
           scoreArraySingleGame={scoreArraySingleGame}
           setScoreArraySingleGame={setScoreArraySingleGame}
+          gameFinished={gameFinished}
+          setGameFinished={setGameFinished}
           worDomination={worDomination}
           setWorDomination={setWorDomination}
           worDominationCount={worDominationCount}
@@ -225,7 +228,11 @@ export default function Index() {
               </Text>
             ) : null}
           </View>
-          <FinishGame/>
+          <FinishGame
+          gameFinished={gameFinished }
+          setGameFinished={setGameFinished}
+          
+          />
     
       </ScrollView>
       :showStats===false?

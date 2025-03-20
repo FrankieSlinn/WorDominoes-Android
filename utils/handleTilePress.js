@@ -37,10 +37,14 @@ function handleTilePress(
   setDominoesInHand,
   gamesArray,
   setGamesArray,
+  scoreArraySingleGame,
+  setScoreArraySingleGame,
   worDomination, 
   setWorDomination, 
   worDominationCount,
-  setWorDominationCount
+  setWorDominationCount,
+  gameFinished,
+  setGameFinished
 ) {
   console.log("tile pressed!!! for tileId:", tileId);
   console.log("word2Success", word2Success, "tilePlacedState", tilePlacedState);
@@ -96,10 +100,13 @@ function handleTilePress(
       setDominoesInHand,
       gamesArray,
       setGamesArray,
+      scoreArraySingleGame,
+      setScoreArraySingleGame,
       worDomination, 
       setWorDomination, 
       worDominationCount,
-      setWorDominationCount
+      gameFinished, 
+      setGameFinished
     );
   }
 
@@ -136,10 +143,14 @@ function handleTilePress(
     setDominoesInHand,
     gamesArray,
     setGamesArray,
+    scoreArraySingleGame,
+    setScoreArraySingleGame,
     worDomination, 
     setWorDomination, 
     worDominationCount,
-    setWorDominationCount
+    setWorDominationCount,
+    gameFinished, 
+    setGameFinished
   ) {
     console.log("checking if domino doesn't fit");
 
@@ -191,10 +202,14 @@ function handleTilePress(
         setDominoesInHand,
         gamesArray,
         setGamesArray,
+        scoreArraySingleGame,
+        setScoreArraySingleGame,
         worDomination, 
         setWorDomination, 
         worDominationCount,
-        setWorDominationCount
+        setWorDominationCount, 
+        gameFinished, 
+        setGameFinished
       );
     }
   }
@@ -251,10 +266,14 @@ function handleTilePress(
     setDominoesInHand,
     gamesArray,
     setGamesArray,
+    scoreArraySingleGame,
+    setScoreArraySingleGame,
     worDomination, 
     setWorDomination, 
     worDominationCount,
-    setWorDominationCount
+    setWorDominationCount,
+    gameFinished, 
+    setGameFinished
   ) {
     console.log("checking if tile already placed");
     console.log(
@@ -299,10 +318,14 @@ function handleTilePress(
         setDominoesInHand,
         gamesArray,
         setGamesArray,
+        scoreArraySingleGame,
+        setScoreArraySingleGame,
         worDomination, 
         setWorDomination, 
         worDominationCount,
-        setWorDominationCount
+        setWorDominationCount, 
+        gameFinished, 
+        setGameFinished
       );
     }
   }

@@ -35,7 +35,7 @@ export function StatsContent({showStats, setShowStats, gamesArray, setGamesArray
           let totalScore = storedGames.reduce((sum, num) => sum + num, 0).toFixed(1);
           console.log("!!!!!!!!totalScore", totalScore);
     
-          setAverageScore(totalScore / storedGames.length); // Use storedGames.length instead
+          setAverageScore((totalScore / storedGames.length).toFixed(2)); // Use storedGames.length instead
     
         } catch (error) {
           console.error("Error fetching game data:", error);
@@ -44,6 +44,8 @@ export function StatsContent({showStats, setShowStats, gamesArray, setGamesArray
     
       fetchData();
     }, []);
+
+    console.log("gamesArray[gamesArray.length-1", gamesArray[gamesArray.length-1])
     
 
     // function getAverageScore(){
@@ -67,18 +69,18 @@ return(<>
           {"\n"}
           <Text style={s.popupHeading}>WorDominoes Stats</Text>
           {"\n"}
-          {"\n"}
+    
           </Text>
        
-          <Text>
+          <Text style={s.statsText}>
 
-          Score: {gamesArray[gamesArray.length-1]}
+          Score: <Text style={s.bold}>{gamesArray[gamesArray.length-1]}</Text>
           {"\n"}
           {"\n"}
-          Games Played: {gamesArray.length}
+          Games Played: <Text style={s.bold}>{gamesArray.length}</Text>
           {"\n"}
           {"\n"}
-          Average Score: {averageScore}
+          Average Score: <Text style={s.bold}>{averageScore}</Text>
 
 
           </Text>

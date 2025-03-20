@@ -4,6 +4,7 @@ import { s } from "../App.style.js";
 import { dominoImageMappings } from "../utils/dominoImageMappings.js";
 import { handleTilePress } from "../utils/handleTilePress.js";
 
+
 export function Tile({
   tileId,
   dominoRotated,
@@ -40,10 +41,15 @@ export function Tile({
   setDominoesInHand,
   gamesArray, 
   setGamesArray,
+  scoreArraySingleGame,
+  setScoreArraySingleGame,
+
   worDomination, 
   setWorDomination, 
   worDominationCount,
-  setWorDominationCount
+  setWorDominationCount, 
+  gameFinished, 
+  setGameFinished
 }) {
   //Only applies to this tile
   const [tilePlacedState, setTilePlacedState] = useState(false);
@@ -59,6 +65,7 @@ export function Tile({
       setTileRotatedState(dominoRotated);
     }
   }, [dominoRotated]);
+
 
   return (
     <>
@@ -103,10 +110,15 @@ export function Tile({
               setDominoesInHand,
               gamesArray, 
               setGamesArray,
+              scoreArraySingleGame,
+              setScoreArraySingleGame,
+        
               worDomination, 
               setWorDomination, 
               worDominationCount,
-              setWorDominationCount
+              setWorDominationCount, 
+              gameFinished,
+              setGameFinished
             )
             // ,
             // getStats(gamesArray, setGamesArray)

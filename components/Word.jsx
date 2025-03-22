@@ -41,7 +41,9 @@ export function Word({
       setSelectedLetters1([]);
     } else {
       setInputString2([]);
+      console.log("inputString2", inputString2)
       setSelectedLetters2([]);
+      console.log("selectedLetters2", selectedLetters2)
     }
     setLengthError(false);
     setValidationError(false);

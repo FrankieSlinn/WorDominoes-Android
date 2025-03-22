@@ -1,5 +1,6 @@
 import {Image, TouchableOpacity, View, ScrollView, Text} from "react-native";
-import {getGamesArray} from "../utils/asynchStorageUtils.js"
+import {storeGamesArray, getGamesArray} from "../utils/asynchStorageUtils.js"
+
 import{useState, useEffect} from "react";
  import {s} from "../App.style.js";
 
@@ -20,6 +21,7 @@ export function StatsContent({showStats, setShowStats, gamesArray, setGamesArray
     
       const fetchData = async () => {
         try {
+          let totalScore=0;
           const storedGames = await getGamesArray(); // Call the correct function
           console.log("!!!!storedGames in Stats", storedGames);
     
@@ -31,8 +33,9 @@ export function StatsContent({showStats, setShowStats, gamesArray, setGamesArray
           }
     
           setGamesArray(storedGames);
-    
-          let totalScore = storedGames.reduce((sum, num) => sum + num, 0).toFixed(1);
+          if(storedGames){
+     
+        totalScore = storedGames.reduce((sum, num) => sum + num, 0).toFixed(1);}
           console.log("!!!!!!!!totalScore", totalScore);
     
           setAverageScore((totalScore / storedGames.length).toFixed(2)); // Use storedGames.length instead
@@ -74,7 +77,7 @@ return(<>
        
           <Text style={s.statsText}>
 
-          Score: <Text style={s.bold}>{gamesArray[gamesArray.length-1]}</Text>
+          Score: <Text style={s.bold}>{gamesArray[gamesArray.length-1]||0}</Text>
           {"\n"}
           {"\n"}
           Games Played: <Text style={s.bold}>{gamesArray.length}</Text>

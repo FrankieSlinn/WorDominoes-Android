@@ -2,6 +2,7 @@ import { allocateDominoes } from "./allocateDominoes";
 import {storeGamesArray, getGamesArray }from"./asynchStorageUtils";
 import AsyncStorage from '@react-native-async-storage/async-storage'; 
 
+
 function handleTileFits(
     tileId,
     wrongTileErrorInSpecificTile,
@@ -34,9 +35,11 @@ function handleTileFits(
         worDominationCount,
         setWorDominationCount, 
         gameFinished, 
-        setGameFinished
+        setGameFinished, 
+        singleGameScore, 
+        setSingleGameScore
   ) {
-    let numberTiles =12;
+
 
     let selectedDominoObjectString =
       Object.values(selectedDominoObject).join("");
@@ -93,7 +96,9 @@ function handleTileFits(
     setDominoesInHand(dominoesInHandCopy); // ✅ Updates state with the correct array
 
     // console.log("DOMINOES IN HAND AFTER shortened", dominoesInHand);
-    addScoreToScoreArraySingleGame(scoreArraySingleGame, setScoreArraySingleGame, dominoDots, gameFinished, setGameFinished)
+    addScoreToScoreArraySingleGame(selectedDominoObject, scoreArraySingleGame, setScoreArraySingleGame, dominoDots, gameFinished, setGameFinished, gamesArray, 
+      setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore
+    )
    
     setSelectedDominoObject(null);
     allocateDominoes(dominoesInHandCopy, setDominoesInHand);
@@ -109,44 +114,56 @@ function handleTileFits(
     
   }
 
-  function addScoreToScoreArraySingleGame(scoreArraySingleGame, setScoreArraySingleGame, dominoDots, gameFinished, setGameFinished){
+  function addScoreToScoreArraySingleGame(selectedDominoObject, scoreArraySingleGame, setScoreArraySingleGame, dominoDots, gameFinished, setGameFinished, gamesArray, 
+    setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore
+  ){
     let scoreSingleDomino= Number(dominoDots[0])+ Number(dominoDots[1])
     console.log("scoreSingleDomino", scoreSingleDomino)
     let scoreArrayPerDomino=[...scoreArraySingleGame];
     console.log("scoreArrayPerDomino before concat with single domino", scoreArrayPerDomino);
-    scoreArrayPerDomino.concat(scoreSingleDomino);
+    scoreArrayPerDomino.push(scoreSingleDomino);
 console.log("scoreArrayPerDomino after concat with domino", scoreArrayPerDomino);
-    setScoreArraySingleGame(scoreArrayPerDomino);
+   
     console.log("scor4eArraySingleGame", scoreArraySingleGame)
-    let singleGameScore = scoreArraySingleGame.reduce((sum, num) => sum + num, 0).toFixed(1);
+   let placeholderSingleGameScore = scoreArrayPerDomino.reduce((sum, num) => sum + num, 0).toFixed(1);
+   setSingleGameScore(placeholderSingleGameScore);
     console.log("!!!!!!!!total single game Score", singleGameScore);
-    if(gameFinished===true){
-      addScoreToScoreArray(selectedDominoObject, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, dominoDots, singleGameScore)
-    }
+    setScoreArraySingleGame(scoreArrayPerDomino);
+    console.log("gameFinished", gameFinished)
+
+  
+      // addScoreToScoreArray(selectedDominoObject, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, dominoDots, singleGameScore,
+       
+      // )
+    
+   
 
 
   }
-  async function addScoreToScoreArray(selectedDominoObject, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, dominoDots, singleGameScore
-  ){
+  // async function addScoreToScoreArray(selectedDominoObject, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, dominoDots, singleGameScore,
+   
+  // ){
+  //   if(gameFinished===true){
+  // console.log("game finished - addScoretoScoreArray running!!!")
+  //   console.log("dominoDots", dominoDots)
+  //   console.log("Number(dominoDots[0])", Number(dominoDots[0]))
+  //   console.log("worDominationCount", worDominationCount)
+  //   console.log("worDominationCount*30", worDominationCount+30)
+  //   let endOfGameScore= singleGameScore+worDominationCount*30;
+  //   console.log("score", score)
+  //   try {
+  //     const games = await getGamesArray(); // Await for the stored games array
+  //     console.log("Retrieved gamesArray:", games);
   
-    console.log("dominoDots", dominoDots)
-    console.log("Number(dominoDots[0])", Number(dominoDots[0]))
-    console.log("worDominationCount", worDominationCount)
-    console.log("worDominationCount*30", worDominationCount+30)
-    let endOfGameScore= singleGameScore+worDominationCount*30;
-    console.log("score", score)
-    try {
-      const games = await getGamesArray(); // Await for the stored games array
-      console.log("Retrieved gamesArray:", games);
+  //     let newGamesArray = games.concat(endOfGameScore); // Properly concatenate the score
+  //     setGamesArray(newGamesArray); // Update state
+  //     await storeGamesArray(newGamesArray); // Store updated array in AsyncStorage
   
-      let newGamesArray = games.concat(endOfGameScore); // Properly concatenate the score
-      setGamesArray(newGamesArray); // Update state
-      await storeGamesArray(newGamesArray); // Store updated array in AsyncStorage
-  
-      console.log("Updated games array:", newGamesArray);
-    } catch (error) {
-      console.error("Error updating games array:", error);
-    }
-  }
+  //     console.log("Updated games array:", newGamesArray);
+  //   } catch (error) {
+  //     console.error("Error updating games array:", error);
+  //   }
+  // }
+  // }
 
   export {handleTileFits}

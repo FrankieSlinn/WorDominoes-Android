@@ -41,6 +41,7 @@ export default function Index() {
   const[worDominationCount, setWorDominationCount]=useState(0);
   const[scoreArraySingleGame, setScoreArraySingleGame]=useState([]);
   const[gameFinished, setGameFinished]=useState(false);
+  const[singleGameScore, setSingleGameScore]=useState(0);
 
   console.log("showMakeWord in index", showMakeWord)
   console.log("word2Success in index", word2Success)
@@ -124,6 +125,8 @@ export default function Index() {
           setWorDomination={setWorDomination}
           worDominationCount={worDominationCount}
           setWorDominationCount={setWorDominationCount}
+          singleGameScore={singleGameScore}
+          setSingleGameScore={setSingleGameScore}
     
           
           />
@@ -231,6 +234,13 @@ export default function Index() {
           <FinishGame
           gameFinished={gameFinished }
           setGameFinished={setGameFinished}
+          gamesArray={gamesArray} 
+          setGamesArray={setGamesArray}
+          worDominationCount={worDominationCount} 
+          setWorDominationCount={setWorDominationCount}
+          singleGameScore={singleGameScore}
+          setSingleGameScore={setSingleGameScore} 
+        
           
           />
     

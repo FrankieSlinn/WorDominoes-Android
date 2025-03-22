@@ -44,7 +44,9 @@ function handleTilePress(
   worDominationCount,
   setWorDominationCount,
   gameFinished,
-  setGameFinished
+  setGameFinished,
+    singleGameScore, 
+  setSingleGameScore
 ) {
   console.log("tile pressed!!! for tileId:", tileId);
   console.log("word2Success", word2Success, "tilePlacedState", tilePlacedState);
@@ -105,8 +107,11 @@ function handleTilePress(
       worDomination, 
       setWorDomination, 
       worDominationCount,
+      setWorDominationCount,
       gameFinished, 
-      setGameFinished
+      setGameFinished,
+        singleGameScore, 
+    setSingleGameScore
     );
   }
 
@@ -150,7 +155,9 @@ function handleTilePress(
     worDominationCount,
     setWorDominationCount,
     gameFinished, 
-    setGameFinished
+    setGameFinished,
+      singleGameScore, 
+  setSingleGameScore
   ) {
     console.log("checking if domino doesn't fit");
 
@@ -209,7 +216,9 @@ function handleTilePress(
         worDominationCount,
         setWorDominationCount, 
         gameFinished, 
-        setGameFinished
+        setGameFinished,
+          singleGameScore, 
+  setSingleGameScore
       );
     }
   }
@@ -271,9 +280,11 @@ function handleTilePress(
     worDomination, 
     setWorDomination, 
     worDominationCount,
-    setWorDominationCount,
+    setWorDominationCount, 
     gameFinished, 
-    setGameFinished
+    setGameFinished,
+      singleGameScore, 
+setSingleGameScore
   ) {
     console.log("checking if tile already placed");
     console.log(
@@ -317,15 +328,17 @@ function handleTilePress(
         dominoesInHand,
         setDominoesInHand,
         gamesArray,
-        setGamesArray,
-        scoreArraySingleGame,
-        setScoreArraySingleGame,
-        worDomination, 
-        setWorDomination, 
-        worDominationCount,
-        setWorDominationCount, 
-        gameFinished, 
-        setGameFinished
+            setGamesArray,
+            scoreArraySingleGame,
+            setScoreArraySingleGame,
+            worDomination, 
+            setWorDomination, 
+            worDominationCount,
+            setWorDominationCount, 
+            gameFinished, 
+            setGameFinished, 
+            singleGameScore, 
+            setSingleGameScore
       );
     }
   }

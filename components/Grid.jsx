@@ -53,7 +53,9 @@ export function Grid({
   worDomination,
   setWorDomination, 
   worDominationCount,
-  setWorDominationCount
+  setWorDominationCount, 
+  singleGameScore, 
+  setSingleGameScore
 }) {
   const horizontalTopTileIds = [0, 1, 2, 3];
   const verticalRightTileIds = [4, 5];
@@ -107,7 +109,9 @@ export function Grid({
     worDomination,
     setWorDomination,
     worDominationCount,
-    setWorDominationCount
+    setWorDominationCount,
+    singleGameScore, 
+    setSingleGameScore
   };
 
   // console.log("dominoesInHand in grid", dominoesInHand)

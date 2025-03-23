@@ -277,19 +277,28 @@ margin: 32,
     color: "#353839",
     fontWeight: "bold",
   },
-  finishGameContainer:{
+  startFinishGameContainer:{
     alignItems:"center",
     marginTop: 20,
   },
-  finishGameButton:{
+  startFinishGameButton:{
     padding: 8,
     borderRadius: 10,
-   backgroundColor:"#C14432",
-   borderColor: "black",
-   borderWidth: 1,
+    borderColor: "black",
+    borderWidth: 1,
+
   },
-  finishGameText:{
+  finishGameButton:{
+
+   backgroundColor:"#C14432",
+
+  },
+  startFinishGameText:{
     fontWeight: "bold",
     color: "#eeeeee",
+  },
+  startGameButton:{
+    backgroundColor: "#053e4c",
+
   }
 });

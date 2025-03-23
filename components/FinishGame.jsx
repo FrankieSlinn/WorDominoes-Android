@@ -60,14 +60,19 @@ export function FinishGame({gameFinished, setGameFinished, gamesArray, setGamesA
 
   return (
     <>
-    <View style={s.finishGameContainer}>
+    <View style={s.startFinishGameContainer}>
         {showFinishGame?
-<TouchableOpacity style={s.finishGameButton} onPress={()=>[setGameFinished(true), showAlert()]
+<TouchableOpacity style={[s.startFinishGameButton, s.finishGameButton]} onPress={()=>[setGameFinished(true), showAlert()]
 }>
  
-   <Text  style={s.finishGameText}>Finish Game</Text>
+   <Text  style={s.startFinishGameText}>Finish Game</Text>
     </TouchableOpacity>
-    :null}
+    :
+    <TouchableOpacity style={[s.startFinishGameButton, s.startGameButton]}>
+        <Text style={s.startFinishGameText}>Start New Game</Text>
+    </TouchableOpacity>
+    
+    }
     </View>
 
     </>

@@ -5,19 +5,15 @@ let numberTiles =12;
 // console.log("handleTileFits", handleTileFits())
 
 
-function handleFinishGame(gamesArray, setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore){
+function handleFinishGame(gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore){
     console.log("handleFinishGame running!!!")
+    setGameFinished(false)
     // console.log("singleGameScore before addScoreToArray done", singleGameScore)
-    addScoreToScoreArray( gamesArray, setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore)
-  
-
-
-    
-
+    addScoreToScoreArray( gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore)
   
 
 }
-async function addScoreToScoreArray(gamesArray, setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore
+async function addScoreToScoreArray(gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore
    
 ){
 //  let gameFinishedScore= handleTileFits()
@@ -42,6 +38,7 @@ console.log("game finished - addScoretoScoreArray running!!!")
     await storeGamesArray(newGamesArray); // Store updated array in AsyncStorage
 
     console.log("FINISH GAME Updated games array:", gamesArray);
+   
   } catch (error) {
     console.error("Error updating games array:", error);
   }

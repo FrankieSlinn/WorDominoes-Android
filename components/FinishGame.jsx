@@ -5,9 +5,9 @@ import {handleFinishGame} from "../utils/finishGame"
 
 
 export function FinishGame({gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, 
-    setSingleGameScore
+    setSingleGameScore, showFinishGame, setShowFinishGame
 }) {
-    const [showFinishGame, setShowFinishGame]=useState(true);
+   
    
     function handleClick(gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, 
         setWorDominationCount, singleGameScore, setSingleGameScore
@@ -21,32 +21,17 @@ export function FinishGame({gameFinished, setGameFinished, gamesArray, setGamesA
         console.log("game finished in finish game", gameFinished);
     }
 
-//    function showAlert() {
-//         console.log("alert should show")
-//         Alert.alert(
-    
-//           "Are you sure you want to give up?", 
-//           [
-//             {
-//               text: "Cancel",
-//               style: "cancel",
-//             },
-//             {
-//               text: "OK",
-//               onPress: () => console.log("User gave up"),
-//             },
-//           ],
-//           { cancelable: true }
-//         );
-//       };
-
-      const showAlert = () =>
+     function showAlert(){
         console.log("alert should show")
-      if(gameFinished===true){
-        Alert.alert('FinishGame', 'Are You Sure You Want To Finish This Game?', [
+    //   console.log("showFinishGame", showFinishGame, "game finished", gameFinished);
+    //   if(gameFinished===true){
+        Alert.alert('Finish Game', 'Are You Sure You Want To Finish This Game?', [
           {
             text: 'Cancel',
-            onPress: () => console.log('Cancel Pressed'),
+            onPress: () => {console.log('Cancel Pressed');
+                // setGameFinished(false);
+            }
+                ,
             style: 'cancel',
           },
           {text: 'OK', onPress: () => {handleClick(gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, 
@@ -61,14 +46,14 @@ export function FinishGame({gameFinished, setGameFinished, gamesArray, setGamesA
   return (
     <>
     <View style={s.startFinishGameContainer}>
-        {showFinishGame?
-<TouchableOpacity style={[s.startFinishGameButton, s.finishGameButton]} onPress={()=>[setGameFinished(true), showAlert()]
+        {showFinishGame && !gameFinished?
+<TouchableOpacity style={[s.startFinishGameButton, s.finishGameButton]} onPress={()=>[showAlert()]
 }>
  
    <Text  style={s.startFinishGameText}>Finish Game</Text>
     </TouchableOpacity>
     :
-    <TouchableOpacity style={[s.startFinishGameButton, s.startGameButton]}>
+    <TouchableOpacity style={[s.startFinishGameButton, s.startGameButton]} onPress={()=>[console.log("start new game")]>
         <Text style={s.startFinishGameText}>Start New Game</Text>
     </TouchableOpacity>
     

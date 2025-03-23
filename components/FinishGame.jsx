@@ -7,10 +7,12 @@ import {handleFinishGame} from "../utils/finishGame"
 export function FinishGame({gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, 
     setSingleGameScore
 }) {
+    const [showFinishGame, setShowFinishGame]=useState(true);
    
     function handleClick(gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, 
         setWorDominationCount, singleGameScore, setSingleGameScore
     ){console.log("handleClick for Finishgame running")
+        setShowFinishGame(false);
         
         setGameFinished(true);
     
@@ -59,7 +61,7 @@ export function FinishGame({gameFinished, setGameFinished, gamesArray, setGamesA
   return (
     <>
     <View style={s.finishGameContainer}>
-        {!gameFinished?
+        {showFinishGame?
 <TouchableOpacity style={s.finishGameButton} onPress={()=>[setGameFinished(true), showAlert()]
 }>
  

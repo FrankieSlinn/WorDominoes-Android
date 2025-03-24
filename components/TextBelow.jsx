@@ -1,22 +1,48 @@
 import { View, Text, TextInput} from "react-native";
 import {useEffect, useState} from "react";
 import { s } from "../App.style";
+import {storeGamesArray, getGamesArray} from "../utils/asynchStorageUtils.js"
 
 
 export function TextBelow({word1Success, dominoSelected, setDominoSelected, gameFinished}) {
   console.log("dominoSelected in ChooseDominoText", dominoSelected);
   console.log("word1Success in choose dominoText", word1Success);
+  const [scoreForGame, setScoreForGame]=useState(0)
 
-
-  //To force rerender to get gameFinished updated quickly
-  const [renderKey, setRenderKey] = useState(0);
-  useEffect(()=>{
+  useEffect(() => {
+    console.log("useEffect in Text Below running2");
   
-      setRenderKey((prevKey) => prevKey + 1); // Forces re-render
-
-   console.log("gameFinished in Text Below", gameFinished)
+  const fetchData = async () => {
+    try {
     
-  },[gameFinished])
+      const storedGames = await getGamesArray(); // Call the correct function
+      console.log("!!!!storedGames in TextBelow", storedGames);
+   setScoreForGame(storedGames[storedGames.length-1])
+   console.log("!!scoreForGame", scoreForGame)
+
+      // if (!storedGames || storedGames.length === 0) {
+      //   console.log("No games found, setting average score to 0");
+      //   setGamesArray([]);
+      //   setAverageScore(0);
+      //   return;
+      // }
+
+      // setGamesArray(storedGames);
+      // if(storedGames){
+ 
+    // totalScore = storedGames.reduce((sum, num) => sum + num, 0).toFixed(1);}
+    //   console.log("!!!!!!!!totalScore", totalScore);
+
+    //   setAverageScore((totalScore / storedGames.length).toFixed(2)); // Use storedGames.length instead
+
+    } catch (error) {
+      console.error("Error fetching game data:", error);
+    }
+  };
+
+  fetchData();
+}, []);
+
 
 
   return (
@@ -24,9 +50,9 @@ export function TextBelow({word1Success, dominoSelected, setDominoSelected, game
  
  
 
-          <View style={s.instructionTextBelow} key={renderKey}>
+          <View style={s.instructionTextBelow}>
             { gameFinished===true?
-             <Text style={s.instructionText}>You Have Scored Points</Text>
+             <Text style={s.instructionText}>You Have Scored {scoreForGame} Points</Text>
             : dominoSelected===false? 
             
             <Text style={s.instructionText}>

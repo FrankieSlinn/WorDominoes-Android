@@ -7,7 +7,7 @@ let numberTiles =12;
 
 function handleFinishGame(gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore){
     console.log("handleFinishGame running!!!")
-    setGameFinished(false)
+  
     // console.log("singleGameScore before addScoreToArray done", singleGameScore)
     addScoreToScoreArray( gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore)
   

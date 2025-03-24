@@ -7,7 +7,7 @@ import { HandDominoes } from "../components/HandDominoes.jsx";
 import { DisplayDomino } from "../components/DisplayDomino.jsx";
 import { MakeWords } from "../components/MakeWords.jsx";
 import { TextAbove} from "../components/TextAbove.jsx";
-import { ChooseDominoText} from "../components/ChooseDominoText.jsx";
+import { TextBelow} from "../components/TextBelow.jsx";
 import {HelpText} from "../components/HelpText.jsx";
 import {StatsContent} from "../components/StatsContent.jsx";
 import {FinishGame} from "../components/FinishGame.jsx";
@@ -71,6 +71,7 @@ export default function Index() {
         wrongTileError={wrongTileError}
         tileFullError={tileFullError}
         tilePlaced={tilePlaced}
+        
         
         />
 
@@ -163,10 +164,11 @@ export default function Index() {
           setTilePlaced={setTilePlaced}
         />
        
-        <ChooseDominoText
+        <TextBelow
         word1Success={word1Success}
         dominoSelected={dominoSelected}
         setDominoSelected={setDominoSelected}
+        gameFinished={gameFinished}
         />
       
        

@@ -53,7 +53,7 @@ export function FinishGame({gameFinished, setGameFinished, gamesArray, setGamesA
    <Text  style={s.startFinishGameText}>Finish Game</Text>
     </TouchableOpacity>
     :
-    <TouchableOpacity style={[s.startFinishGameButton, s.startGameButton]} onPress={()=>[console.log("start new game")]>
+    <TouchableOpacity style={[s.startFinishGameButton, s.startGameButton]} onPress={()=>console.log("start new game")}>
         <Text style={s.startFinishGameText}>Start New Game</Text>
     </TouchableOpacity>
     

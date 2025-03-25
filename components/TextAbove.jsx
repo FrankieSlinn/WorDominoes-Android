@@ -5,9 +5,9 @@ import { s } from "../App.style";
 
 export function TextAbove({tileFullError, wrongTileError, tilePlaced, worDomination, setWorDomination}) {
   
-useEffect(() => {
-  setWorDomination(true)
-},[]);
+// useEffect(() => {
+//   setWorDomination(true)
+// },[]);
 
 
   return (

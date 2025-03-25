@@ -4,7 +4,7 @@ import { s } from "../App.style";
 import {storeGamesArray, getGamesArray} from "../utils/asynchStorageUtils.js"
 
 
-export function TextBelow({word1Success, dominoSelected, setDominoSelected, gameFinished}) {
+export function TextBelow({word1Success, dominoSelected, setDominoSelected, gameFinished, worDomination}) {
   console.log("dominoSelected in ChooseDominoText", dominoSelected);
   console.log("word1Success in choose dominoText", word1Success);
   const [scoreForGame, setScoreForGame]=useState(0)
@@ -35,7 +35,7 @@ export function TextBelow({word1Success, dominoSelected, setDominoSelected, game
   return (
     <>
  
- 
+ {!worDomination?
 
           <View style={s.instructionTextBelow}>
             { gameFinished===true?
@@ -50,6 +50,7 @@ export function TextBelow({word1Success, dominoSelected, setDominoSelected, game
             </Text>
             :null}
           </View>
+          :null}
      
  
    

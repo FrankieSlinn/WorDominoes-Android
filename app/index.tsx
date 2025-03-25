@@ -12,6 +12,8 @@ import { TextTileWin} from "../components/TextTileWin.jsx";
 import {HelpText} from "../components/HelpText.jsx";
 import {StatsContent} from "../components/StatsContent.jsx";
 import {FinishGame} from "../components/FinishGame.jsx";
+import { ContinuePlaying} from "../components/ContinuePlaying.jsx";
+import {TextWorDominationCount} from "../components/TextWorDominationCount.jsx";
 export default function Index() {
   const [gameStart, setGameStart] = useState(true);
   const [turnStart, setTurnStart] = useState(true);
@@ -136,6 +138,13 @@ export default function Index() {
           
           />
         </View>
+     
+      <TextWorDominationCount
+      worDomination={worDomination}
+      worDominationCount={worDominationCount}
+      
+      />
+       
         <HandDominoes
           gameStart={gameStart}
           setGameStart={setGameStart}
@@ -234,6 +243,13 @@ export default function Index() {
           word2Success={word2Success}
             tilePlaced={tilePlaced}
             worDomination={worDomination}
+            worDominationCount={worDominationCount}
+          
+          
+          />
+          <ContinuePlaying
+          worDomination={worDomination}
+          setWorDomination={setWorDomination}
           
           
           />

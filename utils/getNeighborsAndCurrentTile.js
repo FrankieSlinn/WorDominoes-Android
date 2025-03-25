@@ -22,7 +22,7 @@
     setTileFullError(false);
     //change selectedDominoObject if the tile is rotated first so it can be compared to neighbors
     let key = Object.keys(selectedDominoObject)[0]; // Get the only key
-    let value = selectedDominoObject[key].toString();
+    let value = selectedDominoObject?selectedDominoObject[key].toString():null
     if (dominoRotated&&selectedDominoObject) {
  // Convert value to string
 

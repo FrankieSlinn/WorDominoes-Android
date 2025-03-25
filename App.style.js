@@ -302,5 +302,18 @@ margin: 32,
   startGameButton:{
     backgroundColor: "#053e4c",
 
+  },
+  continuePlayingButton:{
+    backgroundColor: "#053e4c",
+    marginTop: -65,
+    marginBottom: 40,
+
+  },
+  WorDominationCount:{
+    marginTop: 5,
+    marginBottom: -5,
+
+
   }
+
 });

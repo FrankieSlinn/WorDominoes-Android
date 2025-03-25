@@ -20,20 +20,7 @@ export function TextBelow({word1Success, dominoSelected, setDominoSelected, game
    setScoreForGame(storedGames[storedGames.length-1])
    console.log("!!scoreForGame", scoreForGame)
 
-      // if (!storedGames || storedGames.length === 0) {
-      //   console.log("No games found, setting average score to 0");
-      //   setGamesArray([]);
-      //   setAverageScore(0);
-      //   return;
-      // }
 
-      // setGamesArray(storedGames);
-      // if(storedGames){
- 
-    // totalScore = storedGames.reduce((sum, num) => sum + num, 0).toFixed(1);}
-    //   console.log("!!!!!!!!totalScore", totalScore);
-
-    //   setAverageScore((totalScore / storedGames.length).toFixed(2)); // Use storedGames.length instead
 
     } catch (error) {
       console.error("Error fetching game data:", error);

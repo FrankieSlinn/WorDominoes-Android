@@ -98,8 +98,10 @@ margin: 32,
   
   instructionBox: {
     margin: 20,
-    // backgroundColor: "yellow",
-    height: 65,
+   marginBottom: -20,
+    height: 95,
+    // alignItems: "center",
+    justifyContent: "center",
   },
   instructionText: {
     fontSize: 17,

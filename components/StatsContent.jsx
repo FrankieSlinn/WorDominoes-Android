@@ -51,12 +51,6 @@ export function StatsContent({showStats, setShowStats, gamesArray, setGamesArray
     console.log("gamesArray[gamesArray.length-1", gamesArray[gamesArray.length-1])
     
 
-    // function getAverageScore(){
-    //   let totalScore = newGamesArray.reduce((sum, num) => sum + num, 0);
-    //   setAverageScore(totalScore / gamesArray.length)
-      
-    // }
-    // getAverageScore();
 
 return(<>
       <View style={s.closeButtonContainer}>

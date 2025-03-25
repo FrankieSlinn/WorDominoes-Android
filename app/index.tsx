@@ -8,6 +8,7 @@ import { DisplayDomino } from "../components/DisplayDomino.jsx";
 import { MakeWords } from "../components/MakeWords.jsx";
 import { TextAbove} from "../components/TextAbove.jsx";
 import { TextBelow} from "../components/TextBelow.jsx";
+import { TextTileWin} from "../components/TextTileWin.jsx";
 import {HelpText} from "../components/HelpText.jsx";
 import {StatsContent} from "../components/StatsContent.jsx";
 import {FinishGame} from "../components/FinishGame.jsx";
@@ -71,6 +72,8 @@ export default function Index() {
         wrongTileError={wrongTileError}
         tileFullError={tileFullError}
         tilePlaced={tilePlaced}
+        worDomination={worDomination}
+        setWorDomination={setWorDomination}
         
         
         />
@@ -162,6 +165,8 @@ export default function Index() {
           setDominoesInHand={setDominoesInHand}
           tilePlaced={tilePlaced}
           setTilePlaced={setTilePlaced}
+          worDomination={worDomination}
+          setWorDomination={setWorDomination}
         />
        
         <TextBelow
@@ -169,6 +174,8 @@ export default function Index() {
         dominoSelected={dominoSelected}
         setDominoSelected={setDominoSelected}
         gameFinished={gameFinished}
+        worDomination={worDomination}
+        setWorDomination={setWorDomination}
         />
       
        
@@ -192,6 +199,8 @@ export default function Index() {
             setTilePlaced={setTilePlaced}
             dominoesInGrid={dominoesInGrid}
             setDominoesInGrid={setDominoesInGrid}
+            worDomination={worDomination}
+            setWorDomination={setWorDomination}
           />
          </View>
          :null}
@@ -215,25 +224,20 @@ export default function Index() {
                 tilePlaced={tilePlaced}
                 setTilePlaced={setTilePlaced}
             wordSubmitted={wordSubmitted}
+            worDomination={worDomination}
+            setWorDomination={setWorDomination}
 
               />
             ) : null}
           </View>
-          <View>
-            {word2Success === true && tilePlaced===false?(
-              <Text style={s.instructionText}>
-        
-                Congratulations, you won a tile!{"\n"}
-                {"\n"}
-                Click on a space in the domino grid on the top to place your
-                tile. Remember: dominoes can only be placed next to each other
-                if they have the same number of dots on their connecting sides.
-                {"\n"}
-                {"\n"}
-                To rotate, click on the domino above.
-              </Text>
-            ) : null}
-          </View>
+          <TextTileWin
+          word2Success={word2Success}
+            tilePlaced={tilePlaced}
+            worDomination={worDomination}
+          
+          
+          />
+
           <FinishGame
           gameFinished={gameFinished }
           setGameFinished={setGameFinished}

@@ -1,5 +1,8 @@
   //With tiles as objects simpler to update in function
   let tileData = { leftNeighbor: null, rightNeighbor: null, currentTile: null };
+  // if(selectedDominoObject){
+  //   let key = Object.keys(selectedDominoObject)[0]; // Get the only key
+  //   let value = selectedDominoObject?selectedDominoObject[key].toString():null}
 
   function getNeighborsAndCurrentTile(
     dominoRotated,
@@ -28,13 +31,18 @@
 
     //reverse value if domino rotated
     if (dominoRotated&&selectedDominoObject) {
+
  // Convert value to string
+ console.log("!!!!!selectedDominoObject[key] before reverse values", selectedDominoObject[key])
 
       // Reverse the string representation of the value
-      let reversedValue = value.split("").reverse().join("");
+      let value1 = selectedDominoObject[key].toString()[0]
+      let value2 = selectedDominoObject[key].toString()[1]
+      let reversedValue = value2+value1
 
       // Assign the reversed value back to the object
       selectedDominoObject[key] = reversedValue;
+      console.log("selectedDominoObject[key] reversed just after changed<><><><!!!!!</>", selectedDominoObject[key])
 
       // Update state
       setSelectedDominoObject({ ...selectedDominoObject });
@@ -51,7 +59,13 @@
 
 
     }
+
+    allocateCurrentTileNeighbourValues(selectedDominoObject, key);
   }
+
+  function allocateCurrentTileNeighbourValues(selectedDominoObject, key){
+
+  console.log("selectedDominoObject[key] BEFORE VALUES DETERMINED<><><><!!!!!</>", selectedDominoObject[key])
 
     //Check as after 6 tileIds in reverse order
     if (tileId === 0) {
@@ -204,6 +218,7 @@ if(tileData.currentTile){
       tileData.rightNeighbor
     );
   }
+}
 }
   
 

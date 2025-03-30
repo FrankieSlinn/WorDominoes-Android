@@ -24,7 +24,7 @@
     if(selectedDominoObject){
     let key = Object.keys(selectedDominoObject)[0]; // Get the only key
     let value = selectedDominoObject?selectedDominoObject[key].toString():null
-    }
+    
 
     //reverse value if domino rotated
     if (dominoRotated&&selectedDominoObject) {
@@ -51,6 +51,7 @@
 
 
     }
+  }
 
     //Check as after 6 tileIds in reverse order
     if (tileId === 0) {

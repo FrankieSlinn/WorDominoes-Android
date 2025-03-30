@@ -165,12 +165,12 @@ function handleTilePress(
     //check If tiles don't match
 
     if (
-      (tileData.currentTile[0] !== tileData.leftNeighbor &&
+      ((tileData.currentTile[0] !== tileData.leftNeighbor &&
         tileData.leftNeighbor != "empty" &&
         tileData.leftNeighbor != null) ||
       (tileData.currentTile[1] !== tileData.rightNeighbor &&
         tileData.rightNeighbor != "empty" &&
-        tileData.rightNeighbor != null)
+        tileData.rightNeighbor != null))
         && gridSelectedDominoObjects[tileId] === "empty" 
     ) {
       console.log("domino doesn't fit)");

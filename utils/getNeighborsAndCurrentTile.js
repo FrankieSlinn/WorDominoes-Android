@@ -21,8 +21,10 @@
     setWrongTileErrorInSpecificTile(false);
     setTileFullError(false);
     //change selectedDominoObject if the tile is rotated first so it can be compared to neighbors
+    if(selectedDominoObject){
     let key = Object.keys(selectedDominoObject)[0]; // Get the only key
     let value = selectedDominoObject?selectedDominoObject[key].toString():null
+    }
 
     //reverse value if domino rotated
     if (dominoRotated&&selectedDominoObject) {
@@ -186,7 +188,7 @@
    }
   }
 
-
+if(tileData.currentTile){
     console.log(
       "tile ID: ", tileId,
       "!!!!dominoRotated?",
@@ -200,6 +202,7 @@
       "!!!rightNeighbor",
       tileData.rightNeighbor
     );
+  }
 }
   
 

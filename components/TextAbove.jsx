@@ -30,7 +30,7 @@ export function TextAbove({tileFullError, wrongTileError, tilePlaced, worDominat
        
           </Text>
           </View>
-          :!tileFullError===true&&!wrongTileError===true&&tilePlaced===true?
+          :!tileFullError===true&&!wrongTileError===true&&tileFullError===false&&tilePlaced===true?
       
           <View style={[s.instructionBox, {height:50, marginBottom: 10, marginTop:10}]}>
           <Text style={s.instructionText}s>

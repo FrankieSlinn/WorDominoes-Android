@@ -49,7 +49,7 @@ export default function Index() {
 
   console.log("showMakeWord in index", showMakeWord)
   console.log("word2Success in index", word2Success)
-  
+  //Make sure cannot rotate domino before word done as letters seem to change if click on display domino
 //rotated then unrotated might not work. 
 //one of used letters stayed after redo word. 
 
@@ -255,6 +255,8 @@ export default function Index() {
           />
 
           <FinishGame
+          gameStart={gameStart}
+          setGameStart={setGameStart}
           gameFinished={gameFinished }
           setGameFinished={setGameFinished}
           gamesArray={gamesArray} 

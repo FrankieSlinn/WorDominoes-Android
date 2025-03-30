@@ -4,7 +4,7 @@ import { s } from "../App.style";
 import {handleFinishGame} from "../utils/finishGame"
 
 
-export function FinishGame({gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, 
+export function FinishGame({gameStart, setGameStart, gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, 
     setSingleGameScore, showFinishGame, setShowFinishGame
 }) {
    
@@ -42,6 +42,10 @@ export function FinishGame({gameFinished, setGameFinished, gamesArray, setGamesA
       )
   };
 
+  function startNewGame(){
+    setGameStart(true)
+  }
+
 
   return (
     <>
@@ -53,7 +57,7 @@ export function FinishGame({gameFinished, setGameFinished, gamesArray, setGamesA
    <Text  style={s.startFinishGameText}>Finish Game</Text>
     </TouchableOpacity>
     :
-    <TouchableOpacity style={[s.startFinishGameButton, s.startGameButton]} onPress={()=>console.log("start new game")}>
+    <TouchableOpacity style={[s.startFinishGameButton, s.startGameButton]} onPress={()=>[startNewGame, console.log("start new game")]}>
         <Text style={s.startFinishGameText}>Start New Game</Text>
     </TouchableOpacity>
     

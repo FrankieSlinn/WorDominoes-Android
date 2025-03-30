@@ -53,13 +53,14 @@ function handleTileFits(
       "domino rotated?",
       dominoRotated
     );
- 
+ console.log("selected DominoObject in tile fits", selectedDominoObject, "tileId", tileId)
 
     setDominoIdsInGrid((prevDominos) =>
       prevDominos.map((domino, index) =>
         index === tileId ? Object.keys(selectedDominoObject).toString() : domino
       )
     );
+    console.log("dominoIdsInGrid", dominoIdsInGrid);
 
     if (tileId < 6) {
       // Adds number of dots to the array
@@ -70,6 +71,10 @@ function handleTileFits(
             : domino
         )
       );
+      // console.log(
+      //   "gridSelectedDominoObjects in handle tile press",
+      //   gridSelectedDominoObjects
+      // );
     } else {
       setGridSelectedDominoObjects((prevDominos) =>
         prevDominos.map((domino, index) =>
@@ -130,40 +135,9 @@ console.log("scoreArrayPerDomino after concat with domino", scoreArrayPerDomino)
     console.log("!!!!!!!!total single game Score", singleGameScore);
     setScoreArraySingleGame(scoreArrayPerDomino);
     console.log("gameFinished", gameFinished)
-
-  
-      // addScoreToScoreArray(selectedDominoObject, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, dominoDots, singleGameScore,
-       
-      // )
-    
-   
-
-
   }
-  // async function addScoreToScoreArray(selectedDominoObject, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, dominoDots, singleGameScore,
-   
-  // ){
-  //   if(gameFinished===true){
-  // console.log("game finished - addScoretoScoreArray running!!!")
-  //   console.log("dominoDots", dominoDots)
-  //   console.log("Number(dominoDots[0])", Number(dominoDots[0]))
-  //   console.log("worDominationCount", worDominationCount)
-  //   console.log("worDominationCount*30", worDominationCount+30)
-  //   let endOfGameScore= singleGameScore+worDominationCount*30;
-  //   console.log("score", score)
-  //   try {
-  //     const games = await getGamesArray(); // Await for the stored games array
-  //     console.log("Retrieved gamesArray:", games);
-  
-  //     let newGamesArray = games.concat(endOfGameScore); // Properly concatenate the score
-  //     setGamesArray(newGamesArray); // Update state
-  //     await storeGamesArray(newGamesArray); // Store updated array in AsyncStorage
-  
-  //     console.log("Updated games array:", newGamesArray);
-  //   } catch (error) {
-  //     console.error("Error updating games array:", error);
-  //   }
-  // }
-  // }
+
+
+
 
   export {handleTileFits}

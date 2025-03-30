@@ -185,10 +185,11 @@ function handleTilePress(
       checkTileAlreadyPlaced(
         tileId,
         wrongTileErrorInSpecificTile,
-        setTileFullError,
+      
         tilePlaced,
         setTilePlaced,
         tileFullError,
+        setTileFullError,
         dominoIdsInGrid,
         setDominoIdsInGrid,
         selectedDominoObject,
@@ -251,10 +252,10 @@ function handleTilePress(
   function checkTileAlreadyPlaced(
     tileId,
     wrongTileErrorInSpecificTile,
-    setTileFullError,
     tilePlaced,
     setTilePlaced,
     tileFullError,
+    setTileFullError, 
     dominoIdsInGrid,
     setDominoIdsInGrid,
     selectedDominoObject,

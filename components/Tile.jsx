@@ -61,12 +61,15 @@ export function Tile({
     useState(false);
   // console.log("electedDominoObject", selectedDominoObject);
   // console.log("dominoesInHand in tile", dominoesInHand);
+  console.log("!!!!in Tile Component",  "dominoIdsInGrid", dominoIdsInGrid, "gridSelectedDominoObjects", gridSelectedDominoObjects)
+  console.log("wrongTileErrorInSpecificTile", wrongTileErrorInSpecificTile)
 
   useEffect(() => {
     if (!tilePlacedState) {
       setTileRotatedState(dominoRotated);
     }
   }, [dominoRotated]);
+  console.log("TILE ROTATED IN TILE", tileRotatedState)
 
 
   return (
@@ -129,30 +132,33 @@ export function Tile({
           }}
         >
           {wrongTileErrorInSpecificTile ? null : !tileRotatedState ? (
+            //no wrong tile error and tile not rotated
             <Image
               source={dominoImageMappings[dominoIdsInGrid[tileId]]}
               style={[
                 s.selectedTile,
-                (tileId >= 0 && tileId <= 3) || (tileId >= 6 && tileId <= 9)
-                  ? s.selectedTileHorizontal
+                //Below: all horizontal tiles
+                ((tileId >= 0 && tileId <= 3) || (tileId >= 6 && tileId <= 9))
+                  ? [s.selectedTileHorizontal, s.selectedHorizontalTileUnroated]
                   : s.selectedTileVertical,
-                (tileId >= 0 && tileId <= 3) || (tileId >= 6 && tileId <= 9)
-                  ? s.selectedHorizontalTileUnrotated
-                  : null,
+                // (tileId >= 0 && tileId <= 3) || (tileId >= 6 && tileId <= 9)
+                //   ? s.selectedHorizontalTileUnrotated
+                //   : null,
               ]}
               resizeMode="cover"
             />
-          ) : (
+          ) : 
+          //tile rotated
+          
+          (
             <Image
               source={dominoImageMappings[dominoIdsInGrid[tileId]]}
               style={[
                 s.selectedTile,
-                (tileId >= 0 && tileId <= 3) || (tileId >= 6 && tileId <= 9)
-                  ? s.selectedTileHorizontal
-                  : s.selectedTileVertical,
-                (tileId >= 0 && tileId <= 3) || (tileId >= 6 && tileId <= 9)
-                  ? s.selectedHorizontalTileRotated
-                  : s.selectedVerticalTileRotated,
+                ((tileId >= 0 && tileId <= 3) || (tileId >= 6 && tileId <= 9))
+                  ? [s.selectedTileHorizontal, s.selectedHorizontalTileRotated]
+                  : [s.selectedTileVertical, s.selectedVerticalTileRotated]
+            
               ]}
               resizeMode="cover"
             />

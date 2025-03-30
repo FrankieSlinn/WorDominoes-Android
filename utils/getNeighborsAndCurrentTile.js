@@ -13,16 +13,18 @@
     setTileFullError
   ) {
     console.log("get Neighbours running");
-    // console.log(
-    //   "gridSelectedDominoObjects in handle tile press",
-    //   gridSelectedDominoObjects
-    // );
+    console.log(
+      "gridSelectedDominoObjects in handle tile press",
+      gridSelectedDominoObjects
+    );
     setWrongTileError(false);
     setWrongTileErrorInSpecificTile(false);
     setTileFullError(false);
     //change selectedDominoObject if the tile is rotated first so it can be compared to neighbors
     let key = Object.keys(selectedDominoObject)[0]; // Get the only key
     let value = selectedDominoObject?selectedDominoObject[key].toString():null
+
+    //reverse value if domino rotated
     if (dominoRotated&&selectedDominoObject) {
  // Convert value to string
 
@@ -34,6 +36,7 @@
 
       // Update state
       setSelectedDominoObject({ ...selectedDominoObject });
+      console.log("!!!????selectedRotatedDominoObject", selectedDominoObject)
 
       // console.log("stringNewValue in getNeighbors if rotated", reversedValue);
       // console.log("selectedDominoObject for Rotated", selectedDominoObject);
@@ -90,19 +93,19 @@
             ? "empty"
             : gridSelectedDominoObjects[tileId - 1].toString()[1];
       }
-      if (gridSelectedDominoObjects[9]) {
+      if (gridSelectedDominoObjects[6]) {
         tileData.rightNeighbor =
-          gridSelectedDominoObjects[9] === "empty"
+          gridSelectedDominoObjects[6] === "empty"
             ? "empty"
-            : gridSelectedDominoObjects[9].toString()[1];
+            : gridSelectedDominoObjects[9].toString()[0];
       }
     }
     if (tileId === 6) {
-        if (gridSelectedDominoObjects[11]) {
+        if (gridSelectedDominoObjects[5]) {
           tileData.leftNeighbor =
-            gridSelectedDominoObjects[11] === "empty"
+            gridSelectedDominoObjects[5] === "empty"
               ? "empty"
-              : gridSelectedDominoObjects[11].toString()[1];
+              : gridSelectedDominoObjects[5].toString()[1];
         }
   
         //tile on rightis tile 8
@@ -138,19 +141,19 @@
     //right neighbour in sense of array so itile is actually to left
     if (tileId > 6 &&tileId< 11) {
       //actual tile to right
-      if (gridSelectedDominoObjects[tileId + 1]) {
-        tileData.leftNeighbor =
-          gridSelectedDominoObjects[tileId + 1] === "empty"
-            ? "empty"
-            : gridSelectedDominoObjects[tileId + 1].toString()[0];
-      }
-
-      //actual tile to left. rightNeighbor for comparison
       if (gridSelectedDominoObjects[tileId - 1]) {
-        tileData.rightNeighbor =
+        tileData.leftNeighbor =
           gridSelectedDominoObjects[tileId - 1] === "empty"
             ? "empty"
             : gridSelectedDominoObjects[tileId - 1].toString()[1];
+      }
+
+      //actual tile to left. rightNeighbor for comparison
+      if (gridSelectedDominoObjects[tileId + 1]) {
+        tileData.rightNeighbor =
+          gridSelectedDominoObjects[tileId + 1] === "empty"
+            ? "empty"
+            : gridSelectedDominoObjects[tileId + 1].toString()[0];
       }
     }
     if (tileId === 11) {
@@ -171,9 +174,21 @@
       }
     }
 
-   if(selectedDominoObject){tileData.currentTile = Object.values(selectedDominoObject).toString();
+   if(selectedDominoObject){
+ 
+
+    if(tileId<=5){tileData.currentTile = Object.values(selectedDominoObject).toString()}
+   else{
+    let value1 = Object.values(selectedDominoObject).toString()[0]
+    let value2 = Object.values(selectedDominoObject).toString()[1]
+    tileData.currentTile = value2+value1;
+
+   }
+  }
+
 
     console.log(
+      "tile ID: ", tileId,
       "!!!!dominoRotated?",
       dominoRotated,
       "!!!!!currentTile[0] in handleTilePress",
@@ -186,7 +201,7 @@
       tileData.rightNeighbor
     );
 }
-  }
+  
 
 
 

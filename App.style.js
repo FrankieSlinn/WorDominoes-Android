@@ -133,7 +133,7 @@ margin: 32,
   selectedTileHorizontal: {
     width: 26,
     height: 52,
-    color: "green",
+    transform: [{ rotate: "270deg" }],
   },
   selectedTileVertical: {
     width: 26,

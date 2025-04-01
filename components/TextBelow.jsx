@@ -4,31 +4,12 @@ import { s } from "../App.style";
 import {storeGamesArray, getGamesArray} from "../utils/asynchStorageUtils.js"
 
 
-export function TextBelow({word1Success, dominoSelected, setDominoSelected, gameFinished, worDomination}) {
+export function TextBelow({word1Success, dominoSelected, setDominoSelected, gameFinished, worDomination, gamesArray}) {
   console.log("dominoSelected in ChooseDominoText", dominoSelected);
   console.log("word1Success in choose dominoText", word1Success);
   const [scoreForGame, setScoreForGame]=useState(0)
 
-  useEffect(() => {
-    console.log("useEffect in Text Below running2");
-  
-  const fetchData = async () => {
-    try {
-    
-      const storedGames = await getGamesArray(); // Call the correct function
-      console.log("!!!!storedGames in TextBelow", storedGames);
-   setScoreForGame(storedGames[storedGames.length-1])
-   console.log("!!scoreForGame", scoreForGame)
 
-
-
-    } catch (error) {
-      console.error("Error fetching game data:", error);
-    }
-  };
-
-  fetchData();
-}, []);
 
 
 
@@ -39,7 +20,7 @@ export function TextBelow({word1Success, dominoSelected, setDominoSelected, game
 
           <View style={s.instructionTextBelow}>
             { gameFinished===true?
-             <Text style={s.instructionText}>You Have Scored {scoreForGame} Points</Text>
+             <Text style={s.instructionText}>You Have Scored {gamesArray[gamesArray.length-1]||0} Points</Text>
             : dominoSelected===false? 
             
             <Text style={s.instructionText}>

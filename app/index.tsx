@@ -185,6 +185,7 @@ export default function Index() {
         gameFinished={gameFinished}
         worDomination={worDomination}
         setWorDomination={setWorDomination}
+        gamesArray={gamesArray}
         />
       
        

@@ -55,6 +55,8 @@ export function FinishGame({gameStart, setGameStart, gameFinished, setGameFinish
  
    <Text  style={s.startFinishGameText}>Finish Game</Text>
     </TouchableOpacity>
+    <Text>   {"\n"}
+    {"\n"}</Text>
     
 
     </View>

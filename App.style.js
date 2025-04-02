@@ -282,6 +282,7 @@ margin: 32,
   startFinishGameContainer:{
     alignItems:"center",
     marginTop: 20,
+    marginBottom: 40,
   },
   startFinishGameButton:{
     padding: 8,

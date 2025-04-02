@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'; 
-
+//for All Games
 
 export const storeGamesArray = async (gamesArray) => {
     try {
@@ -21,6 +21,8 @@ export const storeGamesArray = async (gamesArray) => {
       return [];
     }
   };
+
+  //for One Game ???Needed?
 
 export const storeAllScores = async (scoreArray) => {
     try {

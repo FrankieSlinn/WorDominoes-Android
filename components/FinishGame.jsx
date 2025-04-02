@@ -2,10 +2,11 @@ import { View, Text, TouchableOpacity, Alert} from "react-native";
 import {useEffect, useState} from "react";
 import { s } from "../App.style";
 import {handleFinishGame} from "../utils/finishGame"
+import {StartNewGameButton} from "./StartNewGameButton";
 
 
 export function FinishGame({gameStart, setGameStart, gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, 
-    setSingleGameScore, showFinishGame, setShowFinishGame
+    setSingleGameScore, showFinishGame, setShowFinishGame, dominoesInHand, setDominoesInHand
 }) {
    
    
@@ -42,26 +43,20 @@ export function FinishGame({gameStart, setGameStart, gameFinished, setGameFinish
       )
   };
 
-  function startNewGame(){
-    setGameStart(true)
-  }
+
 
 
   return (
     <>
     <View style={s.startFinishGameContainer}>
-        {showFinishGame && !gameFinished?
+        
 <TouchableOpacity style={[s.startFinishGameButton, s.finishGameButton]} onPress={()=>[showAlert()]
 }>
  
    <Text  style={s.startFinishGameText}>Finish Game</Text>
     </TouchableOpacity>
-    :
-    <TouchableOpacity style={[s.startFinishGameButton, s.startGameButton]} onPress={()=>[startNewGame, console.log("start new game")]}>
-        <Text style={s.startFinishGameText}>Start New Game</Text>
-    </TouchableOpacity>
     
-    }
+
     </View>
 
     </>

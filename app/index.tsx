@@ -14,6 +14,7 @@ import {StatsContent} from "../components/StatsContent.jsx";
 import {FinishGame} from "../components/FinishGame.jsx";
 import { ContinuePlaying} from "../components/ContinuePlaying.jsx";
 import {TextWorDominationCount} from "../components/TextWorDominationCount.jsx";
+import { StartNewGameButton } from "@/components/StartNewGameButton.jsx";
 export default function Index() {
   const [gameStart, setGameStart] = useState(true);
   const [turnStart, setTurnStart] = useState(true);
@@ -255,6 +256,43 @@ export default function Index() {
           
           />
 
+     
+          {!showFinishGame && gameFinished?
+          <StartNewGameButton
+          dominoesInHand={dominoesInHand}
+          setDominoesInHand={setDominoesInHand}
+          word1Success={word1Success}
+          setWord1Success={setWord1Success}
+          word2Success={word2Success}
+          setWord2Success={setWord2Success}
+          displayDomino={displayDomino}
+          setDisplayDomino={setDisplayDomino}
+
+          numberDominoesInGrid={numberDominoesInGrid}
+          setNumberDominoesInGrid={setNumberDominoesInGrid}
+          dominoIdsInGrid={dominoIdsInGrid}
+          setDominoIdsInGrid={setDominoIdsInGrid}
+          selectedDominoObject={selectedDominoObject}
+          setSelectedDominoObject={setSelectedDominoObject}
+          gridSelectedDominoObjects={gridSelectedDominoObjects}
+         setGridSelectedDominoObjects={setGridSelectedDominoObjects}
+         tilePlaced={tilePlaced}
+         setTilePlaced={setTilePlaced}
+         turnStart={turnStart}
+          setTurnStart={setTurnStart}
+          gameStart={gameStart}
+          setGameStart={setGameStart}
+          gameFinished={gameFinished}
+          setGameFinished={setGameFinished}
+          scoreArraySingleGame={scoreArraySingleGame}
+        
+
+          setScoreArraySingleGame={setScoreArraySingleGame}
+          singleGameScore={singleGameScore}
+          setSingleGameScore={setSingleGameScore}
+          worDomination={worDomination}
+          setWorDomination={setWorDomination}
+          />:
           <FinishGame
           gameStart={gameStart}
           setGameStart={setGameStart}
@@ -268,9 +306,14 @@ export default function Index() {
           setSingleGameScore={setSingleGameScore}
           showFinishGame={showFinishGame}
           setShowFinishGame={setShowFinishGame}
+          dominoesInHand={dominoesInHand}
+          setDominoesInHand={setDominoesInHand}
+
         
           
           />
+          
+          }
     
       </ScrollView>
       :showStats===false?

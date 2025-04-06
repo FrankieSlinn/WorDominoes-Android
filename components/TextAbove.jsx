@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import { s } from "../App.style";
 
 
-export function TextAbove({tileFullError, wrongTileError, tilePlaced, worDomination, setWorDomination}) {
+export function TextAbove({gameFinished, setGameFinished, tileFullError, wrongTileError, tilePlaced, worDomination, setWorDomination}) {
   
 // useEffect(() => {
 //   setWorDomination(true)
@@ -20,6 +20,12 @@ export function TextAbove({tileFullError, wrongTileError, tilePlaced, worDominat
                CONGRATULATIONS!!!! YOU HAVE ACHIEVED WORDOMINATION!!!!
              </Text>
              </View>
+             :gameFinished===true?
+             <View style={[s.instructionBox, {height:50, marginBottom: 12, marginRight: 20}]}>
+             <Text style={[s.instructionText]}>You Have Finished This Game</Text>
+             </View>
+             
+             
              :
           
           tileFullError===false&&wrongTileError===false&&tilePlaced===false?

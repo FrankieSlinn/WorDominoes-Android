@@ -114,7 +114,7 @@
         tileData.rightNeighbor =
           gridSelectedDominoObjects[6] === "empty"
             ? "empty"
-            : gridSelectedDominoObjects[9].toString()[0];
+            : gridSelectedDominoObjects[6].toString()[0];
       }
     }
     if (tileId === 6) {

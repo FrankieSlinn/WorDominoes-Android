@@ -8,7 +8,7 @@ import { s } from "../App.style";
 
 
 export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject, setSelectedDominoObject,  showChooseDominoText, setShowChooseDominoText,
-  turnStart, setTurnStart, word1Success, setWord1Success, word2Success, setWord2Success, dominoesInGrid, tilePlaced, setTilePlaced, wordSubmitted, 
+  gameStart, setGameStart, turnStart, setTurnStart, word1Success, setWord1Success, word2Success, setWord2Success, dominoesInGrid, tilePlaced, setTilePlaced, wordSubmitted, 
   setWordSubmitted
 
 }) {
@@ -34,6 +34,12 @@ export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject
    setWordNum(2)}
 
   },[word1Success])
+
+
+  useEffect (() => {
+  setGameStart(false)
+
+  },[])
 
   useEffect(() => {
   

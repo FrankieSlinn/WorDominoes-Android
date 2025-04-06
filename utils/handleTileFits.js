@@ -54,13 +54,14 @@ function handleTileFits(
       dominoRotated
     );
  console.log("selected DominoObject in tile fits", selectedDominoObject, "tileId", tileId)
+ setGameFinished(false);
 
     setDominoIdsInGrid((prevDominos) =>
       prevDominos.map((domino, index) =>
         index === tileId ? Object.keys(selectedDominoObject).toString() : domino
       )
     );
-    console.log("dominoIdsInGrid", dominoIdsInGrid);
+    // console.log("dominoIdsInGrid", dominoIdsInGrid);
 
     if (tileId < 6) {
       // Adds number of dots to the array
@@ -71,10 +72,7 @@ function handleTileFits(
             : domino
         )
       );
-      // console.log(
-      //   "gridSelectedDominoObjects in handle tile press",
-      //   gridSelectedDominoObjects
-      // );
+
     } else {
       setGridSelectedDominoObjects((prevDominos) =>
         prevDominos.map((domino, index) =>
@@ -82,11 +80,11 @@ function handleTileFits(
         )
       );
     }
-    console.log("dominoes in grid in successful tile placement", dominoIdsInGrid);
-    console.log(
-      "gridSelectedDominoObjects after set in tile pressed n successful tile placement",
-      gridSelectedDominoObjects
-    );
+    // console.log("dominoes in grid in successful tile placement", dominoIdsInGrid);
+    // console.log(
+    //   "gridSelectedDominoObjects after set in tile pressed n successful tile placement",
+    //   gridSelectedDominoObjects
+    // );
     let dominoesInHandCopy = [...dominoesInHand];
 
     let index = dominoesInHandCopy.indexOf(selectedDominoObject);
@@ -96,11 +94,11 @@ function handleTileFits(
       dominoesInHandCopy.splice(index, 1); // ✅ Removes only selectedDominoObject
     }
 
-    // console.log("dominoesInHand before shortened", dominoesInHand);
+   
 
     setDominoesInHand(dominoesInHandCopy); // ✅ Updates state with the correct array
 
-    // console.log("DOMINOES IN HAND AFTER shortened", dominoesInHand);
+   
     addScoreToScoreArraySingleGame(selectedDominoObject, scoreArraySingleGame, setScoreArraySingleGame, dominoDots, gameFinished, setGameFinished, gamesArray, 
       setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore
     )

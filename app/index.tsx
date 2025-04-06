@@ -46,13 +46,18 @@ export default function Index() {
   const[scoreArraySingleGame, setScoreArraySingleGame]=useState([]);
   const[gameFinished, setGameFinished]=useState(false);
   const[singleGameScore, setSingleGameScore]=useState(0);
-  const [showFinishGame, setShowFinishGame]=useState(true);s
+  const [showFinishGame, setShowFinishGame]=useState(false);
 
   console.log("showMakeWord in index", showMakeWord)
   console.log("word2Success in index", word2Success)
   //Make sure cannot rotate domino before word done as letters seem to change if click on display domino
 //rotated then unrotated might not work. 
 //one of used letters stayed after redo word. 
+//Make sure finish game there when prompt to pick domino
+
+//Make sure text cannot be seen behind heading
+
+//start new game needs to reset. 
 
   useEffect(()=>{
     console.log("!!!!dominoSelected in index", dominoSelected);
@@ -71,7 +76,10 @@ export default function Index() {
       </View>
       {showHelpText===false && showStats===false?
       <ScrollView style={s.body}>
+        
         <TextAbove
+        gameFinished={gameFinished}
+        setGameFinished={setGameFinished}
         wrongTileError={wrongTileError}
         tileFullError={tileFullError}
         tilePlaced={tilePlaced}
@@ -145,8 +153,10 @@ export default function Index() {
       worDominationCount={worDominationCount}
       
       />
-       
+       {gameFinished===false?
         <HandDominoes
+       showFinishGame={showFinishGame}
+       setShowFinishGame={setShowFinishGame}
           gameStart={gameStart}
           setGameStart={setGameStart}
           displayDomino={displayDomino}
@@ -178,6 +188,7 @@ export default function Index() {
           worDomination={worDomination}
           setWorDomination={setWorDomination}
         />
+        :null}
        
         <TextBelow
         word1Success={word1Success}
@@ -190,7 +201,7 @@ export default function Index() {
         />
       
        
-        { tilePlaced === false ?
+        { tilePlaced === false && gameFinished===false?
         <View style={s.displayDominoContainer}>
           
           <DisplayDomino
@@ -216,7 +227,7 @@ export default function Index() {
          </View>
          :null}
           <View>
-            {showMakeWord === true && word2Success === false ? (
+            {showMakeWord === true && word2Success === false && gameFinished===false? (
               <MakeWords
                 displayDomino={displayDomino}
                 setDisplayDomino={setDisplayDomino}
@@ -224,6 +235,8 @@ export default function Index() {
                 setSelectedDominoObject={setSelectedDominoObject}
                 showChooseDominoText={showChooseDominoText}
                 setShowChooseDominoText={setShowChooseDominoText}
+                gameStart={gameStart}
+                setGameStart={setGameStart}
                 turnStart={turnStart}
                 setTurnStart={setTurnStart}
                 word1Success={word1Success}
@@ -293,6 +306,7 @@ export default function Index() {
           worDomination={worDomination}
           setWorDomination={setWorDomination}
           />:
+          showFinishGame===true?
           <FinishGame
           gameStart={gameStart}
           setGameStart={setGameStart}
@@ -309,9 +323,10 @@ export default function Index() {
           dominoesInHand={dominoesInHand}
           setDominoesInHand={setDominoesInHand}
 
+
         
           
-          />
+          />:null
           
           }
     

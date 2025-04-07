@@ -8,16 +8,27 @@ export const s = StyleSheet.create({
     paddingRight: 15,
     color: "#353839",
     fontSize: 30, // Roughly equivalent to 1.25rem (20px)
-    backgroundColor: "white",
+    backgroundColor: "#ffffff",
     fontFamily: "Arial",
     letterSpacing: -0.08,
     marginTop: 55,
+  },
+  statusBarBackground:{
+    paddingTop: 70,
+     backgroundColor: "#eee",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 10,
+
   },
   body: {
     paddingTop: 15,
     paddingLeft: 15,
     paddingRight: 15,
     textAlign: "center",
+    backgroundColor: "#eee",
   },
   bold:{
     fontWeight: "bold", 
@@ -35,8 +46,10 @@ export const s = StyleSheet.create({
     margin: 20,
   },
   headerContainer: {
-    backgroundColor: "lightBlue",
+    // backgroundColor: "lightBlue",
     height: 50,
+        zIndex: 10,
+  
   },
 
   header: {
@@ -139,7 +152,7 @@ margin: 32,
     width: 26,
     height: 52,
     transform: [{ rotate: "deg" }],
-    color: "pink",
+    // color: "pink",
   },
 
   selectedHorizontalTileRotated: {

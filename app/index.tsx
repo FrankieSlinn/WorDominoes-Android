@@ -1,5 +1,6 @@
 import { Text, View, ScrollView } from "react-native";
 import { useState, useEffect } from "react";
+import { StatusBar } from "expo-status-bar";
 import { s } from "../App.style.js";
 import { Header } from "../components/Header";
 import { Grid } from "../components/Grid";
@@ -53,19 +54,26 @@ export default function Index() {
   //Make sure cannot rotate domino before word done as letters seem to change if click on display domino
 //rotated then unrotated might not work. 
 //one of used letters stayed after redo word. 
-//Make sure finish game there when prompt to pick domino
+
 
 //Make sure text cannot be seen behind heading
 
 //start new game needs to reset. 
 
+
   useEffect(()=>{
     console.log("!!!!dominoSelected in index", dominoSelected);
   },[dominoSelected])
   return (
+    <>
+    <View style={s.statusBarBackground}>
+    <StatusBar 
+    // style="dark" 
+    translucent={false} />
+  </View>
 
 
-    <View>
+<View>
       <View style={s.headerContainer}>
         <Header 
         showHelpText = {showHelpText}
@@ -323,9 +331,6 @@ export default function Index() {
           dominoesInHand={dominoesInHand}
           setDominoesInHand={setDominoesInHand}
 
-
-        
-          
           />:null
           
           }
@@ -349,5 +354,6 @@ export default function Index() {
           }
       
     </View>
+    </>
   )
 }

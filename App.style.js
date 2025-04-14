@@ -12,6 +12,7 @@ export const s = StyleSheet.create({
     fontFamily: "Arial",
     letterSpacing: -0.08,
     marginTop: 55,
+    
   },
   statusBarBackground:{
     paddingTop: 70,
@@ -29,6 +30,7 @@ export const s = StyleSheet.create({
     paddingRight: 15,
     textAlign: "center",
     backgroundColor: "#eee",
+    top: 40,
   },
   bold:{
     fontWeight: "bold", 
@@ -54,7 +56,7 @@ export const s = StyleSheet.create({
 
   header: {
     position: "absolute",
-    top: 0,
+    top: 50,
     left: 0,
     right: 0,
     flex: 1,

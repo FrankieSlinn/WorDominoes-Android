@@ -16,6 +16,7 @@ import {FinishGame} from "../components/FinishGame.jsx";
 import { ContinuePlaying} from "../components/ContinuePlaying.jsx";
 import {TextWorDominationCount} from "../components/TextWorDominationCount.jsx";
 import { StartNewGameButton } from "@/components/StartNewGameButton.jsx";
+import { Stack } from "expo-router";
 export default function Index() {
   const [gameStart, setGameStart] = useState(true);
   const [turnStart, setTurnStart] = useState(true);
@@ -49,8 +50,8 @@ export default function Index() {
   const[singleGameScore, setSingleGameScore]=useState(0);
   const [showFinishGame, setShowFinishGame]=useState(false);
 
-  console.log("showMakeWord in index", showMakeWord)
-  console.log("word2Success in index", word2Success)
+  // console.log("showMakeWord in index", showMakeWord)
+  // console.log("word2Success in index", word2Success)
   //Make sure cannot rotate domino before word done as letters seem to change if click on display domino
 //rotated then unrotated might not work. 
 //one of used letters stayed after redo word. 
@@ -67,6 +68,7 @@ export default function Index() {
   return (
     <>
     <View style={s.statusBarBackground}>
+    <Stack.Screen options={{ headerShown: false }} />
     <StatusBar 
     // style="dark" 
     translucent={false} />

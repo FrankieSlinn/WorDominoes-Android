@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { s } from "../App.style";
 import { Input } from "./Input";
 import { submitWordToAPI } from "../utils/apiCalls";
+import {getLetterHand, storeLetterHand, getSelectedLetters1, storeSelectedLetters1, getSelectedLetters2, storeSelectedLetters2} from "../utils/asynchStorageUtils"
 
 export function Word({
   wordLength1,
@@ -35,18 +36,29 @@ export function Word({
 
 
   function handleRedoPress() {
+    const resetLetters = async ()=>{
+      const storedSelectedLetters1 = await getSelectedLetters1();
+      const storedSelectedLetters2= await getSelectedLetters2();
     if (wordNum === 1) {
       setInputString1([]);
+      storeSelectedLetters1([])
+   
       console.log("inputString1", inputString1)
       setSelectedLetters1([]);
+      console.log("SET STORED SELECTED LETTERS TO []!!!!!!!!")
+      console.log(" AFTER RESET - storedSelectedLetters1, selectedLetters1", storedSelectedLetters1(), selectedLetters1)
     } else {
       setInputString2([]);
+      storeSelectedLetters2([])
       console.log("inputString2", inputString2)
       setSelectedLetters2([]);
       console.log("selectedLetters2", selectedLetters2)
+      console.log(" AFTER RESET - storedSelectedLetters2, selectedLetters2", storedSelectedLetters2(), selectedLetters2)
     }
     setLengthError(false);
     setValidationError(false);
+  }
+  resetLetters();
   }
   function handleSubmitPress(inputString1, inputString2) {
     //shows if first word or second word submitted

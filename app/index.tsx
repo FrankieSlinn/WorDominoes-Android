@@ -70,7 +70,7 @@ export default function Index() {
     <View style={s.statusBarBackground}>
     <Stack.Screen options={{ headerShown: false }} />
     <StatusBar 
-    // style="dark" 
+
     translucent={false} />
   </View>
 

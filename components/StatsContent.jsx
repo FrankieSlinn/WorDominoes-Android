@@ -60,7 +60,7 @@ return(<>
       </View>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        style={s.helpTextContainer}
+        style={s.statsHelpTextContainer}
       >
         <Text style={s.helpText}>
           {"\n"}

@@ -110,6 +110,7 @@ export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject
         setWordForAPI={setWordForAPI}
         wordNum={wordNum}
         setWordNum={setWordNum}
+        gameStart = {gameStart}
      
     
     />

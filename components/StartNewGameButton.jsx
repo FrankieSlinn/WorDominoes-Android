@@ -1,4 +1,5 @@
 import { View, Text, TouchableOpacity, Alert} from "react-native";
+import {storeSelectedLetters1, storeSelectedLetters2} from "../utils/asynchStorageUtils"
 import {useEffect, useState} from "react";
 import { s } from "../App.style";
 
@@ -31,6 +32,8 @@ export function StartNewGameButton({gameStart, setGameStart, gameFinished, setGa
     setScoreArraySingleGame([])
     setWorDomination(false)
     allocateDominoes([], setDominoesInHand);
+    storeSelectedLetters1([])
+    storeSelectedLetters2([])
    
   }
 

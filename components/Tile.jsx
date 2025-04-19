@@ -61,15 +61,15 @@ export function Tile({
     useState(false);
   // console.log("electedDominoObject", selectedDominoObject);
   // console.log("dominoesInHand in tile", dominoesInHand);
-  console.log("!!!!in Tile Component",  "dominoIdsInGrid", dominoIdsInGrid, "gridSelectedDominoObjects", gridSelectedDominoObjects)
-  console.log("wrongTileErrorInSpecificTile", wrongTileErrorInSpecificTile)
+  // console.log("!!!!in Tile Component",  "dominoIdsInGrid", dominoIdsInGrid, "gridSelectedDominoObjects", gridSelectedDominoObjects)
+  // console.log("wrongTileErrorInSpecificTile", wrongTileErrorInSpecificTile)
 
   useEffect(() => {
     if (!tilePlacedState) {
       setTileRotatedState(dominoRotated);
     }
   }, [dominoRotated]);
-  console.log("TILE ROTATED IN TILE", tileRotatedState)
+  // console.log("TILE ROTATED IN TILE", tileRotatedState)
 
 
   return (

@@ -24,13 +24,12 @@ export function FinishGame({gameStart, setGameStart, gameFinished, setGameFinish
 
      function showAlert(){
         console.log("alert should show")
-    //   console.log("showFinishGame", showFinishGame, "game finished", gameFinished);
-    //   if(gameFinished===true){
+ 
         Alert.alert('Finish Game', 'Are You Sure You Want To Finish This Game?', [
           {
             text: 'Cancel',
             onPress: () => {console.log('Cancel Pressed');
-                // setGameFinished(false);
+               
             }
                 ,
             style: 'cancel',
@@ -55,7 +54,7 @@ export function FinishGame({gameStart, setGameStart, gameFinished, setGameFinish
  
    <Text  style={s.startFinishGameText}>Finish Game</Text>
     </TouchableOpacity>
-    <Text>   {"\n"}
+    <Text>   {"\n"} {"\n"} {"\n"}
     {"\n"}</Text>
     
 

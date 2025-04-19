@@ -15,9 +15,11 @@ export const s = StyleSheet.create({
     
   },
   statusBarBackground:{
-    paddingTop: 70,
+    paddingTop: 90,
+    paddingBottom: 25,
      backgroundColor: "#eee",
     position: "absolute",
+    height: 70,
     top: 0,
     left: 0,
     right: 0,
@@ -68,7 +70,7 @@ export const s = StyleSheet.create({
   },
 
   closeButtonContainer: {
-    marginTop: 30,
+    marginTop: 80,
     marginRight: 25,
     marginBottom: -35,
     flexDirection: "row",
@@ -92,7 +94,7 @@ export const s = StyleSheet.create({
    
 
   },
-  helpTextContainer:{
+  statsHelpTextContainer:{
     top: 10,
 margin: 32,
   },

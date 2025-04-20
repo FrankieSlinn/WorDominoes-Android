@@ -16,37 +16,23 @@ export function LetterTiles({inputString1, setInputString1, inputString2, setInp
     console.log("letterHand in letters", letterHand)
     console.log("SelectedLetterTiles1 in beginning of LetterTiles Component", selectedLetters1)
 
-    useEffect(() => {
-     const getSelectedLetterTiles = async()=>{
-      const storedLetterTiles1= await getSelectedLetters1();
-      const storedLetterTiles2= await getSelectedLetters2();
-      setSelectedLetters1(storedLetterTiles1)
-      setSelectedLetters2(storedLetterTiles2)
+    //function to always rerender letter tiles
+//     useEffect(() => {
+//      const getSelectedLetterTiles = async()=>{
+//       const storedLetterTiles1= await getSelectedLetters1();
+//       const storedLetterTiles2= await getSelectedLetters2();
+//       setSelectedLetters1(storedLetterTiles1)
+//       setSelectedLetters2(storedLetterTiles2)
 
 
 
-     }
-     getSelectedLetterTiles();
+//      }
+//      getSelectedLetterTiles();
 
-},[])
+// },[])
 
 
 
-    useEffect(() => {
-      console.log("gameStart in LetterTiles", gameStart)
-      
-      const clearLetterTiles = async () => {
-        if(gameStart ===true){
-          console.log("gameStart is true? ", gameStart)
-          console.log("function to")
-     storeSelectedLetters1([]);
-      storeSelectedLetters2([]);
-      storeLetterHand([]);
-        }
-      };
-    
-      clearLetterTiles();
-    }, [gameStart]);
     
 
     useEffect(() => {

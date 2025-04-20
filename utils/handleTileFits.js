@@ -1,9 +1,10 @@
 import { allocateDominoes } from "./allocateDominoes";
 import {storeGamesArray, getGamesArray }from"./asynchStorageUtils";
 import AsyncStorage from '@react-native-async-storage/async-storage'; 
+import {getLetterHand, storeLetterHand, getSelectedLetters1, storeSelectedLetters1, getSelectedLetters2, storeSelectedLetters2} from "./asynchStorageUtils"
 
 
-function handleTileFits(
+const handleTileFits= async(
     tileId,
     wrongTileErrorInSpecificTile,
     tileFullError,
@@ -37,9 +38,13 @@ function handleTileFits(
         gameFinished, 
         setGameFinished, 
         singleGameScore, 
-        setSingleGameScore
-  ) {
+        setSingleGameScore, 
+        setSelectedLetters1,
+        setSelectedLetters2,
+  ) =>{
 
+    const retrieveSelectedLetters1 = await getSelectedLetters1()
+    const retrieveSelectedLetters2= await getSelectedLetters2()
 
     let selectedDominoObjectString =
       Object.values(selectedDominoObject).join("");
@@ -102,6 +107,10 @@ function handleTileFits(
     addScoreToScoreArraySingleGame(selectedDominoObject, scoreArraySingleGame, setScoreArraySingleGame, dominoDots, gameFinished, setGameFinished, gamesArray, 
       setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore
     )
+    storeSelectedLetters1([])
+    storeSelectedLetters2([])
+    setSelectedLetters1([])
+    setSelectedLetters2([])
    
     setSelectedDominoObject(null);
     allocateDominoes(dominoesInHandCopy, setDominoesInHand);

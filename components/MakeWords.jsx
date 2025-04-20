@@ -9,7 +9,7 @@ import { s } from "../App.style";
 
 export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject, setSelectedDominoObject,  showChooseDominoText, setShowChooseDominoText,
   gameStart, setGameStart, turnStart, setTurnStart, word1Success, setWord1Success, word2Success, setWord2Success, dominoesInGrid, tilePlaced, setTilePlaced, wordSubmitted, 
-  setWordSubmitted
+  setWordSubmitted, selectedLetterTiles1, setSelectedLetterTiles1, selectedLetterTiles2, setSelectedLetterTiles2
 
 }) {
   const [wordLength1, setWordLength1] = useState("");

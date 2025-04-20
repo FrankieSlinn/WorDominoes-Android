@@ -51,7 +51,9 @@ export function Tile({
   gameFinished, 
   setGameFinished,
   singleGameScore, 
-  setSingleGameScore
+  setSingleGameScore, 
+  setSelectedLetters1,
+  setSelectedLetters2
 }) {
   //Only applies to this tile
   const [tilePlacedState, setTilePlacedState] = useState(false);
@@ -124,7 +126,9 @@ export function Tile({
               gameFinished,
               setGameFinished,
                 singleGameScore, 
-              setSingleGameScore
+              setSingleGameScore,
+              setSelectedLetters1,
+              setSelectedLetters2
             )
             // ,
             // getStats(gamesArray, setGamesArray)

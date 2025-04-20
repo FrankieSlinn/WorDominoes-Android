@@ -16,12 +16,13 @@ import {FinishGame} from "../components/FinishGame.jsx";
 import { ContinuePlaying} from "../components/ContinuePlaying.jsx";
 import {TextWorDominationCount} from "../components/TextWorDominationCount.jsx";
 import { StartNewGameButton } from "@/components/StartNewGameButton.jsx";
+import {getLetterHand, storeLetterHand, getSelectedLetters1, storeSelectedLetters1, getSelectedLetters2, storeSelectedLetters2} from "./../utils/asynchStorageUtils"
 import { Stack } from "expo-router";
 export default function Index() {
   const [gameStart, setGameStart] = useState(true);
   const [turnStart, setTurnStart] = useState(true);
   const [displayDomino, setDisplayDomino] = useState(); //to populate selected domino to make word from
-  //maybe can remove
+
   const [wordSubmitted, setWordSubmitted] = useState(false); //ensures that domino can only be selected once for each turn
   const [showMakeWord, setShowMakeWord] = useState(false);
   const [showChooseDominoText, setShowChooseDominoText] = useState(true);
@@ -49,9 +50,9 @@ export default function Index() {
   const[gameFinished, setGameFinished]=useState(false);
   const[singleGameScore, setSingleGameScore]=useState(0);
   const [showFinishGame, setShowFinishGame]=useState(false);
+  const [selectedLetters1, setSelectedLetters1]=useState([]);
+  const [selectedLetters2, setSelectedLetters2]=useState([]);
 
-  // console.log("showMakeWord in index", showMakeWord)
-  // console.log("word2Success in index", word2Success)
   //Make sure cannot rotate domino before word done as letters seem to change if click on display domino
 //rotated then unrotated might not work. 
 //one of used letters stayed after redo word. 
@@ -65,6 +66,30 @@ export default function Index() {
   useEffect(()=>{
     console.log("!!!!dominoSelected in index", dominoSelected);
   },[dominoSelected])
+
+
+
+
+
+
+  //Function to clear letters at the start of the game
+  useEffect(() => {
+    console.log("gameStart in LetterTiles", gameStart)
+    
+    const clearSelectedLetterTiles = async () => {
+      if(gameStart ===true&& (selectedLetters1.length!=0||selectedLetters2.length!=0)){
+        console.log("gameStart is true? ", gameStart)
+        console.log("function to")
+   storeSelectedLetters1([]);
+   setSelectedLetters1([])
+    storeSelectedLetters2([]);
+    setSelectedLetters2([])
+    storeLetterHand([]);
+      }
+    };
+  
+    clearSelectedLetterTiles();
+  }, );
   return (
     <>
     <View style={s.statusBarBackground}>
@@ -153,6 +178,8 @@ export default function Index() {
           setWorDominationCount={setWorDominationCount}
           singleGameScore={singleGameScore}
           setSingleGameScore={setSingleGameScore}
+          setSelectedLetters1={setSelectedLetters1}
+          setSelectedLetters2={setSelectedLetters2}
     
           
           />
@@ -260,6 +287,10 @@ export default function Index() {
             wordSubmitted={wordSubmitted}
             worDomination={worDomination}
             setWorDomination={setWorDomination}
+            selectedLetters1={selectedLetters1}
+            setSelectedLetters1={setSelectedLetters1}
+            selectedLetters2={selectedLetters2}
+            setSelectedLetters2={setSelectedLetters2}
 
               />
             ) : null}

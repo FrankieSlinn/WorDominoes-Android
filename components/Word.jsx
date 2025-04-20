@@ -28,7 +28,9 @@ export function Word({
   setWordNum,
   tilePlaced,
   setTilePlaced, 
-  wordSubmitted, setWordSubmitted
+  wordSubmitted, setWordSubmitted, 
+
+  
 }) {
   const [validationError, setValidationError] = useState(false);
   const [lengthError, setLengthError] = useState(false);
@@ -67,6 +69,14 @@ export function Word({
     let inputString = wordNum === 1 ? inputString1 : inputString2;
     //  let setWordSuccess = wordNum===1?setWord1Success: setWord2Success;
     //Convert letters to lower case and convert to string
+    // const resetSelectedLetters = async ()=>{
+    //   storeSelectedLetters1([])
+    //   setSelectedLetters1([])
+    //   storeSelectedLetters2([])
+    //   setSelectedLetters2([])
+
+
+    // }
     let letterArray =
       wordNum === 1
         ? inputString1.map((letter) => letter.toLowerCase()).join("")
@@ -77,6 +87,7 @@ export function Word({
       setLengthError(true);
     } else {
       // Pass the updated value directly to the API function
+      // resetSelectedLetters();
       submitWordToAPI(
         letterArray,
         wordLength,
@@ -87,6 +98,8 @@ export function Word({
         setValidationError
       );
     }
+  
+
   }
 
   return (

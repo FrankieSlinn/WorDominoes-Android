@@ -46,7 +46,9 @@ function handleTilePress(
   gameFinished,
   setGameFinished,
     singleGameScore, 
-  setSingleGameScore
+  setSingleGameScore,
+  setSelectedLetters1, 
+  setSelectedLetters2
 ) {
   console.log("tile pressed!!! for tileId:", tileId);
   console.log("word2Success", word2Success, "tilePlacedState", tilePlacedState);
@@ -111,7 +113,9 @@ function handleTilePress(
       gameFinished, 
       setGameFinished,
         singleGameScore, 
-    setSingleGameScore
+    setSingleGameScore, 
+    setSelectedLetters1,
+    setSelectedLetters2
     );
   }
 
@@ -157,7 +161,9 @@ function handleTilePress(
     gameFinished, 
     setGameFinished,
       singleGameScore, 
-  setSingleGameScore
+  setSingleGameScore,
+  setSelectedLetters1, 
+  setSelectedLetters2
   ) {
     console.log("checking if domino doesn't fit");
 
@@ -220,7 +226,9 @@ function handleTilePress(
         gameFinished, 
         setGameFinished,
           singleGameScore, 
-  setSingleGameScore
+  setSingleGameScore,
+  setSelectedLetters1,
+  setSelectedLetters2
       );
     }
   }
@@ -286,7 +294,9 @@ function handleTilePress(
     gameFinished, 
     setGameFinished,
       singleGameScore, 
-setSingleGameScore
+setSingleGameScore, 
+setSelectedLetters1, 
+setSelectedLetters2
   ) {
     console.log("checking if tile already placed");
     console.log(
@@ -340,7 +350,9 @@ setSingleGameScore
             gameFinished, 
             setGameFinished, 
             singleGameScore, 
-            setSingleGameScore
+            setSingleGameScore, 
+            setSelectedLetters1, 
+            setSelectedLetters2,
       );
     }
   }

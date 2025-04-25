@@ -1,7 +1,9 @@
 import { View, Text, TouchableOpacity} from "react-native";
 import {useEffect, useState} from "react";
 import {letters} from "../utils/letters";
-import {getLetterHand, storeLetterHand, getSelectedLetters1, storeSelectedLetters1, getSelectedLetters2, storeSelectedLetters2} from "../utils/asynchStorageUtils"
+import {getLetterHand, storeLetterHand, getSelectedLetters1, storeSelectedLetters1, getSelectedLetters2, storeSelectedLetters2,
+  getInputString1, storeInputString1, getInputString2, storeInputString2
+} from "../utils/asynchStorageUtils"
 import { s } from "../App.style";
 
 
@@ -16,25 +18,41 @@ export function LetterTiles({inputString1, setInputString1, inputString2, setInp
     console.log("letterHand in letters", letterHand)
     console.log("SelectedLetterTiles1 in beginning of LetterTiles Component", selectedLetters1)
 
-    //function to always rerender letter tiles
-//     useEffect(() => {
-//      const getSelectedLetterTiles = async()=>{
-//       const storedLetterTiles1= await getSelectedLetters1();
-//       const storedLetterTiles2= await getSelectedLetters2();
-//       setSelectedLetters1(storedLetterTiles1)
-//       setSelectedLetters2(storedLetterTiles2)
 
 
 
-//      }
-//      getSelectedLetterTiles();
-
-// },[])
-
-
-
+    //reset and load seleted letters
+    useEffect(() => {
+  
+   
+      console.log("gameStart in letterTiles before clearing letterTile", gameStart)
+      const handleSelectedLetterTiles = async () => {
+        if(turnStart===true){
+          storeSelectedLetters1([])
+          setSelectedLetters1([])
+          storeSelectedLetters2([])
+          setSelectedLetters2([])
+        }else{
+      const storedSelectedLetters1 = await getSelectedLetters1()
+      const storedSelectedLetters2 = await getSelectedLetters2()
+      
+  
+       
+          setSelectedLetters1(storedSelectedLetters1)
+          setSelectedLetters2(storedSelectedLetters2)
+          console.log("in letter tiles selectedLetters1 reset to have letters?????/", selectedLetters1)
+        }
+  
+        
+      };
     
+      handleSelectedLetterTiles();
+    },[] );
 
+
+
+ 
+//Allocate Letters
     useEffect(() => {
       console.log("turnStart in allocate Letters", turnStart)
       const loadOrCreateLetterHand = async () => {
@@ -71,6 +89,7 @@ export function LetterTiles({inputString1, setInputString1, inputString2, setInp
 
 
       function handlePress(letter, index) {
+        const createAndStoreInputStrings=()=>{
    
      
     
@@ -81,15 +100,23 @@ export function LetterTiles({inputString1, setInputString1, inputString2, setInp
     
         if (inputString.length < wordLength && !selectedLetters1.includes(index) &&  !selectedLetters2.includes(index)) {
           if(wordNum===1){
-          setInputString1((prevInputString1) => [...prevInputString1, letter]);}
+            const newInputString1 = [...inputString1, letter];
+            setInputString1(newInputString1);
+            storeInputString1(newInputString1);
+        
+        }
           
           else if (wordNum===2){
-            setInputString2((prevInputString2) => [...prevInputString2, letter]);}
+            const newInputString2 = [...inputString2, letter];
+            setInputString2(newInputString2);
+            storeInputString2(newInputString2);
+          }
             console.log("inputString2", inputString2)
           
         } else {
           console.log("Max word length reached, here is the full string:", inputString1);
-        }
+        }}
+        createAndStoreInputStrings();
 
         const loadOrCreateSelectedLetters= async () => {
           const storedSelectedLetters1= await getSelectedLetters1();

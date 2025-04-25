@@ -107,10 +107,11 @@ const handleTileFits= async(
     addScoreToScoreArraySingleGame(selectedDominoObject, scoreArraySingleGame, setScoreArraySingleGame, dominoDots, gameFinished, setGameFinished, gamesArray, 
       setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore
     )
-    storeSelectedLetters1([])
-    storeSelectedLetters2([])
-    setSelectedLetters1([])
-    setSelectedLetters2([])
+    // storeSelectedLetters1([])
+    // storeSelectedLetters2([])
+    // setSelectedLetters1([])
+    // console.log("sleected letters 1 changed in handleTile FITS???")
+    // setSelectedLetters2([])
    
     setSelectedDominoObject(null);
     allocateDominoes(dominoesInHandCopy, setDominoesInHand);

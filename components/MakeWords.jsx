@@ -1,7 +1,6 @@
 import { View, Text, Image, TouchableOpacity} from "react-native";
 import {useState, useEffect} from "react";
-import {word1Successful, word2Successful} from "../utils/apiCalls";
-import {letters} from "../utils/letters";
+import {loadWord1Success, getWord1Success, storeWord1Success} from "../utils/asynchStorageUtils"
 import {Word} from "./Word";
 import {LetterTiles} from "./LetterTiles";
 import { s } from "../App.style";
@@ -9,15 +8,14 @@ import { s } from "../App.style";
 
 export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject, setSelectedDominoObject,  showChooseDominoText, setShowChooseDominoText,
   gameStart, setGameStart, turnStart, setTurnStart, word1Success, setWord1Success, word2Success, setWord2Success, dominoesInGrid, tilePlaced, setTilePlaced, wordSubmitted, 
-  setWordSubmitted, selectedLetterTiles1, setSelectedLetterTiles1, selectedLetterTiles2, setSelectedLetterTiles2
+  setWordSubmitted, selectedLetters1, setSelectedLetters1, selectedLetters2, setSelectedLetters2
 
 }) {
   const [wordLength1, setWordLength1] = useState("");
   const [wordLength2, setWordLength2] = useState("");
   const [inputString1, setInputString1] = useState([]);
   const [inputString2, setInputString2] = useState([]);
-  const [selectedLetters1, setSelectedLetters1]=useState([]);
-  const [selectedLetters2, setSelectedLetters2]=useState([]);
+
   const [wordForAPI, setWordForAPI]=useState("");
   //shows if word 1 or word2
 
@@ -28,12 +26,39 @@ export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject
 
   console.log("dominoesInGrid in MakeWords", dominoesInGrid)
 
-  useEffect (() => {
-    console.log("word1Successful useEffect running. word1Successfulstats =", word1Success)
-    if(word1Success){
-   setWordNum(2)}
+  //load and save wordSuccess
 
-  },[word1Success])
+  useEffect (() => {
+
+    const loadSaveWord1Success= async()=>{
+      const storedWord1Success= await getWord1Success();
+      const storedWord2Success = await getWord2Success();
+      if(turnStart===true){
+        storeWord1Success(false)
+        setWord1Success(false)
+        storedWord2Success(false)
+        setWord2Success(false)
+      }
+      else{
+      // const storedWord1Success= await getWord1Success ()
+      setWord1Success(storedWord1Success)
+      setWord2Success(storedWord2Success)
+      console.log("???????word1Success after retrieved from storage", word1Success)
+
+      }
+
+    console.log("word1Successful useEffect running. word1Successfulstats =", word1Success)
+}
+loadSaveWord1Success()
+
+  },[])
+
+  useEffect (() => {
+    if(word1Success){
+      console.log("word1Success true, setting wordNum to 2????!!!!!!!")
+   setWordNum(2)
+  
+  }},[word1Success])
 
 
   useEffect (() => {
@@ -42,6 +67,7 @@ export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject
   },[])
 
   useEffect(() => {
+    
   
     if (selectedDominoObject ) {
       const values = Object.values(selectedDominoObject).toString();

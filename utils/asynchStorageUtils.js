@@ -86,6 +86,89 @@ export const storeGamesArray = async (gamesArray) => {
     }
   };
 
+  export const storeInputString1= async (inputString1) => {
+    try {
+      const jsonValue = JSON.stringify(inputString1); // Convert array to JSON string
+      await AsyncStorage.setItem("inputString1", jsonValue);
+      console.log("sinputString1 saved:", inputString1);
+    } catch (error) {
+      console.error("Error saving inputString1:", error);
+    }
+  };
+  
+
+  export const getInputString1= async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem("inputString1");
+      return jsonValue != null ? JSON.parse(jsonValue) : []; // Convert JSON to array
+    } catch (error) {
+      console.error("Error loading inputString1:", error);
+      return [];
+    }
+  };
+
+  export const storeInputString2= async (inputString2) => {
+    try {
+      const jsonValue = JSON.stringify(inputString2); // Convert array to JSON string
+      await AsyncStorage.setItem("inputString2", jsonValue);
+      console.log("inputString2 saved:", inputString2);
+    } catch (error) {
+      console.error("Error saving inputString2:", error);
+    }
+  };
+  
+
+  export const getInputString2= async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem("inputString2");
+      return jsonValue != null ? JSON.parse(jsonValue) : []; // Convert JSON to array
+    } catch (error) {
+      console.error("Error loading inputString2:", error);
+      return [];
+    }
+  };
+  export const storeWord1Success= async (word1Success) => {
+    try {
+      const jsonValue = JSON.stringify(word1Success); // Convert array to JSON string
+      await AsyncStorage.setItem("word1Success", jsonValue);
+      console.log("word1Success saved:", word1Success);
+    } catch (error) {
+      console.error("Error saving word1Success:", error);
+    }
+  };
+  
+
+  export const getWord1Success= async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem("word1Success");
+      return jsonValue != null ? JSON.parse(jsonValue) : []; // Convert JSON to array
+    } catch (error) {
+      console.error("Error loading word1Success:", error);
+      return [];
+    }
+  };
+
+  export const storeWord2Success= async (word2Success) => {
+    try {
+      const jsonValue = JSON.stringify(word2Success); // Convert array to JSON string
+      await AsyncStorage.setItem("word2Success", jsonValue);
+      console.log("word2Success saved:", word2Success);
+    } catch (error) {
+      console.error("Error saving word2Success:", error);
+    }
+  };
+  
+
+  export const getWord2Success= async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem("word2Success");
+      return jsonValue != null ? JSON.parse(jsonValue) : []; // Convert JSON to array
+    } catch (error) {
+      console.error("Error loading word1Success:", error);
+      return [];
+    }
+  };
+
   //for One Game ???Needed?
 
 export const storeAllScores = async (scoreArray) => {

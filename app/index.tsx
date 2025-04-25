@@ -56,9 +56,9 @@ export default function Index() {
   //Make sure cannot rotate domino before word done as letters seem to change if click on display domino
 //rotated then unrotated might not work. 
 //one of used letters stayed after redo word. 
+//if open and close popups before submie second word, input string lost. Possible async to remember input string. 
 
 
-//Make sure text cannot be seen behind heading
 
 //start new game needs to reset. 
 
@@ -74,22 +74,37 @@ export default function Index() {
 
   //Function to clear letters at the start of the game
   useEffect(() => {
-    console.log("gameStart in LetterTiles", gameStart)
+    console.log("gameStart in index before clearing letterTile", gameStart)
+    const handleSelectedLetterTiles = async () => {
+    const storedSelectedLetters1 = await getSelectedLetters1()
+    const storedSelectedLetters2 = await getSelectedLetters2()
     
-    const clearSelectedLetterTiles = async () => {
-      if(gameStart ===true&& (selectedLetters1.length!=0||selectedLetters2.length!=0)){
+
+      if(gameStart ===true ){
         console.log("gameStart is true? ", gameStart)
-        console.log("function to")
-   storeSelectedLetters1([]);
-   setSelectedLetters1([])
-    storeSelectedLetters2([]);
-    setSelectedLetters2([])
-    storeLetterHand([]);
+        console.log("function to set letter arrays to empty")
+        storeSelectedLetters1([]);
+
+        storeSelectedLetters2([]);
+    
+        storeLetterHand([]);
+        if(selectedLetters1.length!=0||selectedLetters2.length!=0){
+          "setting selected letters to empty array as gameStart should be true here???????"
+          setSelectedLetters1([])
+          setSelectedLetters2([])
+        }
+
       }
+      // else{
+      //   setSelectedLetters1(storedSelectedLetters1)
+      //   setSelectedLetters2(storedSelectedLetters2)
+      //   console.log("in index selectedLetters1 reset to have letters", selectedLetters1)
+
+      // }
     };
   
-    clearSelectedLetterTiles();
-  }, );
+    handleSelectedLetterTiles();
+  },[] );
   return (
     <>
     <View style={s.statusBarBackground}>

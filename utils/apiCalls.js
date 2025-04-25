@@ -1,11 +1,14 @@
 import { Alert } from "react-native";
+import {loadWord1Success, getWord1Success, storeWord1Success, getWord2Success, storeWord2Success} from "./asynchStorageUtils"
 
 //To ensure all words are included
 const dictionary = ["is", "be", "was", "look", "dose", "door", "touch", "kite"];
 
 
 
-function validateWord(validationInformation, letterString, wordLength, wordNumber, setWord1Success, setWord2Success, setTilePlaced, setValidationError) {
+function validateWord(validationInformation, letterString, wordLength, wordNumber, setWord1Success, setWord2Success, setTilePlaced, setValidationError, storeWord1Success, 
+  storeWord2Success
+) {
   // console.log("validationINformation", validationInformation);
   // console.log("wordNumber, wordNumber")
 
@@ -22,13 +25,15 @@ function validateWord(validationInformation, letterString, wordLength, wordNumbe
   ) {
     console.log("word is validated in validatewd function");
     if(wordNumber===1)
-    {setWord1Success(true);
+    {storeWord1Success(true)
+      setWord1Success(true);
       //to ensure display domino doesn't disappear
       setTilePlaced(false);
    
     console.log("word1Successful in validate word function")}
     else if(wordNumber===2)
-      {setWord2Success(true);
+      {storeWord2Success(true)
+        setWord2Success(true);
         setTilePlaced(false);
       }
     
@@ -80,7 +85,9 @@ async function submitWordToAPI(letterString, wordLength, wordNumber, setWord1Suc
     console.log("API Response (JSON):", data);
 
     // Call validation function
-    validateWord(validationInformation, letterString, wordLength, wordNumber, setWord1Success, setWord2Success, setTilePlaced, setValidationError);
+    validateWord(validationInformation, letterString, wordLength, wordNumber, setWord1Success, setWord2Success, setTilePlaced, setValidationError, storeWord1Success,
+      storeWord2Success
+    );
   } catch (error) {
     console.error("API Error:", error);
    

@@ -1,16 +1,63 @@
-import { View, Text, TextInput} from "react-native";
+import { View, Text} from "react-native";
 import {useEffect} from "react";
+import {getInputString1, storeInputString1, getInputString2, storeInputString2} from "../utils/asynchStorageUtils"
 import { s } from "../App.style";
 
 
-export function Input({inputString1, setInputString1, inputString2, setInputString2, wordLength1, wordLength2, wordNum, setWordNum}) {
+export function Input({inputString1, setInputString1, inputString2, setInputString2, wordLength1, wordLength2, wordNum, setWordNum, turnStart, word1Success}) {
   console.log("wordnum in 1", wordNum)
+  console.log("turnstart in input", turnStart)
+
+    //Reset Input Strings if start of turn
+    useEffect(() => {
+      const resetInputValues= async () => {
+        if(turnStart===true){
+          storeInputString1([])
+          setInputString1([])
+          storeInputString2([])
+          setInputString2([])
+
+        }
+        // else if(word1Success===true){
+        //   console.log("word1Success", word1Success)
+        //   storeInputString1([])
+        //   setInputString1([])
+        //   console.log("inputString1 in input when wordSuccess1 is true", inputString1)
+
+        // }
+        
+        console.log("input string 1, 2", inputString1, inputString2)
+
+      }
+      resetInputValues()
+
+},[])
+
+  useEffect(() => {
+   
+
+    const handleInputStrings = async () => {
+      if(inputString1 || inputString2){
+    const storedInputString1= await getInputString1()
+    const storedInputString2 = await getInputString2()
+    
+      storeInputString1(storedInputString1)
+      storeInputString2(storedInputString2)
+     
+        setInputString1(storedInputString1)
+        setSInputString2(storedInputString2)
+        console.log("iretriedved input strings 1 and 2 in Input", inputString1, inputString2)}
+
+      
+    };
+  
+    handleInputStrings();
+  },[] );
 
   return (
     <>
     <View style={s.input}>
-    {/* {inputString1.length>wordLength1||inputString2.length>wordLength2?
-    <Text>This word has too many letters</Text>:null} */}
+
       {wordNum===1?
 
         <Text style={inputString1.length===0?s.placeholder: s.inputText}>

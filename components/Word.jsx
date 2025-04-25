@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { s } from "../App.style";
 import { Input } from "./Input";
 import { submitWordToAPI } from "../utils/apiCalls";
-import {getLetterHand, storeLetterHand, getSelectedLetters1, storeSelectedLetters1, getSelectedLetters2, storeSelectedLetters2} from "../utils/asynchStorageUtils"
+import {getLetterHand, storeLetterHand, getSelectedLetters1, storeSelectedLetters1, getSelectedLetters2, turnStart,} from "../utils/asynchStorageUtils"
 
 export function Word({
   wordLength1,
@@ -29,6 +29,7 @@ export function Word({
   tilePlaced,
   setTilePlaced, 
   wordSubmitted, setWordSubmitted, 
+  turnStart
 
   
 }) {
@@ -67,13 +68,7 @@ export function Word({
     let wordNumber = wordNum;
     let wordLength = wordNum === 1 ? wordLength1 : wordLength2;
     let inputString = wordNum === 1 ? inputString1 : inputString2;
-    //  let setWordSuccess = wordNum===1?setWord1Success: setWord2Success;
-    //Convert letters to lower case and convert to string
-    // const resetSelectedLetters = async ()=>{
-    //   storeSelectedLetters1([])
-    //   setSelectedLetters1([])
-    //   storeSelectedLetters2([])
-    //   setSelectedLetters2([])
+
 
 
     // }
@@ -144,6 +139,8 @@ export function Word({
           setWordNum={setWordNum}
           wordLength1={wordLength1}
           wordLength2={wordLength2}
+          turnStart={turnStart}
+          word1Success={word1Success}
         />
         <View style={s.wordButtonContainer}>
           <TouchableOpacity

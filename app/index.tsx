@@ -53,10 +53,6 @@ export default function Index() {
   const [selectedLetters1, setSelectedLetters1]=useState([]);
   const [selectedLetters2, setSelectedLetters2]=useState([]);
 
-  //Make sure cannot rotate domino before word done as letters seem to change if click on display domino
-//rotated then unrotated might not work. 
-//one of used letters stayed after redo word. 
-//if open and close popups before submie second word, input string lost. Possible async to remember input string. 
 
 
 
@@ -250,6 +246,9 @@ export default function Index() {
         worDomination={worDomination}
         setWorDomination={setWorDomination}
         gamesArray={gamesArray}
+        gameStart={gameStart}
+        gameFinished={gameFinished}
+        setGameFinished={setGameFinished}
         />
       
        
@@ -275,6 +274,8 @@ export default function Index() {
             setDominoesInGrid={setDominoesInGrid}
             worDomination={worDomination}
             setWorDomination={setWorDomination}
+            gameStart={gameStart}
+            dominoSelected={dominoSelected}
           />
          </View>
          :null}
@@ -315,6 +316,8 @@ export default function Index() {
             tilePlaced={tilePlaced}
             worDomination={worDomination}
             worDominationCount={worDominationCount}
+            gameFinished={gameFinished}
+            setGameFinished={setGameFinished}
           
           
           />
@@ -354,6 +357,8 @@ export default function Index() {
           gameFinished={gameFinished}
           setGameFinished={setGameFinished}
           scoreArraySingleGame={scoreArraySingleGame}
+          wordSubmitted={wordSubmitted}
+          setWordSubmitted={setWordSubmitted}
         
 
           setScoreArraySingleGame={setScoreArraySingleGame}
@@ -361,6 +366,10 @@ export default function Index() {
           setSingleGameScore={setSingleGameScore}
           worDomination={worDomination}
           setWorDomination={setWorDomination}
+          showMakeWord={showMakeWord}
+          setShowMakeWord={setShowMakeWord}
+          dominoSelected={dominoSelected}
+          setDominoSelected={setDominoSelected}
           />:
           showFinishGame===true?
           <FinishGame

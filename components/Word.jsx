@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { s } from "../App.style";
 import { Input } from "./Input";
 import { submitWordToAPI } from "../utils/apiCalls";
-import {getLetterHand, storeLetterHand, getSelectedLetters1, storeSelectedLetters1, getSelectedLetters2, turnStart,} from "../utils/asynchStorageUtils"
+import {getLetterHand, storeLetterHand, getSelectedLetters1, storeSelectedLetters1, getSelectedLetters2, storeSelectedLetters2} from "../utils/asynchStorageUtils"
 
 export function Word({
   wordLength1,
@@ -39,9 +39,12 @@ export function Word({
 
 
   function handleRedoPress() {
+    console.log("handle REDO RUNNING")
     const resetLetters = async ()=>{
       const storedSelectedLetters1 = await getSelectedLetters1();
       const storedSelectedLetters2= await getSelectedLetters2();
+      setValidationError(false)
+      setLengthError(false)
     if (wordNum === 1) {
       setInputString1([]);
       storeSelectedLetters1([])
@@ -51,6 +54,7 @@ export function Word({
       console.log("SET STORED SELECTED LETTERS TO []!!!!!!!!")
       console.log(" AFTER RESET - storedSelectedLetters1, selectedLetters1", storedSelectedLetters1(), selectedLetters1)
     } else {
+      console.log("redo letters for word 2 running")
       setInputString2([]);
       storeSelectedLetters2([])
       console.log("inputString2", inputString2)
@@ -69,6 +73,8 @@ export function Word({
     let wordLength = wordNum === 1 ? wordLength1 : wordLength2;
     let inputString = wordNum === 1 ? inputString1 : inputString2;
 
+    setValidationError(false)
+    setLengthError(false)
 
 
     // }

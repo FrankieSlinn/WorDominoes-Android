@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, Alert} from "react-native";
-import {storeSelectedLetters1, storeSelectedLetters2} from "../utils/asynchStorageUtils"
+import {getLetterHand, storeLetterHand, getSelectedLetters1, storeSelectedLetters1, getSelectedLetters2, storeSelectedLetters2} from "../utils/asynchStorageUtils"
 import {useEffect, useState} from "react";
 import { s } from "../App.style";
 
@@ -10,7 +10,8 @@ export function StartNewGameButton({gameStart, setGameStart, gameFinished, setGa
     setSingleGameScore, dominoesInHand, setDominoesInHand, word1Success, setWord1Success, word2Success, setWord2Success, displayDomino, setDisplayDomino,
    numberDominoesInGrid, setNumberDominoesInGrid, dominoIdsInGrid, setDominoIdsInGrid, selectedDominoObject, 
      setSelectedDominoObject, gridSelectedDominoObjects, setGridSelectedDominoObjects, tilePlaced, setTilePlaced, turnStart, setTurnStart, 
-     scoreArraySingleGame, setScoreArraySingleGame, worDomination, setWorDomination}) {
+     scoreArraySingleGame, setScoreArraySingleGame, worDomination, setWorDomination, showMakeWord, setShowMakeWord, dominoSelected, setDominoSelected,
+    setWordSubmitted}) {
 
 
 
@@ -32,8 +33,10 @@ export function StartNewGameButton({gameStart, setGameStart, gameFinished, setGa
     setScoreArraySingleGame([])
     setWorDomination(false)
     allocateDominoes([], setDominoesInHand);
-    storeSelectedLetters1([])
-    storeSelectedLetters2([])
+    setShowMakeWord(false)
+    setDominoSelected(false)
+    setWordSubmitted(false)
+
    
   }
 

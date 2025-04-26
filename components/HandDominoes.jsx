@@ -24,7 +24,9 @@ export function HandDominoes({ turnStart, setTurnStart, displayDomino, setDispla
 
 
   function handleClick(selectedDomino, domino){
+    console.log("dominoClicked")
     if(wordSubmitted ===false && turnStart===true){
+    setDominoSelected(true)
     setDisplayDomino(selectedDomino)
 
     console.log("selectedDominoObject in HandDominoes", selectedDominoObject)
@@ -37,7 +39,8 @@ export function HandDominoes({ turnStart, setTurnStart, displayDomino, setDispla
     setWord1Success(false);
     setWord2Success(false);
     setTilePlaced(false);
-    setDominoSelected(true);
+    console.log("dominoSelected in hand dominoes after click", dominoSelected)
+ 
 
   }
 

@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import { s } from "../App.style";
 
 
-export function TextTileWin({ word2Success, tilePlaced, worDomination }) {
+export function TextTileWin({ word2Success, tilePlaced, worDomination, gameFinished }) {
   return (
     <>
       <View>
-        {word2Success === true && tilePlaced === false ? (
+        {word2Success === true && tilePlaced === false && gameFinished===false? (
           <Text style={s.instructionText}>
             Congratulations, you won a tile!{"\n"}
             {"\n"}

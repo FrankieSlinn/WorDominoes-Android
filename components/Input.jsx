@@ -12,6 +12,7 @@ export function Input({inputString1, setInputString1, inputString2, setInputStri
     useEffect(() => {
       const resetInputValues= async () => {
         if(turnStart===true){
+          console.log("resetting all input strings to []")
           storeInputString1([])
           setInputString1([])
           storeInputString2([])
@@ -45,7 +46,7 @@ export function Input({inputString1, setInputString1, inputString2, setInputStri
       storeInputString2(storedInputString2)
      
         setInputString1(storedInputString1)
-        setSInputString2(storedInputString2)
+        setInputString2(storedInputString2)
         console.log("iretriedved input strings 1 and 2 in Input", inputString1, inputString2)}
 
       

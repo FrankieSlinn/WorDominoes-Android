@@ -15,6 +15,9 @@
     setWrongTileErrorInSpecificTile,
     setTileFullError
   ) {
+    let key = Object.keys(selectedDominoObject)[0]; 
+    let selectedDominoObjectToBePassed
+    selectedDominoObjectToBePassed = { [key]: selectedDominoObject[key] };
     console.log("get Neighbours running");
     console.log(
       "gridSelectedDominoObjects in handle tile press",
@@ -39,28 +42,29 @@
       let value1 = selectedDominoObject[key].toString()[0]
       let value2 = selectedDominoObject[key].toString()[1]
       let reversedValue = value2+value1
+      
 
       // Assign the reversed value back to the object
-      selectedDominoObject[key] = reversedValue;
+      selectedDominoObjectToBePassed[key] = reversedValue;
       console.log("selectedDominoObject[key] reversed just after changed<><><><!!!!!</>", selectedDominoObject[key])
 
       // Update state
-      setSelectedDominoObject({ ...selectedDominoObject });
-      console.log("!!!????selectedRotatedDominoObject", selectedDominoObject)
+      // setSelectedDominoObject({ ...selectedDominoObject });
+      console.log("!!!????selectedRotatedDominoObject", selectedDominoObjectToBePassed)
 
       // console.log("stringNewValue in getNeighbors if rotated", reversedValue);
       // console.log("selectedDominoObject for Rotated", selectedDominoObject);
       // console.log("in get neighbours gridSelecteddominoObjects[tileId+1", gridSelectedDominoObjects[tileId + 1])
     }else if(!dominoRotated && selectedDominoObject){
 
-      selectedDominoObject[key] = value;
+      selectedDominoObjectToBePassed[key] = value;
     
 
 
 
     }
 
-    allocateCurrentTileNeighbourValues(selectedDominoObject, key);
+    allocateCurrentTileNeighbourValues(selectedDominoObjectToBePassed, key);
   }
 
   function allocateCurrentTileNeighbourValues(selectedDominoObject, key){

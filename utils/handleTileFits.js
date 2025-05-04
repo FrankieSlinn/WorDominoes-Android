@@ -85,11 +85,11 @@ const handleTileFits= async(
         )
       );
     }
-    // console.log("dominoes in grid in successful tile placement", dominoIdsInGrid);
-    // console.log(
-    //   "gridSelectedDominoObjects after set in tile pressed n successful tile placement",
-    //   gridSelectedDominoObjects
-    // );
+    console.log("dominoes in grid in successful tile placement", dominoIdsInGrid);
+    console.log(
+      "gridSelectedDominoObjects after set in tile pressed n successful tile placement",
+      gridSelectedDominoObjects
+    );
     let dominoesInHandCopy = [...dominoesInHand];
 
     let index = dominoesInHandCopy.indexOf(selectedDominoObject);

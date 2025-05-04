@@ -147,6 +147,8 @@ export function Word({
           wordLength2={wordLength2}
           turnStart={turnStart}
           word1Success={word1Success}
+          setSelectedLetters1={setSelectedLetters1}
+          setSelectedLetters2={setSelectedLetters2}
         />
         <View style={s.wordButtonContainer}>
           <TouchableOpacity

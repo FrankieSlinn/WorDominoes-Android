@@ -35,9 +35,6 @@ export function LetterTiles({inputString1, setInputString1, inputString2, setInp
         }else{
       const storedSelectedLetters1 = await getSelectedLetters1()
       const storedSelectedLetters2 = await getSelectedLetters2()
-      
-  
-       
           setSelectedLetters1(storedSelectedLetters1)
           setSelectedLetters2(storedSelectedLetters2)
           console.log("in letter tiles selectedLetters1 reset to have letters?????/", selectedLetters1)
@@ -89,8 +86,10 @@ export function LetterTiles({inputString1, setInputString1, inputString2, setInp
 
 
       function handlePress(letter, index) {
-        const createAndStoreInputStrings=()=>{
-   
+
+          const processLetters= async () => {
+            const storedSelectedLetters1= await getSelectedLetters1();
+            const storedSelectedLetters2= await getSelectedLetters2();
      
     
            let inputString =wordNum===1?inputString = inputString1:inputString = inputString2;
@@ -103,6 +102,18 @@ export function LetterTiles({inputString1, setInputString1, inputString2, setInp
             const newInputString1 = [...inputString1, letter];
             setInputString1(newInputString1);
             storeInputString1(newInputString1);
+            let copyStoredSelectedLetters1 = [...storedSelectedLetters1]
+            console.log("copyStoredSelectedLetters", copyStoredSelectedLetters1)
+          
+          
+                  copyStoredSelectedLetters1.push(index);
+                  console.log("copyStoredSelectedLetters1 AFTER LETTER ADDED", copyStoredSelectedLetters1)
+                  
+                  setSelectedLetters1(copyStoredSelectedLetters1)
+                  storeSelectedLetters1(copyStoredSelectedLetters1)
+                  console.log("copyStoredSelectedLetters1 after push", selectedLetters1)
+                  console.log("STORED copyStoredSelectedLetters1 after push", copyStoredSelectedLetters1)
+                  console.log("sTORED SELECTED LETTERS1", await getSelectedLetters1())
         
         }
           
@@ -110,54 +121,31 @@ export function LetterTiles({inputString1, setInputString1, inputString2, setInp
             const newInputString2 = [...inputString2, letter];
             setInputString2(newInputString2);
             storeInputString2(newInputString2);
+            let copyStoredSelectedLetters2 = [...storedSelectedLetters2]
+            console.log("copyStoredSelectedLetters2", copyStoredSelectedLetters2)
+            console.log("sTORED SELECTED LETTERS2", await getSelectedLetters2())
+            
+            copyStoredSelectedLetters2.push(index)
+    
+            setSelectedLetters2(copyStoredSelectedLetters2)
+            storeSelectedLetters2(copyStoredSelectedLetters2)
+            console.log("copyStoredSelectedLetters2", copyStoredSelectedLetters2)
           }
             console.log("inputString2", inputString2)
           
         } else {
           console.log("Max word length reached, here is the full string:", inputString1);
         }}
-        createAndStoreInputStrings();
-
-        const loadOrCreateSelectedLetters= async () => {
-          const storedSelectedLetters1= await getSelectedLetters1();
-          const storedSelectedLetters2= await getSelectedLetters2();
-        
-if(wordNum===1){
-  let copyStoredSelectedLetters1 = [...storedSelectedLetters1]
-  console.log("copyStoredSelectedLetters", copyStoredSelectedLetters1)
-
-
-        copyStoredSelectedLetters1.push(index);
-        console.log("copyStoredSelectedLetters1 AFTER LETTER ADDED", copyStoredSelectedLetters1)
-        
-        setSelectedLetters1(copyStoredSelectedLetters1)
-        storeSelectedLetters1(copyStoredSelectedLetters1)
-        console.log("copyStoredSelectedLetters1 after push", selectedLetters1)
-        console.log("STORED copyStoredSelectedLetters1 after push", copyStoredSelectedLetters1)
-        console.log("sTORED SELECTED LETTERS1", await getSelectedLetters1())
-      
-      }
-        else{
-          let copyStoredSelectedLetters2 = [...storedSelectedLetters2]
-          console.log("copyStoredSelectedLetters2", copyStoredSelectedLetters2)
-          console.log("sTORED SELECTED LETTERS2", await getSelectedLetters2())
-          
-          copyStoredSelectedLetters2.push(index)
-  
-          setSelectedLetters2(copyStoredSelectedLetters2)
-          storeSelectedLetters2(copyStoredSelectedLetters2)
-          console.log("copyStoredSelectedLetters2", copyStoredSelectedLetters2)
-
-        }
-     
+        // createAndStoreInputStrings();
+        processLetters()
   
         console.log("selectedletters1 in LetterTiles", selectedLetters1)
         console.log("selectedletters2 in LetterTiles", selectedLetters2)
     
           console.log("Input string 1", [...inputString1, letter]);
           console.log("Updated letterHand after selection:", letterHand);
-      }
-      loadOrCreateSelectedLetters()
+      
+
 
 
     }

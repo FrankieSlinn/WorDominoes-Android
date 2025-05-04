@@ -1,6 +1,6 @@
 import { View, Text} from "react-native";
 import {useEffect} from "react";
-import {getInputString1, storeInputString1, getInputString2, storeInputString2} from "../utils/asynchStorageUtils"
+import {getInputString1, storeInputString1, getInputString2, storeInputString2, storeSelectedLetters1, storeSelectedletters2} from "../utils/asynchStorageUtils"
 import { s } from "../App.style";
 
 
@@ -17,15 +17,13 @@ export function Input({inputString1, setInputString1, inputString2, setInputStri
           setInputString1([])
           storeInputString2([])
           setInputString2([])
+          storeSelectedLetters1([])
+          setSelectedLetters1([])
+          storeSelectedLetters2([])
+          storeSelectedLetters2([])
 
         }
-        // else if(word1Success===true){
-        //   console.log("word1Success", word1Success)
-        //   storeInputString1([])
-        //   setInputString1([])
-        //   console.log("inputString1 in input when wordSuccess1 is true", inputString1)
-
-        // }
+ 
         
         console.log("input string 1, 2", inputString1, inputString2)
 

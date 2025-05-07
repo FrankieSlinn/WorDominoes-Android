@@ -13,7 +13,7 @@ import { TextTileWin} from "../components/TextTileWin.jsx";
 import {HelpText} from "../components/HelpText.jsx";
 import {StatsContent} from "../components/StatsContent.jsx";
 import {FinishGame} from "../components/FinishGame.jsx";
-import { ContinuePlaying} from "../components/ContinuePlaying.jsx";
+import {ContinuePlaying} from "../components/ContinuePlaying.jsx";
 import {TextWorDominationCount} from "../components/TextWorDominationCount.jsx";
 import { StartNewGameButton } from "@/components/StartNewGameButton.jsx";
 import {getLetterHand, storeLetterHand, getSelectedLetters1, storeSelectedLetters1, getSelectedLetters2, storeSelectedLetters2} from "./../utils/asynchStorageUtils"
@@ -27,6 +27,8 @@ export default function Index() {
   const [showMakeWord, setShowMakeWord] = useState(false);
   const [showChooseDominoText, setShowChooseDominoText] = useState(true);
   const [selectedDominoObject, setSelectedDominoObject] = useState("");
+  //to cater for multile rotations
+  const [originalSelectedDominoObject, setOriginalSelectedDominoObject] = useState("");
   const [dominoSelected, setDominoSelected] = useState(false);
   const [word1Success, setWord1Success] = useState(false);
   const [word2Success, setWord2Success] = useState(false);
@@ -36,7 +38,6 @@ export default function Index() {
   const[dominoIdsInGrid, setDominoIdsInGrid]=useState(["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"]);
   //relates to domino id(key) and number of dots on each side(value)
   const[gridSelectedDominoObjects, setGridSelectedDominoObjects]=useState(["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"]);
-
   const[numberDominoesInGrid, setNumberDominoesInGrid]=useState(0);
   const[tileFullError, setTileFullError]=useState(false);
   const[wrongTileError, setWrongTileError]=useState(false);
@@ -55,8 +56,11 @@ export default function Index() {
 
 
 
-
-//start new game needs to reset. 
+//wrong value placed when reversed
+//start new game need to empty array of used tiles
+///check logic for accepting tiles 11 12 let different ones next to each other. 
+//Make sure after tile placed cannot be allocated
+//saw selected letter that wasn't in input
 
 
   useEffect(()=>{
@@ -151,6 +155,8 @@ export default function Index() {
           setShowChooseDominoText={setShowChooseDominoText}
           selectedDominoObject={selectedDominoObject}
           setSelectedDominoObject={setSelectedDominoObject}
+          originalSelectedDominoObject={originalSelectedDominoObject}
+          setOriginalSelectedDominoObject={setOriginalSelectedDominoObject}
           dominoSelected={dominoSelected}
           setDominoSelected={setDominoSelected}
           word1Success={word1Success}
@@ -215,6 +221,8 @@ export default function Index() {
           setShowMakeWord={setShowMakeWord}
           selectedDominoObject={selectedDominoObject}
           setSelectedDominoObject={setSelectedDominoObject}
+          originalSelectedDominoObject={originalSelectedDominoObject}
+          setOriginalSelectedDominoObject={setOriginalSelectedDominoObject}
           dominoSelected={dominoSelected}
           setDominoSelected={setDominoSelected}
           turnStart={turnStart}
@@ -262,6 +270,8 @@ export default function Index() {
             setWordSubmitted={setWordSubmitted}
             selectedDominoObject={selectedDominoObject}
             setSelectedDominoObject={setSelectedDominoObject}
+            originalSelectedDominoObject={originalSelectedDominoObject}
+            setOriginalSelectedDominoObject={setOriginalSelectedDominoObject}
             showChooseDominoText={showChooseDominoText}
             setShowChooseDominoText={setShowChooseDominoText}
             dominoRotated={dominoRotated}
@@ -286,6 +296,7 @@ export default function Index() {
                 setDisplayDomino={setDisplayDomino}
                 selectedDominoObject={selectedDominoObject}
                 setSelectedDominoObject={setSelectedDominoObject}
+
                 showChooseDominoText={showChooseDominoText}
                 setShowChooseDominoText={setShowChooseDominoText}
                 gameStart={gameStart}
@@ -303,6 +314,8 @@ export default function Index() {
             wordSubmitted={wordSubmitted}
             worDomination={worDomination}
             setWorDomination={setWorDomination}
+            worDominationCount={worDominationCount}
+            setWorDominationCount={setWorDominationCount}
             selectedLetters1={selectedLetters1}
             setSelectedLetters1={setSelectedLetters1}
             selectedLetters2={selectedLetters2}
@@ -324,6 +337,16 @@ export default function Index() {
           <ContinuePlaying
           worDomination={worDomination}
           setWorDomination={setWorDomination}
+          worDominationCount={worDominationCount}
+          setWorDominationCount={setWorDominationCount}
+          gameFinished={gameFinished}
+          setGameFinished={setGameFinished}
+          gamesArray={gamesArray}
+          setGamesArray={setGamesArray}
+           singleGameScore={singleGameScore} 
+          setSingleGameScore={setSingleGameScore}
+          showFinishGame={showFinishGame}
+          setShowFinishGame={setShowFinishGame}
           
           
           />
@@ -346,6 +369,8 @@ export default function Index() {
           setDominoIdsInGrid={setDominoIdsInGrid}
           selectedDominoObject={selectedDominoObject}
           setSelectedDominoObject={setSelectedDominoObject}
+          originalSelectedDominoObject={originalSelectedDominoObject}
+          setOriginalSelectedDominoObject={setOriginalSelectedDominoObject}
           gridSelectedDominoObjects={gridSelectedDominoObjects}
          setGridSelectedDominoObjects={setGridSelectedDominoObjects}
          tilePlaced={tilePlaced}

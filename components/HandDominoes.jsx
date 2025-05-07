@@ -8,7 +8,7 @@ import { s } from "../App.style.js";
 
 
 export function HandDominoes({ turnStart, setTurnStart, displayDomino, setDisplayDomino, wordSubmitted, setWordSubmitted,
-  showMakeWord, setShowMakeWord, selectedDominoObject, setSelectedDominoObject, dominoSelected, setDominoSelected,
+  showMakeWord, setShowMakeWord, originalSelectedDominoObject, setOriginalSelectedDominoObject, selectedDominoObject, setSelectedDominoObject, dominoSelected, setDominoSelected,
  setDominoRotated, word1Success, setWord1Success,
   word2Success, setWord2Success, dominoesInHand, setDominoesInHand, tilePlaced, setTilePlaced, worDomination, showFinishGame, setShowFinishGame
 }) {
@@ -18,7 +18,7 @@ export function HandDominoes({ turnStart, setTurnStart, displayDomino, setDispla
     allocateDominoes(dominoesInHand, setDominoesInHand);
   }, []);
 
-  // console.log("dominoHand", getDominoHand())
+  // console.log("dominoHand", getDominoHand())D
   console.log("turnStart in HandDominoes", turnStart);
   console.log("wordSubmitted", wordSubmitted);
 
@@ -32,6 +32,8 @@ export function HandDominoes({ turnStart, setTurnStart, displayDomino, setDispla
     console.log("selectedDominoObject in HandDominoes", selectedDominoObject)
       setShowFinishGame(true)
     setSelectedDominoObject(domino)
+    //value that doesn't change with rotations
+    setOriginalSelectedDominoObject(domino)
     setWordSubmitted(true)
     setShowMakeWord(true) //Make word section can be displayed
     // setTurnStart(false)

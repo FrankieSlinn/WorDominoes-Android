@@ -10,6 +10,8 @@ function handleTilePress(
   tilePlaced,
   setTilePlaced,
   setTurnStart,
+  originalSelectedDominoObject,
+  setOriginalSelecteDominoObject,
   selectedDominoObject,
   setSelectedDominoObject,
   dominoSelected,
@@ -58,14 +60,18 @@ function handleTilePress(
 
   getNeighborsAndCurrentTile(
     dominoRotated,
+    displayDomino,
     selectedDominoObject,
     setSelectedDominoObject,
+    originalSelectedDominoObject, 
+    setOriginalSelecteDominoObject,
     gridSelectedDominoObjects,
     tileId,
     tileData,
     setWrongTileError,
     setWrongTileErrorInSpecificTile,
     setTileFullError
+    
   );
 
   if (word2Success === true && tilePlaced === false) {

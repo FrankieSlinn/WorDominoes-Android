@@ -54,6 +54,12 @@ export default function Index() {
   const [selectedLetters1, setSelectedLetters1]=useState([]);
   const [selectedLetters2, setSelectedLetters2]=useState([]);
 
+
+  //put worDominationcode in tile fits
+  // if (selectedDominoObjects.every(item => item !== "empty")) {
+  //   setWorDomination(true);
+  // }
+  //ensure selected DominoObject unotated driven by originalSelectedDominoObject
 //sometimes after click on tile that's already placed if something fts needs to click on that empty space twice(at first says tile doesn't fit)
 //domino mages not always showing.  
 //wrong value placed when reversed

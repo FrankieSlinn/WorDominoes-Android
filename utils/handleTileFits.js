@@ -42,6 +42,7 @@ const handleTileFits= async(
         setSelectedLetters1,
         setSelectedLetters2,
   ) =>{
+   
 
     const retrieveSelectedLetters1 = await getSelectedLetters1()
     const retrieveSelectedLetters2= await getSelectedLetters2()
@@ -85,10 +86,7 @@ const handleTileFits= async(
         )
       );
     }
-    if (selectedDominoObjects.every(item => item !== "empty")) {
-      setWorDomination(true);
-      console.log("worDomination", worDomination)
-    }
+  
     console.log("dominoes in grid in successful tile placement", dominoIdsInGrid);
     console.log(
       "gridSelectedDominoObjects after set in tile pressed n successful tile placement",
@@ -98,14 +96,10 @@ const handleTileFits= async(
 
     let index = dominoesInHandCopy.indexOf(selectedDominoObject);
     // console.log("INDEX", index);
-
-    if (index !== -1) {
-      dominoesInHandCopy.splice(index, 1); // ✅ Removes only selectedDominoObject
-    }
+ 
 
    
 
-    setDominoesInHand(dominoesInHandCopy); // ✅ Updates state with the correct array
 
    
     addScoreToScoreArraySingleGame(selectedDominoObject, scoreArraySingleGame, setScoreArraySingleGame, dominoDots, gameFinished, setGameFinished, gamesArray, 
@@ -116,7 +110,9 @@ const handleTileFits= async(
     // setSelectedLetters1([])
     // console.log("sleected letters 1 changed in handleTile FITS???")
     // setSelectedLetters2([])
+    console.log("setting values in handleTileFits")
    
+    setDominoesInHand(dominoesInHandCopy); // ✅ Updates state with the correct array
     setSelectedDominoObject(null);
     allocateDominoes(dominoesInHandCopy, setDominoesInHand);
     setTilePlaced(true);
@@ -128,25 +124,35 @@ const handleTileFits= async(
     setShowMakeWord(false);
     setGameStart(true);
     setDominoSelected(false);
-    
+    console.log("tile placed in handletilefits", tilePlaced)
+
+    if (selectedDominoObjects.every(item => item !== "empty")) {
+      setWorDomination(true);
+      console.log("worDomination", worDomination)
+    }
+
+    if (index !== -1) {
+      dominoesInHandCopy.splice(index, 1); // ✅ Removes only selectedDominoObject
+    }
   }
 
   function addScoreToScoreArraySingleGame(selectedDominoObject, scoreArraySingleGame, setScoreArraySingleGame, dominoDots, gameFinished, setGameFinished, gamesArray, 
     setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore
   ){
+    console.log("running score function in handle tile fits")
     let scoreSingleDomino= Number(dominoDots[0])+ Number(dominoDots[1])
-    console.log("scoreSingleDomino", scoreSingleDomino)
+    // console.log("scoreSingleDomino", scoreSingleDomino)
     let scoreArrayPerDomino=[...scoreArraySingleGame];
-    console.log("scoreArrayPerDomino before concat with single domino", scoreArrayPerDomino);
+    // console.log("scoreArrayPerDomino before concat with single domino", scoreArrayPerDomino);
     scoreArrayPerDomino.push(scoreSingleDomino);
-console.log("scoreArrayPerDomino after concat with domino", scoreArrayPerDomino);
+// console.log("scoreArrayPerDomino after concat with domino", scoreArrayPerDomino);
    
-    console.log("scor4eArraySingleGame", scoreArraySingleGame)
+    // console.log("scor4eArraySingleGame", scoreArraySingleGame)
    let placeholderSingleGameScore = scoreArrayPerDomino.reduce((sum, num) => sum + num, 0).toFixed(1);
    setSingleGameScore(placeholderSingleGameScore);
     console.log("!!!!!!!!total single game Score", singleGameScore);
     setScoreArraySingleGame(scoreArrayPerDomino);
-    console.log("gameFinished", gameFinished)
+    // console.log("gameFinished", gameFinished)
   }
 
 

@@ -9,7 +9,10 @@ function randomNumberDom() {
 }
 
 // ✅ Custom Hook to allocate dominoes
-function allocateDominoes(dominoesInHand, setDominoesInHand) {
+function allocateDominoes(dominoesInHand, setDominoesInHand, gameStart) {
+  if(gameStart){
+   dominoesUsed = [...dominoesInHand]
+  }
 
   console.log("FIRST PART OF DOMINO ALLOCATION RUNNING")
   console.log("DOMINOESiNHAND", dominoesInHand)

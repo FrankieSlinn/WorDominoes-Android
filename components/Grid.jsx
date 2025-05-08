@@ -124,7 +124,7 @@ export function Grid({
     setSelectedLetters2
   };
 
-  // console.log("dominoesInHand in grid", dominoesInHand)
+console.log("gridSelectedDominoObjects", gridSelectedDominoObjects)
 
   //Needed to rerender after values changed in handleTilePress function
   useEffect(() => {

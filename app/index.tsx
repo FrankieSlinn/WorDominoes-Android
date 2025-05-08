@@ -54,8 +54,8 @@ export default function Index() {
   const [selectedLetters1, setSelectedLetters1]=useState([]);
   const [selectedLetters2, setSelectedLetters2]=useState([]);
 
-
-
+//sometimes after click on tile that's already placed if something fts needs to click on that empty space twice(at first says tile doesn't fit)
+//domino mages not always showing.  
 //wrong value placed when reversed
 //start new game need to empty array of used tiles
 ///check logic for accepting tiles 11 12 let different ones next to each other. 

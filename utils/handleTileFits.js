@@ -85,6 +85,10 @@ const handleTileFits= async(
         )
       );
     }
+    if (selectedDominoObjects.every(item => item !== "empty")) {
+      setWorDomination(true);
+      console.log("worDomination", worDomination)
+    }
     console.log("dominoes in grid in successful tile placement", dominoIdsInGrid);
     console.log(
       "gridSelectedDominoObjects after set in tile pressed n successful tile placement",

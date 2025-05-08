@@ -59,13 +59,14 @@
       // console.log("in get neighbours gridSelecteddominoObjects[tileId+1", gridSelectedDominoObjects[tileId + 1])
     }else if(!dominoRotated && selectedDominoObject){
 
-      originalSelectedDominoObject[key] = value;
+ selectedDominoObject[key] = value;
     
 
 
 
     }
 
+  
     allocateCurrentTileNeighbourValues(selectedDominoObject, key);
   }
 
@@ -177,7 +178,7 @@
         tileData.leftNeighbor =
           gridSelectedDominoObjects[tileId -1] === "empty"
             ? "empty"
-            : gridSelectedDominoObjects[tileId - 1].toString()[0];
+            : gridSelectedDominoObjects[tileId - 1].toString()[1];
       }
     }
     if (tileId === 11) {

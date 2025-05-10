@@ -27,6 +27,7 @@ function handleTilePress(
   tileId,
   tileFullError,
   setTileFullError,
+  gameStart,
   setGameStart,
   wrongTileError,
   setWrongTileError,
@@ -58,38 +59,20 @@ function handleTilePress(
   console.log("dominoes in hand in tilePress", dominoesInHand);
   console.log("selectedDominoObject in handleTilePress", selectedDominoObject);
 
-  getNeighborsAndCurrentTile(
-    dominoRotated,
-    displayDomino,
-    selectedDominoObject,
-    setSelectedDominoObject,
-    originalSelectedDominoObject, 
-    setOriginalSelecteDominoObject,
-    gridSelectedDominoObjects,
-    tileId,
-    tileData,
-    setWrongTileError,
-    setWrongTileErrorInSpecificTile,
-    setTileFullError
-    
-  );
+
+
 
   if (word2Success === true && tilePlaced === false) {
     //for individual tile
     console.log("doing all checks for whether domino can be placed");
-
-    //Check for tile does not fit
-    checkDominoDoesNotFit(
+    checkTileAlreadyPlaced(
       tileId,
+      wrongTileErrorInSpecificTile,
+    
       tilePlaced,
       setTilePlaced,
-      setTilePlacedState,
-      dominoRotated,
-      tileData,
-      wrongTileError,
-      setWrongTileError,
-      wrongTileErrorInSpecificTile,
-      setWrongTileErrorInSpecificTile,
+      tileFullError,
+      setTileFullError,
       dominoIdsInGrid,
       setDominoIdsInGrid,
       selectedDominoObject,
@@ -98,13 +81,14 @@ function handleTilePress(
       setDominoSelected,
       gridSelectedDominoObjects,
       setGridSelectedDominoObjects,
+      dominoRotated,
+      setTilePlacedState,
+      setTurnStart,
+      setWordSubmitted,
       displayDomino,
       setDisplayDomino,
       setShowMakeWord,
-      setWordSubmitted,
-      tileFullError,
-      setTileFullError,
-      setTurnStart,
+      gameStart,
       setGameStart,
       dominoesInHand,
       setDominoesInHand,
@@ -115,16 +99,17 @@ function handleTilePress(
       worDomination, 
       setWorDomination, 
       worDominationCount,
-      setWorDominationCount,
+      setWorDominationCount, 
       gameFinished, 
       setGameFinished,
         singleGameScore, 
-    setSingleGameScore, 
-    setSelectedLetters1,
-    setSelectedLetters2
+  setSingleGameScore,
+  setSelectedLetters1,
+  setSelectedLetters2
     );
   }
 
+ 
 
 
   function checkDominoDoesNotFit(
@@ -153,6 +138,7 @@ function handleTilePress(
     tileFullError,
     setTileFullError,
     setTurnStart,
+    gameStart,
     setGameStart,
     dominoesInHand,
     setDominoesInHand,
@@ -195,14 +181,10 @@ function handleTilePress(
         setTilePlaced
       );
     } else {
-      checkTileAlreadyPlaced(
-        tileId,
+      handleTileFits(   tileId,
         wrongTileErrorInSpecificTile,
-      
-        tilePlaced,
-        setTilePlaced,
         tileFullError,
-        setTileFullError,
+        displayDomino,
         dominoIdsInGrid,
         setDominoIdsInGrid,
         selectedDominoObject,
@@ -212,30 +194,33 @@ function handleTilePress(
         gridSelectedDominoObjects,
         setGridSelectedDominoObjects,
         dominoRotated,
+        setTilePlaced,
         setTilePlacedState,
         setTurnStart,
         setWordSubmitted,
-        displayDomino,
         setDisplayDomino,
         setShowMakeWord,
+        gameStart,
         setGameStart,
         dominoesInHand,
         setDominoesInHand,
         gamesArray,
-        setGamesArray,
-        scoreArraySingleGame,
-        setScoreArraySingleGame,
-        worDomination, 
-        setWorDomination, 
-        worDominationCount,
-        setWorDominationCount, 
-        gameFinished, 
-        setGameFinished,
-          singleGameScore, 
-  setSingleGameScore,
-  setSelectedLetters1,
-  setSelectedLetters2
-      );
+            setGamesArray,
+            scoreArraySingleGame,
+            setScoreArraySingleGame,
+            worDomination, 
+            setWorDomination, 
+            worDominationCount,
+            setWorDominationCount, 
+            gameFinished, 
+            setGameFinished, 
+            singleGameScore, 
+            setSingleGameScore, 
+            setSelectedLetters1,
+            setSelectedLetters2,
+      ) 
+
+
     }
   }
 
@@ -321,48 +306,73 @@ setSelectedLetters2
       setTilePlaced(false);
     } else {
       //check if tile good to be placed
-
-      handleTileFits(
-        tileId,
-        wrongTileErrorInSpecificTile,
-        tileFullError,
+      getNeighborsAndCurrentTile(
+        dominoRotated,
         displayDomino,
-        dominoIdsInGrid,
-        setDominoIdsInGrid,
         selectedDominoObject,
         setSelectedDominoObject,
-        dominoSelected,
-        setDominoSelected,
+        originalSelectedDominoObject, 
+        setOriginalSelecteDominoObject,
         gridSelectedDominoObjects,
-        setGridSelectedDominoObjects,
-        dominoRotated,
-        setTilePlaced,
-        setTilePlacedState,
-        setTurnStart,
-        setWordSubmitted,
-        setDisplayDomino,
-        setShowMakeWord,
-        setGameStart,
-        dominoesInHand,
-        setDominoesInHand,
-        gamesArray,
-            setGamesArray,
-            scoreArraySingleGame,
-            setScoreArraySingleGame,
-            worDomination, 
-            setWorDomination, 
-            worDominationCount,
-            setWorDominationCount, 
-            gameFinished, 
-            setGameFinished, 
-            singleGameScore, 
-            setSingleGameScore, 
-            setSelectedLetters1, 
-            setSelectedLetters2,
+        tileId,
+        tileData,
+        setWrongTileError,
+        setWrongTileErrorInSpecificTile,
+        setTileFullError
+        
       );
+
+         //Check for tile does not fit
+    checkDominoDoesNotFit(
+      tileId,
+      tilePlaced,
+      setTilePlaced,
+      setTilePlacedState,
+      dominoRotated,
+      tileData,
+      wrongTileError,
+      setWrongTileError,
+      wrongTileErrorInSpecificTile,
+      setWrongTileErrorInSpecificTile,
+      dominoIdsInGrid,
+      setDominoIdsInGrid,
+      selectedDominoObject,
+      setSelectedDominoObject,
+      dominoSelected,
+      setDominoSelected,
+      gridSelectedDominoObjects,
+      setGridSelectedDominoObjects,
+      displayDomino,
+      setDisplayDomino,
+      setShowMakeWord,
+      setWordSubmitted,
+      tileFullError,
+      setTileFullError,
+      setTurnStart,
+      setGameStart,
+      dominoesInHand,
+      setDominoesInHand,
+      gamesArray,
+      setGamesArray,
+      scoreArraySingleGame,
+      setScoreArraySingleGame,
+      worDomination, 
+      setWorDomination, 
+      worDominationCount,
+      setWorDominationCount,
+      gameFinished, 
+      setGameFinished,
+        singleGameScore, 
+    setSingleGameScore, 
+    setSelectedLetters1,
+    setSelectedLetters2
+    );
+  }
+
+
     }
   }
-}
+
 
  
 

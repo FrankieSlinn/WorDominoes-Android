@@ -10,13 +10,16 @@ function randomNumberDom() {
 
 // ✅ Custom Hook to allocate dominoes
 function allocateDominoes(dominoesInHand, setDominoesInHand, gameStart) {
+  console.log("allocateDominoes running")
+  console.log("dominoesUsed in allocate Dominoes", dominoesUsed)
   if(gameStart){
+    console.log("GAME START ACTIVE")
    dominoesUsed = [...dominoesInHand]
   }
 
   console.log("FIRST PART OF DOMINO ALLOCATION RUNNING")
-  console.log("DOMINOESiNHAND", dominoesInHand)
-  console.log("RANDOMNUMBERDOM", randomNumberDom)
+  // console.log("DOMINOESiNHAND", dominoesInHand)
+  // console.log("RANDOMNUMBERDOM", randomNumberDom)
 if(dominoesInHand){
   console.log("LENGTH OF DOMINOESINHAND", dominoesInHand.length)
     if (dominoesInHand.length < 4) {
@@ -24,9 +27,9 @@ if(dominoesInHand){
       let copyDominoesInHand = [...dominoesInHand];
 
       while (copyDominoesInHand.length < 4 && dominoes.length > 0) {
-        console.log("length of dominoesInHand under 4!!!!!")
+        // console.log("length of dominoesInHand under 4!!!!!")
         const randDomino = dominoes[randomNumberDom()];
-        console.log("RANDOM DOMINO", randDomino)
+        // console.log("RANDOM DOMINO", randDomino)
         copyDominoesInHand.push(randDomino);
 
         // Remove the domino from available ones

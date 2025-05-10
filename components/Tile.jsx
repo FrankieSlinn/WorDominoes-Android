@@ -109,6 +109,7 @@ export function Tile({
               tileId,
               tileFullError,
               setTileFullError,
+              gameStart,
               setGameStart,
               wrongTileError,
               setWrongTileError,

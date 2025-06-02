@@ -54,11 +54,7 @@ export default function Index() {
   const [selectedLetters1, setSelectedLetters1]=useState([]);
   const [selectedLetters2, setSelectedLetters2]=useState([]);
 
-
-  //put worDominationcode in tile fits
-  // if (selectedDominoObjects.every(item => item !== "empty")) {
-  //   setWorDomination(true);
-  // }
+//check tile 9 shows values it's meant to in gridSelectedDominoObjects, may need to press after placed, rotate a few times.NOTE: happens when rotated a few times, e.g. 3 times.
   //ensure selected DominoObject unotated driven by originalSelectedDominoObject
 //sometimes after click on tile that's already placed if something fts needs to click on that empty space twice(at first says tile doesn't fit)
 //domino mages not always showing.  

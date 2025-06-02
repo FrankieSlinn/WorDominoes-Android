@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { dominoes } from "./dominoes.js";
 
-const dominoesUsed = [];
+let dominoesUsed = [];
 
 // Generate a Random Number within the range of available dominoes
 function randomNumberDom() {
@@ -14,12 +14,13 @@ function allocateDominoes(dominoesInHand, setDominoesInHand, gameStart) {
   console.log("dominoesUsed in allocate Dominoes", dominoesUsed)
   if(gameStart){
     console.log("GAME START ACTIVE")
-   dominoesUsed = [...dominoesInHand]
+   dominoesUsed = []
+   console.log("dominoesUsed", dominoesUsed)
   }
 
   console.log("FIRST PART OF DOMINO ALLOCATION RUNNING")
-  // console.log("DOMINOESiNHAND", dominoesInHand)
-  // console.log("RANDOMNUMBERDOM", randomNumberDom)
+  console.log("DOMINOESiNHAND", dominoesInHand)
+  console.log("RANDOMNUMBERDOM", randomNumberDom)
 if(dominoesInHand){
   console.log("LENGTH OF DOMINOESINHAND", dominoesInHand.length)
     if (dominoesInHand.length < 4) {

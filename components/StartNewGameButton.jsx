@@ -32,7 +32,7 @@ export function StartNewGameButton({gameStart, setGameStart, gameFinished, setGa
     setTurnStart(true)
     setScoreArraySingleGame([])
     setWorDomination(false)
-    allocateDominoes([], setDominoesInHand);
+    allocateDominoes([], setDominoesInHand, true);
     setShowMakeWord(false)
     setDominoSelected(false)
     setWordSubmitted(false)

@@ -1,9 +1,9 @@
+  //tile IDs go in chronological order.
+  
   //With tiles as objects simpler to update in function
   let tileData = { leftNeighbor: null, rightNeighbor: null, currentTile: null };
-  // if(selectedDominoObject){
-  //   let key = Object.keys(selectedDominoObject)[0]; // Get the only key
-  //   let value = selectedDominoObject?selectedDominoObject[key].toString():null}
 
+//Gets current tile values and values of neighbours so they can be compared in handleTilePress
   function getNeighborsAndCurrentTile(
     dominoRotated,
     displayDomino,
@@ -44,15 +44,16 @@
       let value1 = originalSelectedDominoObject[key].toString()[0]
       let value2 = originalSelectedDominoObject[key].toString()[1]
       let reversedValue = value2+value1
-      
+      let newSelectedDominoObject = selectedDominoObject
 
       // Assign the reversed value back to the object
-      selectedDominoObject[key] = reversedValue;
-      console.log("selectedDominoObject[key] reversed just after changed<><><><!!!!!</>", selectedDominoObject[key])
+      newSelectedDominoObject[key] = reversedValue;
+      console.log("selectedDominoObject[key] reversed just after changed<><><><!!!!!</>", newSelectedDominoObject[key])
 
       // Update state
       // setSelectedDominoObject({ ...selectedDominoObject });
-      console.log("!!!????selectedRotatedDominoObject", selectedDominoObject)
+      console.log("!!!????selectedRotatedDominoObject", newSelectedDominoObject)
+      setSelectedDominoObject(newSelectedDominoObject)
 
       // console.log("stringNewValue in getNeighbors if rotated", reversedValue);
       // console.log("selectedDominoObject for Rotated", selectedDominoObject);
@@ -161,6 +162,23 @@
             : gridSelectedDominoObjects[tileId - 1].toString()[1];
       }
     }
+    // if(tileId===10) {
+    //   if (gridSelectedDominoObjects[tileId - 1]) {
+    //     tileData.leftNeighbor =
+    //       gridSelectedDominoObjects[tileId -1] === "empty"
+    //         ? "empty"
+    //         : gridSelectedDominoObjects[tileId - 1].toString()[1];
+    //   }
+
+
+
+    //   if (gridSelectedDominoObjects[tileId - 1]) {
+    //     tileData.rightNeighbor =
+    //       gridSelectedDominoObjects[tileId - 1] === "empty"
+    //         ? "empty"
+    //         : gridSelectedDominoObjects[tileId - 1].toString()[1];
+    //   }
+    // }
 
     //left and right neighbours swapped as order different.
     //right neighbour in sense of array so itile is actually to left
@@ -221,6 +239,8 @@ if(tileData.currentTile){
       tileData.currentTile[0],
       "!!!currentTile[1] in handleTilePress",
       tileData.currentTile[1],
+  
+
       "!!!leftNeighbor",
       tileData.leftNeighbor,
       "!!!rightNeighbor",

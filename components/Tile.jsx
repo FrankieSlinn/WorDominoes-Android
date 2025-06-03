@@ -10,6 +10,7 @@ export function Tile({
   dominoRotated,
   tilePlaced,
   setTilePlaced,
+  turnStart,
   setTurnStart,
   setWordSubmitted,
   selectedDominoObject,
@@ -67,13 +68,22 @@ export function Tile({
   // console.log("dominoesInHand in tile", dominoesInHand);
   // console.log("!!!!in Tile Component",  "dominoIdsInGrid", dominoIdsInGrid, "gridSelectedDominoObjects", gridSelectedDominoObjects)
   // console.log("wrongTileErrorInSpecificTile", wrongTileErrorInSpecificTile)
+  useEffect(() => {
+    //To ensure that rotation state is updated in useEffect when needed
+    if(turnStart===true){
+      setTilePlacedState(false)
+    }
+  }, [tilePlacedState]);
 
   useEffect(() => {
+    console.log("tilePlacedState", tilePlacedState)
+
     if (!tilePlacedState) {
       setTileRotatedState(dominoRotated);
     }
   }, [dominoRotated]);
-  // console.log("TILE ROTATED IN TILE", tileRotatedState)
+  console.log("TILE ROTATED IN TILE", dominoRotated)
+ console.log("TILE ROTATED STATE IN TILE", tileRotatedState)
 
 
   return (
@@ -148,11 +158,11 @@ export function Tile({
                 s.selectedTile,
                 //Below: all horizontal tiles
                 ((tileId >= 0 && tileId <= 3) || (tileId >= 6 && tileId <= 9))
-                  ? [s.selectedTileHorizontal, s.selectedHorizontalTileUnroated]
+                //horizontal tiles
+                  ? [s.selectedTileHorizontal, s.selectedHorizontalTileUnrotated]
+                  //vertical tiles
                   : s.selectedTileVertical,
-                // (tileId >= 0 && tileId <= 3) || (tileId >= 6 && tileId <= 9)
-                //   ? s.selectedHorizontalTileUnrotated
-                //   : null,
+      
               ]}
               resizeMode="cover"
             />
@@ -165,7 +175,7 @@ export function Tile({
               style={[
                 s.selectedTile,
                 ((tileId >= 0 && tileId <= 3) || (tileId >= 6 && tileId <= 9))
-                  ? [s.selectedTileHorizontal, s.selectedHorizontalTileRotated]
+                  ? [s.selectedTileHorizontal, s.selectedHorizontalTileRotated, {backgroundColor: "purple"}]
                   : [s.selectedTileVertical, s.selectedVerticalTileRotated]
             
               ]}

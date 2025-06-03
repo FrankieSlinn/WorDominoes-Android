@@ -54,7 +54,11 @@ export default function Index() {
   const [selectedLetters1, setSelectedLetters1]=useState([]);
   const [selectedLetters2, setSelectedLetters2]=useState([]);
 
+  //tile 3 / tile4 didn't fit. Tile 2 and tile 3 more likely
 //check tile 9 shows values it's meant to in gridSelectedDominoObjects, may need to press after placed, rotate a few times.NOTE: happens when rotated a few times, e.g. 3 times.
+//NOTE: might be fixed now
+//Runs out of dominoes after new game.
+//No 42 or 52 dominoes?
   //ensure selected DominoObject unotated driven by originalSelectedDominoObject
 //sometimes after click on tile that's already placed if something fts needs to click on that empty space twice(at first says tile doesn't fit)
 //domino mages not always showing.  
@@ -364,7 +368,8 @@ export default function Index() {
           setWord2Success={setWord2Success}
           displayDomino={displayDomino}
           setDisplayDomino={setDisplayDomino}
-
+          dominoRotated={dominoRotated}
+          setDominoRotated={setDominoRotated}
           numberDominoesInGrid={numberDominoesInGrid}
           setNumberDominoesInGrid={setNumberDominoesInGrid}
           dominoIdsInGrid={dominoIdsInGrid}

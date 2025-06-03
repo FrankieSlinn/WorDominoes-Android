@@ -22,7 +22,7 @@ export function DisplayDomino({displayDomino, wordSubmitted, setWordSubmitted, s
     if(word2Success===true && tilePlaced===false){
       console.log("display domino", displayDomino)
     setDominoRotated(!dominoRotated)
-    console.log("Domino rotated?", dominoRotated)
+    console.log("Domino rotated? in display domino", dominoRotated)
     }
    }
 

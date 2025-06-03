@@ -8,6 +8,7 @@ import { allocateDominoes } from "../utils/allocateDominoes.js";
 
 export function StartNewGameButton({gameStart, setGameStart, gameFinished, setGameFinished, singleGameScore, 
     setSingleGameScore, dominoesInHand, setDominoesInHand, word1Success, setWord1Success, word2Success, setWord2Success, displayDomino, setDisplayDomino,
+    dominoRotated, setDominoRotated,
    numberDominoesInGrid, setNumberDominoesInGrid, dominoIdsInGrid, setDominoIdsInGrid, selectedDominoObject, 
      setSelectedDominoObject, gridSelectedDominoObjects, setGridSelectedDominoObjects, tilePlaced, setTilePlaced, turnStart, setTurnStart, 
      scoreArraySingleGame, setScoreArraySingleGame, worDomination, setWorDomination, showMakeWord, setShowMakeWord, dominoSelected, setDominoSelected,
@@ -24,6 +25,7 @@ export function StartNewGameButton({gameStart, setGameStart, gameFinished, setGa
     setWord1Success(false)
     setWord2Success(false)
     setDisplayDomino=(null)
+    setDominoRotated(false)
     setNumberDominoesInGrid(0)
     setDominoIdsInGrid(["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"])
     setSelectedDominoObject(null)

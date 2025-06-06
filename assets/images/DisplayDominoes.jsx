@@ -1,9 +1,5 @@
 import { View} from "react-native";
-// import { DisplayDomino1 } from "../components/DisplayDomino1.jsx";
-// import { DisplayDomino2 } from "../components/DisplayDomino2.jsx";
-// import { DisplayDomino3 } from "../components/DisplayDomino3.jsx";
-// import { DisplayDomino4 } from "../components/DisplayDomino4.jsx";
-import { allocateDominoes, getDominoHand } from "../utils/allocateDominoes.js";
+
 import { s } from "../App.style";
 
 const displayDominoComponents = [

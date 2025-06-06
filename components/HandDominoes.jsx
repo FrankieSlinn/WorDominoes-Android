@@ -10,12 +10,12 @@ import { s } from "../App.style.js";
 export function HandDominoes({ turnStart, setTurnStart, displayDomino, setDisplayDomino, wordSubmitted, setWordSubmitted,
   showMakeWord, setShowMakeWord, originalSelectedDominoObject, setOriginalSelectedDominoObject, selectedDominoObject, setSelectedDominoObject, dominoSelected, setDominoSelected,
  setDominoRotated, word1Success, setWord1Success,
-  word2Success, setWord2Success, dominoesInHand, setDominoesInHand, tilePlaced, setTilePlaced, worDomination, showFinishGame, setShowFinishGame
+  word2Success, setWord2Success, dominoesInHand, setDominoesInHand, tilePlaced, setTilePlaced, worDomination, showFinishGame, setShowFinishGame, gameStart, setGameStart
 }) {
 
   useEffect(() => {
     // Allocate dominoes when the component mounts
-    allocateDominoes(dominoesInHand, setDominoesInHand);
+    allocateDominoes(dominoesInHand, setDominoesInHand, gameStart);
   }, []);
 
   // console.log("dominoHand", getDominoHand())D

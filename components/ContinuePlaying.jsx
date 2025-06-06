@@ -1,12 +1,26 @@
 import { View, Text, TouchableOpacity, Alert} from "react-native";
+import {startNewGameFunction} from "../utils/startNewGameFunction.js"
 import {useEffect, useState} from "react";
 import { s } from "../App.style";
 // import {handleFinishGame} from "../utils/finishGame"
 
 
-export function ContinuePlaying({gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, 
-    setSingleGameScore, showFinishGame, setShowFinishGame, worDomination, setWorDomination
+export function ContinuePlaying({gameStart, setGameStart, dominoesInHand, setDominoesInHand, gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, 
+  word1Success, setWord1Success, word2Success, setWord2Success, displayDomino, setDisplayDomino, dominoRotated, setDominoRotated, setWorDominationCount, singleGameScore, 
+    setSingleGameScore, numberDominoesInGrid, setNumberDominoesInGrid, dominoIdsInGrid, setDominoIdsInGrid, 
+    selectedDominoObject, setSelectedDominoObject, gridSelectedDominoObjects, setGridSelectedDominoObjects, tilePlaced, setTilePlaced, turnStart, setTurnStart,
+    scoreArraySingleGame, setScoreArraySingleGame, showMakeWord, setShowMakeWord, dominoSelected, setDominoSelected, howFinishGame, setShowFinishGame, 
+    worDomination, setWorDomination
 }) {
+  function handleContinuePlaying(){
+    newWorDominationCount = worDominationCount+1
+    setWorDominationCount(newWorDominationCount)
+    startNewGameFunction(setGameStart, setGameFinished, setSingleGameScore, setDominoesInHand, setWord1Success, setWord2Success, setDisplayDomino,
+      setDominoRotated, setNumberDominoesInGrid, setDominoIdsInGrid, setSelectedDominoObject, setGridSelectedDominoObjects, setTilePlaced, setTurnStart, 
+      setScoreArraySingleGame, worDomination, setWorDomination,  setShowMakeWord, setDominoSelected, setWordSubmitted);
+
+
+  }
    
    
     // function handleClick(gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, 
@@ -48,7 +62,7 @@ export function ContinuePlaying({gameFinished, setGameFinished, gamesArray, setG
     {worDomination?
     <View style={s.startFinishGameContainer}>
     
-<TouchableOpacity style={[s.startFinishGameButton, s.continuePlayingButton]} onPress={()=>[console.log("continuePlaying Pressed")]
+<TouchableOpacity style={[s.startFinishGameButton, s.continuePlayingButton]} onPress={()=>[console.log("continuePlaying Pressed"), handleContinuePlaying]
 }>
  
    <Text  style={s.startFinishGameText}>Continue Playing</Text>

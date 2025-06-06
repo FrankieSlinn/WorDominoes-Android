@@ -5,13 +5,14 @@ let numberTiles =12;
 // console.log("handleTileFits", handleTileFits())
 
 
-function handleFinishGame(gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore){
+function handleFinishGame(gameFinished, setGameFinished, gamesArray, setGamesArray, worDomination, setWorDomination, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore){
     console.log("handleFinishGame running!!!")
   
     // console.log("singleGameScore before addScoreToArray done", singleGameScore)
-    addScoreToScoreArray( gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore)
+    addScoreToScoreArray( gameFinished, setGameFinished, gamesArray, setGamesArray, worDomination, setWorDomination, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore)
   
-
+setWorDomination(false)
+setWorDominationCount(0)
 }
 async function addScoreToScoreArray(gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore
    
@@ -31,6 +32,7 @@ console.log("game finished - addScoretoScoreArray running!!!")
     console.log("endOfGameScore", endOfGameScore)
       const games = (await getGamesArray()) || [];// Await for the stored games array. Provide empty array if no gamesArray 
     console.log("Retrieved gamesArray:", games);
+    
   
     let newGamesArray = games.concat([endOfGameScore])
     console.log("newGamesArray", newGamesArray)

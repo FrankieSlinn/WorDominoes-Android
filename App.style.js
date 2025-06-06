@@ -323,13 +323,13 @@ margin: 32,
   },
   continuePlayingButton:{
     backgroundColor: "#053e4c",
-    marginTop: -65,
-    marginBottom: 40,
+    marginTop: -60,
+    marginBottom: 50,
 
   },
   WorDominationCount:{
-    marginTop: 5,
-    marginBottom: -5,
+    marginTop: 45,
+
 
 
   }

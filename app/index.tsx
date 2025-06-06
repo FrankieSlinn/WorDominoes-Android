@@ -13,7 +13,7 @@ import { TextTileWin} from "../components/TextTileWin.jsx";
 import {HelpText} from "../components/HelpText.jsx";
 import {StatsContent} from "../components/StatsContent.jsx";
 import {FinishGame} from "../components/FinishGame.jsx";
-import {ContinuePlaying} from "../components/ContinuePlaying.jsx";
+
 import {TextWorDominationCount} from "../components/TextWorDominationCount.jsx";
 import { StartNewGameButton } from "@/components/StartNewGameButton.jsx";
 import {getLetterHand, storeLetterHand, getSelectedLetters1, storeSelectedLetters1, getSelectedLetters2, storeSelectedLetters2} from "./../utils/asynchStorageUtils"
@@ -53,10 +53,10 @@ export default function Index() {
   const [showFinishGame, setShowFinishGame]=useState(false);
   const [selectedLetters1, setSelectedLetters1]=useState([]);
   const [selectedLetters2, setSelectedLetters2]=useState([]);
-
+//tiles allocated more than once - prob fixed.
   //tile 3 / tile4 didn't fit. Tile 2 and tile 3 more likely
 //check tile 9 shows values it's meant to in gridSelectedDominoObjects, may need to press after placed, rotate a few times.NOTE: happens when rotated a few times, e.g. 3 times.
-//NOTE: might be fixed now
+//NOTE: tried to fix but image on grid switches whenever display domino rotated
 //Runs out of dominoes after new game.
 //No 42 or 52 dominoes?
   //ensure selected DominoObject unotated driven by originalSelectedDominoObject
@@ -209,8 +209,45 @@ export default function Index() {
         </View>
      
       <TextWorDominationCount
-      worDomination={worDomination}
-      worDominationCount={worDominationCount}
+                 worDomination={worDomination}
+                 setWorDomination={setWorDomination}
+                 worDominationCount={worDominationCount}
+                 setWorDominationCount={setWorDominationCount}
+                 gameStart={gameStart}
+                 setGameStart={setGameStart}
+                 dominoesInHand={dominoesInHand}
+                 setDominoesInHand={setDominoesInHand}
+                 gameFinished={gameFinished}
+                 setGameFinished={setGameFinished}
+                 gamesArray={gamesArray}
+                 setGamesArray={setGamesArray}
+                  singleGameScore={singleGameScore} 
+                 setSingleGameScore={setSingleGameScore}
+                 showFinishGame={showFinishGame}
+                 setShowFinishGame={setShowFinishGame}
+                 word1Success={word1Success}
+                 setWord1Success={setWord1Success}
+                 word2Success={word2Success}
+                 setWord2Sucess={setWord2Success}
+                 displayDomino={displayDomino}
+                 setDisplayDomino={setDisplayDomino}
+                 dominoRotated={dominoRotated}
+                 setDominoRotated={setDominoRotated}
+                 selectedDominoObject={selectedDominoObject}
+                 setSelctedDominoObject={setSelectedDominoObject}
+                 gridSelectedsDominoObjects={gridSelectedDominoObjects}
+                 setGridSelectedDominoObjects={setGridSelectedDominoObjects}
+                 tilePlaced={tilePlaced}
+                 setTilePlaced={setTilePlaced}
+                 turnStart={turnStart}
+                 setTurnStart={setTurnStart}
+                 scoreArraySingleGame={scoreArraySingleGame}
+                 setScoreArraySingleGAme={setScoreArraySingleGame}
+                 showMakeWord={showMakeWord}
+                 setShowMakeWord={setShowMakeWord}
+                 dominoSelected={dominoSelected}
+                 setDominoSelected={setDominoSelected}
+               
       
       />
        {gameFinished===false?
@@ -340,22 +377,7 @@ export default function Index() {
           
           
           />
-          <ContinuePlaying
-          worDomination={worDomination}
-          setWorDomination={setWorDomination}
-          worDominationCount={worDominationCount}
-          setWorDominationCount={setWorDominationCount}
-          gameFinished={gameFinished}
-          setGameFinished={setGameFinished}
-          gamesArray={gamesArray}
-          setGamesArray={setGamesArray}
-           singleGameScore={singleGameScore} 
-          setSingleGameScore={setSingleGameScore}
-          showFinishGame={showFinishGame}
-          setShowFinishGame={setShowFinishGame}
-          
-          
-          />
+  
 
      
           {!showFinishGame && gameFinished?

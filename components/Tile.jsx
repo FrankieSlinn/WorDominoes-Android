@@ -64,17 +64,8 @@ export function Tile({
   const [tileRotatedState, setTileRotatedState] = useState(false);
   const [wrongTileErrorInSpecificTile, setWrongTileErrorInSpecificTile] =
     useState(false);
-  // console.log("electedDominoObject", selectedDominoObject);
-  // console.log("dominoesInHand in tile", dominoesInHand);
-  // console.log("!!!!in Tile Component",  "dominoIdsInGrid", dominoIdsInGrid, "gridSelectedDominoObjects", gridSelectedDominoObjects)
-  // console.log("wrongTileErrorInSpecificTile", wrongTileErrorInSpecificTile)
-  // useEffect(() => {
-    //To ensure that rotation state is updated in useEffect when needed
-  //   if(turnStart===true&&word2Success ===true){
-  //     setTilePlacedState(false)
 
-  //   }
-  // }, [tilePlacedState]);
+    //reset needed to cancel any tileRotationState changes
   useEffect(() => {
     if((turnStart||gameStart)&& gridSelectedDominoObjects[tileId]==="empty"){
      setTileRotatedState(false)
@@ -83,18 +74,14 @@ export function Tile({
   }, [turnStart, gameStart]);
 
   useEffect(() => {
-    console.log("tilePlacedState", tilePlacedState)
+
 
     if (!tilePlacedState ) {
       setTileRotatedState(dominoRotated);
     }
-    // if(gameFinished && !tilePlacedState || gameStart &&!tilePlacedState ||turnStart &&!tilePlacedState){
-    //   setTileRotatedState(false)
-    // }
 
   }, [dominoRotated, turnStart, gameStart, gameFinished]);
-  console.log("TILE ROTATED IN TILE", dominoRotated)
- console.log("TILE ROTATED STATE IN TILE", tileRotatedState)
+
 
 
   return (

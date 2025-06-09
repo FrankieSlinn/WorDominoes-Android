@@ -54,9 +54,10 @@ export default function Index() {
   const [selectedLetters1, setSelectedLetters1]=useState([]);
   const [selectedLetters2, setSelectedLetters2]=useState([]);
 //tiles allocated more than once - prob fixed.
-//d2(32) showing as 23
-
-//Runs out of dominoes after new game.
+//d2(32) showing as 23 - still issue. Shows in dominoes in hand.
+//showed two or more of same tile, e.g. 55 - prob fixed.
+//rotation state still issues. 
+//Runs out of dominoes after new game - prob fixed
 //No 42 or 52 dominoes?
   //ensure selected DominoObject unotated driven by originalSelectedDominoObject
 //sometimes after click on tile that's already placed if something fts needs to click on that empty space twice(at first says tile doesn't fit)
@@ -328,6 +329,8 @@ export default function Index() {
             setWorDomination={setWorDomination}
             gameStart={gameStart}
             dominoSelected={dominoSelected}
+            dominoesInHand={dominoesInHand}
+            setDominoesInHand={setDominoesInHand}
           />
          </View>
          :null}

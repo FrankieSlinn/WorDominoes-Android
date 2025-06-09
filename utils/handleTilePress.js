@@ -178,7 +178,8 @@ function handleTilePress(
         setWrongTileError,
         wrongTileErrorInSpecificTile,
         setWrongTileErrorInSpecificTile,
-        setTilePlaced
+        setTilePlaced,
+        setTilePlacedState
       );
     } else {
       handleTileFits(   tileId,
@@ -224,30 +225,6 @@ function handleTilePress(
     }
   }
 
-  function handleDominoDoesNotFit(
-    tileId,
-    wrongTileError,
-    setWrongTileError,
-    wrongTileErrorInSpecificTile,
-    setWrongTileErrorInSpecificTile,
-    setTilePlaced
-  ) {
-    console.log(
-      "tile fits in going for tile full check. Showing wrongTile Error status",
-      wrongTileError
-    );
-    console.log(`Setting wrongTileError for tile ${tileId}`);
-    setTilePlaced(false);
-    //for generic error message
-    setWrongTileError(true);
-    //for specific tile
-    setWrongTileErrorInSpecificTile(true);
-    console.log("Wrongtile error in HOrizontal tile top", wrongTileError);
-    console.log(
-      "Wrongtile error in HOrizontal specific tile",
-      wrongTileErrorInSpecificTile
-    );
-  }
 
   function checkTileAlreadyPlaced(
     tileId,
@@ -371,6 +348,34 @@ setSelectedLetters2
 
 
     }
+  }
+
+
+  function handleDominoDoesNotFit(
+    tileId,
+    wrongTileError,
+    setWrongTileError,
+    wrongTileErrorInSpecificTile,
+    setWrongTileErrorInSpecificTile,
+    setTilePlaced, 
+    setTilePlacedState
+  ) {
+    console.log(
+      "tile fits in going for tile full check. Showing wrongTile Error status",
+      wrongTileError
+    );
+    console.log(`Setting wrongTileError for tile ${tileId}`);
+    setTilePlaced(false);
+    setTilePlacedState(false)
+    //for generic error message
+    setWrongTileError(true);
+    //for specific tile
+    setWrongTileErrorInSpecificTile(true);
+    console.log("Wrongtile error in HOrizontal tile top", wrongTileError);
+    console.log(
+      "Wrongtile error in HOrizontal specific tile",
+      wrongTileErrorInSpecificTile
+    );
   }
 
 

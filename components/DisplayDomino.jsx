@@ -5,7 +5,9 @@ import { s } from "../App.style";
 
 
 export function DisplayDomino({displayDomino, wordSubmitted, setWordSubmitted, selectedDominoObject, setSelectedDominoObject,
-  showChooseDominoText, setShowChooseDominoText, dominoRotated, setDominoRotated, word2Success, setWord2Success, tilePlaced, dominoSelected
+  showChooseDominoText, setShowChooseDominoText, dominoRotated, setDominoRotated, word2Success, setWord2Success, tilePlaced, dominoSelected,
+   dominoesInHand, setDominoesInHand
+
 }) {
 
   useEffect(()=>{
@@ -23,6 +25,7 @@ export function DisplayDomino({displayDomino, wordSubmitted, setWordSubmitted, s
       console.log("display domino", displayDomino)
     setDominoRotated(!dominoRotated)
     console.log("Domino rotated? in display domino", dominoRotated)
+    console.log("DominoesinHand in Display Domino", dominoesInHand)
     }
    }
 

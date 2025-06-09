@@ -12,11 +12,12 @@ function randomNumberDom() {
 
 // ✅ Custom Hook to allocate dominoes
 function allocateDominoes(dominoesInHand, setDominoesInHand, gameStart) {
-  let copyDominoesInHand = [...dominoesInHand];
+  // let dominoesInHandCopy = [...dominoesInHand];
+   let dominoesInHandCopy =dominoesInHand.map(obj => ({ ...obj }));
   resetDominoesNewGame(gameStart);
   console.log("allocateDominoes running");
   console.log("gameStart in allocateDominoes?", gameStart);
-  allocateDominoesToHand(copyDominoesInHand, dominoesCopy, setDominoesInHand);
+  allocateDominoesToHand(dominoesInHandCopy, dominoesCopy, setDominoesInHand);
 
   // console.log("FIRST PART OF DOMINO ALLOCATION RUNNING")
 console.log("DOMINOESiNHAND", dominoesInHand)
@@ -37,23 +38,23 @@ function resetDominoesNewGame(gameStart) {
   }
 }
 
-function allocateDominoesToHand(copyDominoesInHand, dominoesCopy, setDominoesInHand) {
-  if (copyDominoesInHand) {
-    console.log("LENGTH OF DOMINOESINHAND", copyDominoesInHand.length);
-    if (copyDominoesInHand.length < 4) {
+function allocateDominoesToHand(dominoesInHandCopy, dominoesCopy, setDominoesInHand) {
+  if (dominoesInHandCopy) {
+    console.log("LENGTH OF DOMINOESINHAND", dominoesInHandCopy.length);
+    if (dominoesInHandCopy.length < 4) {
       console.log("ALLOCATING DOMINOES...");
    
 
-      while (copyDominoesInHand.length < 4 && dominoesCopy.length > 0) {
+      while (dominoesInHandCopy.length < 4 && dominoesCopy.length > 0) {
         console.log("dominoes in allocate to hand", dominoes)
         console.log("copy dominoes in allocate to hand", dominoesCopy)
         const randDomino = dominoesCopy[randomNumberDom()];
         
         console.log("radDomino", randDomino)
 
-        copyDominoesInHand.push(randDomino);
-        setDominoesInHand(copyDominoesInHand);
-        console.log("dominoesInHand in allocatedominoesToHand", copyDominoesInHand)
+        if (!dominoesUsed.includes(randDomino)){dominoesInHandCopy.push(randDomino);}
+        setDominoesInHand(dominoesInHandCopy);
+        console.log("dominoesInHand in allocatedominoesToHand", dominoesInHandCopy)
 
         // Remove the domino from available ones
         console.log("DOMINOES.LENGTH before splice", dominoesCopy.length);

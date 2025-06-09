@@ -9,7 +9,7 @@ export function TextWorDominationCount({gameStart, setGameStart, dominoesInHand,
   word1Success, setWord1Success, word2Success, setWord2Success, displayDomino, setDisplayDomino, dominoRotated, setDominoRotated, setWorDominationCount, singleGameScore, 
     setSingleGameScore, snumberDominoesInGrid, setNumberDominoesInGrid, dominoIdsInGrid, setDominoIdsInGrid, 
     selectedDominoObject, setSelectedDominoObject, gridSelectedDominoObjects, setGridSelectedDominoObjects, tilePlaced, setTilePlaced, turnStart, setTurnStart,
-    scoreArraySingleGame, setScoreArraySingleGame, showMakeWord, setShowMakeWord, dominoSelected, setDominoSelected, howFinishGame, setShowFinishGame, 
+    scoreArraySingleGame, setScoreArraySingleGame, showMakeWord, setShowMakeWord, dominoSelected, setDominoSelected, showFinishGame, setShowFinishGame, 
     worDomination, setWorDomination
 }) {
 

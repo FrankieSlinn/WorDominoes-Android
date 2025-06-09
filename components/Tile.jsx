@@ -4,7 +4,6 @@ import { s } from "../App.style.js";
 import { dominoImageMappings } from "../utils/dominoImageMappings.js";
 import { handleTilePress } from "../utils/handleTilePress.js";
 
-
 export function Tile({
   tileId,
   dominoRotated,
@@ -15,7 +14,7 @@ export function Tile({
   setWordSubmitted,
   selectedDominoObject,
   setSelectedDominoObject,
-  originalSelectedDominoObject, 
+  originalSelectedDominoObject,
   setOriginalSelectedDominoObject,
   dominoSelected,
   setDominoSelected,
@@ -42,21 +41,21 @@ export function Tile({
   setWrongTileError,
   dominoesInHand,
   setDominoesInHand,
-  gamesArray, 
+  gamesArray,
   setGamesArray,
   scoreArraySingleGame,
   setScoreArraySingleGame,
 
-  worDomination, 
-  setWorDomination, 
+  worDomination,
+  setWorDomination,
   worDominationCount,
-  setWorDominationCount, 
-  gameFinished, 
+  setWorDominationCount,
+  gameFinished,
   setGameFinished,
-  singleGameScore, 
-  setSingleGameScore, 
+  singleGameScore,
+  setSingleGameScore,
   setSelectedLetters1,
-  setSelectedLetters2
+  setSelectedLetters2,
 }) {
   //Only applies to this tile
   const [tilePlacedState, setTilePlacedState] = useState(false);
@@ -65,24 +64,24 @@ export function Tile({
   const [wrongTileErrorInSpecificTile, setWrongTileErrorInSpecificTile] =
     useState(false);
 
-    //reset needed to cancel any tileRotationState changes
+  //reset needed to cancel any tileRotationState changes
   useEffect(() => {
-    if((turnStart||gameStart)&& gridSelectedDominoObjects[tileId]==="empty"){
-     setTileRotatedState(false)
-     setTilePlacedState(false)
+    console.log("turn start in tile", turnStart)
+    console.log("empty tile in tile?", gridSelectedDominoObjects[tileId] === "empty")
+    if (
+      (turnStart || gameStart) &&
+      gridSelectedDominoObjects[tileId] === "empty"
+    ) {
+      setTileRotatedState(false);
+      setTilePlacedState(false);
     }
   }, [turnStart, gameStart]);
 
   useEffect(() => {
-
-
-    if (!tilePlacedState ) {
+    if (!tilePlacedState) {
       setTileRotatedState(dominoRotated);
     }
-
   }, [dominoRotated, turnStart, gameStart, gameFinished]);
-
-
 
   return (
     <>
@@ -94,58 +93,59 @@ export function Tile({
               : s.verticalDomino,
             s.domino,
           ]}
-          onPress={() => {[
-            handleTilePress(
-              word2Success,
-              tilePlaced,
-              setTilePlaced,
-              setTurnStart,
-              originalSelectedDominoObject,
-              setOriginalSelectedDominoObject,
-              selectedDominoObject,
-              setSelectedDominoObject,
-              dominoSelected,
-              setDominoSelected,
-              displayDomino,
-              setDisplayDomino,
-              setShowMakeWord,
-              setWordSubmitted,
-              dominoIdsInGrid,
-              setDominoIdsInGrid,
-              gridSelectedDominoObjects,
-              setGridSelectedDominoObjects,
-              tileId,
-              tileFullError,
-              setTileFullError,
-              gameStart,
-              setGameStart,
-              wrongTileError,
-              setWrongTileError,
-              wrongTileErrorInSpecificTile,
-              setWrongTileErrorInSpecificTile,
-              tilePlacedState,
-              setTilePlacedState,
-              dominoRotated,
-              dominoesInHand,
-              setDominoesInHand,
-              gamesArray,
-              setGamesArray,
-              scoreArraySingleGame,
-              setScoreArraySingleGame,
-              worDomination, 
-              setWorDomination, 
-              worDominationCount,
-              setWorDominationCount,
-              gameFinished,
-              setGameFinished,
-                singleGameScore, 
-              setSingleGameScore,
-              setSelectedLetters1,
-              setSelectedLetters2
-            )
-            // ,
-            // getStats(gamesArray, setGamesArray)
-          ]
+          onPress={() => {
+            [
+              handleTilePress(
+                word2Success,
+                tilePlaced,
+                setTilePlaced,
+                setTurnStart,
+                originalSelectedDominoObject,
+                setOriginalSelectedDominoObject,
+                selectedDominoObject,
+                setSelectedDominoObject,
+                dominoSelected,
+                setDominoSelected,
+                displayDomino,
+                setDisplayDomino,
+                setShowMakeWord,
+                setWordSubmitted,
+                dominoIdsInGrid,
+                setDominoIdsInGrid,
+                gridSelectedDominoObjects,
+                setGridSelectedDominoObjects,
+                tileId,
+                tileFullError,
+                setTileFullError,
+                gameStart,
+                setGameStart,
+                wrongTileError,
+                setWrongTileError,
+                wrongTileErrorInSpecificTile,
+                setWrongTileErrorInSpecificTile,
+                tilePlacedState,
+                setTilePlacedState,
+                dominoRotated,
+                dominoesInHand,
+                setDominoesInHand,
+                gamesArray,
+                setGamesArray,
+                scoreArraySingleGame,
+                setScoreArraySingleGame,
+                worDomination,
+                setWorDomination,
+                worDominationCount,
+                setWorDominationCount,
+                gameFinished,
+                setGameFinished,
+                singleGameScore,
+                setSingleGameScore,
+                setSelectedLetters1,
+                setSelectedLetters2
+              ),
+              // ,
+              // getStats(gamesArray, setGamesArray)
+            ];
           }}
         >
           {wrongTileErrorInSpecificTile ? null : !tileRotatedState ? (
@@ -155,27 +155,31 @@ export function Tile({
               style={[
                 s.selectedTile,
                 //Below: all horizontal tiles
-                ((tileId >= 0 && tileId <= 3) || (tileId >= 6 && tileId <= 9))
-                //horizontal tiles
-                  ? [s.selectedTileHorizontal, s.selectedHorizontalTileUnrotated]
-                  //vertical tiles
-                  : s.selectedTileVertical,
-      
+                (tileId >= 0 && tileId <= 3) || (tileId >= 6 && tileId <= 9)
+                  ? //horizontal tiles
+                    [
+                      s.selectedTileHorizontal,
+                      s.selectedHorizontalTileUnrotated,
+                    ]
+                  : //vertical tiles
+                    s.selectedTileVertical,
               ]}
               resizeMode="cover"
             />
-          ) : 
-          //tile rotated
-          
-          (
+          ) : (
+            //tile rotated
+
             <Image
               source={dominoImageMappings[dominoIdsInGrid[tileId]]}
               style={[
                 s.selectedTile,
-                ((tileId >= 0 && tileId <= 3) || (tileId >= 6 && tileId <= 9))
-                  ? [s.selectedTileHorizontal, s.selectedHorizontalTileRotated, {backgroundColor: "purple"}]
-                  : [s.selectedTileVertical, s.selectedVerticalTileRotated]
-            
+                (tileId >= 0 && tileId <= 3) || (tileId >= 6 && tileId <= 9)
+                  ? [
+                      s.selectedTileHorizontal,
+                      s.selectedHorizontalTileRotated,
+                      { backgroundColor: "purple" },
+                    ]
+                  : [s.selectedTileVertical, s.selectedVerticalTileRotated],
               ]}
               resizeMode="cover"
             />

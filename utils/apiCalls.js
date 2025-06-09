@@ -2,15 +2,15 @@ import { Alert } from "react-native";
 import {loadWord1Success, getWord1Success, storeWord1Success, getWord2Success, storeWord2Success} from "./asynchStorageUtils"
 
 //To ensure all words are included
-const dictionary = ["is", "be", "was", "look", "dose", "door", "touch", "kite"];
+const dictionary = ["is", "be", "was", "look", "dose", "door", "touch", "kite", "our"];
 
 
 
 function validateWord(validationInformation, letterString, wordLength, wordNumber, setWord1Success, setWord2Success, setTilePlaced, setValidationError, storeWord1Success, 
   storeWord2Success
 ) {
-  setValidationError(false)
-  
+  // setValidationError(false)
+
   // console.log("validationINformation", validationInformation);
   // console.log("wordNumber, wordNumber")
 

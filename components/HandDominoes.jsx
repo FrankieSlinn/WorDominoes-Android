@@ -12,6 +12,7 @@ export function HandDominoes({ turnStart, setTurnStart, displayDomino, setDispla
  setDominoRotated, word1Success, setWord1Success,
   word2Success, setWord2Success, dominoesInHand, setDominoesInHand, tilePlaced, setTilePlaced, worDomination, showFinishGame, setShowFinishGame, gameStart, setGameStart
 }) {
+  // let dominoesInHandCopy = dominoesInHand.map(obj => ({ ...obj }));
 
   useEffect(() => {
     // Allocate dominoes when the component mounts
@@ -57,7 +58,9 @@ export function HandDominoes({ turnStart, setTurnStart, displayDomino, setDispla
     <>
     {!worDomination?
         <View style={[s.handDominoContainer]}>
-         {dominoesInHand.map((domino, index) => (
+         {
+         
+         dominoesInHand.map((domino, index) => (
      
        
           domino!=selectedDominoObject?

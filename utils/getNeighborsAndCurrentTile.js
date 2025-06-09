@@ -134,7 +134,7 @@
               : gridSelectedDominoObjects[5].toString()[1];
         }
   
-        //tile on rightis tile 8
+        //tile on right
   
         if (gridSelectedDominoObjects[tileId + 1]) {
           tileData.rightNeighbor =
@@ -162,23 +162,7 @@
             : gridSelectedDominoObjects[tileId - 1].toString()[1];
       }
     }
-    // if(tileId===10) {
-    //   if (gridSelectedDominoObjects[tileId - 1]) {
-    //     tileData.leftNeighbor =
-    //       gridSelectedDominoObjects[tileId -1] === "empty"
-    //         ? "empty"
-    //         : gridSelectedDominoObjects[tileId - 1].toString()[1];
-    //   }
 
-
-
-    //   if (gridSelectedDominoObjects[tileId - 1]) {
-    //     tileData.rightNeighbor =
-    //       gridSelectedDominoObjects[tileId - 1] === "empty"
-    //         ? "empty"
-    //         : gridSelectedDominoObjects[tileId - 1].toString()[1];
-    //   }
-    // }
 
     //left and right neighbours swapped as order different.
     //right neighbour in sense of array so itile is actually to left

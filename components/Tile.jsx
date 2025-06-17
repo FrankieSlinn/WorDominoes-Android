@@ -45,7 +45,6 @@ export function Tile({
   setGamesArray,
   scoreArraySingleGame,
   setScoreArraySingleGame,
-
   worDomination,
   setWorDomination,
   worDominationCount,
@@ -56,6 +55,8 @@ export function Tile({
   setSingleGameScore,
   setSelectedLetters1,
   setSelectedLetters2,
+  selectedDominoIndex,
+  setSelectedDominoIndex
 }) {
   //Only applies to this tile
   const [tilePlacedState, setTilePlacedState] = useState(false);
@@ -64,10 +65,18 @@ export function Tile({
   const [wrongTileErrorInSpecificTile, setWrongTileErrorInSpecificTile] =
     useState(false);
 
+    // console.log("dominoesInHand in in tile", dominoesInHand)
+    // console.log("selectedDominoIndex in tile", selectedDominoIndex)
+    // console.log("dominoesInHand[selectedDominoIndex] in tile", dominoesInHand[selectedDominoIndex])
+
   //reset needed to cancel any tileRotationState changes
   useEffect(() => {
-    console.log("turn start in tile", turnStart)
-    console.log("empty tile in tile?", gridSelectedDominoObjects[tileId] === "empty")
+    // console.log("turn start in tile", turnStart);
+    // console.log(
+    //   "empty tile in tile?",
+    //   gridSelectedDominoObjects[tileId] === "empty"
+    // );
+
     if (
       (turnStart || gameStart) &&
       gridSelectedDominoObjects[tileId] === "empty"
@@ -78,10 +87,24 @@ export function Tile({
   }, [turnStart, gameStart]);
 
   useEffect(() => {
-    if (!tilePlacedState) {
+    // console.log("tile placed state in Tile", tileId, tilePlacedState);
+    // console.log("tile rotated state in Tile", tileId, tileRotatedState);
+    // console.log(
+    //   "wrongErrorInSpecificTile",
+    //   tileId,
+    //   wrongTileErrorInSpecificTile
+    // );
+    if (!tilePlacedState && gridSelectedDominoObjects[tileId] === "empty") {
       setTileRotatedState(dominoRotated);
+      setWrongTileErrorInSpecificTile(false);
     }
-  }, [dominoRotated, turnStart, gameStart, gameFinished]);
+  }, [
+    dominoRotated,
+    turnStart,
+    gameStart,
+    gameFinished,
+    wrongTileErrorInSpecificTile,
+  ]);
 
   return (
     <>
@@ -141,7 +164,9 @@ export function Tile({
                 singleGameScore,
                 setSingleGameScore,
                 setSelectedLetters1,
-                setSelectedLetters2
+                setSelectedLetters2, 
+                selectedDominoIndex,
+                setSelectedDominoIndex
               ),
               // ,
               // getStats(gamesArray, setGamesArray)
@@ -177,7 +202,11 @@ export function Tile({
                   ? [
                       s.selectedTileHorizontal,
                       s.selectedHorizontalTileRotated,
-                      { backgroundColor: "purple" },
+                      {
+                        backgroundColor: "purple",
+                        borderColor: "purple",
+                        borderWidth: 4,
+                      },
                     ]
                   : [s.selectedTileVertical, s.selectedVerticalTileRotated],
               ]}
@@ -189,3 +218,4 @@ export function Tile({
     </>
   );
 }
+s;

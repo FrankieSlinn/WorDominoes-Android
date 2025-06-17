@@ -59,7 +59,9 @@ export function Grid({
   singleGameScore, 
   setSingleGameScore,
   setSelectedLetters1,
-  setSelectedLetters2
+  setSelectedLetters2, 
+  selectedDominoIndex,
+  setSelectedDominoIndex
 }) {
   const horizontalTopTileIds = [0, 1, 2, 3];
   const verticalRightTileIds = [4, 5];
@@ -121,7 +123,9 @@ export function Grid({
     singleGameScore, 
     setSingleGameScore,
     setSelectedLetters1,
-    setSelectedLetters2
+    setSelectedLetters2,
+    selectedDominoIndex, 
+    setSelectedDominoIndex
   };
 
 console.log("gridSelectedDominoObjects", gridSelectedDominoObjects)

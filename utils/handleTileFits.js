@@ -1,4 +1,5 @@
 import { allocateDominoes } from "./allocateDominoes";
+import {tileData } from "./getNeighborsAndCurrentTile"
 import { storeGamesArray, getGamesArray } from "./asynchStorageUtils";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
@@ -50,8 +51,11 @@ const handleTileFits = async (
   setSelectedLetters2
 ) => {
   let dominoDots = Object.values(selectedDominoObject).join("");
+  console.log("dominoDots in beginning of handlTileFits", dominoDots)
   console.log("handle tile fits running");
-
+  console.log("tileData.currentTile", tileData.currentTile)
+  console.log("dominoIds in grid in handleTilePress", dominoIdsInGrid)
+  console.log("gridSelectedDominoObjects in handleTileFits", gridSelectedDominoObjects)
   resetForTilePlaced(
     setSelectedDominoObject,
     setTilePlaced,
@@ -60,8 +64,38 @@ const handleTileFits = async (
     setWordSubmitted,
     setDisplayDomino,
     setShowMakeWord,
-    setDominoSelected
+    setDominoSelected, 
+    dominoesInHand,
+    setDominoesInHand
   );
+
+  console.log("calling addScoreToScoreArraySingleGame before try");
+
+    console.log("calling addScoreToScoreArraySingleGame");
+    addScoreToScoreArraySingleGame(
+      selectedDominoObject,
+      scoreArraySingleGame,
+      setScoreArraySingleGame,
+      dominoDots,
+      gameFinished,
+      setGameFinished,
+      gamesArray,
+      setGamesArray,
+      worDominationCount,
+      setWorDominationCount,
+      singleGameScore,
+      setSingleGameScore
+    );
+  
+
+  allocateDominoesPrep(
+    dominoesInHand,
+    setDominoesInHand,
+    selectedDominoObject,
+    setSelectedDominoObject,
+    gameStart
+  );
+
   populateValuesInGrid(
     displayDomino,
     dominoRotated,
@@ -72,38 +106,16 @@ const handleTileFits = async (
     tileId,
     gridSelectedDominoObjects,
     setGridSelectedDominoObjects,
+    worDomination,
     setWorDomination 
   );
   
 
-  addScoreToScoreArraySingleGame(
-    selectedDominoObject,
-    scoreArraySingleGame,
-    setScoreArraySingleGame,
-    dominoDots,
-    gameFinished,
-    setGameFinished,
-    gamesArray,
-    setGamesArray,
-    worDominationCount,
-    setWorDominationCount,
-    singleGameScore,
-    setSingleGameScore
-  );
-
-  allocateDominoesPrep(
-    dominoesInHand,
-    setDominoesInHand,
-    selectedDominoObject,
-    setSelectedDominoObject,
-    gameStart
-  );
-
-  checkWorDomination(
-    gridSelectedDominoObjects,
-    worDomination,
-    setWorDomination
-  )
+  // checkWorDomination(
+  //   gridSelectedDominoObjects,
+  //   worDomination,
+  //   setWorDomination
+  // )
 };
 
 function addScoreToScoreArraySingleGame(
@@ -123,7 +135,10 @@ function addScoreToScoreArraySingleGame(
   console.log("running score function in handle tile fits");
   //How many dots a domino has in total
   let scoreSingleDomino = Number(dominoDots[0]) + Number(dominoDots[1]);
+  console.log("scoreSingleDomino", scoreSingleDomino)
+  console.log("scoreArraySingleGame", scoreArraySingleGame)
   let scoreArrayPerDomino = [...scoreArraySingleGame];
+  console.log("scoreArrayPerDomino", scoreArrayPerDomino)
   //Add domino's value to values of all other dominoes placed
   scoreArrayPerDomino.push(scoreSingleDomino);
   //count how many domino dots in all dominoes placed
@@ -131,7 +146,8 @@ function addScoreToScoreArraySingleGame(
     .reduce((sum, num) => sum + num, 0)
     .toFixed(1);
   setSingleGameScore(placeholderSingleGameScore);
-  console.log("!!!!!!!!total single game Score", singleGameScore);
+  console.log("!!!!!!!!total single game Score", placeholderSingleGameScore);
+
   setScoreArraySingleGame(scoreArrayPerDomino);
   console.log("scoreArraySingleGame", scoreArraySingleGame);
 }
@@ -144,7 +160,9 @@ function resetForTilePlaced(
   setWordSubmitted,
   setDisplayDomino,
   setShowMakeWord,
-  setDominoSelected
+  setDominoSelected,
+  dominoesInHand,
+  setDominoesInHand
 ) {
   console.log("setting values in handleTileFits");
   setTilePlaced(true);
@@ -155,6 +173,7 @@ function resetForTilePlaced(
   setDisplayDomino("");
   setShowMakeWord(false);
   setDominoSelected(false);
+  // setDominoesInHand(dominoesInHand.splice(selectedDominoIndex, 1))
 }
 
 //updates domino values in grid
@@ -168,34 +187,72 @@ function populateValuesInGrid(
   tileId,
   gridSelectedDominoObjects,
   setGridSelectedDominoObjects,
+  worDomination,
   setWorDomination // Add this
 ) {
+  console.log("populateValuesInGridRunning")
+  console.log("tileData.currentTile", tileData.currentTile)
+  console.log("type of tileData.currentTile", typeof tileData.currentTile)
+  
+
   console.log("populateValuesInGrid running");
 
+
+  console.log("dominoIdsInGrid in beginning of populate values", dominoIdsInGrid)
+  // console.log("tileId in populateValuesInGrid", tileId)
+  // console.log("gridSelectedDominoObjects in populateValues before run to add tile info before do selectedDominoObjectString", gridSelectedDominoObjects)
+
   const selectedDominoObjectString = Object.values(selectedDominoObject).join("");
+
   const reverseSelectedDominoObject =
-    selectedDominoObjectString[1] + selectedDominoObjectString[0];
+    tileData.currentTile[1] + tileData.currentTile[0];
+  //   console.log("reverseSelectedDominoes in populatevalues", reverseSelectedDominoObject)
+
+  console.log("tile id in populatevalues", tileId)
+
+  
+  setGridSelectedDominoObjects(
+
+    gridSelectedDominoObjects.map((domino, index) => {
+      console.log(`🔍 Mapping index ${index}`);
+      if (index !== tileId) {
+        console.log(`➡️ Index ${index} unchanged: ${domino}`);
+        return domino;
+      }
+  
+      const newValue =  tileData.currentTile
+
+  
+      console.log(`🛠 Updating index ${index}: ${domino} → ${newValue}`);
+      return newValue;
+    })
+  );
+  // console.log("new Grid in populat4eValues", newGrid)
+
+  // setGridSelectedDominoObjects(newGrid); // update state with local copy
+
+  // console.log("updated gridSelectedDominoObjects in populateValues", newGrid);
+  console.log("dominoIDSINGRID BEFORE UPDATE", dominoIdsInGrid)
+  console.log(" Object.keys(selectedDominoObject).toString()",  Object.keys(selectedDominoObject).toString())//works
+  const newDominoIdsInGrid = dominoIdsInGrid.map((domino, index) => {
+    return index === tileId
+      ? Object.keys(selectedDominoObject).toString()
+      : domino;
+  });
+  
+  console.log("NEW DOMINOES IDS IN GRID", newDominoIdsInGrid);
+  
+  setDominoIdsInGrid(newDominoIdsInGrid);
+  
+  console.log("dominoeIdsGrid", newDominoIdsInGrid)
+  // console.log("Object.values sleectedDominoObject In handleTileFits", Object.values(selectedDominoObject).join(""))
+  checkWorDomination(    gridSelectedDominoObjects,
+    worDomination,
+    setWorDomination); // use updated copy
+
 
   setGameFinished(false);
 
-  setDominoIdsInGrid((prevDominos) =>
-    prevDominos.map((domino, index) =>
-      index === tileId ? Object.keys(selectedDominoObject).toString() : domino
-    )
-  );
-
-  const newGrid = gridSelectedDominoObjects.map((domino, index) => {
-    if (index !== tileId) return domino;
-    //array will have bottom and left dominoes in reverse to how they're displayed
-    return tileId < 6
-      ? Object.values(selectedDominoObject).join("")
-      : reverseSelectedDominoObject;
-  });
-
-  setGridSelectedDominoObjects(newGrid); // update state with local copy
-  checkWorDomination(newGrid, setWorDomination); // use updated copy
-
-  console.log("updated gridSelectedDominoObjects", newGrid);
 }
 
 
@@ -213,17 +270,21 @@ function allocateDominoesPrep(
   //remove domino from dominoesInHand
   if (index !== -1) {
     dominoesInHandCopy.splice(index, 1); // ✅ Removes only selectedDominoObject
+    setDominoesInHand(dominoesInHandCopy)
   }
   // console.log("tile placed in handletilefits", tilePlaced);
-  allocateDominoes(dominoesInHandCopy, setDominoesInHand, gameStart);
+  allocateDominoes(dominoesInHandCopy, setDominoesInHand, true, gameStart);
   //reset to choose new displayDomino
   setSelectedDominoObject(null);
 }
-function checkWorDomination(gridSelectedDominoObjects, setWorDomination) {
+function checkWorDomination(    gridSelectedDominoObjects,
+  worDomination,
+  setWorDomination) {
   console.log("check worDomination running");
   if (gridSelectedDominoObjects.every((item) => item !== "empty")) {
     setWorDomination(true);
     console.log("worDomination condition met");
   }
+  else{console.log("worDomination condition not met")}
 }
 export { handleTileFits };

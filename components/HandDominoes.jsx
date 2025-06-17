@@ -10,29 +10,36 @@ import { s } from "../App.style.js";
 export function HandDominoes({ turnStart, setTurnStart, displayDomino, setDisplayDomino, wordSubmitted, setWordSubmitted,
   showMakeWord, setShowMakeWord, originalSelectedDominoObject, setOriginalSelectedDominoObject, selectedDominoObject, setSelectedDominoObject, dominoSelected, setDominoSelected,
  setDominoRotated, word1Success, setWord1Success,
-  word2Success, setWord2Success, dominoesInHand, setDominoesInHand, tilePlaced, setTilePlaced, worDomination, showFinishGame, setShowFinishGame, gameStart, setGameStart
+  word2Success, setWord2Success, dominoesInHand, setDominoesInHand, tilePlaced, setTilePlaced, worDomination, showFinishGame,
+   setShowFinishGame, gameStart, setGameStart, selectedDominoIndex, setSelectedDominoIndex
 }) {
   // let dominoesInHandCopy = dominoesInHand.map(obj => ({ ...obj }));
 
+
   useEffect(() => {
-    // Allocate dominoes when the component mounts
-    allocateDominoes(dominoesInHand, setDominoesInHand, gameStart);
-  }, []);
+ console.log("dominoesInHand in dominoesInHand b4 allocate dominoes in useEffect", dominoesInHand)
+    allocateDominoes(dominoesInHand, setDominoesInHand, turnStart, gameStart, selectedDominoIndex);
+  }, [turnStart]);
 
   // console.log("dominoHand", getDominoHand())D
   console.log("turnStart in HandDominoes", turnStart);
-  console.log("wordSubmitted", wordSubmitted);
+  // console.log("wordSubmitted", wordSubmitted);
 
 
-  function handleClick(selectedDomino, domino){
+  function handleClick(selectedDomino, domino, index){
+    console.log("index in handleClick dominoesInHand", index)
     console.log("dominoClicked")
     if(wordSubmitted ===false && turnStart===true){
     setDominoSelected(true)
-    setDisplayDomino(selectedDomino)
 
-    console.log("selectedDominoObject in HandDominoes", selectedDominoObject)
+    setDisplayDomino(selectedDomino)
+    setSelectedDominoIndex(index)
+    console.log("dominoesInHand in in handDominoes", dominoesInHand)
+    console.log("selectedDominoIndex in handDominoes", selectedDominoIndex)
+    console.log("dominoesInHand[selectedDominoIndex] in handDominoes", dominoesInHand[selectedDominoObject])
       setShowFinishGame(true)
     setSelectedDominoObject(domino)
+  
     //value that doesn't change with rotations
     setOriginalSelectedDominoObject(domino)
     setWordSubmitted(true)
@@ -67,7 +74,7 @@ export function HandDominoes({ turnStart, setTurnStart, displayDomino, setDispla
            
           
           <View key={index} style={s.handDomino}>
-          <TouchableOpacity onPress={()=>{handleClick(Object.keys(domino)[0], domino)}}>
+          <TouchableOpacity onPress={()=>{handleClick(Object.keys(domino)[0], domino, index)}}>
    
           <Image
         source={dominoImageMappings[Object.keys(domino)[0]]} // Use the mapping object

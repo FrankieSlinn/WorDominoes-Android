@@ -11,21 +11,28 @@ function randomNumberDom() {
 }
 
 // ✅ Custom Hook to allocate dominoes
-function allocateDominoes(dominoesInHand, setDominoesInHand, gameStart) {
-  // let dominoesInHandCopy = [...dominoesInHand];
+function allocateDominoes(dominoesInHand, setDominoesInHand, turnStart, gameStart, selectedDominoIndex) {
+  console.log("function to allocate dominoes running")
+  console.log("turnStart", turnStart)
+ 
+if(turnStart===true){
+
+
    let dominoesInHandCopy =dominoesInHand.map(obj => ({ ...obj }));
   resetDominoesNewGame(gameStart);
   console.log("allocateDominoes running");
   console.log("gameStart in allocateDominoes?", gameStart);
   allocateDominoesToHand(dominoesInHandCopy, dominoesCopy, setDominoesInHand);
 
-  // console.log("FIRST PART OF DOMINO ALLOCATION RUNNING")
 console.log("DOMINOESiNHAND", dominoesInHand)
 
   
   console.log("UPDATED DOMINOES IN HAND IN ALLOCATE DOMINOESS", dominoesInHand);
   console.log("UPDATED DOMINOES USED", dominoesUsed);
 }
+
+
+    }
 
 function resetDominoesNewGame(gameStart) {
   if (gameStart) {
@@ -41,11 +48,12 @@ function resetDominoesNewGame(gameStart) {
 function allocateDominoesToHand(dominoesInHandCopy, dominoesCopy, setDominoesInHand) {
   if (dominoesInHandCopy) {
     console.log("LENGTH OF DOMINOESINHAND", dominoesInHandCopy.length);
-    if (dominoesInHandCopy.length < 4) {
+   while (dominoesInHandCopy.length < 4) {
       console.log("ALLOCATING DOMINOES...");
    
 
       while (dominoesInHandCopy.length < 4 && dominoesCopy.length > 0) {
+        console.log("dominoesUsed in allocation", dominoesUsed)
         console.log("dominoes in allocate to hand", dominoes)
         console.log("copy dominoes in allocate to hand", dominoesCopy)
         const randDomino = dominoesCopy[randomNumberDom()];
@@ -57,13 +65,12 @@ function allocateDominoesToHand(dominoesInHandCopy, dominoesCopy, setDominoesInH
         console.log("dominoesInHand in allocatedominoesToHand", dominoesInHandCopy)
 
         // Remove the domino from available ones
-        console.log("DOMINOES.LENGTH before splice", dominoesCopy.length);
+
         dominoesCopy.splice(dominoesCopy.indexOf(randDomino), 1);
-        console.log("DOMINOES.LENGTH after splice", dominoesCopy.length);
         dominoesUsed.push(randDomino);
       }
-    }
   }
+}
 }
 
 export { allocateDominoes };

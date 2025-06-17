@@ -13,6 +13,7 @@ import { TextTileWin} from "../components/TextTileWin.jsx";
 import {HelpText} from "../components/HelpText.jsx";
 import {StatsContent} from "../components/StatsContent.jsx";
 import {FinishGame} from "../components/FinishGame.jsx";
+import { allocateDominoes } from "@/utils/allocateDominoes.js";
 
 import {TextWorDominationCount} from "../components/TextWorDominationCount.jsx";
 import { StartNewGameButton } from "@/components/StartNewGameButton.jsx";
@@ -53,19 +54,23 @@ export default function Index() {
   const [showFinishGame, setShowFinishGame]=useState(false);
   const [selectedLetters1, setSelectedLetters1]=useState([]);
   const [selectedLetters2, setSelectedLetters2]=useState([]);
-//tiles allocated more than once - prob fixed.
-//d2(32) showing as 23 - still issue. Shows in dominoes in hand.
+  const[selectedDominoIndex, setSelectedDominoIndex] = useState(null)
+//after rotated a few times, tile errors, wrong values picked up for current tile for tile 0//male sure dominoesInHand cannot be modified - prob fixed
+
+
+  //tiles allocated more than once - prob fixed.
+//d2(32) showing as 23 - still issue. Shows in dominoes in hand - prob fixed. 
 //showed two or more of same tile, e.g. 55 - prob fixed.
-//rotation state still issues. 
+//rotation state still issues - prob fixed. 
 //Runs out of dominoes after new game - prob fixed
 //No 42 or 52 dominoes?
-  //ensure selected DominoObject unotated driven by originalSelectedDominoObject
-//sometimes after click on tile that's already placed if something fts needs to click on that empty space twice(at first says tile doesn't fit)
+  //ensure selected DominoObject unotated driven by originalSelectedDominoObject - prob fixed
+//sometimes after click on tile that's already placed if something fts needs to click on that empty space twice(at first says tile doesn't fit) - prob fixed. 
 //domino mages not always showing.  
-//wrong value placed when reversed
-//start new game need to empty array of used tiles
-///check logic for accepting tiles 11 12 let different ones next to each other. 
-//Make sure after tile placed cannot be allocated
+//wrong value placed when reversed - prob fixed. 
+//start new game need to empty array of used tiles - prob fixed. 
+///check logic for accepting tiles 11 12 let different ones next to each other - prob fixed. 
+//Make sure after tile placed cannot be allocated - prob fixed. 
 //saw selected letter that wasn't in input
 
 
@@ -78,9 +83,9 @@ export default function Index() {
 
 
 
-  //Function to clear letters at the start of the game
+  //Function to reset at the start of the game
   useEffect(() => {
-    console.log("gameStart in index before clearing letterTile", gameStart)
+    console.log("gameStart in index before clearing letterTile",  gameStart)
     const handleSelectedLetterTiles = async () => {
     const storedSelectedLetters1 = await getSelectedLetters1()
     const storedSelectedLetters2 = await getSelectedLetters2()
@@ -92,8 +97,10 @@ export default function Index() {
         storeSelectedLetters1([]);
 
         storeSelectedLetters2([]);
+
     
         storeLetterHand([]);
+        // allocateDominoes(dominoesInHand, setDominoesInHand, gameStart, selectedDominoIndex)
         if(selectedLetters1.length!=0||selectedLetters2.length!=0){
           "setting selected letters to empty array as gameStart should be true here???????"
           setSelectedLetters1([])
@@ -203,6 +210,8 @@ export default function Index() {
           setSingleGameScore={setSingleGameScore}
           setSelectedLetters1={setSelectedLetters1}
           setSelectedLetters2={setSelectedLetters2}
+          selectedDominoIndex={selectedDominoIndex}
+          setSelectedDominoIndex={setSelectedDominoIndex}
     
           
           />
@@ -286,6 +295,8 @@ export default function Index() {
           setTilePlaced={setTilePlaced}
           worDomination={worDomination}
           setWorDomination={setWorDomination}
+          selectedDominoIndex={selectedDominoIndex}
+          setSelectedDominoIndex={setSelectedDominoIndex}
         />
         :null}
        
@@ -415,8 +426,6 @@ export default function Index() {
           scoreArraySingleGame={scoreArraySingleGame}
           wordSubmitted={wordSubmitted}
           setWordSubmitted={setWordSubmitted}
-        
-
           setScoreArraySingleGame={setScoreArraySingleGame}
           singleGameScore={singleGameScore}
           setSingleGameScore={setSingleGameScore}
@@ -426,6 +435,8 @@ export default function Index() {
           setShowMakeWord={setShowMakeWord}
           dominoSelected={dominoSelected}
           setDominoSelected={setDominoSelected}
+          selectedDominoIndex={selectedDominoIndex}
+          setSelectedDominoIndex={setSelectedDominoIndex}
           />:
           showFinishGame===true?
           <FinishGame

@@ -24,28 +24,14 @@ function getNeighborsAndCurrentTile(
   dominoesInHand,
   setDominoesInHand
 ) {
-  console.log("dominoesInHand in getNeighbours", dominoesInHand);
-  console.log("selectedDominoIndex in getNeighbours", selectedDominoIndex);
-  console.log(
-    "dominoesInHand[selectedDominoIndex] in getNeighbours",
-    dominoesInHand[selectedDominoIndex]
-  );
-  // console.log(
-  //   "COPY dominoesInHand[selectedDominoIndex] in getNeighbours",
-  //   dominoesInHand[selectedDominoIndex]
-  // );
+  console.log("get Neighbours running");
+
   takeCopyOfSelectedDominoObjectFromHand(dominoesInHand, selectedDominoIndex);
 
   resetErrors(
     setWrongTileError,
     setWrongTileErrorInSpecificTile,
     setTileFullError
-  );
-
-  console.log("get Neighbours running");
-  console.log(
-    "gridSelectedDominoObjects in handle tile press",
-    gridSelectedDominoObjects
   );
 
   if (copySelectedDominoObjectFromHand) {
@@ -59,13 +45,98 @@ function getNeighborsAndCurrentTile(
     copySelectedDominoObjectFromHand,
     key
   ) {
-  
+    getNeighbourValues(tileId, gridSelectedDominoObjects, tileData);
+    getCurrentDominoValues(
+      selectedDominoObject,
+      copySelectedDominoObjectFromHand,
+      key,
+      tileId,
+      tileData
+    );
+
     console.log(
       "selectedDominoObject in allocateCurrentTileNeighbors",
       copySelectedDominoObjectFromHand
     );
 
     //Check as after 6 tileIds in reverse order
+
+    if (tileData.currentTile) {
+      console.log(
+        "tile ID: ",
+        tileId,
+        "!!!!dominoRotated?",
+        dominoRotated,
+        "!!!!!currentTile[0] in handleTilePress",
+        tileData.currentTile[0],
+        "!!!currentTile[1] in handleTilePress",
+        tileData.currentTile[1],
+        "!!!leftNeighbor",
+        tileData.leftNeighbor,
+        "!!!rightNeighbor",
+        tileData.rightNeighbor,
+        "copySelectedDominoObjectFromHand",
+        copySelectedDominoObjectFromHand
+      );
+    }
+  }
+  //The aim here is to always take a fresh object when this function is run so this is not modified
+  function takeCopyOfSelectedDominoObjectFromHand(
+    dominoesInHand,
+    selectedDominoIndex
+  ) {
+    let selectedDominoObjectFromHand = dominoesInHand[selectedDominoIndex];
+    console.log("selectedDominoObjectFromHand", selectedDominoObjectFromHand);
+
+    copySelectedDominoObjectFromHand = JSON.parse(
+      JSON.stringify(selectedDominoObjectFromHand)
+    );
+  }
+  //done so previous errors don't register
+  function resetErrors(
+    setWrongTileError,
+    setWrongTileErrorInSpecificTile,
+    setTileFullError
+  ) {
+    setWrongTileError(false);
+    setWrongTileErrorInSpecificTile(false);
+    setTileFullError(false);
+  }
+
+  //change selectedDominoObject if the tile is rotated first so it can be compared to neighbors
+  //unrotated: get value as string to be added to copySelectedDominoObjectFromHand
+  function setValuesForCopiedDominoObjectRotatedOrNot(dominoRotated, key) {
+    let value = copySelectedDominoObjectFromHand
+      ? copySelectedDominoObjectFromHand[key].toString()
+      : null;
+
+    //rotated: get dot numbers as string from  selected objetct
+    if (dominoRotated && copySelectedDominoObjectFromHand) {
+      // Convert value to string
+      console.log(
+        "!!!!!copyselectedDominoObject[key] before reverse values",
+        copySelectedDominoObjectFromHand[key]
+      );
+
+      // Reverse the string representation of the value
+      let value1 = copySelectedDominoObjectFromHand[key].toString()[0];
+      let value2 = copySelectedDominoObjectFromHand[key].toString()[1];
+      let reversedValue = value2 + value1;
+      //  newSelectedDominoObject = copySelectedDominoObjectFromHand;
+
+      // Assign the reversed value back to the object
+      copySelectedDominoObjectFromHand[key] = reversedValue;
+
+      console.log(
+        "!!!????copyselectedRotatedDominoObjectfromhand",
+        copySelectedDominoObjectFromHand
+      );
+    } else if (!dominoRotated && copySelectedDominoObjectFromHand) {
+      copySelectedDominoObjectFromHand[key] = value;
+    }
+  }
+
+  function getNeighbourValues(tileId, gridSelectedDominoObjects, tileData) {
     if (tileId === 0) {
       if (gridSelectedDominoObjects[11]) {
         tileData.leftNeighbor =
@@ -194,7 +265,15 @@ function getNeighborsAndCurrentTile(
         }
       }
     }
-
+  }
+//if tileId is more than 5 the values need to be reversed(imagine domino values as a straight line)
+  function getCurrentDominoValues(
+    selectedDominoObject,
+    copySelectedDominoObjectFromHand,
+    key,
+    tileId,
+    tileData
+  ) {
     if (selectedDominoObject) {
       if (tileId <= 5) {
         tileData.currentTile = copySelectedDominoObjectFromHand[key];
@@ -206,80 +285,6 @@ function getNeighborsAndCurrentTile(
           copySelectedDominoObjectFromHand[key][1]);
         tileData.currentTile = value2 + value1;
       }
-    }
-
-    if (tileData.currentTile) {
-      console.log(
-        "tile ID: ",
-        tileId,
-        "!!!!dominoRotated?",
-        dominoRotated,
-        "!!!!!currentTile[0] in handleTilePress",
-        tileData.currentTile[0],
-        "!!!currentTile[1] in handleTilePress",
-        tileData.currentTile[1],
-        "!!!leftNeighbor",
-        tileData.leftNeighbor,
-        "!!!rightNeighbor",
-        tileData.rightNeighbor,
-        "copySelectedDominoObjectFromHand",
-        copySelectedDominoObjectFromHand
-      );
-    }
-  }
-  //The aim here is to always take a fresh object when this function is run so this is not modified
-  function takeCopyOfSelectedDominoObjectFromHand(
-    dominoesInHand,
-    selectedDominoIndex
-  ) {
-    let selectedDominoObjectFromHand = dominoesInHand[selectedDominoIndex];
-    console.log("selectedDominoObjectFromHand", selectedDominoObjectFromHand);
-
-    copySelectedDominoObjectFromHand = JSON.parse(
-      JSON.stringify(selectedDominoObjectFromHand)
-    );
-  }
-  //done so previous errors don't register
-  function resetErrors(
-    setWrongTileError,
-    setWrongTileErrorInSpecificTile,
-    setTileFullError
-  ) {
-    setWrongTileError(false);
-    setWrongTileErrorInSpecificTile(false);
-    setTileFullError(false);
-  }
-
-  //change selectedDominoObject if the tile is rotated first so it can be compared to neighbors
-  //unrotated: get value as string to be added to copySelectedDominoObjectFromHand
-  function setValuesForCopiedDominoObjectRotatedOrNot(dominoRotated, key) {
-    let value = copySelectedDominoObjectFromHand
-      ? copySelectedDominoObjectFromHand[key].toString()
-      : null;
-
-    //rotated: get dot numbers as string from  selected objetct
-    if (dominoRotated && copySelectedDominoObjectFromHand) {
-      // Convert value to string
-      console.log(
-        "!!!!!copyselectedDominoObject[key] before reverse values",
-        copySelectedDominoObjectFromHand[key]
-      );
-
-      // Reverse the string representation of the value
-      let value1 = copySelectedDominoObjectFromHand[key].toString()[0];
-      let value2 = copySelectedDominoObjectFromHand[key].toString()[1];
-      let reversedValue = value2 + value1;
-      //  newSelectedDominoObject = copySelectedDominoObjectFromHand;
-
-      // Assign the reversed value back to the object
-      copySelectedDominoObjectFromHand[key] = reversedValue;
-
-      console.log(
-        "!!!????copyselectedRotatedDominoObjectfromhand",
-        copySelectedDominoObjectFromHand
-      );
-    } else if (!dominoRotated && copySelectedDominoObjectFromHand) {
-      copySelectedDominoObjectFromHand[key] = value;
     }
   }
 }

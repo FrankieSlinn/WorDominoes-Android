@@ -57,7 +57,9 @@ function handleTilePress(
   setSelectedLetters1,
   setSelectedLetters2,
   selectedDominoIndex, 
-  setSelectedDominoIndex
+  setSelectedDominoIndex,
+  dominoesUsed,
+  setDominoesUsed
 ) {
   console.log("tile pressed!!! for tileId:", tileId);
   console.log("scoreArraySingleGame", scoreArraySingleGame)
@@ -117,7 +119,9 @@ function handleTilePress(
       setSelectedLetters1,
       setSelectedLetters2, 
       selectedDominoIndex,
-      setSelectedDominoIndex
+      setSelectedDominoIndex,
+      dominoesUsed,
+      setDominoesUsed
     );
   }
 
@@ -162,7 +166,9 @@ function handleTilePress(
     setSelectedLetters1,
     setSelectedLetters2, 
     selectedDominoIndex,
-    setSelectedDominoIndex
+    setSelectedDominoIndex,
+    dominoesUsed,
+    setDominoesUsed
   ) {
     console.log("scoreArraySingleGame in check tile placed!!!!", scoreArraySingleGame)
 
@@ -250,7 +256,9 @@ function handleTilePress(
         singleGameScore,
         setSingleGameScore,
         setSelectedLetters1,
-        setSelectedLetters2
+        setSelectedLetters2,
+        dominoesUsed,
+        setDominoesUsed
   
       
       );
@@ -301,7 +309,9 @@ function checkDominoDoesNotFit(
   singleGameScore,
   setSingleGameScore,
   setSelectedLetters1,
-  setSelectedLetters2
+  setSelectedLetters2,
+  dominoesUsed,
+  setDominoesUsed
 ) {
   console.log("checking if domino doesn't fit");
   console.log("ScoreArray ingle gamein check tile doesn't fit!!!", scoreArraySingleGame)
@@ -366,7 +376,9 @@ function checkDominoDoesNotFit(
       singleGameScore,
       setSingleGameScore,
       setSelectedLetters1,
-      setSelectedLetters2
+      setSelectedLetters2,
+      dominoesUsed,
+      setDominoesUsed
     );
   }
 }

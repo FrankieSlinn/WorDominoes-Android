@@ -43,6 +43,7 @@ export default function Index() {
   const[tileFullError, setTileFullError]=useState(false);
   const[wrongTileError, setWrongTileError]=useState(false);
   const[dominoesInHand, setDominoesInHand]=useState([]);
+  const[dominoesUsed, setDominoesUsed]=useState([]);
   const[showHelpText, setShowHelpText]=useState(false);
   const[showStats, setShowStats]=useState(false);
   const[gamesArray, setGamesArray]=useState([]);
@@ -108,12 +109,7 @@ export default function Index() {
         }
 
       }
-      // else{
-      //   setSelectedLetters1(storedSelectedLetters1)
-      //   setSelectedLetters2(storedSelectedLetters2)
-      //   console.log("in index selectedLetters1 reset to have letters", selectedLetters1)
-
-      // }
+ 
     };
   
     handleSelectedLetterTiles();
@@ -212,6 +208,8 @@ export default function Index() {
           setSelectedLetters2={setSelectedLetters2}
           selectedDominoIndex={selectedDominoIndex}
           setSelectedDominoIndex={setSelectedDominoIndex}
+          dominoesUsed={dominoesUsed}
+          setDominoesUsed={setDominoesUsed}
     
           
           />
@@ -297,6 +295,8 @@ export default function Index() {
           setWorDomination={setWorDomination}
           selectedDominoIndex={selectedDominoIndex}
           setSelectedDominoIndex={setSelectedDominoIndex}
+          dominoesUsed={dominoesUsed}
+          setDominoesUsed={setDominoesUsed}
         />
         :null}
        
@@ -437,6 +437,8 @@ export default function Index() {
           setDominoSelected={setDominoSelected}
           selectedDominoIndex={selectedDominoIndex}
           setSelectedDominoIndex={setSelectedDominoIndex}
+          dominoesUsed={dominoesUsed}
+          setDominoesUsed={setDominoesUsed}
           />:
           showFinishGame===true?
           <FinishGame

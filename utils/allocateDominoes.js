@@ -4,14 +4,13 @@ let dominoesCopy;
 
 
 let dominoesUsed = [];
-
 // Generate a Random Number within the range of available dominoes
 function randomNumberDom() {
   return Math.floor(Math.random() * dominoesCopy.length);
 }
 
 // ✅ Custom Hook to allocate dominoes
-function allocateDominoes(dominoesInHand, setDominoesInHand, turnStart, gameStart, selectedDominoIndex) {
+function allocateDominoes(dominoesInHand, setDominoesInHand, turnStart, gameStart, dominoesUsed,setDominoesUsed) {
   console.log("function to allocate dominoes running")
   console.log("turnStart", turnStart)
  
@@ -22,7 +21,7 @@ if(turnStart===true){
   resetDominoesNewGame(gameStart);
   console.log("allocateDominoes running");
   console.log("gameStart in allocateDominoes?", gameStart);
-  allocateDominoesToHand(dominoesInHandCopy, dominoesCopy, setDominoesInHand);
+  allocateDominoesToHand(dominoesInHandCopy, dominoesCopy, setDominoesInHand, dominoesUsed, setDominoesUsed);
 
 console.log("DOMINOESiNHAND", dominoesInHand)
 
@@ -45,7 +44,7 @@ function resetDominoesNewGame(gameStart) {
   }
 }
 
-function allocateDominoesToHand(dominoesInHandCopy, dominoesCopy, setDominoesInHand) {
+function allocateDominoesToHand(dominoesInHandCopy, dominoesCopy, setDominoesInHand, dominoesUsed, setDominoesUsed) {
   if (dominoesInHandCopy) {
     console.log("LENGTH OF DOMINOESINHAND", dominoesInHandCopy.length);
    while (dominoesInHandCopy.length < 4) {
@@ -59,7 +58,7 @@ function allocateDominoesToHand(dominoesInHandCopy, dominoesCopy, setDominoesInH
         const randDomino = dominoesCopy[randomNumberDom()];
         
         console.log("radDomino", randDomino)
-
+if(dominoesUsed){
         if (!dominoesUsed.includes(randDomino)){dominoesInHandCopy.push(randDomino);}
         setDominoesInHand(dominoesInHandCopy);
         console.log("dominoesInHand in allocatedominoesToHand", dominoesInHandCopy)
@@ -67,7 +66,9 @@ function allocateDominoesToHand(dominoesInHandCopy, dominoesCopy, setDominoesInH
         // Remove the domino from available ones
 
         dominoesCopy.splice(dominoesCopy.indexOf(randDomino), 1);
-        dominoesUsed.push(randDomino);
+        let copyDominoesUsed = dominoesUsed
+        copyDominoesUsed.push(randDomino);
+        setDominoesUsed(copyDominoesUsed)}
       }
   }
 }

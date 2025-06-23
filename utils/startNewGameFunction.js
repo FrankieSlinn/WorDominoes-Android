@@ -1,8 +1,9 @@
 import { allocateDominoes } from "./allocateDominoes";
+// import {dominoes} from ".dominoes";
 
 function startNewGameFunction(setGameStart, setGameFinished, setSingleGameScore, setDominoesInHand, setWord1Success, setWord2Success, setDisplayDomino,
   setDominoRotated, setNumberDominoesInGrid, setDominoIdsInGrid, setSelectedDominoObject, setGridSelectedDominoObjects, setTilePlaced, setTurnStart, 
-  setScoreArraySingleGame, worDomination, setWorDomination,  setShowMakeWord, setDominoSelected, setWordSubmitted
+  setScoreArraySingleGame, worDomination, setWorDomination,  setShowMakeWord, setDominoSelected, setWordSubmitted, dominoesUsed, setDominoesUsed
 ){
     console.log("start new game running")
     setGameStart(true)
@@ -22,11 +23,12 @@ function startNewGameFunction(setGameStart, setGameFinished, setSingleGameScore,
     if(worDomination!=true){
    
     setScoreArraySingleGame([])}
- 
-    allocateDominoes([], setDominoesInHand, true);
+
+    // allocateDominoes([], setDominoesInHand, true);
     setShowMakeWord(false)
     setDominoSelected(false)
     setWordSubmitted(false)
+    setDominoesUsed([])
 
    
   }

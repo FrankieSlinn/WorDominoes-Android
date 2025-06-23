@@ -56,7 +56,9 @@ export function Tile({
   setSelectedLetters1,
   setSelectedLetters2,
   selectedDominoIndex,
-  setSelectedDominoIndex
+  setSelectedDominoIndex,
+  dominoesUsed,
+  setDominoesUsed
 }) {
   //Only applies to this tile
   const [tilePlacedState, setTilePlacedState] = useState(false);
@@ -71,11 +73,7 @@ export function Tile({
 
   //reset needed to cancel any tileRotationState changes
   useEffect(() => {
-    // console.log("turn start in tile", turnStart);
-    // console.log(
-    //   "empty tile in tile?",
-    //   gridSelectedDominoObjects[tileId] === "empty"
-    // );
+
 
     if (
       (turnStart || gameStart) &&
@@ -87,13 +85,7 @@ export function Tile({
   }, [turnStart, gameStart]);
 
   useEffect(() => {
-    // console.log("tile placed state in Tile", tileId, tilePlacedState);
-    // console.log("tile rotated state in Tile", tileId, tileRotatedState);
-    // console.log(
-    //   "wrongErrorInSpecificTile",
-    //   tileId,
-    //   wrongTileErrorInSpecificTile
-    // );
+
     if (!tilePlacedState && gridSelectedDominoObjects[tileId] === "empty") {
       setTileRotatedState(dominoRotated);
       setWrongTileErrorInSpecificTile(false);
@@ -166,7 +158,9 @@ export function Tile({
                 setSelectedLetters1,
                 setSelectedLetters2, 
                 selectedDominoIndex,
-                setSelectedDominoIndex
+                setSelectedDominoIndex,
+                dominoesUsed,
+                setDominoesUsed
               ),
               // ,
               // getStats(gamesArray, setGamesArray)

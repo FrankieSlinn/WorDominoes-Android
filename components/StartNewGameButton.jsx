@@ -9,7 +9,7 @@ import {startNewGameFunction} from "../utils/startNewGameFunction.js"
 
 export function StartNewGameButton({setGameStart, setGameFinished, setSingleGameScore, setDominoesInHand, setWord1Success, setWord2Success, setDisplayDomino,
   setDominoRotated, setNumberDominoesInGrid, setDominoIdsInGrid, setSelectedDominoObject, setGridSelectedDominoObjects, setTilePlaced, setTurnStart, 
-  setScoreArraySingleGame, worDomination, setWorDomination,  setShowMakeWord, setDominoSelected, setWordSubmitted, 
+  setScoreArraySingleGame, worDomination, setWorDomination,  setShowMakeWord, setDominoSelected, setWordSubmitted, dominoesUsed, setDominoesUsed,
   worDominationCount, setWorDominationCount}) {
 
 
@@ -24,7 +24,7 @@ export function StartNewGameButton({setGameStart, setGameFinished, setSingleGame
     
     <TouchableOpacity style={[s.startFinishGameButton, s.startGameButton]} onPress={()=>[startNewGameFunction(setGameStart, setGameFinished, setSingleGameScore, setDominoesInHand, setWord1Success, setWord2Success, setDisplayDomino,
   setDominoRotated, setNumberDominoesInGrid, setDominoIdsInGrid, setSelectedDominoObject, setGridSelectedDominoObjects, setTilePlaced, setTurnStart, 
-  setScoreArraySingleGame, worDomination, setWorDomination,  setShowMakeWord, setDominoSelected, setWordSubmitted)]}>
+  setScoreArraySingleGame, worDomination, setWorDomination,  setShowMakeWord, setDominoSelected, setWordSubmitted, dominoesUsed, setDominoesUsed)]}>
         <Text style={s.startFinishGameText}>Start New Game</Text>
     </TouchableOpacity>
     

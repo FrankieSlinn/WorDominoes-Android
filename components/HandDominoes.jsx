@@ -11,14 +11,14 @@ export function HandDominoes({ turnStart, setTurnStart, displayDomino, setDispla
   showMakeWord, setShowMakeWord, originalSelectedDominoObject, setOriginalSelectedDominoObject, selectedDominoObject, setSelectedDominoObject, dominoSelected, setDominoSelected,
  setDominoRotated, word1Success, setWord1Success,
   word2Success, setWord2Success, dominoesInHand, setDominoesInHand, tilePlaced, setTilePlaced, worDomination, showFinishGame,
-   setShowFinishGame, gameStart, setGameStart, selectedDominoIndex, setSelectedDominoIndex
+   setShowFinishGame, gameStart, setGameStart, selectedDominoIndex, setSelectedDominoIndex, dominoesUsed, setDominoesUsed
 }) {
   // let dominoesInHandCopy = dominoesInHand.map(obj => ({ ...obj }));
 
 
   useEffect(() => {
  console.log("dominoesInHand in dominoesInHand b4 allocate dominoes in useEffect", dominoesInHand)
-    allocateDominoes(dominoesInHand, setDominoesInHand, turnStart, gameStart, selectedDominoIndex);
+    allocateDominoes(dominoesInHand, setDominoesInHand, turnStart, gameStart, dominoesUsed, setDominoesUsed);
   }, [turnStart]);
 
   // console.log("dominoHand", getDominoHand())D

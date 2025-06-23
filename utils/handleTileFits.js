@@ -48,7 +48,9 @@ const handleTileFits = async (
   singleGameScore,
   setSingleGameScore,
   setSelectedLetters1,
-  setSelectedLetters2
+  setSelectedLetters2,
+  dominoesUsed,
+  setDominoesUsed
 ) => {
   let dominoDots = Object.values(selectedDominoObject).join("");
   console.log("dominoDots in beginning of handlTileFits", dominoDots)
@@ -86,36 +88,34 @@ const handleTileFits = async (
       singleGameScore,
       setSingleGameScore
     );
-  
+    populateValuesInGrid(
+      displayDomino,
+      dominoRotated,
+      selectedDominoObject,
+      setGameFinished,
+      dominoIdsInGrid,
+      setDominoIdsInGrid,
+      tileId,
+      gridSelectedDominoObjects,
+      setGridSelectedDominoObjects,
+      worDomination,
+      setWorDomination 
+    );
 
   allocateDominoesPrep(
     dominoesInHand,
     setDominoesInHand,
     selectedDominoObject,
     setSelectedDominoObject,
-    gameStart
+    gameStart,
+    dominoesUsed,
+    setDominoesUsed
   );
 
-  populateValuesInGrid(
-    displayDomino,
-    dominoRotated,
-    selectedDominoObject,
-    setGameFinished,
-    dominoIdsInGrid,
-    setDominoIdsInGrid,
-    tileId,
-    gridSelectedDominoObjects,
-    setGridSelectedDominoObjects,
-    worDomination,
-    setWorDomination 
-  );
+
   
 
-  // checkWorDomination(
-  //   gridSelectedDominoObjects,
-  //   worDomination,
-  //   setWorDomination
-  // )
+
 };
 
 function addScoreToScoreArraySingleGame(
@@ -190,17 +190,15 @@ function populateValuesInGrid(
   worDomination,
   setWorDomination // Add this
 ) {
-  console.log("populateValuesInGridRunning")
-  console.log("tileData.currentTile", tileData.currentTile)
-  console.log("type of tileData.currentTile", typeof tileData.currentTile)
+  console.log("populateValuesInGridRunning!!!!!!!!!")
+
   
 
   console.log("populateValuesInGrid running");
 
 
   console.log("dominoIdsInGrid in beginning of populate values", dominoIdsInGrid)
-  // console.log("tileId in populateValuesInGrid", tileId)
-  // console.log("gridSelectedDominoObjects in populateValues before run to add tile info before do selectedDominoObjectString", gridSelectedDominoObjects)
+
 
   const selectedDominoObjectString = Object.values(selectedDominoObject).join("");
 
@@ -227,11 +225,7 @@ function populateValuesInGrid(
       return newValue;
     })
   );
-  // console.log("new Grid in populat4eValues", newGrid)
 
-  // setGridSelectedDominoObjects(newGrid); // update state with local copy
-
-  // console.log("updated gridSelectedDominoObjects in populateValues", newGrid);
   console.log("dominoIDSINGRID BEFORE UPDATE", dominoIdsInGrid)
   console.log(" Object.keys(selectedDominoObject).toString()",  Object.keys(selectedDominoObject).toString())//works
   const newDominoIdsInGrid = dominoIdsInGrid.map((domino, index) => {
@@ -273,7 +267,7 @@ function allocateDominoesPrep(
     setDominoesInHand(dominoesInHandCopy)
   }
   // console.log("tile placed in handletilefits", tilePlaced);
-  allocateDominoes(dominoesInHandCopy, setDominoesInHand, true, gameStart);
+  // allocateDominoes(dominoesInHandCopy, setDominoesInHand, true, gameStart, dominoesUsed, setDominoesUsed);
   //reset to choose new displayDomino
   setSelectedDominoObject(null);
 }

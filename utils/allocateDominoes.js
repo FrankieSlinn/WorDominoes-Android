@@ -59,16 +59,23 @@ function allocateDominoesToHand(dominoesInHandCopy, dominoesCopy, setDominoesInH
         
         console.log("radDomino", randDomino)
 if(dominoesUsed){
-        if (!dominoesUsed.includes(randDomino)){dominoesInHandCopy.push(randDomino);}
-        setDominoesInHand(dominoesInHandCopy);
-        console.log("dominoesInHand in allocatedominoesToHand", dominoesInHandCopy)
+        if (!dominoesUsed.includes(randDomino)){dominoesInHandCopy.push(randDomino);
+          setDominoesInHand(dominoesInHandCopy);
+          console.log("dominoesInHand in allocatedominoesToHand", dominoesInHandCopy)
+  
+          // Remove the domino from available ones
+  
+          dominoesCopy.splice(dominoesCopy.indexOf(randDomino), 1);
+          let copyDominoesUsed = dominoesUsed
+          copyDominoesUsed.push(randDomino);
+          setDominoesUsed(copyDominoesUsed)
 
-        // Remove the domino from available ones
 
-        dominoesCopy.splice(dominoesCopy.indexOf(randDomino), 1);
-        let copyDominoesUsed = dominoesUsed
-        copyDominoesUsed.push(randDomino);
-        setDominoesUsed(copyDominoesUsed)}
+        }
+     
+      
+      }
+      else(console.log("domino already in dominoesUsed, need to start again"))
       }
   }
 }

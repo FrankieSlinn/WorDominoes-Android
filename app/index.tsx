@@ -14,7 +14,7 @@ import {HelpText} from "../components/HelpText.jsx";
 import {StatsContent} from "../components/StatsContent.jsx";
 import {FinishGame} from "../components/FinishGame.jsx";
 import { allocateDominoes } from "@/utils/allocateDominoes.js";
-
+import {HallOfFameButton} from "../components/HallOfFameButton.jsx"
 import {TextWorDominationCount} from "../components/TextWorDominationCount.jsx";
 import { StartNewGameButton } from "@/components/StartNewGameButton.jsx";
 import {getLetterHand, storeLetterHand, getSelectedLetters1, storeSelectedLetters1, getSelectedLetters2, storeSelectedLetters2} from "./../utils/asynchStorageUtils"
@@ -64,7 +64,7 @@ export default function Index() {
 //showed two or more of same tile, e.g. 55 - prob fixed.
 //rotation state still issues - prob fixed. 
 //Runs out of dominoes after new game - prob fixed
-//No 42 or 52 dominoes?
+//No 42 or 52 dominoes!!!!
   //ensure selected DominoObject unotated driven by originalSelectedDominoObject - prob fixed
 //sometimes after click on tile that's already placed if something fts needs to click on that empty space twice(at first says tile doesn't fit) - prob fixed. 
 //domino mages not always showing.  
@@ -460,8 +460,13 @@ export default function Index() {
           />:null
           
           }
+
+<View>
+<HallOfFameButton/></View>
     
       </ScrollView>
+      
+      
       :showStats===false?
       <HelpText
       showHelpText={showHelpText}
@@ -480,6 +485,8 @@ export default function Index() {
           }
       
     </View>
+
+
     </>
   )
 }

@@ -3,12 +3,14 @@ import {startNewGameFunction} from "../utils/startNewGameFunction.js"
 import {useEffect, useState} from "react";
 import { s } from "../App.style";
 
-export function HallOfFame({
+export function HallOfFameButton({
   }) {
 
     return(<>
-    <View style={s.logo}>
+    <View >
+        <TouchableOpacity>
         <Text>WorDominoes Hall Of Fame</Text>
+        </TouchableOpacity>
 
 
 

@@ -23,4 +23,6 @@ export const dominoImageMappings = {
     d21: require("../assets/images/d21.png"),
     d22: require("../assets/images/d22.png"),
     d23: require("../assets/images/d23.png"),
+    d24: require("../assets/images/d24.png"),
+    d25: require("../assets/images/d25.png"),
   };

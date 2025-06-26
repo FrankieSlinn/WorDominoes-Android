@@ -162,8 +162,7 @@ export function Tile({
                 dominoesUsed,
                 setDominoesUsed
               ),
-              // ,
-              // getStats(gamesArray, setGamesArray)
+     
             ];
           }}
         >
@@ -196,11 +195,7 @@ export function Tile({
                   ? [
                       s.selectedTileHorizontal,
                       s.selectedHorizontalTileRotated,
-                      {
-                        backgroundColor: "purple",
-                        borderColor: "purple",
-                        borderWidth: 4,
-                      },
+                 
                     ]
                   : [s.selectedTileVertical, s.selectedVerticalTileRotated],
               ]}

@@ -332,6 +332,25 @@ margin: 32,
 
 
 
+  },
+  HOFView:{
+  
+  },
+  HOFText:{
+    marginTop: 27,
+fontSize: 25,
+  },
+  HOFHeadings:{
+    marginTop:100,
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+  
+  },
+  HOFHeadingText:{
+    fontWeight: "bold",
+    fontSize: 20,
   }
+
 
 });

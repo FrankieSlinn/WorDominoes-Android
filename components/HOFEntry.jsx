@@ -1,19 +1,19 @@
-import { View, Text, TouchableOpacity, Alert} from "react-native";
+import { View, Text, TouchableOpacity, Alert, TextInput} from "react-native";
 import {useEffect, useState} from "react";
 import { s } from "../App.style";
 // import { HOFDatabase} from "../utils/HOFDatabase"
 
-export function HallOfFame({
+export function HOFEntry({
   }) {
 
     return(<>
  <View style={s.headerContainer}>
-    <View style={s.header}>
-        <Text style={[s.logo, s.HOFText]}>WorDominoes Hall Of Fame</Text>
+    <View >
+        <Text style={[s.logo, s.HOFText]}>Congratulations, You Have Made It Into the WorDominoes Hall Of Fame!</Text>
         </View>
         </View>
         <View style={s.HOFHeadings}>
-            <Text style={s.HOFHeadingText}>Handle</Text>
+            <TextInput style={s.HOFHeadingText}>Enter Your Handle</TextInput>
             <Text style={s.HOFHeadingText}>Score</Text>
 
 

@@ -6,18 +6,22 @@ import {StartNewGameButton} from "./StartNewGameButton";
 
 
 export function FinishGame({gameStart, setGameStart, gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, 
-    setSingleGameScore, showFinishGame, setShowFinishGame, dominoesInHand, setDominoesInHand
+    setSingleGameScore, showFinishGame, setShowFinishGame, dominoesInHand, setDominoesInHand, finalScore, setFinalScore, worDomination, setWorDomination, 
+    showHOFEntry, setShowHOFEntry
+   
 }) {
    
    
-    function handleClick(gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, 
-        setWorDominationCount, singleGameScore, setSingleGameScore
+    function handleClick(gameFinished, setGameFinished, gamesArray, setGamesArray, worDomination, setWorDomination, worDominationCount, 
+        setWorDominationCount, singleGameScore, setSingleGameScore, finalScore, setFinalScore, showHOFEntry, setShowHOFEntry
     ){console.log("handleClick for Finishgame running")
         setShowFinishGame(false);
         
         setGameFinished(true);
     
-    handleFinishGame( gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore)
+    handleFinishGame( gameFinished, setGameFinished, gamesArray, setGamesArray, worDomination, setWorDomination, worDominationCount, setWorDominationCount, 
+      singleGameScore, setSingleGameScore, finalScore, setFinalScore, showHOFEntry, setShowHOFEntry)
+
         
         console.log("game finished in finish game", gameFinished);
     }
@@ -34,8 +38,8 @@ export function FinishGame({gameStart, setGameStart, gameFinished, setGameFinish
                 ,
             style: 'cancel',
           },
-          {text: 'OK', onPress: () => {handleClick(gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, 
-            setWorDominationCount, singleGameScore, setSingleGameScore
+          {text: 'OK', onPress: () => {handleClick(gameFinished, setGameFinished, gamesArray, setGamesArray, worDomination, setWorDomination, worDominationCount, 
+            setWorDominationCount, singleGameScore, setSingleGameScore, finalScore, setFinalScore, showHOFEntry, setShowHOFEntry
             )}},
         ]
     

@@ -91,6 +91,9 @@ export default function Index() {
   const [selectedLetters1, setSelectedLetters1] = useState([]);
   const [selectedLetters2, setSelectedLetters2] = useState([]);
   const [selectedDominoIndex, setSelectedDominoIndex] = useState(null);
+  const [handle, setHandle] = useState("");
+  const [finalScore, setFinalScore] = useState(0);
+  const [showHOFEntry, setShowHOFEntry]= useState(false);
   //after rotated a few times, tile errors, wrong values picked up for current tile for tile 0//male sure dominoesInHand cannot be modified - prob fixed
 
   //tiles allocated more than once - prob fixed.
@@ -107,6 +110,13 @@ export default function Index() {
   ///check logic for accepting tiles 11 12 let different ones next to each other - prob fixed.
   //Make sure after tile placed cannot be allocated - prob fixed.
   //saw selected letter that wasn't in input
+
+
+  //only for research
+
+  useEffect(() => {
+    console.log("showHOFEntry?", showHOFEntry);
+  }, []);
 
   useEffect(() => {
     console.log("!!!!dominoSelected in index", dominoSelected);
@@ -226,6 +236,8 @@ export default function Index() {
                 setSelectedDominoIndex={setSelectedDominoIndex}
                 dominoesUsed={dominoesUsed}
                 setDominoesUsed={setDominoesUsed}
+                finalScore={finalScore}
+                setFinalScore={setFinalScore}
               />
             </View>
 
@@ -451,6 +463,8 @@ export default function Index() {
                 setSelectedDominoIndex={setSelectedDominoIndex}
                 dominoesUsed={dominoesUsed}
                 setDominoesUsed={setDominoesUsed}
+                showHOFEntry={showHOFEntry}
+                setShowHOFEntry={setShowHOFEntry}
               />
             ) : showFinishGame === true ? (
               <>
@@ -461,6 +475,8 @@ export default function Index() {
                 setGameFinished={setGameFinished}
                 gamesArray={gamesArray}
                 setGamesArray={setGamesArray}
+                worDomination={worDomination}
+                setWorDomination={setWorDomination}
                 worDominationCount={worDominationCount}
                 setWorDominationCount={setWorDominationCount}
                 singleGameScore={singleGameScore}
@@ -469,10 +485,29 @@ export default function Index() {
                 setShowFinishGame={setShowFinishGame}
                 dominoesInHand={dominoesInHand}
                 setDominoesInHand={setDominoesInHand}
+                finalScore={finalScore}
+                setFinalScore={setFinalScore}
+                showHOFEntry={showHOFEntry}
+                setShowHOFEntry={setShowHOFEntry}
               />
-              <HOFEntry/>
+    
               </>
-            ) : null}
+            ) : null
+
+        
+            
+            }
+{showHOFEntry===true?
+<View>
+<HOFEntry
+            handle={handle}
+            setHandle={setHandle}
+            finalScore={finalScore}
+            setFinalScore={setFinalScore}
+            
+            />
+            </View>
+            :null}
 
             <View>
               <HallOfFameButton 
@@ -495,6 +530,8 @@ export default function Index() {
             setGamesArray={setGamesArray}
             scoreArraySingleGame={scoreArraySingleGame}
             setScoreArraySingleGame={setScoreArraySingleGame}
+            finalScore={finalScore}
+            setFinalScore={setFinalScore}
           />
         )}
       </View>:

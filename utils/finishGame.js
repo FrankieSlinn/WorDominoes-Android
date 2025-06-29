@@ -5,23 +5,24 @@ let numberTiles =12;
 // console.log("handleTileFits", handleTileFits())
 
 
-function handleFinishGame(gameFinished, setGameFinished, gamesArray, setGamesArray, worDomination, setWorDomination, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore){
+function handleFinishGame(gameFinished, setGameFinished, gamesArray, setGamesArray, worDomination, setWorDomination, worDominationCount, setWorDominationCount, 
+  singleGameScore, setSingleGameScore, finalScore, setFinalScore, showHOFEntry, setShowHOFEntry){
     console.log("handleFinishGame running!!!")
   
     // console.log("singleGameScore before addScoreToArray done", singleGameScore)
-    addScoreToScoreArray( gameFinished, setGameFinished, gamesArray, setGamesArray, worDomination, setWorDomination, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore)
+    addScoreToScoreArray( gameFinished, setGameFinished, gamesArray, setGamesArray, worDomination, setWorDomination, worDominationCount, 
+      setWorDominationCount, singleGameScore, setSingleGameScore, finalScore, setFinalScore, showHOFEntry, setShowHOFEntry)
+      
   
 setWorDomination(false)
 setWorDominationCount(0)
 }
-async function addScoreToScoreArray(gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, setSingleGameScore
+async function addScoreToScoreArray(gameFinished, setGameFinished, gamesArray, setGamesArray, worDomination, setWorDomination, worDominationCount, 
+  setWorDominationCount, singleGameScore, setSingleGameScore, finalScore, setFinalScore, showHOFEntry, setShowHOFEntry
    
 ){
-//  let gameFinishedScore= handleTileFits()
 
 console.log("game finished - addScoretoScoreArray running!!!")
-
-
   console.log("worDominationCount", worDominationCount)
   console.log("worDominationCount*30", worDominationCount*30)
  
@@ -29,7 +30,8 @@ console.log("game finished - addScoretoScoreArray running!!!")
 //   console.log("score", score)
   try {
     let endOfGameScore= Number(singleGameScore+worDominationCount*30)
-    console.log("endOfGameScore", endOfGameScore)
+    setFinalScore(endOfGameScore)
+    console.log("finalScore in finishGame function", finalScore)
       const games = (await getGamesArray()) || [];// Await for the stored games array. Provide empty array if no gamesArray 
     console.log("Retrieved gamesArray:", games);
     
@@ -40,6 +42,8 @@ console.log("game finished - addScoretoScoreArray running!!!")
     await storeGamesArray(newGamesArray); // Store updated array in AsyncStorage
 
     console.log("FINISH GAME Updated games array:", gamesArray);
+    setShowHOFEntry(true)
+    console.log("showHOFEntry in handleFinishGame", showHOFEntry)
    
   } catch (error) {
     console.error("Error updating games array:", error);

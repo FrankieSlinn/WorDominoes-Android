@@ -1,15 +1,24 @@
 import Realm from 'realm';
 
 const HOFSchema = {
-  name: 'HOFEntry',
+  name: 'HOFData',
   properties: {
-    handle: 'number',
-    score: 'string',
-    miles: 'int',
+    handle: 'string',
+    score: 'numberint',
+ 
   },
 };
 
 const realm = await Realm.open({
   path: 'myrealm',
-  schema: [HOFEntry],
+  schema: [HOFschema],
 });
+
+realm.write(() => {
+  realm.create('HOFData', {
+    handle: handle,
+    score: finalScore,
+  });
+});
+
+console.log("Saved to HOF: ", handle, finalScore);

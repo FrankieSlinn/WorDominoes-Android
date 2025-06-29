@@ -50,7 +50,9 @@ const handleTileFits = async (
   setSelectedLetters1,
   setSelectedLetters2,
   dominoesUsed,
-  setDominoesUsed
+  setDominoesUsed, 
+  finalScore,
+  setFinalScore
 ) => {
   let dominoDots = Object.values(selectedDominoObject).join("");
   console.log("dominoDots in beginning of handlTileFits", dominoDots)
@@ -86,7 +88,9 @@ const handleTileFits = async (
       worDominationCount,
       setWorDominationCount,
       singleGameScore,
-      setSingleGameScore
+      setSingleGameScore,
+      finalScore,
+      setFinalScore
     );
     populateValuesInGrid(
       displayDomino,

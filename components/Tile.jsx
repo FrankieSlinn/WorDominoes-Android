@@ -58,7 +58,9 @@ export function Tile({
   selectedDominoIndex,
   setSelectedDominoIndex,
   dominoesUsed,
-  setDominoesUsed
+  setDominoesUsed,
+  finalScore,
+  setFinalScore
 }) {
   //Only applies to this tile
   const [tilePlacedState, setTilePlacedState] = useState(false);
@@ -160,7 +162,9 @@ export function Tile({
                 selectedDominoIndex,
                 setSelectedDominoIndex,
                 dominoesUsed,
-                setDominoesUsed
+                setDominoesUsed,
+                finalScore,
+                setFinalScore
               ),
      
             ];

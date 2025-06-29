@@ -333,15 +333,16 @@ margin: 32,
 
 
   },
-  HOFView:{
+  HOFHeaderContainer:{
   
   },
-  HOFText:{
+  HOFMainHeading:{
     marginTop: 27,
-fontSize: 25,
+fontSize: 18,
+lineHeight: 25,
   },
   HOFHeadings:{
-    marginTop:100,
+    marginTop:20,
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-evenly",
@@ -350,7 +351,18 @@ fontSize: 25,
   HOFHeadingText:{
     fontWeight: "bold",
     fontSize: 20,
-  }
+  },
+
+HOFContentContainer:{
+  marginTop: 15,
+
+  flexDirection:"column",
+ alignItems: "center",
+
+
+
+
+}
 
 
 });

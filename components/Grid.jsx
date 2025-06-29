@@ -61,7 +61,11 @@ export function Grid({
   setSelectedLetters1,
   setSelectedLetters2, 
   selectedDominoIndex,
-  setSelectedDominoIndex
+  setSelectedDominoIndex,
+  dominoesUsed,
+  setDominoesUsed, 
+  finalScore,
+  setFinalScore
 }) {
   const horizontalTopTileIds = [0, 1, 2, 3];
   const verticalRightTileIds = [4, 5];
@@ -125,7 +129,11 @@ export function Grid({
     setSelectedLetters1,
     setSelectedLetters2,
     selectedDominoIndex, 
-    setSelectedDominoIndex
+    setSelectedDominoIndex,
+    dominoesUsed,
+    setDominoesUsed,
+    finalScore,
+    setFinalScore
   };
 
 console.log("gridSelectedDominoObjects", gridSelectedDominoObjects)
@@ -143,15 +151,6 @@ console.log("gridSelectedDominoObjects", gridSelectedDominoObjects)
       selectedDominoObject
     );
   }, [tilePlaced]);
-
-  // console.log(
-  //   "TopSelectedHorizontal Top DominoObjects in grid",
-  //   gridSelectedDominoObjects
-  // );
-  // console.log("topHorizontalTilesin grid in grid component", dominoIdsInGrid);
-  // console.log("tile placed in grid component", tilePlaced);
-  // console.log("selectedDominoObject", selectedDominoObject);
-
 
   function renderTiles(tileIds) {
     return tileIds.map((id) => (

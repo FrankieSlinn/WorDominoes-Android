@@ -59,7 +59,9 @@ function handleTilePress(
   selectedDominoIndex, 
   setSelectedDominoIndex,
   dominoesUsed,
-  setDominoesUsed
+  setDominoesUsed,
+  finalScore,
+  setFinalScore
 ) {
   console.log("tile pressed!!! for tileId:", tileId);
   console.log("scoreArraySingleGame", scoreArraySingleGame)
@@ -67,9 +69,9 @@ function handleTilePress(
   console.log("dominoes in hand in tilePress", dominoesInHand);
   console.log("selectedDominoObject in handleTilePress", selectedDominoObject);
 
-  console.log("dominoesInHand in HANDLETILEPRESS", dominoesInHand)
-  console.log("selectedDominoIndex in HANDLETILEPSS", selectedDominoIndex)
-  console.log("dominoesInHand[selectedDominoIndex] in HANDLETILEPRESS", dominoesInHand[selectedDominoIndex])
+
+
+
 
   setTileFullError(false);
   setWrongTileError(false);
@@ -121,7 +123,9 @@ function handleTilePress(
       selectedDominoIndex,
       setSelectedDominoIndex,
       dominoesUsed,
-      setDominoesUsed
+      setDominoesUsed, 
+      finalScore,
+      setFinalScore
     );
   }
 
@@ -168,7 +172,9 @@ function handleTilePress(
     selectedDominoIndex,
     setSelectedDominoIndex,
     dominoesUsed,
-    setDominoesUsed
+    setDominoesUsed,
+    finalScore,
+    setFinalScore
   ) {
     console.log("scoreArraySingleGame in check tile placed!!!!", scoreArraySingleGame)
 
@@ -258,7 +264,9 @@ function handleTilePress(
         setSelectedLetters1,
         setSelectedLetters2,
         dominoesUsed,
-        setDominoesUsed
+        setDominoesUsed, 
+        finalScore,
+        setFinalScore
   
       
       );
@@ -311,7 +319,9 @@ function checkDominoDoesNotFit(
   setSelectedLetters1,
   setSelectedLetters2,
   dominoesUsed,
-  setDominoesUsed
+  setDominoesUsed,
+  finalScore,
+  setFinalScore
 ) {
   console.log("checking if domino doesn't fit");
   console.log("ScoreArray ingle gamein check tile doesn't fit!!!", scoreArraySingleGame)
@@ -378,7 +388,9 @@ function checkDominoDoesNotFit(
       setSelectedLetters1,
       setSelectedLetters2,
       dominoesUsed,
-      setDominoesUsed
+      setDominoesUsed,
+      finalScore,
+      setFinalScore
     );
   }
 }

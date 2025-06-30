@@ -23,12 +23,13 @@ const indexRouter = require('./routes/index');
 app.use('/api/index', indexRouter);
 
 const hofRoutes = require('./routes/hofdataroute');
-app.use('/api/hof', hofRoutes);
+app.use('/api/hofdataroute', hofRoutes);
 
-// Test route (optional)
-app.get('/test', (req, res) => {
-  res.send('Test route works');
-});
+
+
+
+
+
 
 app.listen(3000, () => {
   console.log('Server running on port 3000');

@@ -2,8 +2,8 @@ import { Text, View, ScrollView } from "react-native";
 import { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { s } from "../App.style.js";
-import { Header } from "../components/Header";
-import { Grid } from "../components/Grid";
+import { Header } from "../components/Header.jsx";
+import { Grid } from "../components/Grid.jsx";
 import { HandDominoes } from "../components/HandDominoes.jsx";
 import { DisplayDomino } from "../components/DisplayDomino.jsx";
 import { MakeWords } from "../components/MakeWords.jsx";
@@ -17,7 +17,7 @@ import { HallOfFameButton } from "../components/HallOfFameButton.jsx";
 import { HallOfFame } from "../components/HallOfFame.jsx";
 import {HOFEntry} from "../components/HOFEntry.jsx"
 import { TextWorDominationCount } from "../components/TextWorDominationCount.jsx";
-import { StartNewGameButton } from "@/components/StartNewGameButton.jsx";
+import { StartNewGameButton } from "../components/StartNewGameButton.jsx";
 import {
   getLetterHand,
   storeLetterHand,
@@ -25,8 +25,9 @@ import {
   storeSelectedLetters1,
   getSelectedLetters2,
   storeSelectedLetters2,
-} from "./../utils/asynchStorageUtils";
+} from "../utils/asynchStorageUtils.js";
 import { Stack } from "expo-router";
+import {fetchHOFEntries} from "../utils/HOFDatabase.js"
 export default function Index() {
   const [gameStart, setGameStart] = useState(true);
   const [turnStart, setTurnStart] = useState(true);
@@ -115,6 +116,7 @@ export default function Index() {
   //only for research
 
   useEffect(() => {
+    // fetchHOFEntries()
     console.log("showHOFEntry?", showHOFEntry);
   }, []);
 

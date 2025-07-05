@@ -7,20 +7,20 @@ import {StartNewGameButton} from "./StartNewGameButton";
 
 export function FinishGame({gameStart, setGameStart, gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, 
     setSingleGameScore, showFinishGame, setShowFinishGame, dominoesInHand, setDominoesInHand, finalScore, setFinalScore, worDomination, setWorDomination, 
-    showHOFEntry, setShowHOFEntry
+    showHOFEntry, setShowHOFEntry, handle
    
 }) {
    
    
     function handleClick(gameFinished, setGameFinished, gamesArray, setGamesArray, worDomination, setWorDomination, worDominationCount, 
-        setWorDominationCount, singleGameScore, setSingleGameScore, finalScore, setFinalScore, showHOFEntry, setShowHOFEntry
+        setWorDominationCount, singleGameScore, setSingleGameScore, finalScore, setFinalScore, showHOFEntry, setShowHOFEntry, handle
     ){console.log("handleClick for Finishgame running")
         setShowFinishGame(false);
         
         setGameFinished(true);
     
     handleFinishGame( gameFinished, setGameFinished, gamesArray, setGamesArray, worDomination, setWorDomination, worDominationCount, setWorDominationCount, 
-      singleGameScore, setSingleGameScore, finalScore, setFinalScore, showHOFEntry, setShowHOFEntry)
+      singleGameScore, setSingleGameScore, finalScore, setFinalScore, showHOFEntry, setShowHOFEntry, handle)
 
         
         console.log("game finished in finish game", gameFinished);
@@ -39,7 +39,7 @@ export function FinishGame({gameStart, setGameStart, gameFinished, setGameFinish
             style: 'cancel',
           },
           {text: 'OK', onPress: () => {handleClick(gameFinished, setGameFinished, gamesArray, setGamesArray, worDomination, setWorDomination, worDominationCount, 
-            setWorDominationCount, singleGameScore, setSingleGameScore, finalScore, setFinalScore, showHOFEntry, setShowHOFEntry
+            setWorDominationCount, singleGameScore, setSingleGameScore, finalScore, setFinalScore, showHOFEntry, setShowHOFEntry, handle
             )}},
         ]
     

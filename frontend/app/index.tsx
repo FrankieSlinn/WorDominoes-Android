@@ -27,7 +27,7 @@ import {
   storeSelectedLetters2,
 } from "../utils/asynchStorageUtils.js";
 import { Stack } from "expo-router";
-import {fetchHOFEntries} from "../utils/HOFDatabase.js"
+import {fetchHOFEntries, submitScore} from "../utils/HOFDatabase.js"
 export default function Index() {
   const [gameStart, setGameStart] = useState(true);
   const [turnStart, setTurnStart] = useState(true);
@@ -115,11 +115,20 @@ export default function Index() {
 
   //only for research
 
-  useEffect(() => {
-    // fetchHOFEntries()
-    console.log("showHOFEntry?", showHOFEntry);
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     await fetchHOFEntries();
+  //     console.log("showHOFEntry?", showHOFEntry);
+  //   };
+  
+  //   fetchData();
+  // }, []);
 
+  useEffect(() => {
+
+    fetchHOFEntries();
+  }, []);
+  
   useEffect(() => {
     console.log("!!!!dominoSelected in index", dominoSelected);
   }, [dominoSelected]);
@@ -491,6 +500,7 @@ export default function Index() {
                 setFinalScore={setFinalScore}
                 showHOFEntry={showHOFEntry}
                 setShowHOFEntry={setShowHOFEntry}
+                handle={handle}
               />
     
               </>

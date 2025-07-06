@@ -36,6 +36,7 @@ async function fetchHOFEntries() {
 }
 async function submitScore(handle, endOfGameScore){
   try {
+    console.log("submitScore running wit score", endOfGameScore)
     const response = await fetch(`${baseURL}/hofdataroute`, {
       method: 'POST',
       headers: {

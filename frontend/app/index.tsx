@@ -27,7 +27,7 @@ import {
   storeSelectedLetters2,
 } from "../utils/asynchStorageUtils.js";
 import { Stack } from "expo-router";
-import {fetchHOFEntries, submitScore} from "../utils/HOFDatabase.js"
+import {fetchHOFEntries} from "../utils/HOFDatabase.js"
 export default function Index() {
   const [gameStart, setGameStart] = useState(true);
   const [turnStart, setTurnStart] = useState(true);
@@ -95,6 +95,7 @@ export default function Index() {
   const [handle, setHandle] = useState("");
   const [finalScore, setFinalScore] = useState(0);
   const [showHOFEntry, setShowHOFEntry]= useState(false);
+  const[showYouInHOF, setShowYouInHOF]=useState(false)
   //after rotated a few times, tile errors, wrong values picked up for current tile for tile 0//male sure dominoesInHand cannot be modified - prob fixed
 
   //tiles allocated more than once - prob fixed.
@@ -112,17 +113,6 @@ export default function Index() {
   //Make sure after tile placed cannot be allocated - prob fixed.
   //saw selected letter that wasn't in input
 
-
-  //only for research
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     await fetchHOFEntries();
-  //     console.log("showHOFEntry?", showHOFEntry);
-  //   };
-  
-  //   fetchData();
-  // }, []);
 
   useEffect(() => {
 
@@ -516,6 +506,8 @@ export default function Index() {
             setHandle={setHandle}
             finalScore={finalScore}
             setFinalScore={setFinalScore}
+            showHOFEntry={showHOFEntry}
+            setShowHOFEntry={setShowHOFEntry}
             
             />
             </View>

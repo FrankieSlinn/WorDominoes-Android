@@ -1,5 +1,4 @@
 import {storeGamesArray, getGamesArray }from"./asynchStorageUtils";
-import{submitScore} from "./HOFDatabase.js"
 import AsyncStorage from '@react-native-async-storage/async-storage'; 
 
 let numberTiles =12;
@@ -31,7 +30,7 @@ console.log("game finished - addScoretoScoreArray running!!!")
 //   console.log("score", score)
   try {
     let endOfGameScore= Number(singleGameScore+worDominationCount*30)
-    submitScore(handle, endOfGameScore)
+   
     setFinalScore(endOfGameScore)
     console.log("finalScore in finishGame function", finalScore)
       const games = (await getGamesArray()) || [];// Await for the stored games array. Provide empty array if no gamesArray 

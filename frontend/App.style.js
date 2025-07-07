@@ -12,19 +12,17 @@ export const s = StyleSheet.create({
     fontFamily: "Arial",
     letterSpacing: -0.08,
     marginTop: 55,
-    
   },
-  statusBarBackground:{
+  statusBarBackground: {
     paddingTop: 90,
     paddingBottom: 25,
-     backgroundColor: "#eee",
+    backgroundColor: "#eee",
     position: "absolute",
     height: 70,
     top: 0,
     left: 0,
     right: 0,
     zIndex: 10,
-
   },
   body: {
     paddingTop: 15,
@@ -34,8 +32,8 @@ export const s = StyleSheet.create({
     backgroundColor: "#eee",
     top: 40,
   },
-  bold:{
-    fontWeight: "bold", 
+  bold: {
+    fontWeight: "bold",
   },
   logo: {
     fontSize: 35,
@@ -52,8 +50,7 @@ export const s = StyleSheet.create({
   headerContainer: {
     // backgroundColor: "lightBlue",
     height: 50,
-        zIndex: 10,
-  
+    zIndex: 10,
   },
 
   header: {
@@ -81,41 +78,37 @@ export const s = StyleSheet.create({
     backgroundColor: "#053e4c",
     borderRadius: 10,
   },
-  close:{
+  close: {
     fontWeight: "bold",
     color: "white",
   },
   popupHeading: {
     fontWeight: "bold",
     alignItems: "center",
-    flexDirection:"row",
+    flexDirection: "row",
     fontSize: 22,
     marginBottom: -8,
-   
-
   },
-  statsHelpTextContainer:{
+  statsHelpTextContainer: {
     top: 10,
-margin: 32,
+    margin: 32,
   },
 
-  helpText:{
+  helpText: {
     marginTop: -20,
-    fontSize:17,
+    fontSize: 17,
 
     textAlign: "center",
   },
-  statsText:{
+  statsText: {
     fontWeight: 550,
     fontSize: 17,
-    textAlign: "center", 
-
-
+    textAlign: "center",
   },
-  
+
   instructionBox: {
     margin: 20,
-   marginBottom: -20,
+    marginBottom: -20,
     height: 95,
     // alignItems: "center",
     justifyContent: "center",
@@ -217,7 +210,6 @@ margin: 32,
     marginTop: 0,
 
     alignItems: "center",
-
   },
   displayDomino: {
     height: 80,
@@ -296,73 +288,63 @@ margin: 32,
     color: "#353839",
     fontWeight: "bold",
   },
-  startFinishGameContainer:{
-    alignItems:"center",
+  startFinishGameContainer: {
+    alignItems: "center",
     marginTop: 20,
     marginBottom: 40,
   },
-  startFinishGameButton:{
+  startFinishGameButton: {
     padding: 8,
     borderRadius: 10,
     borderColor: "black",
     borderWidth: 1,
-
   },
-  finishGameButton:{
-
-   backgroundColor:"#C14432",
-
+  finishGameButton: {
+    backgroundColor: "#C14432",
   },
-  startFinishGameText:{
+  startFinishGameText: {
     fontWeight: "bold",
     color: "#eeeeee",
   },
-  startGameButton:{
+  startGameButton: {
     backgroundColor: "#053e4c",
-
   },
-  continuePlayingButton:{
+  continuePlayingButton: {
     backgroundColor: "#053e4c",
     marginTop: -60,
     marginBottom: 50,
-
   },
-  WorDominationCount:{
+  WorDominationCount: {
     marginTop: 45,
-
-
-
   },
-  HOFHeaderContainer:{
-  
-  },
-  HOFMainHeading:{
+  HOFHeaderContainer: {},
+  HOFMainHeading: {
     marginTop: 27,
-fontSize: 18,
-lineHeight: 25,
+    fontSize: 18,
+    lineHeight: 25,
   },
-  HOFHeadings:{
-    marginTop:20,
+  HOFHeadings: {
+    marginTop: 20,
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-evenly",
-  
   },
-  HOFHeadingText:{
+  HOFHeadingText: {
     fontWeight: "bold",
     fontSize: 20,
   },
 
-HOFContentContainer:{
-  marginTop: 15,
+  HOFContentContainer: {
+    marginTop: 15,
 
-  flexDirection:"column",
- alignItems: "center",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  youInHOFContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
 
 
-
-
-}
-
-
+  },
 });

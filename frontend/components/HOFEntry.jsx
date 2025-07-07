@@ -3,9 +3,9 @@ import {useEffect, useState} from "react";
 import { s } from "../App.style";
 import {submitScore} from "../utils/HOFDatabase"
 
-export function HOFEntry({handle, setHandle, finalScore, setFinalScore, showHOFEntry, setShowHOFEntry
+export function HOFEntry({handle, setHandle, finalScore, setFinalScore, showHOFEntry, setShowHOFEntry, showYouInHOF, setShowYouInHOF
   }) {
-  const[showYouInHOF, setShowYouInHOF]=useState(false)
+
 
     useEffect(() => {
       console.log("useeffect for logging final score in HOFEntry running!!!!!!!")
@@ -17,6 +17,8 @@ export function HOFEntry({handle, setHandle, finalScore, setFinalScore, showHOFE
       console.log("📣 Button was pressed");
       submitScore(handle, finalScore)
       setShowHOFEntry(false)
+      setShowYouInHOF(true)
+      console.log("You In HOF", showYouInHOF)
    
     }
 

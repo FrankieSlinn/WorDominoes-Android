@@ -465,6 +465,8 @@ export default function Index() {
                   setDominoesUsed={setDominoesUsed}
                   showHOFEntry={showHOFEntry}
                   setShowHOFEntry={setShowHOFEntry}
+                  showYouInHOF={showYouInHOF}
+                  setShowYouInHOF={setShowYouInHOF}
                 />
               ) : showFinishGame === true ? (
                 <>
@@ -507,11 +509,13 @@ export default function Index() {
                   />
                 </View>
               ) : (
+                showYouInHOF===true?
                 <View>
-                  YouInHOF===true?
+                
                   <YouInHOF />
+                  </View>
                   :null
-                </View>
+            
               )}
 
               <View>

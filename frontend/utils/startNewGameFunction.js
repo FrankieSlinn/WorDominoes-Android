@@ -4,7 +4,7 @@ import { allocateDominoes } from "./allocateDominoes";
 function startNewGameFunction(setGameStart, setGameFinished, setSingleGameScore, setDominoesInHand, setWord1Success, setWord2Success, setDisplayDomino,
   setDominoRotated, setNumberDominoesInGrid, setDominoIdsInGrid, setSelectedDominoObject, setGridSelectedDominoObjects, setTilePlaced, setTurnStart, 
   setScoreArraySingleGame, worDomination, setWorDomination,  setShowMakeWord, setDominoSelected, setWordSubmitted, dominoesUsed, setDominoesUsed,
-  showHOFEntry, setShowHOFEntry
+  showHOFEntry, setShowHOFEntry, showYouInHOF, setShowYouInHOF
 ){
     console.log("start new game running")
     setGameStart(true)
@@ -31,6 +31,7 @@ function startNewGameFunction(setGameStart, setGameFinished, setSingleGameScore,
     setWordSubmitted(false)
     setDominoesUsed([])
     setShowHOFEntry(false)
+    setShowYouInHOF(false)
 
    
   }

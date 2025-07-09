@@ -541,7 +541,10 @@ export default function Index() {
           )}
         </View>
       ) : (
-        <HallOfFame />
+        <HallOfFame 
+        showHOF={showHOF}
+        setShowHOF={setShowHOF}
+        />
       )}
     </>
   );

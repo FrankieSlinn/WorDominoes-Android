@@ -317,58 +317,93 @@ export const s = StyleSheet.create({
   WorDominationCount: {
     marginTop: 45,
   },
-  HOFHeaderContainer: {},
+
   HOFMainHeading: {
-    marginTop: 27,
-    fontSize: 18,
+    marginTop: 35,
+    fontSize: 25,
     lineHeight: 25,
+    backgroundColor: "lightblue"
+  
+  },
+
+  returnToGameContainer: {
+    flex: 0.3,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: -0,
+    marginBottom: -100,
+    height: "auto",
+    backgroundColor: "lightgreen",
+   
+  },
+  returnToGameButton: {
+    width: "40%",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#053e4c",
+    borderRadius: 15,
+    padding: 5,
+    borderWidth: 3,
+    borderColor: "#D1D0CE",
+  },
+  returnToGameButtonText: {
+    color: "white",
+    fontSize: 17,
+  },
+
+  HOFContentContainer: {
+    flex:1,
+    marginTop: 30,
+    marginBottom:0,
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "space-around",
+    backgroundColor: "pink",
   },
   HOFHeadings: {
-    marginTop: 20,
-    flex: 1,
+  marginTop: 10,
+   marginBottom:0,
+  
     flexDirection: "row",
-    justifyContent: "space-evenly",
+    justifyContent: "space-evenly"
+    // backgroundColor: "pink",
+   
   },
   HOFHeadingText: {
     fontWeight: "bold",
     fontSize: 20,
   },
-  returnToGameContainer:{
-  
-    flex: 0.4,
+
+  HOFRows:{
+    marginTop: 10,
+    backgroundColor: "lightblue",
+
+
+
+  },
+  HOFRow:{
+    flex:1,
     flexDirection: "row",
+    justifyContent:"space-between",
     alignItems: "center",
-    justifyContent:"center",
-    marginTop: 7,
- 
+    textAlign: "left",
+    paddingLeft: "19%",
+    paddingRight: "19%",
+  },
 
+  HOFEntryText:{
+    fontWeight: "bold",
+    fontSize: 17,
+    TextAlign: "center",
 
   },
-  returnToGameButton:{
-  
-    width: "50%",
-    justifyContent: "center",
- 
-    alignItems: "center",
-
-    backgroundColor: "#053e4c",
-    borderRadius: 15,
-    padding: 10,
-    borderWidth: 3,
-    borderColor:"#D1D0CE"
-  
-    
-  },
-  returnToGameButtonText:{
-
-color: "white",
-fontSize: 17,
-  },
+  //In main part
   HOFButtonContainer: {
     flex: 1,
     flexDirection: "column",
     alignItems: "center",
-    marginTop: 34,
+    marginTop: 50,
   },
   HOFButton: {
     flex: 1,
@@ -376,31 +411,23 @@ fontSize: 17,
     borderRadius: 15,
     padding: 10,
     borderWidth: 3,
-    borderColor:"#353839"
+    borderColor: "#353839",
   },
   HOFButtonInsideView: {
     // flex:1,
-    flexDirection:"row",
-    justifyContent:"space-evenly",
+    flexDirection: "row",
+    justifyContent: "space-evenly",
     alignItems: "center",
   },
   HOFButtonText: {
     fontWeight: "bold",
     flexDirection: "row",
-    fontSize: 17
+    fontSize: 17,
   },
-  HOFContentContainer: {
-    marginTop: 15,
 
-    flexDirection: "column",
-    alignItems: "center",
-  },
   youInHOFContainer: {
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-evenly",
   },
-
-
-
 });

@@ -322,7 +322,7 @@ export const s = StyleSheet.create({
     marginTop: 35,
     fontSize: 25,
     lineHeight: 25,
-    backgroundColor: "lightblue"
+    // backgroundColor: "lightblue"
   
   },
 
@@ -332,9 +332,9 @@ export const s = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: -0,
-    marginBottom: -100,
+    marginBottom: -110,
     height: "auto",
-    backgroundColor: "lightgreen",
+    // backgroundColor: "lightgreen",
    
   },
   returnToGameButton: {
@@ -359,7 +359,7 @@ export const s = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     justifyContent: "space-around",
-    backgroundColor: "pink",
+    // backgroundColor: "pink",
   },
   HOFHeadings: {
   marginTop: 10,
@@ -377,7 +377,7 @@ export const s = StyleSheet.create({
 
   HOFRows:{
     marginTop: 10,
-    backgroundColor: "lightblue",
+    // backgroundColor: "lightblue",
 
 
 
@@ -385,17 +385,50 @@ export const s = StyleSheet.create({
   HOFRow:{
     flex:1,
     flexDirection: "row",
-    justifyContent:"space-between",
+    justifyContent:"space-evenly",
     alignItems: "center",
     textAlign: "left",
     paddingLeft: "19%",
-    paddingRight: "19%",
+    // paddingRight: "17%",
   },
 
   HOFEntryText:{
     fontWeight: "bold",
     fontSize: 17,
     TextAlign: "center",
+
+  },
+  HOFRankContainer:{
+    // backgroundColor: "lightgreen",
+    paddingRight: 20,
+    marginRight: 30,
+    marginLeft: -20,
+
+
+  },
+  HOFHandleContainer:{
+  alignItems: "center",
+  //  backgroundColor: "yellow",
+   textAlign: "left",
+   width: "55%",
+   marginLeft: -50,
+   marginRight: 30,
+  
+   paddingLeft: -10,
+   
+  },
+  HOFScoreContainer:{
+    // backgroundColor: "grey",
+    width: "10%",
+    alignItems: "center",
+ 
+    marginRight: 45,
+    marginLeft: -35,
+    // testAlign: "right"
+ 
+
+
+
 
   },
   //In main part

@@ -3,10 +3,6 @@ import { useEffect, useState } from "react";
 import { fetchHOFEntries} from "../utils/HOFDatabase.js";
 import { s } from "../App.style";
 
-
-
-
-
 export function HallOfFame({ showHOF, setShowHOF }) {
 
   const [entries, setEntries] = useState([]);
@@ -46,7 +42,9 @@ export function HallOfFame({ showHOF, setShowHOF }) {
       <View style={s.HOFContentContainer}>
       <View style={s.HOFHeadings}>
       <Text style={s.HOFHeadingText}>Rank</Text>
+    
         <Text style={s.HOFHeadingText}>Handle</Text>
+    
         <Text style={s.HOFHeadingText}>Score</Text>
 
       </View>
@@ -55,12 +53,21 @@ export function HallOfFame({ showHOF, setShowHOF }) {
   
       {entries.map((entry, index) => (
         <View key={index} style={s.HOFRow}>
+            <View style={s.HOFRankContainer}>
             <Text style={s.HOFEntryText}>{index+1}</Text>
+            </View>
+            <View style={s.HOFHandleContainer}>
           <Text style={s.HOFEntryText}>{entry.handle}</Text>
+          </View>
+          <View style={s.HOFScoreContainer}>
           <Text style={s.HOFEntryText}>{entry.score}</Text>
           </View>
+        
+          </View>
+    
     
       ))}
+              <Text>{"\n"}{"\n"}{"\n"}{"\n"}</Text>
       </View>
     
      

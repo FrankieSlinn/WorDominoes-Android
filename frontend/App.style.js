@@ -331,7 +331,7 @@ export const s = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: -0,
+    marginTop: -5,
     marginBottom: -110,
     height: "auto",
     // backgroundColor: "lightgreen",
@@ -351,15 +351,30 @@ export const s = StyleSheet.create({
     color: "white",
     fontSize: 17,
   },
+  HOFContainer:{
+flex:1,
+justifyContent: "center",
+alignItems: "center",
+marginTop: 1,
+marginBottom: 50,
+
+
+  },
 
   HOFContentContainer: {
     flex:1,
-    marginTop: 30,
+    marginTop: 38,
     marginBottom:0,
     flex: 1,
     flexDirection: "column",
     justifyContent: "space-around",
-    // backgroundColor: "pink",
+  width: "90%",
+  height: "50%",
+  borderWidth: 3,
+  borderColor:  "#D1D0CE",
+  backgroundColor: "lightyellow",
+  borderRadius: 15,
+
   },
   HOFHeadings: {
   marginTop: 10,
@@ -419,10 +434,11 @@ export const s = StyleSheet.create({
   },
   HOFScoreContainer:{
     // backgroundColor: "grey",
-    width: "10%",
+    width: "12%",
+    
     alignItems: "center",
  
-    marginRight: 45,
+    marginRight: 35,
     marginLeft: -35,
     // testAlign: "right"
  

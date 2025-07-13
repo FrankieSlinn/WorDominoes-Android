@@ -29,6 +29,7 @@ export function HallOfFame({ showHOF, setShowHOF }) {
 
   return (
     <>
+  
       <View style={s.headerContainer}>
         <View style={s.header}>
           <Text style={[s.logo, s.HOFMainHeading]}>WorDominoes Hall Of Fame</Text>
@@ -39,6 +40,7 @@ export function HallOfFame({ showHOF, setShowHOF }) {
           <Text style={s.returnToGameButtonText}> Return To Game</Text>
         </TouchableOpacity>
       </View>
+      <View style={s.HOFContainer}>
       <View style={s.HOFContentContainer}>
       <View style={s.HOFHeadings}>
       <Text style={s.HOFHeadingText}>Rank</Text>
@@ -74,6 +76,7 @@ export function HallOfFame({ showHOF, setShowHOF }) {
         
           </ScrollView>
           <Text> {"\n"} {"\n"} {"\n"}{"\n"}</Text>
+          </View>
           </View>
     </>
   );

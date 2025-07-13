@@ -372,13 +372,13 @@ marginBottom: 50,
   height: "50%",
   borderWidth: 3,
   borderColor:  "#D1D0CE",
-  backgroundColor: "lightyellow",
+  backgroundColor: "#f4f1de",
   borderRadius: 15,
 
   },
   HOFHeadings: {
   marginTop: 10,
-   marginBottom:0,
+   paddingBottom: 2,
   
     flexDirection: "row",
     justifyContent: "space-evenly"
@@ -388,10 +388,12 @@ marginBottom: 50,
   HOFHeadingText: {
     fontWeight: "bold",
     fontSize: 20,
+    color: "#353839",
   },
 
   HOFRows:{
     marginTop: 10,
+   
     // backgroundColor: "lightblue",
 
 
@@ -404,13 +406,19 @@ marginBottom: 50,
     alignItems: "center",
     textAlign: "left",
     paddingLeft: "19%",
+  
+  
     // paddingRight: "17%",
   },
 
   HOFEntryText:{
+    color: "#353839",
+    letterSpacing: -0.08,
+    lineHeight:25,
     fontWeight: "bold",
     fontSize: 17,
     TextAlign: "center",
+  
 
   },
   HOFRankContainer:{

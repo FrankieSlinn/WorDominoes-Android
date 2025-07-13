@@ -50,7 +50,7 @@ export function HallOfFame({ showHOF, setShowHOF }) {
         <Text style={s.HOFHeadingText}>Score</Text>
 
       </View>
-      <ScrollView >
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={s.HOFRows}>
   
       {entries.map((entry, index) => (
@@ -69,13 +69,13 @@ export function HallOfFame({ showHOF, setShowHOF }) {
     
     
       ))}
-              <Text>{"\n"}{"\n"}{"\n"}{"\n"}</Text>
+             
       </View>
     
      
         
           </ScrollView>
-          <Text> {"\n"} {"\n"} {"\n"}{"\n"}</Text>
+          <Text> {"\n"} </Text>
           </View>
           </View>
     </>

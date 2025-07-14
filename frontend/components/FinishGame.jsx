@@ -53,10 +53,10 @@ export function FinishGame({gameStart, setGameStart, gameFinished, setGameFinish
     <>
     <View style={s.startFinishGameContainer}>
         
-<TouchableOpacity style={[s.startFinishGameButton, s.finishGameButton]} onPress={()=>[showAlert()]
+<TouchableOpacity style={[s.gameControlButton, s.finishGameButton]} onPress={()=>[showAlert()]
 }>
  
-   <Text  style={s.startFinishGameText}>Finish Game</Text>
+   <Text  style={s.gameControlText}>Finish Game</Text>
     </TouchableOpacity>
     <Text>   {"\n"} {"\n"} {"\n"}
     {"\n"}</Text>

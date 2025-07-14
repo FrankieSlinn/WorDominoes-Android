@@ -23,28 +23,38 @@ export function HOFEntry({handle, setHandle, finalScore, setFinalScore, showHOFE
     }
 
     return(<>
- <View style={s.HOFHeaderContainer}>
-        <Text style={[s.logo, s.HOFMainHeading]}>Congratulations, You Have Made It Into the WorDominoes Hall Of Fame!</Text>
-        </View>
-   
-        <View style={s.HOFContentContainer}>
+     <View style={[s.HOFEntryContainer, s.HOFEntryAndContentContainer]}>
+      <View style={s.HOFEntryHeadingContainer}>
+
+        <Text style={[s.logo, s.HOFEntryHeading]}>Congratulations, You Made It Into the WorDominoes Hall Of Fame!</Text>
       
-        <Text style={s.HOFHeadingText}>Handle</Text>
+        </View>
+       
+      
+        <Text style={s.HOFEntryText}>Handle</Text>
         <TextInput style={handle.length === 0 ? s.placeholder : s.inputText} placeholder={"Enter Your Handle"}     value={handle}
         onChangeText={setHandle}>
     
           </TextInput>
+          <Text>{"\n"} 
+          </Text>
      
-            <Text style={s.HOFHeadingText}>Score</Text>
+            <Text style={s.HOFEntryText}>Score</Text>
                 <Text>{finalScore}
-            {"\n"} {"\n"} {"\n"} 
+            {"\n"}
 
             </Text>
-            <TouchableOpacity onPress={() => submitHOFEntry(handle, finalScore)}>
-            <Text>Enter The Hall Of Fame</Text>
+            <TouchableOpacity style={[s.gameControlButton, s.startGameButton, s.HOFEntryButton]} onPress={() => submitHOFEntry(handle, finalScore)}>
+            <Text style={s.gameControlText}>Enter The Hall Of Fame</Text>
 
             </TouchableOpacity>
-           <Text>{"\n"}  {"\n"} {"\n"} {"\n"} {"\n"} </Text> 
+            <Text>
+            {"\n"}
+
+            </Text>
+          
+ 
+
 
 
          

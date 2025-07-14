@@ -100,6 +100,8 @@ export default function Index() {
   const [showYouInHOF, setShowYouInHOF] = useState(false);
   //after rotated a few times, tile errors, wrong values picked up for current tile for tile 0//male sure dominoesInHand cannot be modified - prob fixed
 
+
+  //after place tile and then do icon the tile unrotates - storage for grid?
   //tiles allocated more than once - prob fixed.
   //d2(32) showing as 23 - still issue. Shows in dominoes in hand - prob fixed.
   //showed two or more of same tile, e.g. 55 - prob fixed.

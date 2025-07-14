@@ -41,7 +41,7 @@ export function HallOfFame({ showHOF, setShowHOF }) {
         </TouchableOpacity>
       </View>
       <View style={s.HOFContainer}>
-      <View style={s.HOFContentContainer}>
+      <View style={[s.HOFContentContainer, s.HOFEntryAndContentContainer]}>
       <View style={s.HOFHeadings}>
       <Text style={s.HOFHeadingText}>Rank</Text>
     

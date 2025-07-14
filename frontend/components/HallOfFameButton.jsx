@@ -25,6 +25,7 @@ export function HallOfFameButton({showHOF, setShowHOF
         </View>
         </TouchableOpacity>
 
+      <Text>{"\n"} {"\n"} {"\n"} {"\n"} {"\n"} {"\n"} </Text>  
 
 
     </View>

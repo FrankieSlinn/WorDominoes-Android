@@ -293,19 +293,21 @@ export const s = StyleSheet.create({
     marginTop: 20,
     marginBottom: 40,
   },
-  startFinishGameButton: {
+  gameControlButton: {
     padding: 8,
-    borderRadius: 10,
-    borderColor: "black",
-    borderWidth: 1,
+    borderRadius: 15,
+    borderColor:  "#D1D0CE",
+
+    borderWidth: 5,
+  },
+  gameControlText: {
+    fontWeight: "bold",
+    color: "#eeeeee",
   },
   finishGameButton: {
     backgroundColor: "#C14432",
   },
-  startFinishGameText: {
-    fontWeight: "bold",
-    color: "#eeeeee",
-  },
+
   startGameButton: {
     backgroundColor: "#053e4c",
   },
@@ -317,11 +319,47 @@ export const s = StyleSheet.create({
   WorDominationCount: {
     marginTop: 45,
   },
+  HOFEntryContainer:{
+   
+   marginTop: -20,
+    alignItems: "center",
+    justifyContent: "center"
+
+
+  },
+  HOFEntryHeadingContainer:{
+marginTop: 10,
+width: "90%",
+
+  },
+  //shared formatting with HOF Screen
+  HOFEntryAndContentContainer:{
+    borderWidth: 7,
+    borderColor:  "#D1D0CE",
+    backgroundColor: "#f4f1de",
+    borderRadius: 15,
+   
+
+  },
+
+  
+  HOFEntryHeading:{
+padding: 10,
+    fontSize: 17,
+  },
+  HOFEntryText:{
+    fontSize: 17,
+
+
+  },
+
+
 
   HOFMainHeading: {
     marginTop: 35,
     fontSize: 25,
     lineHeight: 25,
+
     // backgroundColor: "lightblue"
   
   },
@@ -362,18 +400,15 @@ marginBottom: 50,
   },
 
   HOFContentContainer: {
-    flex:1,
-    marginTop: 38,
-    marginBottom:0,
     flex: 1,
     flexDirection: "column",
     justifyContent: "space-around",
   width: "90%",
+    marginTop: 38,
+    marginBottom:0,
+ 
   height: "50%",
-  borderWidth: 3,
-  borderColor:  "#D1D0CE",
-  backgroundColor: "#f4f1de",
-  borderRadius: 15,
+
 
   },
   HOFHeadings: {

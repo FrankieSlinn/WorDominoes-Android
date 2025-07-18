@@ -40,7 +40,7 @@ export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject
         setWord2Success(false)
       }
       else{
-      // const storedWord1Success= await getWord1Success ()
+   
       setWord1Success(storedWord1Success)
       setWord2Success(storedWord2Success)
       console.log("???????word1Success after retrieved from storage", word1Success)
@@ -82,7 +82,7 @@ loadSaveWord1Success()
     }
   }
 }, [selectedDominoObject, word1Success]); 
-    // console.log("firstWord", firstWord);
+
   return (
     <>
   

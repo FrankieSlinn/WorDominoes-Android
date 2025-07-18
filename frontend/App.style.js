@@ -207,7 +207,7 @@ export const s = StyleSheet.create({
   },
   displayDominoContainer: {
     // height: 80,
-    marginTop: 0,
+    marginTop: -10,
 
     alignItems: "center",
   },
@@ -224,23 +224,41 @@ export const s = StyleSheet.create({
   placeholder: {
     fontWeight: "normal",
     fontSize: 17,
-    color: "darkGrey",
-  },
+    textAlign: "center",
+   backgroundColor: "#e8e1c3",
+    width: "110%",
+    padding: 5,
+  //  height: "32",
+borderRadius: 10,  },
   input: {
+    flex: 0.1,
     marginTop: 20,
     padding: 10,
     backgroundColor: "lightyellow",
     height: 40,
     borderRadius: 10,
     textAlign: "center",
+
     justifyContent: "center",
     alignItems: "center",
-    width: "auto",
+    width: "90%",
+  },
+  inputContainer:{
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    // marginTop: -10,
+    // marginBottom: 5,
+
+
   },
   inputText: {
+    flex: 1,
     fontSize: 20,
     fontWeight: "bold",
     letterSpacing: 0.75,
+    // justifyContent: "center",
+    
   },
 
   lettersContainer: {
@@ -270,12 +288,15 @@ export const s = StyleSheet.create({
   },
   wordButtonContainer: {
     marginTop: 20,
+    marginBottom: -2,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
   },
   wordButton: {
-    backgroundColor: "lightyellow",
+    backgroundColor: "#053e4c",
+    alignItems: "center",
+  
     borderWidth: 2,
     borderColor: "darkgray",
     borderRadius: 10,
@@ -283,9 +304,11 @@ export const s = StyleSheet.create({
 
     marginTop: -10,
     margin: 10,
+    width: "35%",
   },
   wordButtonText: {
-    color: "#353839",
+    color: "#eee",
+    
     fontWeight: "bold",
   },
   startFinishGameContainer: {
@@ -296,7 +319,7 @@ export const s = StyleSheet.create({
   gameControlButton: {
     padding: 8,
     borderRadius: 15,
-    borderColor:  "#D1D0CE",
+    borderColor: "#D1D0CE",
 
     borderWidth: 5,
   },
@@ -319,41 +342,64 @@ export const s = StyleSheet.create({
   WorDominationCount: {
     marginTop: 45,
   },
-  HOFEntryContainer:{
-   
-   marginTop: -20,
+  HOFEntryOuterContainer: {
     alignItems: "center",
-    justifyContent: "center"
-
-
+    marginTop: -9,
+    marginBottom: -32
   },
-  HOFEntryHeadingContainer:{
-marginTop: 10,
-width: "90%",
-
+  HOFEntryContainer: {
+    marginTop: -20,
+    alignItems: "center",
+    justifyContent: "center",
+    width: "90%",
+  },
+  HOFEntryHeadingContainer: {
+    marginTop: 10,
+    width: "90%",
   },
   //shared formatting with HOF Screen
-  HOFEntryAndContentContainer:{
+  HOFEntryAndContentContainer: {
     borderWidth: 7,
-    borderColor:  "#D1D0CE",
+    borderColor: "#D1D0CE",
     backgroundColor: "#f4f1de",
     borderRadius: 15,
-   
-
+    paddingBottom: 20,
   },
 
-  
-  HOFEntryHeading:{
-padding: 10,
+  HOFEntryHeading: {
+    padding: 10,
     fontSize: 17,
   },
-  HOFEntryText:{
+  HOFEntryText: {
     fontSize: 17,
-
-
   },
+  handleAndScoreView: {
+    flex: 1,
+    // alignItems: "center"
 
-
+    marginBottom: 10,
+    width: "60%",
+  },
+  handleView: {
+    alignItems: "center",
+ 
+    marginBottom: 3,
+  },
+  maxLengthText:{
+fontSize: 14,
+marginBottom: 2,
+ },
+  scoreView: {
+    alignItems: "center",
+  },
+  HOFScoreText: {
+    fontWeight: "bold",
+    fontSize: 17,
+    marginBottom: -2
+  },
+  HOFEntryButton: {
+    marginBottom: -17,
+  },
 
   HOFMainHeading: {
     marginTop: 35,
@@ -361,7 +407,6 @@ padding: 10,
     lineHeight: 25,
 
     // backgroundColor: "lightblue"
-  
   },
 
   returnToGameContainer: {
@@ -373,7 +418,6 @@ padding: 10,
     marginBottom: -110,
     height: "auto",
     // backgroundColor: "lightgreen",
-   
   },
   returnToGameButton: {
     width: "40%",
@@ -389,36 +433,31 @@ padding: 10,
     color: "white",
     fontSize: 17,
   },
-  HOFContainer:{
-flex:1,
-justifyContent: "center",
-alignItems: "center",
-marginTop: 1,
-marginBottom: 50,
-
-
+  HOFContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 1,
+    marginBottom: 50,
   },
 
   HOFContentContainer: {
     flex: 1,
     flexDirection: "column",
     justifyContent: "space-around",
-  width: "90%",
+    width: "90%",
     marginTop: 38,
-    marginBottom:0,
- 
-  height: "50%",
+    marginBottom: 0,
 
-
+    height: "50%",
   },
   HOFHeadings: {
-  marginTop: 10,
-   paddingBottom: 2,
-  
+    marginTop: 10,
+    paddingBottom: 2,
+
     flexDirection: "row",
-    justifyContent: "space-evenly"
-    // backgroundColor: "pink",
-   
+    justifyContent: "space-evenly",
+ 
   },
   HOFHeadingText: {
     fontWeight: "bold",
@@ -426,69 +465,52 @@ marginBottom: 50,
     color: "#353839",
   },
 
-  HOFRows:{
-    marginTop: 10,
-   
-    // backgroundColor: "lightblue",
-
-
-
+  HOFRows: {
+    marginTop:-7,
+    paddingVertical: 15,
   },
-  HOFRow:{
-    flex:1,
+  HOFRow: {
+    flex: 1,
     flexDirection: "row",
-    justifyContent:"space-evenly",
+    justifyContent: "space-evenly",
     alignItems: "center",
     textAlign: "left",
     paddingLeft: "19%",
-  
-  
-    // paddingRight: "17%",
   },
 
-  HOFEntryText:{
+  HOFEntryText: {
     color: "#353839",
     letterSpacing: -0.08,
-    lineHeight:25,
+    lineHeight: 25,
     fontWeight: "bold",
     fontSize: 17,
     TextAlign: "center",
-  
-
   },
-  HOFRankContainer:{
+  HOFRankContainer: {
     // backgroundColor: "lightgreen",
     paddingRight: 20,
     marginRight: 30,
     marginLeft: -20,
-
-
   },
-  HOFHandleContainer:{
-  alignItems: "center",
-  //  backgroundColor: "yellow",
-   textAlign: "left",
-   width: "55%",
-   marginLeft: -50,
-   marginRight: 30,
-  
-   paddingLeft: -10,
-   
+  HOFHandleContainer: {
+    alignItems: "center",
+    //  backgroundColor: "yellow",
+    textAlign: "left",
+    width: "55%",
+    marginLeft: -50,
+    marginRight: 30,
+
+    paddingLeft: -10,
   },
-  HOFScoreContainer:{
+  HOFScoreContainer: {
     // backgroundColor: "grey",
     width: "12%",
-    
+
     alignItems: "center",
- 
+
     marginRight: 35,
     marginLeft: -35,
     // testAlign: "right"
- 
-
-
-
-
   },
   //In main part
   HOFButtonContainer: {

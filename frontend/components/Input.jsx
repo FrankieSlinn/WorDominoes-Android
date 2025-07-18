@@ -69,6 +69,7 @@ export function Input({
 
   return (
     <>
+    <View style={s.inputContainer}>
       <View style={s.input}>
         {wordNum === 1 ? (
           <Text style={inputString1.length === 0 ? s.placeholder : s.inputText}>
@@ -83,6 +84,7 @@ export function Input({
               : inputString2}
           </Text>
         )}
+      </View>
       </View>
     </>
   );

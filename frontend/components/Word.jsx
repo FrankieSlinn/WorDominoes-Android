@@ -157,13 +157,13 @@ export function Word({
               handleRedoPress();
             }}
           >
-            <Text style={s.wordButtonText}>Redo Word</Text>
+            <Text style={s.wordButtonText}>Redo</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={s.wordButton}
             onPress={() => handleSubmitPress(inputString1, inputString2)}
           >
-            <Text style={s.wordButtonText}>Submit Word</Text>
+            <Text style={s.wordButtonText}>Submit</Text>
           </TouchableOpacity>
         </View>
       </View>

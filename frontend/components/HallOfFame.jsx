@@ -75,7 +75,7 @@ export function HallOfFame({ showHOF, setShowHOF }) {
      
         
           </ScrollView>
-          <Text> {"\n"} </Text>
+          {/* <Text> {"\n"} </Text> */}
           </View>
           </View>
     </>

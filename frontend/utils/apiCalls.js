@@ -9,12 +9,7 @@ const dictionary = ["is", "be", "was", "look", "dose", "door", "touch", "kite", 
 function validateWord(validationInformation, letterString, wordLength, wordNumber, setWord1Success, setWord2Success, setTilePlaced, setValidationError, storeWord1Success, 
   storeWord2Success
 ) {
-  // setValidationError(false)
-
-  // console.log("validationINformation", validationInformation);
-  // console.log("wordNumber, wordNumber")
-
-  // console.log("letterstringlength", letterString.length);
+ 
 
 
   if (

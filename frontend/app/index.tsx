@@ -1,5 +1,10 @@
-import { Text, View, ScrollView } from "react-native";
+import { Text, View, ScrollView , Keyboard} from "react-native";
 import { useState, useEffect } from "react";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withSpring,
+} from "react-native-reanimated";
 import { StatusBar } from "expo-status-bar";
 import { s } from "../App.style.js";
 import { Header } from "../components/Header.jsx";
@@ -98,6 +103,8 @@ export default function Index() {
   const [finalScore, setFinalScore] = useState(0);
   const [showHOFEntry, setShowHOFEntry] = useState(false);
   const [showYouInHOF, setShowYouInHOF] = useState(false);
+
+  const keyboardOffset = useSharedValue(0);
   //after rotated a few times, tile errors, wrong values picked up for current tile for tile 0//male sure dominoesInHand cannot be modified - prob fixed
 
 
@@ -116,6 +123,58 @@ export default function Index() {
   ///check logic for accepting tiles 11 12 let different ones next to each other - prob fixed.
   //Make sure after tile placed cannot be allocated - prob fixed.
   //saw selected letter that wasn't in input
+
+
+  //shifts keyboard when user types
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener(
+      "keyboardDidShow",
+      (event) => {
+        let amountShiftedUp = 200;
+
+        // if (icon === "") {
+        //   amountShiftedUp = 85;
+        // } else if (icon === "practice") {
+        //   amountShiftedUp = 135;
+        // }
+
+        keyboardOffset.value = withSpring(
+          -event.endCoordinates.height + amountShiftedUp,
+          {
+            damping: 100,
+            stiffness: 100,
+          }
+        );
+      }
+    );
+
+    const keyboardDidHideListener = Keyboard.addListener(
+      "keyboardDidHide",
+      () => {
+        keyboardOffset.value = withSpring(0, {
+          damping: 20,
+          stiffness: 100,
+        });
+      }
+    );
+
+    return () => {
+      keyboardDidShowListener.remove();
+      keyboardDidHideListener.remove();
+    };
+  }, []);
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      transform: [
+        {
+          translateY:
+        keyboardOffset.value 
+        },
+      ],
+    };
+  });
+
+
 
   useEffect(() => {
     fetchHOFEntries();
@@ -153,6 +212,7 @@ export default function Index() {
         <StatusBar translucent={false} />
       </View>
       {showHOF === false ? (
+     
         <View>
           <View style={s.headerContainer}>
             <Header
@@ -162,8 +222,15 @@ export default function Index() {
               setShowStats={setShowStats}
             />
           </View>
+         
           {showHelpText === false && showStats === false ? (
-            <ScrollView style={s.body}>
+             <Animated.View
+             style={
+             
+              animatedStyle
+             }
+             >
+            <ScrollView >
               <TextAbove
                 gameFinished={gameFinished}
                 setGameFinished={setGameFinished}
@@ -496,6 +563,7 @@ export default function Index() {
                     handle={handle}
                   />
                 </>
+
               ) : null}
               {showHOFEntry === true ? (
                 <View>
@@ -524,6 +592,7 @@ export default function Index() {
                 <HallOfFameButton showHOF={showHOF} setShowHOF={setShowHOF} />
               </View>
             </ScrollView>
+            </Animated.View>
           ) : showStats === false ? (
             <HelpText
               showHelpText={showHelpText}
@@ -542,6 +611,7 @@ export default function Index() {
             />
           )}
         </View>
+     
       ) : (
         <HallOfFame 
         showHOF={showHOF}

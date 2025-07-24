@@ -132,11 +132,6 @@ export default function Index() {
       (event) => {
         let amountShiftedUp = 130;
 
-        // if (icon === "") {
-        //   amountShiftedUp = 85;
-        // } else if (icon === "practice") {
-        //   amountShiftedUp = 135;
-        // }
 
         keyboardOffset.value = withSpring(
           -event.endCoordinates.height + amountShiftedUp,
@@ -211,6 +206,7 @@ export default function Index() {
         <Stack.Screen options={{ headerShown: false }} />
         <StatusBar translucent={false} />
       </View>
+      <View style={s.appBody}>
       {showHOF === false ? (
      
         <View>
@@ -618,6 +614,7 @@ export default function Index() {
         setShowHOF={setShowHOF}
         />
       )}
+      </View>
     </>
   );
 }

@@ -130,7 +130,7 @@ export default function Index() {
     const keyboardDidShowListener = Keyboard.addListener(
       "keyboardDidShow",
       (event) => {
-        let amountShiftedUp = 200;
+        let amountShiftedUp = 130;
 
         // if (icon === "") {
         //   amountShiftedUp = 85;

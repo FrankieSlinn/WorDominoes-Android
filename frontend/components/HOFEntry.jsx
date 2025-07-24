@@ -21,7 +21,8 @@ export function HOFEntry({
 
   function submitHOFEntry(handle, finalScore) {
     console.log("📣 Button was pressed");
-    submitScore(handle, finalScore);
+    const scoreToSubmit=finalScore?finalScore:0;
+    submitScore(handle, scoreToSubmit);
     setShowHOFEntry(false);
     setShowYouInHOF(true);
     console.log("You In HOF", showYouInHOF);

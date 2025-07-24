@@ -8,10 +8,10 @@ const isDev = __DEV__; // true if in development mode
 export const baseURL = 
   `http://192.168.0.246:3000/api` // Dev server on PC
 
-  function printURL(){
-    console.log("baseUrl and hofdataroute", `${baseURL}/hofdataroute`)
+  // function printURL(){
+  //   console.log("baseUrl and hofdataroute", `${baseURL}/hofdataroute`)
 
-  }
+  // }
 
 
 async function fetchHOFEntries() {
@@ -51,7 +51,7 @@ async function submitScore(handle, endOfGameScore){
     const data = await response.json();
 
     if (!response.ok) {
-      console.error('Error:', data.error);
+      console.error('Error in submitScore:', data.error);
     } else {
       console.log('Success:', data);
     }

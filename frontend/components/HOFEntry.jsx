@@ -16,6 +16,7 @@ export function HOFEntry({
   useEffect(() => {
     console.log("useeffect for logging final score in HOFEntry running!!!!!!!");
     console.log("finalScore in HOFEntry", finalScore);
+    console.log("showHOFEntry in HOFENTRY"), showHOFEntry
     // setShowYouInHOF(true)
   }, [finalScore]);
 

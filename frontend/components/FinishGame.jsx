@@ -11,7 +11,7 @@ export function FinishGame({gameStart, setGameStart, gameFinished, setGameFinish
    
 }) {
    
-   
+   //runs finish game function sets game to finished
     function handleClick(gameFinished, setGameFinished, gamesArray, setGamesArray, worDomination, setWorDomination, worDominationCount, 
         setWorDominationCount, singleGameScore, setSingleGameScore, finalScore, setFinalScore, showHOFEntry, setShowHOFEntry, handle
     ){console.log("handleClick for Finishgame running")

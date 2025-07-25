@@ -77,7 +77,9 @@ async function addScoreToScoreArray(
     // console.log("newGamesArray", newGamesArray)
     setGamesArray(newGamesArray); // Update state
     await storeGamesArray(newGamesArray); // Store updated array in AsyncStorage
-    if(finalScore>0){
+    console.log("finalsCore", finalScore)
+    if(endOfGameScore>0){
+      
     setShowHOFEntry(true);}
     console.log("showHOFEntry in handleFinishGame", showHOFEntry);
   } catch (error) {

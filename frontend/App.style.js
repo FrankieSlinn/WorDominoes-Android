@@ -1,24 +1,10 @@
 import { StyleSheet } from "react-native";
 
 export const s = StyleSheet.create({
-  // app: {
-  //   // flex: 1,
-  //   paddingTop: 15,
-  //   paddingLeft: 15,
-  //   paddingRight: 15,
-  //   color: "#353839",
-  //   fontSize: 30, // Roughly equivalent to 1.25rem (20px)
-  //   backgroundColor: "#ffffff",
-  //   fontFamily: "Arial",
-  //   letterSpacing: -0.08,
-  //   marginTop: 55,
-  // },
+
   appBody: {
-    // flex: 1,
-    // width: "100%",
-    // backgroundColor: "aquamarine",
     paddingHorizontal: 5,
-//  justifyContent: "center"
+
   },
   statusBarBackground: {
     paddingTop: 90,
@@ -31,14 +17,7 @@ export const s = StyleSheet.create({
     right: 0,
     zIndex: 10,
   },
-  // body: {
-  //   paddingTop: 15,
-  //   paddingLeft: 15,
-  //   paddingRight: 15,
-  //   textAlign: "center",
-  //   backgroundColor: "#eee",
-  //   top: 40,
-  // },
+
   bold: {
     fontWeight: "bold",
   },
@@ -55,7 +34,6 @@ export const s = StyleSheet.create({
     margin: 20,
   },
   headerContainer: {
-    // backgroundColor: "lightBlue",
     height: 50,
     zIndex: 10,
     marginBottom: 50,

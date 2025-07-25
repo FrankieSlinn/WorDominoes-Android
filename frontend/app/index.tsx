@@ -226,7 +226,10 @@ export default function Index() {
               animatedStyle
              }
              >
-            <ScrollView >
+            <ScrollView 
+          
+            keyboardShouldPersistTaps="handled"
+            >
               <TextAbove
                 gameFinished={gameFinished}
                 setGameFinished={setGameFinished}
@@ -402,6 +405,8 @@ export default function Index() {
                 gameStart={gameStart}
                 gameFinished={gameFinished}
                 setGameFinished={setGameFinished}
+                finalScore={finalScore}
+                setFnialScore={setFinalScore}
               />
 
               {tilePlaced === false && gameFinished === false ? (

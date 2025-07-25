@@ -15,6 +15,7 @@ export function HallOfFame({ showHOF, setShowHOF }) {
   useEffect(() => {
     async function loadEntries() {
       try {
+        console.log("HOF Running")
         const data = await fetchHOFEntries();
         const sorted = data.sort((a, b) => b.score - a.score);
         setEntries(sorted);
@@ -29,19 +30,22 @@ export function HallOfFame({ showHOF, setShowHOF }) {
 
   return (
     <>
-  
+<View style ={s.HOFContainerMain}>
       <View style={s.headerContainer}>
         <View style={s.header}>
           <Text style={[s.logo, s.HOFMainHeading]}>WorDominoes Hall Of Fame</Text>
         </View>
       </View>
+ 
       <View style={s.returnToGameContainer}>
         <TouchableOpacity style={s.returnToGameButton} onPress={returnToGame}>
           <Text style={s.returnToGameButtonText}> Return To Game</Text>
         </TouchableOpacity>
       </View>
       <View style={s.HOFContainer}>
-      <View style={[s.HOFContentContainer, s.HOFEntryAndContentContainer]}>
+      <View style={[s.HOFContentContainer, 
+        // s.HOFEntryAndContentContainer
+        ]}>
       <View style={s.HOFHeadings}>
       <Text style={s.HOFHeadingText}>Rank</Text>
     
@@ -76,6 +80,7 @@ export function HallOfFame({ showHOF, setShowHOF }) {
         
           </ScrollView>
           {/* <Text> {"\n"} </Text> */}
+          </View>
           </View>
           </View>
     </>

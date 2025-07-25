@@ -130,7 +130,7 @@ export default function Index() {
     const keyboardDidShowListener = Keyboard.addListener(
       "keyboardDidShow",
       (event) => {
-        let amountShiftedUp = 130;
+        let amountShiftedUp = 115;
 
 
         keyboardOffset.value = withSpring(
@@ -162,8 +162,7 @@ export default function Index() {
     return {
       transform: [
         {
-          translateY:
-        keyboardOffset.value 
+          translateY: keyboardOffset.value || 0,
         },
       ],
     };
@@ -206,8 +205,9 @@ export default function Index() {
         <Stack.Screen options={{ headerShown: false }} />
         <StatusBar translucent={false} />
       </View>
-      <View style={s.appBody}>
+
       {showHOF === false ? (
+              <View style={s.appBody}>
      
         <View>
           <View style={s.headerContainer}>
@@ -612,6 +612,7 @@ export default function Index() {
             />
           )}
         </View>
+        </View>
      
       ) : (
         <HallOfFame 
@@ -619,7 +620,7 @@ export default function Index() {
         setShowHOF={setShowHOF}
         />
       )}
-      </View>
+
     </>
   );
 }

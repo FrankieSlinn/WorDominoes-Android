@@ -37,6 +37,7 @@ export const s = StyleSheet.create({
     height: 50,
     zIndex: 10,
     marginBottom: 50,
+    // backgroundColor: "red"
   },
 
   header: {
@@ -386,24 +387,30 @@ marginBottom: 2,
   HOFEntryButton: {
     marginBottom: -17,
   },
+  HOFContainerMain:{
+  // flex: 4,
+  backgroundColor: "lightyellow",
+  height: "100%"
+  },
 
   HOFMainHeading: {
     marginTop: 35,
     fontSize: 25,
     lineHeight: 25,
 
-    // backgroundColor: "lightblue"
+    backgroundColor: "lightblue"
   },
 
   returnToGameContainer: {
-    flex: 0.3,
+    // flex: 0.3,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: -5,
+    marginTop: 30,
     marginBottom: -110,
-    height: "auto",
-    // backgroundColor: "lightgreen",
+    height: "5%",
+ 
+    backgroundColor: "lightgreen",
   },
   returnToGameButton: {
     width: "40%",
@@ -421,10 +428,13 @@ marginBottom: 2,
   },
   HOFContainer: {
     flex: 1,
+    // marginTop: 700,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 1,
+    marginTop: 150,
     marginBottom: 50,
+    backgroundColor: "purple",
+    height: "70%",
   },
 
   HOFContentContainer: {
@@ -432,13 +442,14 @@ marginBottom: 2,
     flexDirection: "column",
     justifyContent: "space-around",
     width: "90%",
-    marginTop: 38,
+   
     marginBottom: 0,
 
-    height: "50%",
+    height: 400,
   },
   HOFHeadings: {
-    marginTop: 10,
+    
+    marginTop: 70,
     paddingBottom: 2,
 
     flexDirection: "row",

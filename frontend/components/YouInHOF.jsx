@@ -7,7 +7,7 @@ export function YouInHOF(){
 
 return <>
 <View style={s.youInHOFContainer}>
-<Text >You Are Now In The Hall Of Fame!</Text>
+<Text style={s.instructionText} >You Are Now In The Hall Of Fame!</Text>
 </View>
 
 </>

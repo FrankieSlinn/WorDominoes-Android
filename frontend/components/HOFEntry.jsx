@@ -22,11 +22,13 @@ export function HOFEntry({
 
   function submitHOFEntry(handle, finalScore) {
     console.log("📣 Button was pressed");
+    if(handle.length<12){
     const scoreToSubmit=finalScore?finalScore:0;
     submitScore(handle, scoreToSubmit);
     setShowHOFEntry(false);
     setShowYouInHOF(true);
     console.log("You In HOF", showYouInHOF);
+    }
   }
 
   return (
@@ -48,11 +50,18 @@ export function HOFEntry({
                 placeholder={"Enter Your Handle"}
                 value={handle}
                 onChangeText={setHandle}
-               
+          
               >
-             
-              </TextInput>
-            </View>
+                     </TextInput>
+                     </View>
+             {handle.length>12?
+         
+              <View style = {s.handleLengthMessage}>
+                <Text>Try a shorter handle</Text>
+              </View>:
+    
+            null
+             }
 
             <View style={s.scoreView}>
               <Text style={s.HOFEntryText}>Score</Text>

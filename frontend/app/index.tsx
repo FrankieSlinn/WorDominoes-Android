@@ -592,7 +592,12 @@ export default function Index() {
               )}
 
               <View>
-                <HallOfFameButton showHOF={showHOF} setShowHOF={setShowHOF} />
+                <HallOfFameButton 
+                showHOF={showHOF} 
+                setShowHOF={setShowHOF} 
+                showYouInHOF={showYouInHOF}
+                setShowYouInHOF={setShowYouInHOF}
+                />
               </View>
             </ScrollView>
             </Animated.View>

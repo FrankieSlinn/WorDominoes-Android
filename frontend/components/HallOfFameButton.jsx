@@ -4,7 +4,7 @@ import {startNewGameFunction} from "../utils/startNewGameFunction.js"
 import {useEffect, useState} from "react";
 import { s } from "../App.style";
 
-export function HallOfFameButton({showHOF, setShowHOF
+export function HallOfFameButton({showHOF, setShowHOF, showYouInHOF, setShowYouInHOF
   }) {
 
     function handlePress(){
@@ -15,7 +15,7 @@ export function HallOfFameButton({showHOF, setShowHOF
     }
 
     return(<>
-    <View style={s.HOFButtonContainer}>
+    <View style={[s.HOFButtonContainer, {marginTop: showYouInHOF?25:60}]}>
 
         <TouchableOpacity style={s.HOFButton} onPress={handlePress}>
         <View style={s.HOFButtonInsideView}>

@@ -190,10 +190,10 @@ export const s = StyleSheet.create({
     margin: 5,
   },
   instructionTextBelow: {
-    marginTop: 20,
+    marginTop: 5,
   },
   displayDominoContainer: {
-    // height: 80,
+    // height: 807
     marginTop: -10,
 
     alignItems: "center",
@@ -370,6 +370,11 @@ export const s = StyleSheet.create({
 
     marginBottom: 3,
   },
+  handleLengthMessage:
+  {alignItems: "center"
+
+  },
+
   maxLengthText: {
     fontSize: 14,
     marginBottom: 2,
@@ -550,7 +555,9 @@ flex: 0.28,
   },
 
   youInHOFContainer: {
-    flex: 1,
+    marginTop: -17,
+    marginBottom: -10,
+    flex: 0.1,
     flexDirection: "row",
     justifyContent: "space-evenly",
   },

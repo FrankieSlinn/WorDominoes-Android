@@ -27,7 +27,9 @@ function startNewGameFunction(
   showHOFEntry,
   setShowHOFEntry,
   showYouInHOF,
-  setShowYouInHOF
+  setShowYouInHOF, 
+  handle, 
+  setHandle
 ) {
   console.log("start new game running");
   setGameStart(true);
@@ -80,6 +82,7 @@ function startNewGameFunction(
   setDominoesUsed([]);
   setShowHOFEntry(false);
   setShowYouInHOF(false);
+setHandle("");
 }
 
 export { startNewGameFunction };

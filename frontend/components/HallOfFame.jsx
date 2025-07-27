@@ -30,12 +30,13 @@ export function HallOfFame({ showHOF, setShowHOF }) {
 
   return (
     <>
-<View style ={s.HOFContainerMain}>
+
       <View style={s.headerContainer}>
         <View style={s.header}>
           <Text style={[s.logo, s.HOFMainHeading]}>WorDominoes Hall Of Fame</Text>
         </View>
       </View>
+      <View style ={s.HOFContainerMain}>
  
       <View style={s.returnToGameContainer}>
         <TouchableOpacity style={s.returnToGameButton} onPress={returnToGame}>

@@ -10,7 +10,7 @@ import { startNewGameFunction } from "../utils/startNewGameFunction.js"
 export function StartNewGameButton({ setGameStart, setGameFinished, setSingleGameScore, setDominoesInHand, setWord1Success, setWord2Success, setDisplayDomino,
   setDominoRotated, setNumberDominoesInGrid, setDominoIdsInGrid, setSelectedDominoObject, setGridSelectedDominoObjects, setTilePlaced, setTurnStart,
   setScoreArraySingleGame, worDomination, setWorDomination, setShowMakeWord, setDominoSelected, setWordSubmitted, dominoesUsed, setDominoesUsed,
-  worDominationCount, setWorDominationCount, showHOFEntry, setShowHOFEntry , showYouInHOF, setShowYouInHOF}) {
+  worDominationCount, setWorDominationCount, showHOFEntry, setShowHOFEntry , showYouInHOF, setShowYouInHOF, handle, setHandle}) {
 
   return (
     <>
@@ -18,7 +18,7 @@ export function StartNewGameButton({ setGameStart, setGameFinished, setSingleGam
         <TouchableOpacity style={[s.gameControlButton, s.startGameButton]} onPress={() => [startNewGameFunction(setGameStart, setGameFinished, setSingleGameScore, setDominoesInHand, setWord1Success, setWord2Success, setDisplayDomino,
           setDominoRotated, setNumberDominoesInGrid, setDominoIdsInGrid, setSelectedDominoObject, setGridSelectedDominoObjects, setTilePlaced, setTurnStart,
           setScoreArraySingleGame, worDomination, setWorDomination, setShowMakeWord, setDominoSelected, setWordSubmitted, dominoesUsed, setDominoesUsed,
-          showHOFEntry, setShowHOFEntry, showYouInHOF, setShowYouInHOF
+          showHOFEntry, setShowHOFEntry, showYouInHOF, setShowYouInHOF, handle, setHandle
         )]}>
           <Text style={s.gameControlText}>Start New Game</Text>
         </TouchableOpacity>

@@ -1,10 +1,8 @@
 import { StyleSheet } from "react-native";
 
 export const s = StyleSheet.create({
-
   appBody: {
     paddingHorizontal: 5,
-
   },
   statusBarBackground: {
     paddingTop: 90,
@@ -26,7 +24,8 @@ export const s = StyleSheet.create({
     fontWeight: "bold",
     letterSpacing: 0.2,
     shadowColor: "#000",
-    textAlign: "center"
+    textAlign: "center",
+    // backgroundColor: "green"
   },
   icons: {
     height: 30,
@@ -51,6 +50,7 @@ export const s = StyleSheet.create({
     justifyContent: "space-evenly",
     alignItems: "baseline",
     marginTop: 10,
+    // backgroundColor: "pink"
   },
 
   closeButtonContainer: {
@@ -212,11 +212,12 @@ export const s = StyleSheet.create({
     fontWeight: "normal",
     fontSize: 17,
     textAlign: "center",
-   backgroundColor: "#e8e1c3",
+    backgroundColor: "#e8e1c3",
     width: "110%",
     padding: 5,
-  //  height: "32",
-borderRadius: 10,  },
+    //  height: "32",
+    borderRadius: 10,
+  },
   input: {
     flex: 0.1,
     marginTop: 20,
@@ -230,14 +231,12 @@ borderRadius: 10,  },
     alignItems: "center",
     width: "90%",
   },
-  inputContainer:{
+  inputContainer: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
     // marginTop: -10,
     // marginBottom: 5,
-
-
   },
   inputText: {
     flex: 1,
@@ -245,7 +244,6 @@ borderRadius: 10,  },
     fontWeight: "bold",
     letterSpacing: 0.75,
     // justifyContent: "center",
-    
   },
 
   lettersContainer: {
@@ -283,7 +281,7 @@ borderRadius: 10,  },
   wordButton: {
     backgroundColor: "#053e4c",
     alignItems: "center",
-  
+
     borderWidth: 2,
     borderColor: "darkgray",
     borderRadius: 10,
@@ -295,7 +293,7 @@ borderRadius: 10,  },
   },
   wordButtonText: {
     color: "#eee",
-    
+
     fontWeight: "bold",
   },
   startFinishGameContainer: {
@@ -332,7 +330,7 @@ borderRadius: 10,  },
   HOFEntryOuterContainer: {
     alignItems: "center",
     marginTop: -9,
-    marginBottom: -32
+    marginBottom: -32,
   },
   HOFEntryContainer: {
     marginTop: -20,
@@ -369,36 +367,38 @@ borderRadius: 10,  },
   },
   handleView: {
     alignItems: "center",
- 
+
     marginBottom: 3,
   },
-  maxLengthText:{
-fontSize: 14,
-marginBottom: 2,
- },
+  maxLengthText: {
+    fontSize: 14,
+    marginBottom: 2,
+  },
   scoreView: {
     alignItems: "center",
   },
   HOFScoreText: {
     fontWeight: "bold",
     fontSize: 17,
-    marginBottom: -2
+    marginBottom: -2,
   },
   HOFEntryButton: {
     marginBottom: -17,
   },
-  HOFContainerMain:{
-  // flex: 4,
-  backgroundColor: "lightyellow",
-  height: "100%"
+  HOFContainerMain: {
+    flex: 1,
+    // backgroundColor: "lightyellow",
+    alignItems: "center",
+    height: "100%",
+    marginTop: 25,
   },
 
   HOFMainHeading: {
-    marginTop: 35,
     fontSize: 25,
     lineHeight: 25,
+    marginTop: 25,
 
-    backgroundColor: "lightblue"
+    // backgroundColor: "lightblue"
   },
 
   returnToGameContainer: {
@@ -406,11 +406,11 @@ marginBottom: 2,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 30,
+    marginTop: -5,
     marginBottom: -110,
     height: "5%",
- 
-    backgroundColor: "lightgreen",
+
+    // backgroundColor: "lightgreen",
   },
   returnToGameButton: {
     width: "40%",
@@ -431,45 +431,58 @@ marginBottom: 2,
     // marginTop: 700,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 150,
+    marginTop: 125,
     marginBottom: 50,
-    backgroundColor: "purple",
+    backgroundColor:"#e0f7fa",
+    width: "95%",
     height: "70%",
+    borderColor: "#D1D0CE",
+    borderWidth: 5,
+    borderRadius: 15,
   },
 
   HOFContentContainer: {
     flex: 1,
     flexDirection: "column",
-    justifyContent: "space-around",
-    width: "90%",
-   
+    // justifyContent: "space-evenly",
+    alignItems: "center",
+    width: "95%",
+    marginTop: 10,
+
     marginBottom: 0,
+    paddingBottom: 20,
 
     height: 400,
   },
   HOFHeadings: {
-    
-    marginTop: 70,
-    paddingBottom: 2,
+    // flex: 1,
+    paddingBottom: 10,
 
     flexDirection: "row",
-    justifyContent: "space-evenly",
- 
+    
+    justifyContent: "flex-start", // or "flex-start"
+    // alignItems: "center",
+    // backgroundColor: "lightgreen", 
+    
   },
   HOFHeadingText: {
+flex: 0.28,
+// justifyContent: "space-evenly",
+
     fontWeight: "bold",
     fontSize: 20,
     color: "#353839",
+    textAlign: "center",
   },
 
   HOFRows: {
-    marginTop:-7,
+    marginTop: -7,
     paddingVertical: 15,
   },
   HOFRow: {
     flex: 1,
     flexDirection: "row",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
     alignItems: "center",
     textAlign: "left",
     paddingLeft: "19%",

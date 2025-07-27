@@ -130,7 +130,7 @@ export default function Index() {
     const keyboardDidShowListener = Keyboard.addListener(
       "keyboardDidShow",
       (event) => {
-        let amountShiftedUp = 115;
+        let amountShiftedUp = 105;
 
 
         keyboardOffset.value = withSpring(
@@ -537,6 +537,8 @@ export default function Index() {
                   setShowHOFEntry={setShowHOFEntry}
                   showYouInHOF={showYouInHOF}
                   setShowYouInHOF={setShowYouInHOF}
+                  hnadle={handle}
+                  setHandle={setHandle}
                 />
               ) : showFinishGame === true ? (
                 <>

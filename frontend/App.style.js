@@ -80,6 +80,12 @@ export const s = StyleSheet.create({
     top: 10,
     margin: 32,
   },
+  helpTextContainer:{
+    marginBottom: 140,
+    paddingBottom: 70,
+
+
+  },
 
   helpText: {
     marginTop: -20,
@@ -92,6 +98,10 @@ export const s = StyleSheet.create({
     fontSize: 17,
     textAlign: "center",
   },
+chooseDominoContainer:{
+
+  marginTop: 20
+},
 
   instructionBox: {
     margin: 20,

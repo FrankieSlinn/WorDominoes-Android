@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const s = StyleSheet.create({
   appBody: {
-    paddingHorizontal: 5,
+    paddingHorizontal: 20,
   },
   statusBarBackground: {
     paddingTop: 90,
@@ -54,9 +54,9 @@ export const s = StyleSheet.create({
   },
 
   closeButtonContainer: {
-    marginTop: 80,
+    marginTop: 40,
     marginRight: 25,
-    marginBottom: -35,
+    marginBottom: -30,
     flexDirection: "row",
     justifyContent: "flex-end", // Aligns the button to the right
   },
@@ -81,9 +81,21 @@ export const s = StyleSheet.create({
     margin: 32,
   },
   helpTextContainer:{
-    marginBottom: 140,
-    paddingBottom: 70,
+ flex: 0.1,
 
+height: "100%",
+// backgroundColor: "yellow",
+  
+
+    //  marginTop: 700,
+    marginBottom: 140,
+    // paddingBottom: 70,
+
+
+
+  },
+  helpTextContainerInner:{
+// backgroundColor: "yellow",
 
   },
 
@@ -98,7 +110,17 @@ export const s = StyleSheet.create({
     fontSize: 17,
     textAlign: "center",
   },
+  scoreMessageContainer:{
+    marginTop: -20,
+
+
+
+
+
+
+  },
 chooseDominoContainer:{
+  paddingHorizontal: 20,
 
   marginTop: 20
 },
@@ -327,6 +349,7 @@ chooseDominoContainer:{
   },
 
   startGameButton: {
+    marginTop: -3,
     backgroundColor: "#053e4c",
   },
   continuePlayingButton: {

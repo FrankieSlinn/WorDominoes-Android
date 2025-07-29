@@ -19,7 +19,9 @@ export function HelpText({ showHelpText, setShowHelpText }) {
         showsVerticalScrollIndicator={false}
         style={s.statsHelpTextContainer}
       >
-        <View style={s.helpTextContainer}>
+              <View style={s.helpTextContainer}>
+        <View style={s.helpTextContainerInner}>
+     
         <Text style={s.helpText}>
           {"\n"}
           <Text style={s.popupHeading}>About WorDominoes</Text>
@@ -150,7 +152,9 @@ export function HelpText({ showHelpText, setShowHelpText }) {
           {"\n"}
         </Text>
         </View>
+        </View>
       </ScrollView>
+ 
     </>
   );
 }

@@ -229,6 +229,7 @@ export default function Index() {
             <ScrollView 
           
             keyboardShouldPersistTaps="handled"
+            showsVerticalScrollIndicator={false}
             >
               <TextAbove
                 gameFinished={gameFinished}

@@ -106,7 +106,7 @@ export default function Index() {
 
   const keyboardOffset = useSharedValue(0);
   //after rotated a few times, tile errors, wrong values picked up for current tile for tile 0//male sure dominoesInHand cannot be modified - prob fixed
-
+//can go from help section to stats, not vice versa
 
   //after place tile and then do icon the tile unrotates - storage for grid?
   //tiles allocated more than once - prob fixed.

@@ -5,7 +5,9 @@ import { s } from "../App.style";
 
 export function HallOfFame({ showHOF, setShowHOF }) {
 
+
   const [entries, setEntries] = useState([]);
+  const [numberOfHOFEntries, setNumberOfHOFEntries] = useState(20)
 
   function returnToGame() {
     console.log("returnToGame Button Clicked");
@@ -16,9 +18,10 @@ export function HallOfFame({ showHOF, setShowHOF }) {
     async function loadEntries() {
       try {
         console.log("HOF Running")
-        const data = await fetchHOFEntries();
+        const data = await fetchHOFEntries(numberOfHOFEntries);
         const sorted = data.sort((a, b) => b.score - a.score);
-        setEntries(sorted);
+        const shortenedEntries = sorted.slice(0, numberOfHOFEntries)
+        setEntries(shortenedEntries);
         console.log("Fetched HOF Entries:", data);
       } catch (error) {
         console.error("Error fetching Hall of Fame entries:", error);

@@ -552,7 +552,7 @@ flex: 0.28,
   },
   HOFScoreContainer: {
     // backgroundColor: "grey",
-    width: "12%",
+    width: "13%",
 
     alignItems: "center",
 

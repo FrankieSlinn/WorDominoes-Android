@@ -103,6 +103,8 @@ export default function Index() {
   const [finalScore, setFinalScore] = useState(0);
   const [showHOFEntry, setShowHOFEntry] = useState(false);
   const [showYouInHOF, setShowYouInHOF] = useState(false);
+  const [minHOFScore, setMinHOFScore]= useState(0)
+  const [entries, setEntries] = useState([]);
 
   const keyboardOffset = useSharedValue(0);
   //after rotated a few times, tile errors, wrong values picked up for current tile for tile 0//male sure dominoesInHand cannot be modified - prob fixed
@@ -565,6 +567,10 @@ export default function Index() {
                     showHOFEntry={showHOFEntry}
                     setShowHOFEntry={setShowHOFEntry}
                     handle={handle}
+                    minHOFScore={minHOFScore}
+                    setMinHOFScore={setMinHOFScore}
+                    entries={entries}
+                    setEntries={setEntries}
                   />
                 </>
 
@@ -580,6 +586,8 @@ export default function Index() {
                     setShowHOFEntry={setShowHOFEntry}
                     showYouInHOf={showYouInHOF}
                     setShowYouInHOF={setShowYouInHOF}
+                    minHOFScore={minHOFScore}
+                    setMinHOFScore={setMinHOFScore}
                   />
                 </View>
               ) : (
@@ -626,6 +634,10 @@ export default function Index() {
         <HallOfFame 
         showHOF={showHOF}
         setShowHOF={setShowHOF}
+        minHOFScore={minHOFScore}
+        setMinHOFScore={setMinHOFScore}
+        entries={entries}
+        setEntries={setEntries}
         />
       )}
 

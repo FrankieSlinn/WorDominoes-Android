@@ -1,13 +1,13 @@
 import { View, ScrollView, Text, TouchableOpacity, Alert } from "react-native";
 import { useEffect, useState } from "react";
-import { fetchHOFEntries} from "../utils/HOFDatabase.js";
+import {loadEntries}from "../utils/loadEntries"
 import { s } from "../App.style";
 
-export function HallOfFame({ showHOF, setShowHOF }) {
+export function HallOfFame({ showHOF, setShowHOF, minHOFScore, setMinHOFScore, entries, setEntries }) {
 
 
-  const [entries, setEntries] = useState([]);
-  const [numberOfHOFEntries, setNumberOfHOFEntries] = useState(20)
+
+  // const [numberOfHOFEntries, setNumberOfHOFEntries] = useState(20)
 
   function returnToGame() {
     console.log("returnToGame Button Clicked");
@@ -15,20 +15,11 @@ export function HallOfFame({ showHOF, setShowHOF }) {
   }
 
   useEffect(() => {
-    async function loadEntries() {
-      try {
-        console.log("HOF Running")
-        const data = await fetchHOFEntries(numberOfHOFEntries);
-        const sorted = data.sort((a, b) => b.score - a.score);
-        const shortenedEntries = sorted.slice(0, numberOfHOFEntries)
-        setEntries(shortenedEntries);
-        console.log("Fetched HOF Entries:", data);
-      } catch (error) {
-        console.error("Error fetching Hall of Fame entries:", error);
-      }
-    }
-
-    loadEntries();
+    const getEntries = async () => {
+      await loadEntries(setEntries, setMinHOFScore);
+    };
+  
+  getEntries();
   }, []);
 
   return (

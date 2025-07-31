@@ -2,29 +2,56 @@ import { View, Text, TouchableOpacity, Alert} from "react-native";
 import {useEffect, useState} from "react";
 import { s } from "../App.style";
 import {handleFinishGame} from "../utils/finishGame"
+import {loadEntries} from "../utils/loadEntries"
 import {StartNewGameButton} from "./StartNewGameButton";
 
 
 export function FinishGame({gameStart, setGameStart, gameFinished, setGameFinished, gamesArray, setGamesArray, worDominationCount, setWorDominationCount, singleGameScore, 
     setSingleGameScore, showFinishGame, setShowFinishGame, dominoesInHand, setDominoesInHand, finalScore, setFinalScore, worDomination, setWorDomination, 
-    showHOFEntry, setShowHOFEntry, handle
+    showHOFEntry, setShowHOFEntry, handle, minHOFScore, setMinHOFScore, entries, setEntries
    
 }) {
    
    //runs finish game function sets game to finished
-    function handleClick(gameFinished, setGameFinished, gamesArray, setGamesArray, worDomination, setWorDomination, worDominationCount, 
-        setWorDominationCount, singleGameScore, setSingleGameScore, finalScore, setFinalScore, showHOFEntry, setShowHOFEntry, handle
-    ){console.log("handleClick for Finishgame running")
-        setShowFinishGame(false);
-        
-        setGameFinished(true);
-    
-    handleFinishGame( gameFinished, setGameFinished, gamesArray, setGamesArray, worDomination, setWorDomination, worDominationCount, setWorDominationCount, 
-      singleGameScore, setSingleGameScore, finalScore, setFinalScore, showHOFEntry, setShowHOFEntry, handle)
-
-        
-        console.log("game finished in finish game", gameFinished);
-    }
+   async function handleClick(
+    gameFinished, setGameFinished, gamesArray, setGamesArray,
+    worDomination, setWorDomination, worDominationCount, setWorDominationCount,
+    singleGameScore, setSingleGameScore, finalScore, setFinalScore,
+    showHOFEntry, setShowHOFEntry, handle, minHOFScore
+  ) {
+    console.log("handleClick for Finishgame running");
+  
+    // Await the async call
+    const newMinScore = await loadEntries(setEntries, setMinHOFScore);
+  
+    console.log("Min HOF Score in HandleClick!!!!!!!", minHOFScore);
+  
+    setShowFinishGame(false);
+    setGameFinished(true);
+  
+    handleFinishGame(
+      gameFinished,
+      setGameFinished,
+      gamesArray,
+      setGamesArray,
+      worDomination,
+      setWorDomination,
+      worDominationCount,
+      setWorDominationCount,
+      singleGameScore,
+      setSingleGameScore,
+      finalScore,
+      setFinalScore,
+      showHOFEntry,
+      setShowHOFEntry,
+      handle, 
+      newMinScore
+    );
+ 
+  
+    console.log("game finished in finish game", gameFinished);
+  }
+  
 
      function showAlert(){
         console.log("alert should show")
@@ -39,7 +66,7 @@ export function FinishGame({gameStart, setGameStart, gameFinished, setGameFinish
             style: 'cancel',
           },
           {text: 'OK', onPress: () => {handleClick(gameFinished, setGameFinished, gamesArray, setGamesArray, worDomination, setWorDomination, worDominationCount, 
-            setWorDominationCount, singleGameScore, setSingleGameScore, finalScore, setFinalScore, showHOFEntry, setShowHOFEntry, handle
+            setWorDominationCount, singleGameScore, setSingleGameScore, finalScore, setFinalScore, showHOFEntry, setShowHOFEntry, handle, minHOFScore
             )}},
         ]
     

@@ -244,11 +244,15 @@ chooseDominoContainer:{
     fontWeight: "normal",
     fontSize: 17,
     textAlign: "center",
-    backgroundColor: "#e8e1c3",
+
     width: "110%",
     padding: 5,
     //  height: "32",
     borderRadius: 10,
+  },
+  placeholderHandle:{
+    backgroundColor: "#e8e1c3",
+
   },
   input: {
     flex: 0.1,

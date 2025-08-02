@@ -50,4 +50,28 @@ async function submitScore(handle, endOfGameScore) {
   }
 }
 
-export { fetchHOFEntries, submitScore };
+async function deleteHOFEntriesBelowScore(threshold) {
+  try {
+    const allEntries = await fetchHOFEntries(); // assumes it returns [{ _id, handle, score }, ...]
+
+    const toDelete = allEntries.filter(entry => entry.score < threshold);
+
+    for (const entry of toDelete) {
+      const response = await fetch(`${baseURL}/hofdataroute/${entry._id}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        console.warn(`Failed to delete entry with ID ${entry._id}`);
+      } else {
+        console.log(`Deleted entry with score ${entry.score}`);
+      }
+    }
+
+    console.log(`✅ Deleted ${toDelete.length} low-scoring entries`);
+  } catch (error) {
+    console.error("Error deleting low-scoring entries:", error);
+  }
+}
+
+export { fetchHOFEntries, submitScore, deleteHOFEntriesBelowScore };

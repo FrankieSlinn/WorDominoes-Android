@@ -1,7 +1,8 @@
 import { View, Text, TouchableOpacity, Alert, TextInput } from "react-native";
 import { useEffect, useState } from "react";
 import { s } from "../App.style";
-import { submitScore } from "../utils/HOFDatabase";
+import { submitScore, deleteHOFEntriesBelowScore } from "../utils/HOFDatabase";
+
 
 export function HOFEntry({
   handle,
@@ -12,12 +13,13 @@ export function HOFEntry({
   setShowHOFEntry,
   showYouInHOF,
   setShowYouInHOF,
+  minHOFScore
 }) {
   useEffect(() => {
     console.log("useeffect for logging final score in HOFEntry running!!!!!!!");
     console.log("finalScore in HOFEntry", finalScore);
     console.log("showHOFEntry in HOFENTRY"), showHOFEntry
-    // setShowYouInHOF(true)
+    deleteHOFEntriesBelowScore(minHOFScore) 
   }, [finalScore]);
 
   function submitHOFEntry(handle, finalScore) {
@@ -27,7 +29,7 @@ export function HOFEntry({
     submitScore(handle, scoreToSubmit);
     setShowHOFEntry(false);
     setShowYouInHOF(true);
-    console.log("You In HOF", showYouInHOF);
+    // console.log("You In HOF", showYouInHOF);
     }
   }
 
@@ -46,7 +48,7 @@ export function HOFEntry({
                 {/* <Text>{"\n"}</Text> */}
                 </Text><Text style ={s.maxLengthText}>Max Length: 12</Text>
               <TextInput
-                style={handle.length === 0 ? s.placeholder : s.inputText}
+                style={handle.length === 0 ? [s.placeholder, s.placeholderHandle] : s.inputText}
                 placeholder={"Enter Your Handle"}
                 value={handle}
                 onChangeText={setHandle}

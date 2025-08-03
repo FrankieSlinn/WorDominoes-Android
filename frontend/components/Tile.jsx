@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { s } from "../App.style.js";
 import { dominoImageMappings } from "../utils/dominoImageMappings.js";
 import { handleTilePress } from "../utils/handleTilePress.js";
+import { getTileRotatedState, storeTileRotatedState } from "@/utils/asynchStorageUtils.js";
 
 export function Tile({
   tileId,
@@ -69,8 +70,7 @@ export function Tile({
   const [wrongTileErrorInSpecificTile, setWrongTileErrorInSpecificTile] =
     useState(false);
 
-    // console.log("dominoesInHand in in tile", dominoesInHand)
-    // console.log("selectedDominoIndex in tile", selectedDominoIndex)
+
     // console.log("dominoesInHand[selectedDominoIndex] in tile", dominoesInHand[selectedDominoIndex])
 
   //reset needed to cancel any tileRotationState changes
@@ -82,6 +82,7 @@ export function Tile({
       gridSelectedDominoObjects[tileId] === "empty"
     ) {
       setTileRotatedState(false);
+      storeTileRotatedState(false)
       setTilePlacedState(false);
     }
   }, [turnStart, gameStart]);
@@ -90,6 +91,7 @@ export function Tile({
 
     if (!tilePlacedState && gridSelectedDominoObjects[tileId] === "empty") {
       setTileRotatedState(dominoRotated);
+      storeTileRotatedState(dominoRotated)
       setWrongTileErrorInSpecificTile(false);
     }
   }, [
@@ -170,7 +172,7 @@ export function Tile({
             ];
           }}
         >
-          {wrongTileErrorInSpecificTile ? null : !tileRotatedState ? (
+          {wrongTileErrorInSpecificTile ? null : !getTileRotatedState ? (
             //no wrong tile error and tile not rotated
             <Image
               source={dominoImageMappings[dominoIdsInGrid[tileId]]}

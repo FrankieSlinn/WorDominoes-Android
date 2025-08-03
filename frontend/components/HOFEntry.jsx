@@ -52,6 +52,7 @@ export function HOFEntry({
                 placeholder={"Enter Your Handle"}
                 value={handle}
                 onChangeText={setHandle}
+                keyboardType="default" 
           
               >
                      </TextInput>

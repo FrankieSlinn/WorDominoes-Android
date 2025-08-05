@@ -70,7 +70,7 @@ export function Input({
   return (
     <>
     <View style={s.inputContainer}>
-      <View style={s.input}>
+      <View style={[s.wordInput, s.input]}>
         {wordNum === 1 ? (
           <Text style={inputString1.length === 0 ? s.placeholder : s.inputText}>
             {inputString1.length === 0

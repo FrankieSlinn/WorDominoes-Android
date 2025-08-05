@@ -70,6 +70,28 @@ export function Tile({
   const [wrongTileErrorInSpecificTile, setWrongTileErrorInSpecificTile] =
     useState(false);
 
+      //reset and load seleted tiles
+  useEffect(() => {
+    console.log(
+      "gameStart in letterTiles before clearing letterTile",
+      gameStart
+    );
+    const handleTileRotations = async () => {
+      if (turnStart === true) {
+        storeSTileRotatedState(false);
+ 
+      } else {
+        const storedTileRotatedState = await getTileRotatedState();
+
+        setTileRotatedState(storedTileRotatedState);
+   
+
+      }
+    };
+
+    handleTileRotations();
+  }, []);
+
 
     // console.log("dominoesInHand[selectedDominoIndex] in tile", dominoesInHand[selectedDominoIndex])
 
@@ -172,7 +194,7 @@ export function Tile({
             ];
           }}
         >
-          {wrongTileErrorInSpecificTile ? null : !getTileRotatedState ? (
+          {wrongTileErrorInSpecificTile ? null : !tileRotatedState ? (
             //no wrong tile error and tile not rotated
             <Image
               source={dominoImageMappings[dominoIdsInGrid[tileId]]}

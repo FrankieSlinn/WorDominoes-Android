@@ -80,12 +80,12 @@ export const s = StyleSheet.create({
     top: 10,
     margin: 32,
   },
-  helpTextContainer:{
- flex: 0.1,
+  helpTextContainer: {
+    flex: 0.1,
 
-height: "100%",
-// backgroundColor: "yellow",
-  
+    height: "100%",
+    // backgroundColor: "yellow",
+
 
     //  marginTop: 700,
     marginBottom: 140,
@@ -94,8 +94,8 @@ height: "100%",
 
 
   },
-  helpTextContainerInner:{
-// backgroundColor: "yellow",
+  helpTextContainerInner: {
+    // backgroundColor: "yellow",
 
   },
 
@@ -110,7 +110,7 @@ height: "100%",
     fontSize: 17,
     textAlign: "center",
   },
-  scoreMessageContainer:{
+  scoreMessageContainer: {
     marginTop: -20,
 
 
@@ -119,11 +119,11 @@ height: "100%",
 
 
   },
-chooseDominoContainer:{
-  paddingHorizontal: 20,
+  chooseDominoContainer: {
+    paddingHorizontal: 20,
 
-  marginTop: 20
-},
+    marginTop: 20
+  },
 
   instructionBox: {
     margin: 20,
@@ -244,22 +244,22 @@ chooseDominoContainer:{
     fontWeight: "normal",
     fontSize: 17,
     textAlign: "center",
-
     width: "110%",
     padding: 5,
-    //  height: "32",
     borderRadius: 10,
   },
-  placeholderHandle:{
+  placeholderHandle: {
     backgroundColor: "#e8e1c3",
 
   },
+
   input: {
-    flex: 0.1,
-    marginTop: 20,
+    // flex: 0.1,
+    marginTop: 10,
+    marginBottom: 3,
     padding: 10,
     backgroundColor: "lightyellow",
-    height: 40,
+    // height: 40,
     borderRadius: 10,
     textAlign: "center",
 
@@ -267,13 +267,13 @@ chooseDominoContainer:{
     alignItems: "center",
     width: "90%",
   },
-  inputContainer: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    // marginTop: -10,
-    // marginBottom: 5,
-  },
+  // inputContainer: {
+  //   // flex: 1,
+  //   // alignItems: "center",
+  //   // justifyContent: "center",
+  //   // marginTop: -10,
+  //   // marginBottom: 5,
+  // },
   inputText: {
     flex: 1,
     fontSize: 20,
@@ -350,6 +350,7 @@ chooseDominoContainer:{
   },
   finishGameButton: {
     backgroundColor: "#C14432",
+    marginBottom: -170,
   },
 
   startGameButton: {
@@ -408,7 +409,8 @@ chooseDominoContainer:{
     marginBottom: 3,
   },
   handleLengthMessage:
-  {alignItems: "center"
+  {
+    alignItems: "center"
 
   },
 
@@ -475,7 +477,7 @@ chooseDominoContainer:{
     alignItems: "center",
     marginTop: 125,
     marginBottom: 50,
-    backgroundColor:"#e0f7fa",
+    backgroundColor: "#e0f7fa",
     width: "95%",
     height: "70%",
     borderColor: "#D1D0CE",
@@ -501,15 +503,15 @@ chooseDominoContainer:{
     paddingBottom: 10,
 
     flexDirection: "row",
-    
+
     justifyContent: "flex-start", // or "flex-start"
     // alignItems: "center",
     // backgroundColor: "lightgreen", 
-    
+
   },
   HOFHeadingText: {
-flex: 0.28,
-// justifyContent: "space-evenly",
+    flex: 0.28,
+    // justifyContent: "space-evenly",
 
     fontWeight: "bold",
     fontSize: 20,

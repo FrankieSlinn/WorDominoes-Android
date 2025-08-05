@@ -4,7 +4,7 @@ import {startNewGameFunction} from "../utils/startNewGameFunction.js"
 import {useEffect, useState} from "react";
 import { s } from "../App.style";
 
-export function HallOfFameButton({showHOF, setShowHOF, showYouInHOF, setShowYouInHOF
+export function HallOfFameButton({showHOF, setShowHOF, showYouInHOF, setShowYouInHOF, showHOFEntry
   }) {
 
     function handlePress(){

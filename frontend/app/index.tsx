@@ -110,16 +110,16 @@ export default function Index() {
   //after rotated a few times, tile errors, wrong values picked up for current tile for tile 0//male sure dominoesInHand cannot be modified - prob fixed
 //can go from help section to stats, not vice versa
 
-  //after place tile and then do icon the tile unrotates - storage for grid?
+  //after place tile and then do icon the tile unrotates - storage for grid? = prob fixed
   //tiles allocated more than once - prob fixed.
   //d2(32) showing as 23 - still issue. Shows in dominoes in hand - prob fixed.
   //showed two or more of same tile, e.g. 55 - prob fixed.
   //rotation state still issues - prob fixed.
   //Runs out of dominoes after new game - prob fixed
-  //No 42 or 52 dominoes!!!!
+  //No 42 or 52 dominoes!!!! - prob fixed.
   //ensure selected DominoObject unotated driven by originalSelectedDominoObject - prob fixed
   //sometimes after click on tile that's already placed if something fts needs to click on that empty space twice(at first says tile doesn't fit) - prob fixed.
-  //domino mages not always showing.
+  //domino mages not always showing = prob fixed.
   //wrong value placed when reversed - prob fixed.
   //start new game need to empty array of used tiles - prob fixed.
   ///check logic for accepting tiles 11 12 let different ones next to each other - prob fixed.
@@ -634,6 +634,7 @@ export default function Index() {
         <HallOfFame 
         showHOF={showHOF}
         setShowHOF={setShowHOF}
+        showHOFEntry={showHOFEntry}
         minHOFScore={minHOFScore}
         setMinHOFScore={setMinHOFScore}
         entries={entries}

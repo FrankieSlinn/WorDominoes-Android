@@ -77,7 +77,7 @@ export function Tile({
       gameStart
     );
     const handleTileRotations = async () => {
-      if (turnStart === true) {
+      if (gameStart === true) {
         storeSTileRotatedState(false);
  
       } else {
@@ -182,8 +182,8 @@ export function Tile({
                 singleGameScore,
                 setSingleGameScore,
                 setSelectedLetters1,
-                setSelectedLetters2, 
-                selectedDominoIndex,
+                setSelectedLetters2,
+                selectedDominoIndex, 
                 setSelectedDominoIndex,
                 dominoesUsed,
                 setDominoesUsed,

@@ -13,8 +13,8 @@ export function ContinuePlaying({gameStart, setGameStart, dominoesInHand, setDom
     worDomination, setWorDomination
 }) {
   function handleContinuePlaying(){
-    newWorDominationCount = worDominationCount+1
-    setWorDominationCount(newWorDominationCount)
+    // newWorDominationCount = worDominationCount+1
+    // setWorDominationCount(newWorDominationCount)
     startNewGameFunction(setGameStart, setGameFinished, setSingleGameScore, setDominoesInHand, setWord1Success, setWord2Success, setDisplayDomino,
       setDominoRotated, setNumberDominoesInGrid, setDominoIdsInGrid, setSelectedDominoObject, setGridSelectedDominoObjects, setTilePlaced, setTurnStart, 
       setScoreArraySingleGame, worDomination, setWorDomination,  setShowMakeWord, setDominoSelected, setWordSubmitted);

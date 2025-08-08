@@ -55,6 +55,7 @@ const handleTileFits = async (
   setFinalScore
 ) => {
   let dominoDots = Object.values(selectedDominoObject).join("");
+  console.log("wordDomination in hadnletile fits")
   console.log("dominoDots in beginning of handlTileFits", dominoDots);
   console.log("handle tile fits running");
   console.log("tileData.currentTile", tileData.currentTile);
@@ -76,9 +77,7 @@ const handleTileFits = async (
     setDominoesInHand
   );
 
-  console.log("calling addScoreToScoreArraySingleGame before try");
 
-  console.log("calling addScoreToScoreArraySingleGame");
   addScoreToScoreArraySingleGame(
     selectedDominoObject,
     scoreArraySingleGame,
@@ -106,9 +105,11 @@ const handleTileFits = async (
     gridSelectedDominoObjects,
     setGridSelectedDominoObjects,
     worDomination,
-    setWorDomination
-  );
-  console.log("about to run allocateDominoesPrep");
+    setWorDomination,
+    worDominationCount,
+    setWorDominationCount
+  ) 
+
 
   allocateDominoesPrep(
     dominoesInHand,
@@ -119,11 +120,11 @@ const handleTileFits = async (
     dominoesUsed,
     setDominoesUsed
   );
-  checkWorDomination(
-    gridSelectedDominoObjects,
-    worDomination,
-    setWorDomination
-  );
+  // checkWorDomination(
+  //   gridSelectedDominoObjects,
+  //   worDomination,
+  //   setWorDomination
+  // );
 };
 
 function addScoreToScoreArraySingleGame(
@@ -196,7 +197,9 @@ function populateValuesInGrid(
   gridSelectedDominoObjects,
   setGridSelectedDominoObjects,
   worDomination,
-  setWorDomination // Add this
+  setWorDomination,
+  worDominationCount,
+  setWorDominationCount
 ) {
   console.log("populateValuesInGridRunning!!!!!!!!!");
 
@@ -247,14 +250,14 @@ function populateValuesInGrid(
   setDominoIdsInGrid(newDominoIdsInGrid);
 
   console.log("dominoeIdsGrid", newDominoIdsInGrid);
-  // console.log("Object.values sleectedDominoObject In handleTileFits", Object.values(selectedDominoObject).join(""))
-  // checkWorDomination(
-  //   gridSelectedDominoObjects,
-  //   worDomination,
-  //   setWorDomination
-  // ); // use updated copy
-
-  // setGameFinished(false);
+  checkWorDomination(
+    newDominoIdsInGrid,
+    worDomination,
+    setWorDomination,
+    worDominationCount,
+    setWorDominationCount
+  
+  ) 
   console.log("about to run allocateDominoesPrep in function");
 }
 function allocateDominoesPrep(
@@ -283,7 +286,10 @@ function allocateDominoesPrep(
 function checkWorDomination(
   gridSelectedDominoObjects,
   worDomination,
-  setWorDomination
+  setWorDomination,
+  worDominationCount,
+  setWorDominationCount
+
 ) {
   console.log("check worDomination running");
   console.log(
@@ -291,10 +297,12 @@ function checkWorDomination(
     gridSelectedDominoObjects
   );
   if (
-    gridSelectedDominoObjects.every((item) => item !== "empty") ||
-    dominoIdsInGrid.every((item) => item !== "empty")
+    gridSelectedDominoObjects.every((item) => item !== "empty") 
+  
   ) {
     setWorDomination(true);
+    setWorDominationCount(prev=>prev+1)
+    console.log("word domination", worDomination)
     console.log("worDomination condition met");
   } else {
     console.log("worDomination condition not met");

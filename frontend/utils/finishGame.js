@@ -71,7 +71,7 @@ async function addScoreToScoreArray(
 
   //   console.log("score", score)
   try {
-    let endOfGameScore = Number(singleGameScore + worDominationCount * 30);
+    let endOfGameScore = Number(singleGameScore) + Number(worDominationCount) * 30;
     console.log("END OF GAME SCORE", endOfGameScore)
     setFinalScore(endOfGameScore);
     console.log("finalScore in finishGame function", finalScore);

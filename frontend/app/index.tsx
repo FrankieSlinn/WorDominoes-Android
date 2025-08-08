@@ -125,7 +125,12 @@ export default function Index() {
   ///check logic for accepting tiles 11 12 let different ones next to each other - prob fixed.
   //Make sure after tile placed cannot be allocated - prob fixed.
   //saw selected letter that wasn't in input
-
+  useEffect(() => {
+    console.log("worDomination updated to", worDomination);
+    if (worDomination) {
+      // run follow-up logic here
+    }
+  }, [worDomination]);
 
   //shifts keyboard when user types
   useEffect(() => {

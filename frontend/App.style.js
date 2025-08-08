@@ -358,9 +358,11 @@ export const s = StyleSheet.create({
     backgroundColor: "#053e4c",
   },
   continuePlayingButton: {
+    
     backgroundColor: "#053e4c",
-    marginTop: -60,
+    marginTop: 0,
     marginBottom: 50,
+    borderRadius: 15,
   },
   WorDominationCount: {
     marginTop: 45,

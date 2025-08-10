@@ -19,6 +19,10 @@ export const s = StyleSheet.create({
   bold: {
     fontWeight: "bold",
   },
+  standardButtonText:{
+    backgroundColor: "white",
+    fontWeight: "bold"
+  },
   logo: {
     fontSize: 35,
     fontWeight: "bold",

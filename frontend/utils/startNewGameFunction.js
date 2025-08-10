@@ -2,9 +2,10 @@ import { allocateDominoes } from "./allocateDominoes";
 // import {dominoes} from ".dominoes";
 
 function startNewGameFunction(
-  setGameStart,
+  gameStart, setGameStart,
   setGameFinished,
   setSingleGameScore,
+  dominoesInHand,
   setDominoesInHand,
   setWord1Success,
   setWord2Success,
@@ -15,6 +16,7 @@ function startNewGameFunction(
   setSelectedDominoObject,
   setGridSelectedDominoObjects,
   setTilePlaced,
+  turnStart,
   setTurnStart,
   setScoreArraySingleGame,
   worDomination,
@@ -32,9 +34,80 @@ function startNewGameFunction(
   setHandle
 ) {
   console.log("start new game running");
-  setGameStart(true);
-  setGameFinished(false);
+  gameResets(  gameStart, setGameStart,
+    setGameFinished,
+    setSingleGameScore,
+    dominoesInHand,
+    setDominoesInHand,
+    setWord1Success,
+    setWord2Success,
+    setDisplayDomino,
+    setDominoRotated,
+    setNumberDominoesInGrid,
+    setDominoIdsInGrid,
+    setSelectedDominoObject,
+    setGridSelectedDominoObjects,
+    setTilePlaced,
+    turnStart,
+    setTurnStart,
+    setScoreArraySingleGame,
+    worDomination,
+    setWorDomination,
+    setShowMakeWord,
+    setDominoSelected,
+    setWordSubmitted,
+    dominoesUsed,
+    setDominoesUsed,
+    showHOFEntry,
+    setShowHOFEntry,
+    showYouInHOF,
+    setShowYouInHOF, 
+    handle, 
+    setHandle)
+  
+
   setSingleGameScore(0);
+ 
+  if (worDomination != true) {
+    setScoreArraySingleGame([]);
+  }
+
+}
+
+function gameResets(  gameStart, setGameStart,
+  setGameFinished,
+  setSingleGameScore,
+  dominoesInHand,
+  setDominoesInHand,
+  setWord1Success,
+  setWord2Success,
+  setDisplayDomino,
+  setDominoRotated,
+  setNumberDominoesInGrid,
+  setDominoIdsInGrid,
+  setSelectedDominoObject,
+  setGridSelectedDominoObjects,
+  setTilePlaced,
+  turnStart,
+  setTurnStart,
+  setScoreArraySingleGame,
+  worDomination,
+  setWorDomination,
+  setShowMakeWord,
+  setDominoSelected,
+  setWordSubmitted,
+  dominoesUsed,
+  setDominoesUsed,
+  showHOFEntry,
+  setShowHOFEntry,
+  showYouInHOF,
+  setShowYouInHOF, 
+  handle, 
+  setHandle){
+  console.log("gameResets running")
+  setGameStart(true);
+  allocateDominoes(dominoesInHand, setDominoesInHand, turnStart, true, dominoesUsed,setDominoesUsed);
+  setGameFinished(false);
   setDominoesInHand([]);
   setWord1Success(false);
   setWord2Success(false);
@@ -72,10 +145,6 @@ function startNewGameFunction(
   ]);
   setTilePlaced(false);
   setTurnStart(true);
-  if (worDomination != true) {
-    setScoreArraySingleGame([]);
-  }
-
   setShowMakeWord(false);
   setDominoSelected(false);
   setWordSubmitted(false);
@@ -83,6 +152,8 @@ function startNewGameFunction(
   setShowHOFEntry(false);
   setShowYouInHOF(false);
 setHandle("");
+
+
 }
 
-export { startNewGameFunction };
+export { startNewGameFunction, gameResets };

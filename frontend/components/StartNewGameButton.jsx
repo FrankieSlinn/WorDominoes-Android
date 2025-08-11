@@ -7,17 +7,19 @@ import { s } from "../App.style";
 import { startNewGameFunction } from "../utils/startNewGameFunction.js"
 
 
-export function StartNewGameButton({ setGameStart, setGameFinished, setSingleGameScore, setDominoesInHand, setWord1Success, setWord2Success, setDisplayDomino,
-  setDominoRotated, setNumberDominoesInGrid, setDominoIdsInGrid, setSelectedDominoObject, setGridSelectedDominoObjects, setTilePlaced, setTurnStart,
+export function StartNewGameButton({ gameStart, setGameStart, setGameFinished, setSingleGameScore, dominoesInHand, setDominoesInHand, setWord1Success, setWord2Success, setDisplayDomino,
+  setDominoRotated, setNumberDominoesInGrid, setDominoIdsInGrid, setSelectedDominoObject, setGridSelectedDominoObjects, setTilePlaced, turnStart, setTurnStart,
   setScoreArraySingleGame, worDomination, setWorDomination, setShowMakeWord, setDominoSelected, setWordSubmitted, dominoesUsed, setDominoesUsed,
   worDominationCount, setWorDominationCount, showHOFEntry, setShowHOFEntry , showYouInHOF, setShowYouInHOF, handle, setHandle}) {
 
   return (
     <>
       <View style={s.startFinishGameContainer}>
-        <TouchableOpacity style={[s.gameControlButton, s.startGameButton]} onPress={() => [startNewGameFunction(setGameStart,
+        <TouchableOpacity style={[s.gameControlButton, s.startGameButton]} onPress={() => [startNewGameFunction(
+  gameStart, setGameStart,
   setGameFinished,
   setSingleGameScore,
+  dominoesInHand,
   setDominoesInHand,
   setWord1Success,
   setWord2Success,
@@ -28,6 +30,7 @@ export function StartNewGameButton({ setGameStart, setGameFinished, setSingleGam
   setSelectedDominoObject,
   setGridSelectedDominoObjects,
   setTilePlaced,
+  turnStart,
   setTurnStart,
   setScoreArraySingleGame,
   worDomination,

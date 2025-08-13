@@ -19,7 +19,7 @@ export function ContinuePlaying({gameStart, setGameStart, dominoesInHand, setDom
     {worDomination?
     <View style={s.startFinishGameContainer}>
     
-<TouchableOpacity style={[s.startFinishGameButton, s.continuePlayingButton, s.wordButton]} onPress={()=>gameResets(gameStart, setGameStart,
+<TouchableOpacity style={[ s.continuePlayingButton, {marginBottom: worDomination? -74:null}]} onPress={()=>gameResets(gameStart, setGameStart,
   setGameFinished,
   setSingleGameScore,
   dominoesInHand,
@@ -51,7 +51,7 @@ export function ContinuePlaying({gameStart, setGameStart, dominoesInHand, setDom
   setHandle)
 }>
  
-   <Text  style={s.standardButtonText}>Continue Playing</Text>
+   <Text  style={s.continuePlayingText}>Continue Playing</Text>
     </TouchableOpacity>
     </View>
     :null}

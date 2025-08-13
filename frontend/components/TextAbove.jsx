@@ -15,14 +15,17 @@ export function TextAbove({gameFinished, setGameFinished, tileFullError, wrongTi
         <>
           {
                worDomination===true?
-               <View style={[s.instructionBox, {height:50, marginBottom: 12, marginRight: 20}]}>
-               <Text style={[s.instructionText] }>
-               CONGRATULATIONS!!!! YOU HAVE ACHIEVED WORDOMINATION!!!!
+               <View style={[s.instructionBox, {height:50, marginTop: 35, marginBottom: 20, marginRight: 20}]}>
+               <Text style={[s.instructionText, s.bold] }>
+               CONGRATULATIONS!!!! 
+             </Text>
+             <Text style={[s.instructionText, s.bold] }>
+              YOU HAVE ACHIEVED WORDOMINATION!!!!
              </Text>
              </View>
              :gameFinished===true?
              <View style={[s.instructionBox, {height:50, marginBottom: 12, marginRight: 20}]}>
-             <Text style={[s.instructionText]}>You Have Finished This Game</Text>
+             <Text style={[s.instructionText, s.bold]}>You Have Finished This Game</Text>
              </View>
              
              
@@ -31,7 +34,7 @@ export function TextAbove({gameFinished, setGameFinished, tileFullError, wrongTi
           tileFullError===false&&wrongTileError===false&&tilePlaced===false?
           <View style={[s.instructionBox, {height:50, marginBottom: 14, marginTop:25}]}>
           <Text style={s.instructionText}>
-            Fill the grid with dominoes to achieve Word Domination.
+            Fill the grid with dominoes to achieve Word Domination
         
        
           </Text>
@@ -39,7 +42,7 @@ export function TextAbove({gameFinished, setGameFinished, tileFullError, wrongTi
           :!tileFullError===true&&!wrongTileError===true&&tileFullError===false&&tilePlaced===true?
       
           <View style={[s.instructionBox, {height:50, marginBottom: 10, marginTop:10}]}>
-          <Text style={s.instructionText}s>
+          <Text style={[s.instructionText, s.bold]}s>
           Congratulations, you placed a tile!!!
         </Text>
         </View>

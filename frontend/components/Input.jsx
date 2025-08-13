@@ -74,13 +74,13 @@ export function Input({
         {wordNum === 1 ? (
           <Text style={inputString1.length === 0 ? s.placeholder : s.inputText}>
             {inputString1.length === 0
-              ? "Select letter tiles below to make a word."
+              ? "Select letter tiles below to make a word"
               : inputString1}
           </Text>
         ) : (
           <Text style={inputString2.length === 0 ? s.placeholder : s.inputText}>
             {inputString2.length === 0
-              ? "Select letter tiles below to make a word."
+              ? "Select letter tiles below to make a words"
               : inputString2}
           </Text>
         )}

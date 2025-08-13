@@ -109,7 +109,7 @@ export function Word({
         {word1Success === false 
         ? (
           <Text style={s.instructionText}>
-            {`Make a word with ${wordLength1} letters.`}
+            {`Make a word with ${wordLength1} letters`}
           </Text>
         ) : 
         <Text style={s.instructionText}>
@@ -117,7 +117,7 @@ export function Word({
         {"\n"}
         <Text style={s.instructionText}>{inputString1}</Text>
         {"\n"}
-        {`Now make a second word with ${wordLength2} letters.`}
+        {`Now make a second word with ${wordLength2} letters`}
       </Text>}
         
         

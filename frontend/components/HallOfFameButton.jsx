@@ -4,7 +4,7 @@ import {startNewGameFunction} from "../utils/startNewGameFunction.js"
 import {useEffect, useState} from "react";
 import { s } from "../App.style";
 
-export function HallOfFameButton({showHOF, setShowHOF, showYouInHOF, setShowYouInHOF, showHOFEntry
+export function HallOfFameButton({showHOF, setShowHOF, showYouInHOF, setShowYouInHOF, showHOFEntry, worDomination
   }) {
 
     function handlePress(){
@@ -15,7 +15,7 @@ export function HallOfFameButton({showHOF, setShowHOF, showYouInHOF, setShowYouI
     }
 
     return(<>
-    <View style={[s.HOFButtonContainer, {marginTop: showYouInHOF?25:60}]}>
+    <View style={[s.HOFButtonContainer, {marginTop: showYouInHOF?25:worDomination?17:60}]}>
 
         <TouchableOpacity style={s.HOFButton} onPress={handlePress}>
         <View style={s.HOFButtonInsideView}>
@@ -25,7 +25,7 @@ export function HallOfFameButton({showHOF, setShowHOF, showYouInHOF, setShowYouI
         </View>
         </TouchableOpacity>
 
-      <Text>{"\n"} {"\n"} {"\n"} {"\n"} {"\n"} {"\n"} </Text>  
+      <Text>{"\n"} {"\n"} {"\n"} {"\n"} {"\n"} {"\n"} {"\n"} {"\n"} {"\n"}</Text>  
 
 
     </View>

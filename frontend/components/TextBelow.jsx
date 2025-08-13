@@ -21,7 +21,7 @@ export function TextBelow({word1Success, dominoSelected, setDominoSelected, game
           <View style={[s.chooseDominoContainer]}>
             { gameFinished===true?
             <View style={s.scoreMessageContainer}>
-             <Text style={s.instructionText}>You Have Scored {gamesArray[gamesArray.length-1]||0} Points</Text>
+             <Text style={[s.instructionText, s.bold]}>You Have Scored {gamesArray[gamesArray.length-1]||0} Points</Text>
              </View>
             : dominoSelected===false||gameStart===true? 
             

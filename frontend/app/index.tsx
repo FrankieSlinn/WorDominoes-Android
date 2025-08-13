@@ -109,7 +109,7 @@ export default function Index() {
   const keyboardOffset = useSharedValue(0);
   //after rotated a few times, tile errors, wrong values picked up for current tile for tile 0//male sure dominoesInHand cannot be modified - prob fixed
   //can go from help section to stats, not vice versa
-
+//make sure worDomination / worDomination count kept if view help or stats in game - works
   //after place tile and then do icon the tile unrotates - storage for grid? = prob fixed
   //tiles allocated more than once - prob fixed.
   //d2(32) showing as 23 - still issue. Shows in dominoes in hand - prob fixed.
@@ -616,6 +616,7 @@ export default function Index() {
                       setShowHOF={setShowHOF}
                       showYouInHOF={showYouInHOF}
                       setShowYouInHOF={setShowYouInHOF}
+                      worDomination={worDomination}
                     />
                   </View>
                 </ScrollView>

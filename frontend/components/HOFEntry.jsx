@@ -72,7 +72,7 @@ export function HOFEntry({
             </View>
           </View>
           <TouchableOpacity
-            style={[s.gameControlButton, s.startGameButton, s.HOFEntryButton]}
+            style={[s.gameControlButton, s.startGameButton, s.HOFEntryButton, s.buttonBorders]}
             onPress={() => submitHOFEntry(handle, finalScore)}
           >
             <Text style={s.gameControlText}>Enter The Hall Of Fame</Text>

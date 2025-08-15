@@ -36,7 +36,7 @@ export function HallOfFame({
       </View>
       <View style={s.HOFContainerMain}>
         <View style={s.returnToGameContainer}>
-          <TouchableOpacity style={s.returnToGameButton} onPress={returnToGame}>
+          <TouchableOpacity style={[s.returnToGameButton, s.buttonBorders]} onPress={returnToGame}>
             <Text style={s.returnToGameButtonText}> Return To Game</Text>
           </TouchableOpacity>
         </View>

@@ -15,13 +15,21 @@ export const s = StyleSheet.create({
     right: 0,
     zIndex: 10,
   },
+  buttonBorders:{
+    borderWidth: 2,
+    borderColor: "#bdc5c7",
+    borderRadius: 10,
+  
+
+
+  },
 
   bold: {
     fontWeight: "bold",
   },
-  standardButtonText:{
+  standardButtonText: {
     backgroundColor: "white",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   logo: {
     fontSize: 35,
@@ -60,14 +68,15 @@ export const s = StyleSheet.create({
   closeButtonContainer: {
     marginTop: 40,
     marginRight: 25,
-    marginBottom: -30,
+    marginBottom: -35,
     flexDirection: "row",
     justifyContent: "flex-end", // Aligns the button to the right
   },
   closeButton: {
-    padding: 8,
+    padding: 4,
+
     backgroundColor: "#053e4c",
-    borderRadius: 10,
+
   },
   close: {
     fontWeight: "bold",
@@ -90,17 +99,12 @@ export const s = StyleSheet.create({
     height: "100%",
     // backgroundColor: "yellow",
 
-
     //  marginTop: 700,
     marginBottom: 140,
     // paddingBottom: 70,
-
-
-
   },
   helpTextContainerInner: {
     // backgroundColor: "yellow",
-
   },
 
   helpText: {
@@ -116,17 +120,11 @@ export const s = StyleSheet.create({
   },
   scoreMessageContainer: {
     marginTop: -20,
-
-
-
-
-
-
   },
   chooseDominoContainer: {
     paddingHorizontal: 20,
 
-    marginTop: 20
+    marginTop: 20,
   },
 
   instructionBox: {
@@ -254,7 +252,6 @@ export const s = StyleSheet.create({
   },
   placeholderHandle: {
     backgroundColor: "#e8e1c3",
-
   },
 
   input: {
@@ -321,43 +318,36 @@ export const s = StyleSheet.create({
   wordButton: {
     backgroundColor: "#053e4c",
     alignItems: "center",
-
-    borderWidth: 2,
-    borderColor: "darkgray",
-    borderRadius: 10,
-    padding: 10,
-
     marginTop: -10,
     margin: 10,
     width: "35%",
+    padding: 10,
   },
   wordButtonText: {
     color: "#eee",
-
     fontWeight: "bold",
   },
-  
+
   startFinishGameContainer: {
     alignItems: "center",
-    marginTop: 20,
-   
-
   },
-  startGameContainer:{
-
+  startGameContainer: {
+    alignItems: "center",
+    marginTop: 50,
     marginBottom: -40,
+    // backgroundColor: "lightyellow"
   },
-  finishGameContainer:{
-    marginBottom: 40,
-
-
+  startGameButton: {
+    marginTop: -3,
+    backgroundColor: "#053e4c",
+    padding: 8,
+  },
+  finishGameContainer: {
+  marginBottom: -40,
   },
   gameControlButton: {
     padding: 8,
-    borderRadius: 10,
-    // borderColor: "#D1D0CE",
 
-    // borderWidth: 5,
   },
   gameControlText: {
     fontWeight: "bold",
@@ -366,30 +356,23 @@ export const s = StyleSheet.create({
   finishGameButton: {
     backgroundColor: "#C14432",
     marginBottom: -170,
-   
   },
 
-  startGameButton: {
-    marginTop: -3,
-    backgroundColor: "#053e4c",
-  },
   continuePlayingButton: {
-    
     backgroundColor: "#053e4c",
-    marginTop: 0,
+    marginTop: 20,
     marginBottom: 42,
     borderRadius: 10,
     padding: 10,
-    textAlign: "center"
+    textAlign: "center",
   },
-  continuePlayingText:{
-    color: "white", 
-    fontWeight: "bold"
-
-
+  continuePlayingText: {
+    color: "white",
+    fontWeight: "bold",
   },
   WorDominationCount: {
     marginTop: 0,
+    fontWeight: "bold",
   },
   HOFEntryOuterContainer: {
     alignItems: "center",
@@ -434,10 +417,8 @@ export const s = StyleSheet.create({
 
     marginBottom: 3,
   },
-  handleLengthMessage:
-  {
-    alignItems: "center"
-
+  handleLengthMessage: {
+    alignItems: "center",
   },
 
   maxLengthText: {
@@ -487,10 +468,9 @@ export const s = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#053e4c",
-    borderRadius: 15,
+ 
     padding: 5,
-    borderWidth: 3,
-    borderColor: "#D1D0CE",
+
   },
   returnToGameButtonText: {
     color: "white",
@@ -516,7 +496,7 @@ export const s = StyleSheet.create({
     flexDirection: "column",
     // justifyContent: "space-evenly",
     alignItems: "center",
-    width: "95%",
+    width: "97%",
     marginTop: 10,
 
     marginBottom: 0,
@@ -527,13 +507,13 @@ export const s = StyleSheet.create({
   HOFHeadings: {
     // flex: 1,
     paddingBottom: 10,
+    paddingHorizontal: -40,
+    marginHorizontal: -25,
 
     flexDirection: "row",
 
-    justifyContent: "flex-start", // or "flex-start"
-    // alignItems: "center",
-    // backgroundColor: "lightgreen", 
-
+    justifyContent: "flex-start", 
+  
   },
   HOFHeadingText: {
     flex: 0.28,
@@ -555,7 +535,7 @@ export const s = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     textAlign: "left",
-    paddingLeft: "19%",
+    paddingLeft: "17%",
   },
 
   HOFEntryText: {
@@ -570,26 +550,26 @@ export const s = StyleSheet.create({
     // backgroundColor: "lightgreen",
     paddingRight: 20,
     marginRight: 30,
-    marginLeft: -20,
+    marginLeft: -15
   },
   HOFHandleContainer: {
     alignItems: "center",
     //  backgroundColor: "yellow",
     textAlign: "left",
-    width: "55%",
-    marginLeft: -50,
-    marginRight: 30,
+    width: "57%",
+    marginLeft: -30,
+    marginRight: 35,
 
     paddingLeft: -10,
   },
   HOFScoreContainer: {
     // backgroundColor: "grey",
-    width: "13%",
+    width: "14%",
 
     alignItems: "center",
 
-    marginRight: 35,
-    marginLeft: -35,
+    marginRight: 23,
+    marginLeft: -32,
     // testAlign: "right"
   },
   //In main part
@@ -621,8 +601,8 @@ export const s = StyleSheet.create({
   },
 
   youInHOFContainer: {
-    marginTop: -17,
-    marginBottom: -10,
+    marginTop: -30,
+    marginBottom: 40,
     flex: 0.1,
     flexDirection: "row",
     justifyContent: "space-evenly",

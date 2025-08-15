@@ -54,7 +54,7 @@ export function StatsContent({showStats, setShowStats, gamesArray, setGamesArray
 
 return(<>
       <View style={s.closeButtonContainer}>
-        <TouchableOpacity style={s.closeButton} onPress={closeStatsSection}>
+        <TouchableOpacity style={[s.closeButton, s.buttonBorders]} onPress={closeStatsSection}>
           <Text style={s.close}>Close</Text>
         </TouchableOpacity>
       </View>

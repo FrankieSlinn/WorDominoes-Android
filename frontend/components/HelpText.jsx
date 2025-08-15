@@ -10,7 +10,8 @@ export function HelpText({ showHelpText, setShowHelpText }) {
   return (
     <>
       <View style={s.closeButtonContainer}>
-        <TouchableOpacity style={s.closeButton} onPress={closeHelpSection}>
+        <TouchableOpacity 
+        style={[s.closeButton, s.buttonBorders]} onPress={closeHelpSection}>
           <Text style={s.close}>Close</Text>
         </TouchableOpacity>
       </View>
@@ -134,13 +135,13 @@ export function HelpText({ showHelpText, setShowHelpText }) {
             Letters with number showing how many there are:
           </Text>
           {"\n"}
-          {"\n"}A – 18, B – 4, C – 4, D – 8, E – 24, F – 4, {"\n"}G – 6, H – 4,
-          I – 18, J – 2, K – 2, L – 8, {"\n"}M – 4, N – 12, O – 16, P – 4, Q –
+          {"\n"}A – 18, B – 4, C – 4, D – 8, E – 24, F – 4, G – 6, H – 4,
+          I – 18, J – 2, K – 2, L – 8, M – 4, N – 12, O – 16, P – 4, Q –
           2, R – 12,
-          {"\n"}S – 8, T – 12, U – 8, V – 4, W – 4, X - 2, {"\n"}Y - 4, Z - 2
+        S – 8, T – 12, U – 8, V – 4, W – 4, X - 2, Y - 4, Z - 2
           {"\n"}
           {"\n"}
-          Best of Luck my friend on this incredibly challenging but (possibly)
+          Best of Luck on this incredibly challenging but (possibly)
           highly rewarding journey.
           {"\n"}
           {"\n"}

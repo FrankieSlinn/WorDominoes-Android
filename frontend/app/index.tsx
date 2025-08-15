@@ -107,6 +107,8 @@ export default function Index() {
   const [entries, setEntries] = useState([]);
 
   const keyboardOffset = useSharedValue(0);
+
+  //Items in HOF deleted?
   //after rotated a few times, tile errors, wrong values picked up for current tile for tile 0//male sure dominoesInHand cannot be modified - prob fixed
   //can go from help section to stats, not vice versa
 //make sure worDomination / worDomination count kept if view help or stats in game - works

@@ -152,7 +152,7 @@ export function Word({
         />
         <View style={s.wordButtonContainer}>
           <TouchableOpacity
-            style={s.wordButton}
+            style={[s.wordButton, s.buttonBorders]}
             onPress={() => {
               handleRedoPress();
             }}
@@ -160,7 +160,7 @@ export function Word({
             <Text style={s.wordButtonText}>Redo</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={s.wordButton}
+            style={[s.wordButton, s.buttonBorders]}
             onPress={() => handleSubmitPress(inputString1, inputString2)}
           >
             <Text style={s.wordButtonText}>Submit</Text>

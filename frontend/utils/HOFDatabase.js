@@ -52,9 +52,11 @@ async function submitScore(handle, endOfGameScore) {
 
 async function deleteHOFEntriesBelowScore(threshold) {
   try {
+    console.log("threshold score to delete",  threshold)
     const allEntries = await fetchHOFEntries(); // assumes it returns [{ _id, handle, score }, ...]
 
     const toDelete = allEntries.filter(entry => entry.score < threshold);
+    console.log("toDelete", toDelete)
 
     for (const entry of toDelete) {
       const response = await fetch(`${baseURL}/hofdataroute/${entry._id}`, {

@@ -24,6 +24,7 @@ import { HOFEntry } from "../components/HOFEntry.jsx";
 import { TextWorDominationCount } from "../components/TextWorDominationCount.jsx";
 import { StartNewGameButton } from "../components/StartNewGameButton.jsx";
 import { YouInHOF } from "../components/YouInHOF.jsx";
+import {Footer} from "../components/Footer"
 import {
   getLetterHand,
   storeLetterHand,
@@ -621,7 +622,9 @@ export default function Index() {
                       worDomination={worDomination}
                     />
                   </View>
+               
                 </ScrollView>
+                <Footer/>
               </Animated.View>
             ) : showStats === false ? (
               <HelpText
@@ -653,6 +656,9 @@ export default function Index() {
           setEntries={setEntries}
         />
       )}
+   
+   {/* <Footer/> */}
+  
     </>
   );
 }

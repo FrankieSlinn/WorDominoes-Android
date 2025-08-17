@@ -8,7 +8,8 @@ async function loadEntries(setEntries, setMinHOFScore) {
       const sorted = data.sort((a, b) => b.score - a.score);
       const shortenedEntries = sorted.slice(0, numberOfHOFEntries)
       setEntries(shortenedEntries);
-      const minScore = shortenedEntries.length<numberOfHOFEntries?0:shortenedEntries[shortenedEntries.length-1].score
+      //Only runs if more entries than number of entries displayed
+      const minScore = sorted.length<numberOfHOFEntries?0:shortenedEntries[shortenedEntries.length-1].score
       setMinHOFScore(minScore)
       console.log("MINHOFSCORE", minScore)
       console.log("Fetched HOF Entries:", data);

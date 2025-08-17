@@ -570,7 +570,7 @@ export const s = StyleSheet.create({
 
     marginRight: 23,
     marginLeft: -32,
-    // testAlign: "right"
+  
   },
   //In main part
   HOFButtonContainer: {
@@ -607,4 +607,17 @@ export const s = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-evenly",
   },
+  footerContainer:{
+    // flex:5,
+    // backgroundColor: "purple",
+   alignItems: "center", 
+   marginBottom: -220,
+   paddingTop: 10,
+  },
+  footerText:{
+ 
+    fontSize: 17,
+
+
+  }
 });

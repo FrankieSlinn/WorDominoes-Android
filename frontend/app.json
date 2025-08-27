@@ -4,7 +4,7 @@
     "slug": "WorDominoes",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/WDFaviconAug25.png",
+    "icon": "./assets/images/FaviconWD.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -28,14 +28,14 @@
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/FaviconWD"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/WDFaviconAug25.png",
+          "image": "./assets/images/FaviconWD.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"

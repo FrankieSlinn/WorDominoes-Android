@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 const currentDB = require('./config/db'); // make sure this points to the file where your Mongo URI is set
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -31,6 +32,6 @@ app.use('/api/hofdataroute', hofRoutes);
 
 
 
-app.listen(3000, () => {
-  console.log('Server running on port 3000');
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });

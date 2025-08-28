@@ -2,7 +2,7 @@ import { Alert } from "react-native";
 import {loadWord1Success, getWord1Success, storeWord1Success, getWord2Success, storeWord2Success} from "./asynchStorageUtils"
 
 //To ensure all words are included
-const dictionary = ["is", "be", "was", "look", "dose", "door", "touch", "kite", "our"];
+const dictionary = ["is", "be", "was", "look", "dose", "door", "touch", "kite", "our", "tow"];
 
 
 

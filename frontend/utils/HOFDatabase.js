@@ -5,7 +5,7 @@ import Constants from "expo-constants";
 // const isDev = __DEV__; // true if in development mode
 
 // Only build baseURL if localIP exists
-export const baseURL = `http://192.168.0.246:3000/api`; // Dev server on PC
+export const baseURL = `https://wordominoesapp-291825c038d8.herokuapp.com/api`; // Dev server on PC
 
 
 async function fetchHOFEntries() {

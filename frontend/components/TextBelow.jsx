@@ -29,7 +29,7 @@ export function TextBelow({word1Success, dominoSelected, setDominoSelected, game
              
 
               Choose a domino above. You'll create 2 words for this tile: the
-              word length is the number of dots on its side of the domino.
+              word length is the number of dots on its side of the domino. If you can't place any more tiles click "Finish Game" to see your score.
             </Text>
             :null}
           </View>

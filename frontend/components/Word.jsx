@@ -115,7 +115,7 @@ export function Word({
         <Text style={s.instructionText}>
         The first word is complete {"\u2713"}
         {"\n"}
-        <Text style={s.instructionText}>{inputString1}</Text>
+        <Text style={[s.instructionText, s.bold]}>{inputString1}</Text>
         {"\n"}
         {`Now make a second word with ${wordLength2} letters`}
       </Text>}

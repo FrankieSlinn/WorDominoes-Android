@@ -42,27 +42,37 @@ export const s = StyleSheet.create({
   icons: {
     height: 30,
     width: 30,
-    margin: 20,
+    // margin: 20,
   },
   headerContainer: {
     height: 50,
     zIndex: 10,
     marginBottom: 50,
-    // backgroundColor: "red"
+    // backgroundColor: "orange"
   },
 
   header: {
     position: "absolute",
-    top: 50,
+    // top: 50,
     left: 0,
     right: 0,
-    flex: 1,
+    // flex: 1,
     // maxHeight: 65,
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "baseline",
     marginTop: 10,
     // backgroundColor: "pink"
+  },
+  headerWorDominoes:{
+top: 60,
+
+
+  },
+  headerHOF:{
+  top: 50,
+
+
   },
 
   closeButtonContainer: {

@@ -28,7 +28,7 @@ export function HallOfFame({
   return (
     <>
       <View style={s.headerContainer}>
-        <View style={s.header}>
+        <View style={[s.header, s.headerHOF]}>
           <Text style={[s.logo, s.HOFMainHeading]}>
             WorDominoes Hall Of Fame
           </Text>

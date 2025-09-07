@@ -108,9 +108,11 @@ export default function Index() {
   const [entries, setEntries] = useState([]);
 
   const keyboardOffset = useSharedValue(0);
+  //Logo - center
+  //HOF deletions -
 //Testflight - finish game is slow ok, just needed to start backend
 //Testflight - HOF didn't work - ok, just needed to start backend
-//Beta - same domino shown twice(happened with different dominoes) - also happens in game. Dominoes used appears  ok. 
+//Beta - same domino shown twice(happened with different dominoes) - also happens in game. Dominoes used appears  ok
   //Items in HOF deleted?
   //after rotated a few times, tile errors, wrong values picked up for current tile for tile 0//male sure dominoesInHand cannot be modified - prob fixed
   //can go from help section to stats, not vice versa
@@ -213,15 +215,15 @@ export default function Index() {
 
       {showHOF === false ? (
         <View style={s.appBody}>
-          <View>
-            <View style={s.headerContainer}>
+          {/* <View> */}
+      
               <Header
                 showHelpText={showHelpText}
                 setShowHelpText={setShowHelpText}
                 showStats={showStats}
                 setShowStats={setShowStats}
               />
-            </View>
+         
 
             {showHelpText === false && showStats === false ? (
               <Animated.View style={animatedStyle}>
@@ -645,7 +647,7 @@ export default function Index() {
                 setFinalScore={setFinalScore}
               />
             )}
-          </View>
+          {/* </View> */}
         </View>
       ) : (
         <HallOfFame

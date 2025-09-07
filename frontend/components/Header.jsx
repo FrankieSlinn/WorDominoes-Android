@@ -9,7 +9,9 @@ export function Header({showHelpText, setShowHelpText, showStats, setShowStats})
 
 
 return( <>
-<View style={s.header}>
+      < View style={s.headerContainer}>
+
+<View style={[s.header, s.headerWorDominoes]}>
  
     <HelpIcon
     showHelpText={showHelpText}
@@ -25,6 +27,7 @@ return( <>
 
 
 
+</View>
 </View>
 
 </>

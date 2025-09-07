@@ -38,7 +38,7 @@ export function StatsContent({showStats, setShowStats, gamesArray, setGamesArray
         totalScore = storedGames.reduce((sum, num) => sum + num, 0).toFixed(1);}
           console.log("!!!!!!!!totalScore", totalScore);
     
-          setAverageScore((totalScore / storedGames.length).toFixed(2)); // Use storedGames.length instead
+          setAverageScore((totalScore / storedGames.length).toFixed(0)); // Use storedGames.length instead
     
         } catch (error) {
           console.error("Error fetching game data:", error);

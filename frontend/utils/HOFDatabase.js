@@ -54,8 +54,8 @@ async function deleteHOFEntriesBelowScore(threshold) {
   try {
     console.log("threshold score to delete",  threshold)
     const allEntries = await fetchHOFEntries(); // assumes it returns [{ _id, handle, score }, ...]
-
-    const toDelete = allEntries.filter(entry => entry.score < threshold);
+//subtract 10 to ensure only entries with wider gap deleted
+    const toDelete = allEntries.filter(entry => entry.score < (threshold)-10);
     console.log("toDelete", toDelete)
 
     for (const entry of toDelete) {

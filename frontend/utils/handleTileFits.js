@@ -1,4 +1,4 @@
-import { allocateDominoes } from "./allocateDominoes";
+// import { allocateDominoes } from "./allocateDominoes";
 import { tileData } from "./getNeighborsAndCurrentTile";
 import { storeGamesArray, getGamesArray } from "./asynchStorageUtils";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -116,9 +116,7 @@ const handleTileFits = async (
     setDominoesInHand,
     selectedDominoObject,
     setSelectedDominoObject,
-    gameStart,
-    dominoesUsed,
-    setDominoesUsed
+  
   );
   // checkWorDomination(
   //   gridSelectedDominoObjects,
@@ -265,9 +263,7 @@ function allocateDominoesPrep(
   setDominoesInHand,
   selectedDominoObject,
   setSelectedDominoObject,
-  gameStart,
-  dominoesUsed,
-  setDominoesUsed
+
 ) {
   console.log("allocateDominoPrep running in handleTileFits");
   let index = dominoesInHand.indexOf(selectedDominoObject);

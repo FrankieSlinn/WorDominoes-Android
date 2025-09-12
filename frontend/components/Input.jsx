@@ -6,7 +6,7 @@ import {
   getInputString2,
   storeInputString2,
   storeSelectedLetters1,
-  storeSelectedletters2,
+  storeSelectedLetters2,
 } from "../utils/asynchStorageUtils";
 import { s } from "../App.style";
 
@@ -21,6 +21,8 @@ export function Input({
   setWordNum,
   turnStart,
   word1Success,
+  setSelectedLetters1,
+  
 }) {
   console.log("wordnum in 1", wordNum);
   console.log("turnstart in input", turnStart);

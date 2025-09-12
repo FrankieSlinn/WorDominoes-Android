@@ -44,6 +44,8 @@ export function HandDominoes({
       "dominoesInHand in dominoesInHand b4 allocate dominoes in useEffect",
       dominoesInHand
     );
+    console.log("dominoesUsed before run allocateDominoes in HandDomioes", dominoesUsed)
+    console.log("before runn ALLOCATE DOMS IN HANDDOMINOES TURNSTART: ", turnStart, "gameStart", gameStart);
     allocateDominoes(
       dominoesInHand,
       setDominoesInHand,

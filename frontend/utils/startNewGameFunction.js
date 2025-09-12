@@ -67,6 +67,7 @@ function startNewGameFunction(
   
 
   setSingleGameScore(0);
+  allocateDominoes([], setDominoesInHand, true, true, [],setDominoesUsed);
  
   if (worDomination != true) {
     setScoreArraySingleGame([]);
@@ -105,7 +106,7 @@ function gameResets(  gameStart, setGameStart,
   setShowYouInHOF, 
   handle, 
   setHandle){
-  console.log("gameResets running")
+  console.log("gameResets running - gameStart: ", gameStart)
   if (worDomination === true) {
 
     setWorDomination(false)
@@ -113,7 +114,7 @@ function gameResets(  gameStart, setGameStart,
   setGameStart(true);
   setDominoesInHand([]);
   setDominoesUsed([]);
-  allocateDominoes([], setDominoesInHand, true, true, [],setDominoesUsed);
+
   setGameFinished(false);
 
   setWord1Success(false);

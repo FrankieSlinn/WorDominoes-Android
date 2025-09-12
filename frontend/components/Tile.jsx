@@ -78,7 +78,7 @@ export function Tile({
     );
     const handleTileRotations = async () => {
       if (gameStart === true) {
-        storeSTileRotatedState(false);
+        storeTileRotatedState(false);
  
       } else {
         const storedTileRotatedState = await getTileRotatedState();

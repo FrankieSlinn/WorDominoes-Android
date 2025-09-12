@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { dominoes } from "./dominoes.js";
 let dominoesCopy;
 
-let dominoesUsed = [];
+// let dominoesUsed = [];
 // Generate a Random Number within the range of available dominoes
 function randomNumberDom() {
   return Math.floor(Math.random() * dominoesCopy.length);
@@ -19,10 +19,13 @@ function allocateDominoes(
 ) {
   console.log("function to allocate dominoes running");
   console.log("turnStart", turnStart);
+  console.log("gameStart in very beginning OF ALLOCATE DOMINOES", gameStart)
+  console.log("dominoesUsed very beginning OF ALLOCATE DOMINOES", dominoesUsed)
 
   if (turnStart === true) {
     let dominoesInHandCopy = dominoesInHand.map((obj) => ({ ...obj }));
-    if(gameStart){
+    if(gameStart===true &&dominoesUsed.length<4){
+      console.log("gameStart is true", gameStart)
     resetDominoesNewGame(dominoes, dominoesUsed, setDominoesUsed);
     }
     console.log("allocateDominoes running");
@@ -86,9 +89,13 @@ function allocateDominoesToHand(
             // Remove the domino from available ones
 
             dominoesCopy.splice(dominoesCopy.indexOf(randDomino), 1);
+            console.log("dominoesUsed", dominoesUsed)
             let copyDominoesUsed = dominoesUsed;
+            console.log("copyDominoesUsed = dominoesUsed", copyDominoesUsed)
             copyDominoesUsed.push(randDomino);
+            console.log("copyDominoesUsed with domino pushed", copyDominoesUsed)
             setDominoesUsed(copyDominoesUsed);
+            console.log("dominoesUsed after set", dominoesUsed)
           }
         } else
           console.log("domino already in dominoesUsed, need to start again");

@@ -52,7 +52,7 @@ export function Word({
       console.log("inputString1", inputString1)
       setSelectedLetters1([]);
       console.log("SET STORED SELECTED LETTERS TO []!!!!!!!!")
-      console.log(" AFTER RESET - storedSelectedLetters1, selectedLetters1", storedSelectedLetters1(), selectedLetters1)
+      console.log(" AFTER RESET - storedSelectedLetters1, selectedLetters1", storedSelectedLetters1, selectedLetters1)
     } else {
       console.log("redo letters for word 2 running")
       setInputString2([]);

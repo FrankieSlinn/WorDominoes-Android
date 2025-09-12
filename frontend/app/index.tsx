@@ -108,8 +108,11 @@ export default function Index() {
   const [entries, setEntries] = useState([]);
 
   const keyboardOffset = useSharedValue(0);
-  //Logo - center
-  //HOF deletions -
+  
+  //Same tile appeared three times - Found after start game 0 initial hand: dominoesUsed correctly updated, then initial domino 
+  //no longer appeared there. Then dominoesUsed becomes empty
+  //Logo - center - Done
+  //HOF deletions - Prob Fixed
 //Testflight - finish game is slow ok, just needed to start backend
 //Testflight - HOF didn't work - ok, just needed to start backend
 //Beta - same domino shown twice(happened with different dominoes) - also happens in game. Dominoes used appears  ok
@@ -128,6 +131,10 @@ export default function Index() {
   //sometimes after click on tile that's already placed if something fts needs to click on that empty space twice(at first says tile doesn't fit) - prob fixed.
 
   //saw selected letter that wasn't in input
+
+
+console.log("dominoesUsed in index", dominoesUsed)
+
   useEffect(() => {
     console.log("worDomination updated to", worDomination);
     if (worDomination) {

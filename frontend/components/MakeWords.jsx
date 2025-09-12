@@ -1,6 +1,6 @@
 import { View, Text, Image, TouchableOpacity} from "react-native";
 import {useState, useEffect} from "react";
-import {loadWord1Success, getWord1Success, storeWord1Success} from "../utils/asynchStorageUtils"
+import {loadWord1Success, getWord1Success, storeWord1Success, getWord2Success, storeWord2Success} from "../utils/asynchStorageUtils"
 import {Word} from "./Word";
 import {LetterTiles} from "./LetterTiles";
 import { s } from "../App.style";
@@ -36,7 +36,7 @@ export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject
       if(turnStart===true){
         storeWord1Success(false)
         setWord1Success(false)
-        storedWord2Success(false)
+        storeWord2Success(false)
         setWord2Success(false)
       }
       else{

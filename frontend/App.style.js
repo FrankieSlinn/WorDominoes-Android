@@ -15,13 +15,10 @@ export const s = StyleSheet.create({
     right: 0,
     zIndex: 10,
   },
-  buttonBorders:{
+  buttonBorders: {
     borderWidth: 2,
     borderColor: "#bdc5c7",
     borderRadius: 10,
-  
-
-
   },
 
   bold: {
@@ -53,26 +50,19 @@ export const s = StyleSheet.create({
 
   header: {
     position: "absolute",
-    // top: 50,
     left: 0,
     right: 0,
-    // flex: 1,
-    // maxHeight: 65,
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "baseline",
     marginTop: 10,
     // backgroundColor: "pink"
   },
-  headerWorDominoes:{
-top: 60,
-
-
+  headerWorDominoes: {
+    top: 60,
   },
-  headerHOF:{
-  top: 50,
-
-
+  headerHOF: {
+    top: 50,
   },
 
   closeButtonContainer: {
@@ -86,7 +76,6 @@ top: 60,
     padding: 4,
 
     backgroundColor: "#053e4c",
-
   },
   close: {
     fontWeight: "bold",
@@ -343,7 +332,7 @@ top: 60,
   },
   startGameContainer: {
     alignItems: "center",
-    marginTop: 50,
+    marginTop: 20,
     marginBottom: -40,
     // backgroundColor: "lightyellow"
   },
@@ -353,11 +342,10 @@ top: 60,
     padding: 8,
   },
   finishGameContainer: {
-  marginBottom: -40,
+    marginBottom: -40,
   },
   gameControlButton: {
     padding: 8,
-
   },
   gameControlText: {
     fontWeight: "bold",
@@ -478,9 +466,8 @@ top: 60,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#053e4c",
- 
-    padding: 5,
 
+    padding: 5,
   },
   returnToGameButtonText: {
     color: "white",
@@ -524,8 +511,7 @@ top: 60,
 
     flexDirection: "row",
 
-    justifyContent: "flex-start", 
-  
+    justifyContent: "flex-start",
   },
   HOFHeadingText: {
     flex: 0.28,
@@ -562,7 +548,7 @@ top: 60,
     // backgroundColor: "lightgreen",
     paddingRight: 20,
     marginRight: 30,
-    marginLeft: -15
+    marginLeft: -15,
   },
   HOFHandleContainer: {
     alignItems: "center",
@@ -582,7 +568,6 @@ top: 60,
 
     marginRight: 23,
     marginLeft: -32,
-  
   },
   //In main part
   HOFButtonContainer: {
@@ -619,17 +604,14 @@ top: 60,
     flexDirection: "row",
     justifyContent: "space-evenly",
   },
-  footerContainer:{
+  footerContainer: {
     // flex:5,
     // backgroundColor: "purple",
-   alignItems: "center", 
-   marginBottom: -220,
-   paddingTop: 10,
+    alignItems: "center",
+    marginBottom: -220,
+    paddingTop: 10,
   },
-  footerText:{
- 
+  footerText: {
     fontSize: 17,
-
-
-  }
+  },
 });

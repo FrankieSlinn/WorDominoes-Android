@@ -1,4 +1,5 @@
 import { allocateDominoes } from "./allocateDominoes";
+import {storeTilePlacedsState} from "../utils/asynchStorageUtils.js";
 // import {dominoes} from ".dominoes";
 
 function startNewGameFunction(
@@ -152,6 +153,7 @@ function gameResets(  gameStart, setGameStart,
     "empty",
   ]);
   setTilePlaced(false);
+  // storeTilePlacedState(false)
   setTurnStart(true);
   setShowMakeWord(false);
   setDominoSelected(false);

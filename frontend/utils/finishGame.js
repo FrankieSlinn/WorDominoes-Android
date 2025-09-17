@@ -1,4 +1,4 @@
-import { storeGamesArray, getGamesArray } from "./asynchStorageUtils";
+import { storeGamesArray, getGamesArray, storeRotatedTiles, getRotatedTiles } from "./asynchStorageUtils";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 let numberTiles = 12;
@@ -71,6 +71,7 @@ async function addScoreToScoreArray(
 
   //   console.log("score", score)
   try {
+    storeRotatedTiles([]);
     let endOfGameScore = Number(singleGameScore) + Number(worDominationCount) * 30;
     console.log("END OF GAME SCORE", endOfGameScore)
     setFinalScore(endOfGameScore);
@@ -84,6 +85,7 @@ async function addScoreToScoreArray(
     console.log("MIN HOF SCore in Finish Game Function", minHOFScore)
     if(endOfGameScore>minHOFScore){
       console.log("endOfGame Score GREATER THAN MINHOFSCORE")
+     
       
     setShowHOFEntry(true);}
     console.log("showHOFEntry in handleFinishGame", showHOFEntry);

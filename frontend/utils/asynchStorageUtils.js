@@ -190,11 +190,12 @@ export const getAllStoredScores = async () => {
       return [];
     }
   };
+  //maybe can delete
 
   export const storeTileRotatedState = async (tileRotatedState) => {
     try {
         await AsyncStorage.setItem("tileRotatedState", JSON.stringify(tileRotatedState));
-        // console.log("tile rotated state stored successfully!");
+        console.log("tile rotated state stored successfully!");
     } catch (error) {
         console.error("Error saving tile rotated state", error);
     }
@@ -203,13 +204,55 @@ export const getAllStoredScores = async () => {
 export const getTileRotatedState = async () => {
     try {
       const tileRotatedState = await AsyncStorage.getItem("tileRotatedState");
-      // console.log("tile rotated state from AsyncStorage:", tileRotatedState); // Log what AsyncStorage returns
+      console.log("tile rotated state from AsyncStorage:", tileRotatedState); // Log what AsyncStorage returns
       return tileRotatedState ? JSON.parse(tileRotatedState) : [];  // Return empty array if null
     } catch (error) {
       console.error("Error fetching tileRotatedState:", error);
       return [];
     }
   };
+  //maybe can delete
+
+  export const storeTilePlacedState = async (tilePlacedState) => {
+    try {
+        await AsyncStorage.setItem("tilePlacedState", JSON.stringify(tilePlacedState));
+        console.log("tile placed state stored successfully!");
+    } catch (error) {
+        console.error("Error saving tile placed state", error);
+    }
+};
+
+export const getTilePlacedState = async () => {
+    try {
+      const tilePlacedState = await AsyncStorage.getItem("tilePlacedState");
+      console.log("tile placed state from AsyncStorage:", tilePlacedState); // Log what AsyncStorage returns
+      return tilePlacedState ? JSON.parse(tilePlacedState) : [];  // Return empty array if null
+    } catch (error) {
+      console.error("Error fetching tilePlacedState:", error);
+      return [];
+    }
+  };
+
+  export const storeRotatedTiles = async (rotatedTiles) => {
+    try {
+        await AsyncStorage.setItem("rotatedTiles", JSON.stringify(rotatedTiles));
+        console.log("rotated Tiles stored successfully!");
+    } catch (error) {
+        console.error("Error saving rotated Tiles", error);
+    }
+};
+
+export const getRotatedTiles = async () => {
+    try {
+      const rotatedTiles = await AsyncStorage.getItem("rotatedTiles");
+      console.log("rotated Tiles from AsyncStorage:", rotatedTiles); // Log what AsyncStorage returns
+      return rotatedTiles ? JSON.parse(rotatedTiles) : [];  // Return empty array if null
+    } catch (error) {
+      console.error("Error fetching rotatedTiles:", error);
+      return [];
+    }
+  };
+  
   
   
 

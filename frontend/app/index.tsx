@@ -108,6 +108,8 @@ export default function Index() {
   const [entries, setEntries] = useState([]);
 
   const keyboardOffset = useSharedValue(0);
+
+  //After rotation wrong values of tiles next to each other after visiting stats / help. 
   
   //Same tile appeared three times - Found after start game 0 initial hand: dominoesUsed correctly updated, then initial domino 
   //no longer appeared there. Then dominoesUsed becomes empty

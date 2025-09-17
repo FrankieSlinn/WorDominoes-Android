@@ -3,7 +3,15 @@ import { useEffect, useState } from "react";
 import { s } from "../App.style.js";
 import { dominoImageMappings } from "../utils/dominoImageMappings.js";
 import { handleTilePress } from "../utils/handleTilePress.js";
-import { getTileRotatedState, storeTileRotatedState } from "@/utils/asynchStorageUtils.js";
+import {
+  getTileRotatedState,
+  storeTileRotatedState,
+  getTilePlacedState,
+  storeTilePlacedState,
+  getRotatedTiles,
+  storeRotatedTiles,
+} from "../utils/asynchStorageUtils.js";
+import { dominoes } from "../utils/dominoes.js";
 
 export function Tile({
   tileId,
@@ -61,61 +69,63 @@ export function Tile({
   dominoesUsed,
   setDominoesUsed,
   finalScore,
-  setFinalScore
+  setFinalScore,
 }) {
   //Only applies to this tile
   const [tilePlacedState, setTilePlacedState] = useState(false);
   //Only applies to this tile
   const [tileRotatedState, setTileRotatedState] = useState(false);
+  const [rotatedTiles, setRotatedTiles] = useState([]);
   const [wrongTileErrorInSpecificTile, setWrongTileErrorInSpecificTile] =
     useState(false);
+  // const storedTileRotatedState =  getTileRotatedState();
 
-      //reset and load seleted tiles
+  console.log("tilePlacedState, tileID", tilePlacedState, tileId);
+
+  //reset and load rotated tiles
+
   useEffect(() => {
-    console.log(
-      "gameStart in letterTiles before clearing letterTile",
-      gameStart
-    );
-    const handleTileRotations = async () => {
-      if (gameStart === true) {
-        storeTileRotatedState(false);
- 
-      } else {
-        const storedTileRotatedState = await getTileRotatedState();
-
-        setTileRotatedState(storedTileRotatedState);
-   
-
+    const fetchTileRotatedState = async () => {
+      try {
+        const storedRotatedTiles = await getRotatedTiles();
+        //set all rotatd tiles to false in beginning
+        if (gameStart === true) {
+          console.log("gameStart is true steRotated Tiles to false.");
+          storeRotatedTiles([]);
+          setTileRotatedState(false);
+        }
+        //if tile Id in list of rotated tiles set tileRotatedState to true(this drives image displayed)
+        else if (storedRotatedTiles.includes(tileId)) {
+          setTileRotatedState(true);
+        }
+      } catch (e) {
+        console.error("Error loading tile rotated state", e);
       }
     };
 
-    handleTileRotations();
+    fetchTileRotatedState();
   }, []);
 
-
-    // console.log("dominoesInHand[selectedDominoIndex] in tile", dominoesInHand[selectedDominoIndex])
-
-  //reset needed to cancel any tileRotationState changes
   useEffect(() => {
 
+    //If tile placed and tile rotated, add tile to rotated tiles list. Reset wrong tile error when placed. 
+    const updatedTileRotatedState = async () => {
+      try {
+        const storedRotatedTiles = await getRotatedTiles();
 
-    if (
-      (turnStart || gameStart) &&
-      gridSelectedDominoObjects[tileId] === "empty"
-    ) {
-      setTileRotatedState(false);
-      storeTileRotatedState(false)
-      setTilePlacedState(false);
-    }
-  }, [turnStart, gameStart]);
-
-  useEffect(() => {
-
-    if (!tilePlacedState && gridSelectedDominoObjects[tileId] === "empty") {
-      setTileRotatedState(dominoRotated);
-      storeTileRotatedState(dominoRotated)
-      setWrongTileErrorInSpecificTile(false);
-    }
+        if (
+          tilePlaced === false &&
+          gridSelectedDominoObjects[tileId] === "empty"
+        ) {
+          setWrongTileErrorInSpecificTile(false);
+        } else if (tilePlacedState === true && tileRotatedState === true) {
+          storeRotatedTiles([...storedRotatedTiles, tileId]);
+        }
+      } catch (e) {
+        console.error("Error loading tile rotated state", e);
+      }
+    };
+    updatedTileRotatedState();
   }, [
     dominoRotated,
     turnStart,
@@ -167,6 +177,8 @@ export function Tile({
                 tilePlacedState,
                 setTilePlacedState,
                 dominoRotated,
+                tileRotatedState,
+                setTileRotatedState,
                 dominoesInHand,
                 setDominoesInHand,
                 gamesArray,
@@ -183,14 +195,13 @@ export function Tile({
                 setSingleGameScore,
                 setSelectedLetters1,
                 setSelectedLetters2,
-                selectedDominoIndex, 
+                selectedDominoIndex,
                 setSelectedDominoIndex,
                 dominoesUsed,
                 setDominoesUsed,
                 finalScore,
                 setFinalScore
               ),
-     
             ];
           }}
         >
@@ -220,11 +231,7 @@ export function Tile({
               style={[
                 s.selectedTile,
                 (tileId >= 0 && tileId <= 3) || (tileId >= 6 && tileId <= 9)
-                  ? [
-                      s.selectedTileHorizontal,
-                      s.selectedHorizontalTileRotated,
-                 
-                    ]
+                  ? [s.selectedTileHorizontal, s.selectedHorizontalTileRotated]
                   : [s.selectedTileVertical, s.selectedVerticalTileRotated],
               ]}
               resizeMode="cover"

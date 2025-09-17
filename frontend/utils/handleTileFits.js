@@ -9,6 +9,8 @@ import {
   storeSelectedLetters1,
   getSelectedLetters2,
   storeSelectedLetters2,
+  getTilePlacedState,
+  storeTilePlacedState
 } from "./asynchStorageUtils";
 
 const handleTileFits = async (
@@ -25,6 +27,8 @@ const handleTileFits = async (
   gridSelectedDominoObjects,
   setGridSelectedDominoObjects,
   dominoRotated,
+  tileRotatedState,
+  setTileRotatedState,
   setTilePlaced,
   setTilePlacedState,
   setTurnStart,
@@ -74,8 +78,10 @@ const handleTileFits = async (
     setShowMakeWord,
     setDominoSelected,
     dominoesInHand,
-    setDominoesInHand
-  );
+    setDominoesInHand,
+    dominoRotated,
+    tileRotatedState,
+    setTileRotatedState  );
 
 
   addScoreToScoreArraySingleGame(
@@ -169,12 +175,17 @@ function resetForTilePlaced(
   setShowMakeWord,
   setDominoSelected,
   dominoesInHand,
-  setDominoesInHand
+  setDominoesInHand,
+  dominoRotated,
+  tileRotatedState,
+  setTileRotatedState
 ) {
   console.log("setting values in handleTileFits");
   setTilePlaced(true);
   //For individual tile
   setTilePlacedState(true);
+  setTileRotatedState(dominoRotated)
+  // storeTilePlacedState(true)
   setTurnStart(true);
   setWordSubmitted(false);
   setDisplayDomino("");

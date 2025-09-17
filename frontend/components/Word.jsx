@@ -60,7 +60,7 @@ export function Word({
       console.log("inputString2", inputString2)
       setSelectedLetters2([]);
       console.log("selectedLetters2", selectedLetters2)
-      console.log(" AFTER RESET - storedSelectedLetters2, selectedLetters2", storedSelectedLetters2(), selectedLetters2)
+      console.log(" AFTER RESET - storedSelectedLetters2, selectedLetters2", storedSelectedLetters2, selectedLetters2)
     }
     setLengthError(false);
     setValidationError(false);

@@ -374,11 +374,11 @@ export const s = StyleSheet.create({
   },
   HOFEntryOuterContainer: {
     alignItems: "center",
-    marginTop: -9,
-    marginBottom: -32,
+    // marginTop: -9,
+    // marginBottom: -32,
   },
   HOFEntryContainer: {
-    marginTop: -20,
+    marginTop: -32,
     alignItems: "center",
     justifyContent: "center",
     width: "90%",
@@ -440,6 +440,7 @@ export const s = StyleSheet.create({
     alignItems: "center",
     height: "100%",
     marginTop: 25,
+
   },
 
   HOFMainHeading: {
@@ -574,7 +575,7 @@ export const s = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     alignItems: "center",
-    marginTop: 50,
+    marginTop: 100,
     marginBottom: 200,
   },
   HOFButton: {
@@ -582,11 +583,8 @@ export const s = StyleSheet.create({
     backgroundColor: "lightyellow",
     borderRadius: 15,
     padding: 10,
-    // borderWidth: 3,
-    // borderColor: "#353839",
   },
   HOFButtonInsideView: {
-    // flex:1,
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "center",
@@ -598,11 +596,16 @@ export const s = StyleSheet.create({
   },
 
   youInHOFContainer: {
-    marginTop: -30,
-    marginBottom: 40,
+    marginTop: -340,
+    marginBottom: 400,
     flex: 0.1,
     flexDirection: "row",
     justifyContent: "space-evenly",
+    // backgroundColor: "lightblue"
+  },
+  youInHOFText:{
+    fontSize: 20,
+
   },
   footerContainer: {
     // flex:5,

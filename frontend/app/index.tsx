@@ -108,8 +108,8 @@ export default function Index() {
   const [entries, setEntries] = useState([]);
 
   const keyboardOffset = useSharedValue(0);
+//After wordomination - continue playing - tlie allocation doesn't work.
 
-  //After rotation wrong values of tiles next to each other after visiting stats / help. 
   
   //Same tile appeared three times - Found after start game 0 initial hand: dominoesUsed correctly updated, then initial domino 
   //no longer appeared there. Then dominoesUsed becomes empty
@@ -573,7 +573,9 @@ console.log("dominoesUsed in index", dominoesUsed)
                       setShowYouInHOF={setShowYouInHOF}
                       hnadle={handle}
                       setHandle={setHandle}
+                      worDominationCount={worDominationCount}
                     />
+                   
                   ) : showFinishGame === true ? (
                     <>
                       <FinishGame
@@ -620,11 +622,9 @@ console.log("dominoesUsed in index", dominoesUsed)
                         setMinHOFScore={setMinHOFScore}
                       />
                     </View>
-                  ) : showYouInHOF === true ? (
-                    <View>
-                      <YouInHOF />
-                    </View>
-                  ) : null}
+                  ) : null
+                
+             }
 
                   <View>
                     <HallOfFameButton
@@ -635,6 +635,11 @@ console.log("dominoesUsed in index", dominoesUsed)
                       worDomination={worDomination}
                     />
                   </View>
+                 { showYouInHOF === true ? (
+                    <View>
+                      <YouInHOF />
+                    </View>
+                  ) : null}
                
                 </ScrollView>
                 <Footer/>

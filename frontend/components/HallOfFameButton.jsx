@@ -15,7 +15,7 @@ export function HallOfFameButton({showHOF, setShowHOF, showYouInHOF, setShowYouI
     }
 
     return(<>
-    <View style={[s.HOFButtonContainer, {marginTop: showYouInHOF?25:worDomination?17:60}]}>
+    <View style={[s.HOFButtonContainer, {marginTop: showYouInHOF?60:worDomination?17:30}]}>
 
         <TouchableOpacity style={s.HOFButton} onPress={handlePress}>
         <View style={s.HOFButtonInsideView}>

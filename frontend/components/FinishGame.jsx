@@ -122,7 +122,7 @@ export function FinishGame({
 
   return (
     <>
-      <View style={[s.startFinishGameContainer, {marginTop: worDomination?80:40, marginBottom: worDomination?40:40}]}>
+      <View style={[s.startFinishGameContainer, {marginTop: worDomination?80:35, marginBottom: worDomination?40:40}]}>
         <TouchableOpacity
           style={[s.gameControlButton, s.buttonBorders, s.finishGameButton, ]}
           onPress={() => [showAlert()]}

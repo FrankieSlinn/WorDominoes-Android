@@ -45,7 +45,7 @@ export function StartNewGameButton({ gameStart, setGameStart, setGameFinished, s
   showYouInHOF,
   setShowYouInHOF, 
   handle, 
-  setHandle
+  setHandle, worDominationCount
         )]}>
           <Text style={s.gameControlText}>Start New Game</Text>
         </TouchableOpacity>

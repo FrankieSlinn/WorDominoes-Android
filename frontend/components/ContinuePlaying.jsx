@@ -13,6 +13,7 @@ export function ContinuePlaying({gameStart, setGameStart, dominoesInHand, setDom
     worDomination, setWorDomination, wordSubmitted, setWordSubmitted, dominoesUsed, setDominoesUsed, showHOFEntry, setShowHOFEntry, showYouInHOF, 
     setShowYouInHOF, handle, setHandle
 }) {
+
  
   return (
     <>
@@ -48,7 +49,8 @@ export function ContinuePlaying({gameStart, setGameStart, dominoesInHand, setDom
   showYouInHOF,
   setShowYouInHOF, 
   handle, 
-  setHandle)
+  setHandle,
+worDominationCount)
 }>
  
    <Text  style={s.continuePlayingText}>Continue Playing</Text>

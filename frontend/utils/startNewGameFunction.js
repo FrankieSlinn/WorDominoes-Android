@@ -1,9 +1,10 @@
 import { allocateDominoes } from "./allocateDominoes";
-import {storeTilePlacedsState} from "../utils/asynchStorageUtils.js";
+import { storeTilePlacedsState } from "../utils/asynchStorageUtils.js";
 // import {dominoes} from ".dominoes";
 
 function startNewGameFunction(
-  gameStart, setGameStart,
+  gameStart,
+  setGameStart,
   setGameFinished,
   setSingleGameScore,
   dominoesInHand,
@@ -30,12 +31,15 @@ function startNewGameFunction(
   showHOFEntry,
   setShowHOFEntry,
   showYouInHOF,
-  setShowYouInHOF, 
-  handle, 
-  setHandle
+  setShowYouInHOF,
+  handle,
+  setHandle,
+  worDominationCount
 ) {
   console.log("start new game running");
-  gameResets(  gameStart, setGameStart,
+  gameResets(
+    gameStart,
+    setGameStart,
     setGameFinished,
     setSingleGameScore,
     dominoesInHand,
@@ -62,22 +66,26 @@ function startNewGameFunction(
     showHOFEntry,
     setShowHOFEntry,
     showYouInHOF,
-    setShowYouInHOF, 
-    handle, 
-    setHandle)
-  
+    setShowYouInHOF,
+    handle,
+    setHandle,
+    worDominationCount
+  );
 
+  //for completely new game
   setSingleGameScore(0);
-  allocateDominoes([], setDominoesInHand, true, true, [],setDominoesUsed);
- 
+
+
   if (worDomination != true) {
     setScoreArraySingleGame([]);
-    setWorDomination(false)
+    setWorDomination(false);
   }
 
 }
 
-function gameResets(  gameStart, setGameStart,
+function gameResets(
+  gameStart,
+  setGameStart,
   setGameFinished,
   setSingleGameScore,
   dominoesInHand,
@@ -104,14 +112,16 @@ function gameResets(  gameStart, setGameStart,
   showHOFEntry,
   setShowHOFEntry,
   showYouInHOF,
-  setShowYouInHOF, 
-  handle, 
-  setHandle){
-  console.log("gameResets running - gameStart: ", gameStart)
+  setShowYouInHOF,
+  handle,
+  setHandle,
+  worDominationCount
+) {
+  console.log("gameResets running - gameStart: ", gameStart);
   if (worDomination === true) {
-
-    setWorDomination(false)
+    setWorDomination(false);
   }
+
   setGameStart(true);
   setDominoesInHand([]);
   setDominoesUsed([]);
@@ -160,9 +170,8 @@ function gameResets(  gameStart, setGameStart,
   setWordSubmitted(false);
   setShowHOFEntry(false);
   setShowYouInHOF(false);
-setHandle("");
-
-
+  setHandle("");
+  allocateDominoes([], setDominoesInHand, true, true, [], setDominoesUsed);
 }
 
 export { startNewGameFunction, gameResets };

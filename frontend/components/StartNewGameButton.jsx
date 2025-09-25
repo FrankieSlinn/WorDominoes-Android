@@ -14,7 +14,7 @@ export function StartNewGameButton({ gameStart, setGameStart, setGameFinished, s
 
   return (
     <>
-      <View style={[ s.startGameContainer]}>
+      <View style={[ s.startGameContainer, {marginBottom: -12}]}>
         <TouchableOpacity style={[s.startGameButton, s.buttonBorders]} onPress={() => [startNewGameFunction(
   gameStart, setGameStart,
   setGameFinished,

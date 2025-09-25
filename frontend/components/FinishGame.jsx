@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { s } from "../App.style";
 import { handleFinishGame } from "../utils/finishGame";
 import { loadEntries } from "../utils/loadEntries";
-import { StartNewGameButton } from "./StartNewGameButton";
+
 
 export function FinishGame({
   gameStart,
@@ -31,6 +31,7 @@ export function FinishGame({
   setMinHOFScore,
   entries,
   setEntries,
+  word2Success
 }) {
   //runs finish game function sets game to finished
   async function handleClick(
@@ -122,7 +123,7 @@ export function FinishGame({
 
   return (
     <>
-      <View style={[s.startFinishGameContainer, {marginTop: worDomination?80:35, marginBottom: worDomination?40:40}]}>
+      <View style={[s.startFinishGameContainer, {marginTop: worDomination?80:word2Success?33:0, marginBottom: worDomination?40:40}]}>
         <TouchableOpacity
           style={[s.gameControlButton, s.buttonBorders, s.finishGameButton, ]}
           onPress={() => [showAlert()]}

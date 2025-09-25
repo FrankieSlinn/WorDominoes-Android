@@ -604,6 +604,7 @@ console.log("dominoesUsed in index", dominoesUsed)
                         setMinHOFScore={setMinHOFScore}
                         entries={entries}
                         setEntries={setEntries}
+                        word2Success={word2Success}
                       />
                     </>
                   ) : null}

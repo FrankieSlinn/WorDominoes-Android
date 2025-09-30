@@ -605,6 +605,7 @@ console.log("dominoesUsed in index", dominoesUsed)
                         entries={entries}
                         setEntries={setEntries}
                         word2Success={word2Success}
+                        turnStart={turnStart}
                       />
                     </>
                   ) : null}

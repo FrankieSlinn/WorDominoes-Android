@@ -611,7 +611,7 @@ export const s = StyleSheet.create({
     // flex:5,
     // backgroundColor: "purple",
     alignItems: "center",
-    marginBottom: -220,
+    marginBottom: -285,
     paddingTop: 10,
   },
   footerText: {

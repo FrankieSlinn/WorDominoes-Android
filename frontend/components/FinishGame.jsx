@@ -31,7 +31,7 @@ export function FinishGame({
   setMinHOFScore,
   entries,
   setEntries,
-  word2Success
+  word2Success,turnStart
 }) {
   //runs finish game function sets game to finished
   async function handleClick(
@@ -98,6 +98,7 @@ export function FinishGame({
       {
         text: "OK",
         onPress: () => {
+     
           handleClick(
             gameFinished,
             setGameFinished,
@@ -116,6 +117,7 @@ export function FinishGame({
             handle,
             minHOFScore
           );
+          console.log("word domination in finish game", worDomination)
         },
       },
     ]);
@@ -123,7 +125,7 @@ export function FinishGame({
 
   return (
     <>
-      <View style={[s.startFinishGameContainer, {marginTop: worDomination?80:word2Success?33:0, marginBottom: worDomination?40:40}]}>
+      <View style={[s.startFinishGameContainer, {marginTop: worDomination?80:word2Success?33:turnStart?21:0, marginBottom: worDomination?40:40}]}>
         <TouchableOpacity
           style={[s.gameControlButton, s.buttonBorders, s.finishGameButton, ]}
           onPress={() => [showAlert()]}

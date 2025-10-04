@@ -12,7 +12,7 @@
       "hostType": "lan"
     },
     "ios": {
-      "supportsTablet": true,
+      "supportsTablet": false,
       "bundleIdentifier": "com.fkissling.WorDominoes",
       "buildNumber": "1.0.0",
       "infoPlist": {

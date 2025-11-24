@@ -62,7 +62,8 @@ export const s = StyleSheet.create({
     top: 60,
   },
   headerHOF: {
-    top: 50,
+    top: 40,
+    marginBottom: 40,
   },
 
   closeButtonContainer: {
@@ -405,6 +406,7 @@ export const s = StyleSheet.create({
   HOFEntryHeading: {
     padding: 10,
     fontSize: 17,
+    marginBottom: 10,
   },
   HOFEntryText: {
     fontSize: 17,
@@ -463,7 +465,7 @@ export const s = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: -5,
-    marginBottom: -110,
+    marginBottom: -100,
     height: "5%",
 
     // backgroundColor: "lightgreen",
@@ -481,16 +483,16 @@ export const s = StyleSheet.create({
     fontSize: 17,
   },
   HOFContainer: {
-    flex: 0.9,
+    flex: 1,
     // marginTop: 700,
     justifyContent: "center",
     alignItems: "center",
     marginTop: 125,
-    marginBottom: 50,
+    marginBottom: 68,
     backgroundColor: "lightyellow",
     //"#bdc5c7",
     width: "85%",
-    height: "20%",
+
     // borderColor: "white",
     // //"#D1D0CE",
     // borderWidth: 5,
@@ -504,11 +506,8 @@ export const s = StyleSheet.create({
     alignItems: "center",
     width: "97%",
     marginTop: 10,
+   paddingBottom: -20,
 
-    marginBottom: 0,
-    // paddingBottom: 20,
-
-    height: "70%",
   },
   HOFHeadings: {
     // flex: 1,

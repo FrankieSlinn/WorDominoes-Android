@@ -1,5 +1,6 @@
 import { Image, TouchableOpacity, View, ScrollView, Text } from "react-native";
 import { s } from "../App.style.js";
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export function HelpText({ showHelpText, setShowHelpText }) {
   function closeHelpSection() {
@@ -15,10 +16,14 @@ export function HelpText({ showHelpText, setShowHelpText }) {
           <Text style={s.close}>Close</Text>
         </TouchableOpacity>
       </View>
-
+{/* <SafeAreaView> */}
       <ScrollView
         showsVerticalScrollIndicator={false}
         style={s.statsHelpTextContainer}
+      //   contentContainerStyle={{  flexGrow: 1, paddingBottom: 25,
+      //     marginTop: -40,
+      //    }
+      // }
       >
               <View style={s.helpTextContainer}>
         <View style={s.helpTextContainerInner}>
@@ -152,9 +157,13 @@ export function HelpText({ showHelpText, setShowHelpText }) {
           {"\n"}
           {"\n"}
         </Text>
+
         </View>
         </View>
+
       </ScrollView>
+      {/* </SafeAreaView> */}
+
  
     </>
   );

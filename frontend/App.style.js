@@ -91,19 +91,16 @@ export const s = StyleSheet.create({
   statsHelpTextContainer: {
     top: 10,
     margin: 32,
+    paddingBottom: 25,
+    marginBottom: 50,
   },
   helpTextContainer: {
-    flex: 0.1,
-
-    height: "100%",
-    // backgroundColor: "yellow",
-
-    //  marginTop: 700,
-    marginBottom: 140,
-    // paddingBottom: 70,
+    // flex: 0.1,
+ marginBottom: 30,
+   
   },
   helpTextContainerInner: {
-    // backgroundColor: "yellow",
+
   },
 
   helpText: {
@@ -111,6 +108,15 @@ export const s = StyleSheet.create({
     fontSize: 17,
 
     textAlign: "center",
+  },
+  helpTextSpaceBelow: {
+    position: "absolute",
+    bottom: 0,
+    height: 50,
+    marginTop: 50,
+    backgroundColor: "hotpink",
+
+
   },
   statsText: {
     fontWeight: 550,
@@ -168,7 +174,7 @@ export const s = StyleSheet.create({
   selectedTileVertical: {
     width: 26,
     height: 52,
-    transform: [{ rotate: "deg" }],
+    transform: [{ rotate: "0deg" }],
     // color: "pink",
   },
 

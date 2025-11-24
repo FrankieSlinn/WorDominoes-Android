@@ -5,6 +5,7 @@ import Animated, {
   useAnimatedStyle,
   withSpring,
 } from "react-native-reanimated";
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from "expo-status-bar";
 import { s } from "../App.style.js";
 import { Header } from "../components/Header.jsx";
@@ -222,9 +223,10 @@ console.log("dominoesUsed in index", dominoesUsed)
         <StatusBar translucent={false} />
       </View>
 
+
       {showHOF === false ? (
         <View style={s.appBody}>
-          {/* <View> */}
+
       
               <Header
                 showHelpText={showHelpText}
@@ -651,6 +653,8 @@ console.log("dominoesUsed in index", dominoesUsed)
                 showHelpText={showHelpText}
                 setShowHelpText={setShowHelpText}
               />
+      
+     
             ) : (
               <StatsContent
                 showStats={showStats}
@@ -663,7 +667,7 @@ console.log("dominoesUsed in index", dominoesUsed)
                 setFinalScore={setFinalScore}
               />
             )}
-          {/* </View> */}
+
         </View>
       ) : (
         <HallOfFame
@@ -677,7 +681,7 @@ console.log("dominoesUsed in index", dominoesUsed)
         />
       )}
    
-   {/* <Footer/> */}
+
   
     </>
   );

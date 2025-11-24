@@ -1,6 +1,6 @@
 import { View} from "react-native";
-
 import { s } from "../App.style";
+
 
 const displayDominoComponents = [
     require("../components/DisplayDomino1.js").DisplayDomino1,

@@ -1,5 +1,6 @@
 import {Image, TouchableOpacity, View, ScrollView, Text} from "react-native";
 import {storeGamesArray, getGamesArray} from "../utils/asynchStorageUtils.js"
+import { Footer } from "./Footer.jsx";
 
 import{useState, useEffect} from "react";
  import {s} from "../App.style.js";
@@ -81,7 +82,9 @@ return(<>
 
 
           </Text>
+          
           </ScrollView>
+   
 
 
 

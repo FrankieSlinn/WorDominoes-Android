@@ -94,9 +94,10 @@ export const s = StyleSheet.create({
     margin: 32,
     paddingBottom: 25,
     marginBottom: 50,
+    height: 570,
   },
   helpTextContainer: {
-    // flex: 0.1,
+height: "92%",
  marginBottom: 30,
    
   },
@@ -492,10 +493,6 @@ export const s = StyleSheet.create({
     backgroundColor: "lightyellow",
     //"#bdc5c7",
     width: "85%",
-
-    // borderColor: "white",
-    // //"#D1D0CE",
-    // borderWidth: 5,
     borderRadius: 15,
   },
 
@@ -613,13 +610,19 @@ export const s = StyleSheet.create({
 
   },
   footerContainer: {
-    // flex:5,
-    // backgroundColor: "purple",
+    position: "absolute",
+    bottom: 250,
+    height: 100,
+    width: "100%",
     alignItems: "center",
-    marginBottom: -285,
-    paddingTop: 10,
+    marginBottom: -275,
+    paddingBottom: 25,
+     opacity: 1,
+     backgroundColor: "#F0F0F0", 
   },
   footerText: {
-    fontSize: 17,
+    paddingTop: 10,
+    fontSize: 15,
+    // backgroundColor: "white",
   },
 });

@@ -1,6 +1,6 @@
 import { Image, TouchableOpacity, View, ScrollView, Text } from "react-native";
 import { s } from "../App.style.js";
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { Footer } from "./Footer.jsx";
 
 export function HelpText({ showHelpText, setShowHelpText }) {
   function closeHelpSection() {
@@ -16,16 +16,13 @@ export function HelpText({ showHelpText, setShowHelpText }) {
           <Text style={s.close}>Close</Text>
         </TouchableOpacity>
       </View>
-{/* <SafeAreaView> */}
+
+              <View style={s.helpTextContainer}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         style={s.statsHelpTextContainer}
-      //   contentContainerStyle={{  flexGrow: 1, paddingBottom: 25,
-      //     marginTop: -40,
-      //    }
-      // }
       >
-              <View style={s.helpTextContainer}>
+
         <View style={s.helpTextContainerInner}>
      
         <Text style={s.helpText}>
@@ -38,21 +35,22 @@ export function HelpText({ showHelpText, setShowHelpText }) {
           you define excellent).
           {"\n"}
           {"\n"}
-          The obvious goal is to achieve WorDomination. You can do this by
+          The obvious goal is to achieve WORDOMINATION. Each WORDOMINATION is worth 30 points. 
+          You can do this by
           completing all the tiles of the dominoes grid. But it is difficult.
           You will not only need to be a master of word games but also an
           excellent dominoes strategist. If you possess both of these skills you
-          have a chance at WorDomination.
+          have a chance at WORDOMINATION.
           {"\n"}
           {"\n"}
-          Even if you don’t get WorDomination you can still compare your score
+          Even if you don’t get WORDOMINATION you can still compare your score
           with the top players scores in an 80’s style (if you remember the
           80’s) Hall of Fame. Will you make it into the Hall of Fame? There’s
           only one way to find out: play the game!
           {"\n"}
           {"\n"}
           If you don’t make it into the Hall of Fame and you don’t achieve
-          WorDomination you can still compete against yourself. The statistics
+          WORDOMINATION you can still compete against yourself. The statistics
           section displays your average score which you can improve as you get
           better at the game. Of course the more you play the better you should
           get.
@@ -97,7 +95,7 @@ export function HelpText({ showHelpText, setShowHelpText }) {
           your domino where there aren’t any dominoes next to it. Make sense?
           Hopefully. Otherwise there’s always good old trial and error. To make
           the game a bit easier to at least give people a slight chance at
-          WorDomination it is also possible to rotate the domino by clicking on
+          WORDOMINATION it is also possible to rotate the domino by clicking on
           it.
           {"\n"}
           {"\n"}
@@ -156,13 +154,21 @@ export function HelpText({ showHelpText, setShowHelpText }) {
           {"\n"}
           {"\n"}
           {"\n"}
+            {"\n"}
+          {"\n"}
+          {"\n"}
+          {"\n"}
+     
         </Text>
 
         </View>
-        </View>
+
 
       </ScrollView>
-      {/* </SafeAreaView> */}
+              </View>
+              <Footer/>
+
+
 
  
     </>

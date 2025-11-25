@@ -646,7 +646,7 @@ console.log("dominoesUsed in index", dominoesUsed)
                   ) : null}
                
                 </ScrollView>
-                <Footer/>
+          
               </Animated.View>
             ) : showStats === false ? (
               <HelpText
@@ -656,6 +656,7 @@ console.log("dominoesUsed in index", dominoesUsed)
       
      
             ) : (
+              <>
               <StatsContent
                 showStats={showStats}
                 setShowStats={setShowStats}
@@ -666,6 +667,8 @@ console.log("dominoesUsed in index", dominoesUsed)
                 finalScore={finalScore}
                 setFinalScore={setFinalScore}
               />
+                    {/* <Footer/> */}
+                    </>
             )}
 
         </View>
@@ -680,6 +683,7 @@ console.log("dominoesUsed in index", dominoesUsed)
           setEntries={setEntries}
         />
       )}
+            <Footer/>
    
 
   

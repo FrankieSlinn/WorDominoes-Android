@@ -50,6 +50,9 @@ export function StatsContent({showStats, setShowStats, gamesArray, setGamesArray
     }, []);
 
     console.log("gamesArray[gamesArray.length-1", gamesArray[gamesArray.length-1])
+    console.log("gamesArray", gamesArray)
+
+    console.log("gamesArray[gamesArray.length", gamesArray.length)
     
 
 

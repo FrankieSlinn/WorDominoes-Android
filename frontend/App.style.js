@@ -315,6 +315,11 @@ height: "92%",
     borderStyle: "dashed",
     borderColor: "gray",
   },
+  unselectedLetter:{
+    color: "black",
+    borderStyle: "solid",
+    borderColor: "black"
+  },
   wordButtonContainer: {
     marginTop: 20,
     marginBottom: -2,

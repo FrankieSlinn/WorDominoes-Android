@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import { s } from "../App.style";
 import { Input } from "./Input";
 import { submitWordToAPI } from "../utils/apiCalls";
-import {getLetterHand, storeLetterHand, getSelectedLetters1, storeSelectedLetters1, getSelectedLetters2, storeSelectedLetters2} from "../utils/asynchStorageUtils"
+import {getLetterHand, storeLetterHand, getSelectedLetters1, storeSelectedLetters1, getSelectedLetters2,
+   storeSelectedLetters2, redoClicked, setRedoClicked} from "../utils/asynchStorageUtils"
 
 export function Word({
   wordLength1,
@@ -29,44 +30,49 @@ export function Word({
   tilePlaced,
   setTilePlaced, 
   wordSubmitted, setWordSubmitted, 
-  turnStart
+  turnStart,
+  redoClicked,
+  setRedoClicked
 
   
 }) {
   const [validationError, setValidationError] = useState(false);
   const [lengthError, setLengthError] = useState(false);
 
+useEffect(()=>{
+  console.log("selectedLetters1 in useEffect", selectedLetters1);
+  console.log("selectedLetters2 in useEffect", selectedLetters2)
 
 
-  function handleRedoPress() {
-    console.log("handle REDO RUNNING")
-    const resetLetters = async ()=>{
-      const storedSelectedLetters1 = await getSelectedLetters1();
-      const storedSelectedLetters2= await getSelectedLetters2();
-      setValidationError(false)
-      setLengthError(false)
-    if (wordNum === 1) {
-      setInputString1([]);
-      storeSelectedLetters1([])
-   
-      console.log("inputString1", inputString1)
-      setSelectedLetters1([]);
-      console.log("SET STORED SELECTED LETTERS TO []!!!!!!!!")
-      console.log(" AFTER RESET - storedSelectedLetters1, selectedLetters1", storedSelectedLetters1, selectedLetters1)
-    } else {
-      console.log("redo letters for word 2 running")
-      setInputString2([]);
-      storeSelectedLetters2([])
-      console.log("inputString2", inputString2)
-      setSelectedLetters2([]);
-      console.log("selectedLetters2", selectedLetters2)
-      console.log(" AFTER RESET - storedSelectedLetters2, selectedLetters2", storedSelectedLetters2, selectedLetters2)
-    }
-    setLengthError(false);
-    setValidationError(false);
+}, [setSelectedLetters1, setSelectedLetters2])
+
+function handleRedoPress() {
+  setRedoClicked(true);
+  setValidationError(false);
+  setLengthError(false);
+
+  if (wordNum === 1) {
+    setSelectedLetters1(() => {
+      storeSelectedLetters1([]);
+      return [];
+    });
+    setInputString1([]);
+  } else {
+    setSelectedLetters2(() => {
+      storeSelectedLetters2([]);
+      return [];
+    });
+    setInputString2([]);
   }
-  resetLetters();
-  }
+
+  // ✅ ADD THIS: allow UI to re-render normally again
+  // setTimeout(() => setRedoClicked(false), 0);
+}
+
+
+  
+
+
   function handleSubmitPress(inputString1, inputString2) {
     //shows if first word or second word submitted
     let wordNumber = wordNum;

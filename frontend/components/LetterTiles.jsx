@@ -31,10 +31,13 @@ export function LetterTiles({
   wordNum,
   setWordNum,
   gameStart,
+  redoClicked,
+  setRedoClicked
 }) {
   const [letterHand, setLetterHand] = useState([]);
   const [letterHandAllocated, setLetterHandAllocated] = useState(false);
-  const letterHandLength = 15;
+  const [localLetterSelected, setLocalLetterSelected] = useState(false);
+   const letterHandLength = 15;
 
 
   //reset and load seleted letters
@@ -49,17 +52,39 @@ export function LetterTiles({
         setSelectedLetters1([]);
         storeSelectedLetters2([]);
         setSelectedLetters2([]);
-      } else {
-        const storedSelectedLetters1 = await getSelectedLetters1();
-        const storedSelectedLetters2 = await getSelectedLetters2();
-        setSelectedLetters1(storedSelectedLetters1);
-        setSelectedLetters2(storedSelectedLetters2);
+      } 
+      // else {
+      //   const storedSelectedLetters1 = await getSelectedLetters1();
+      //   const storedSelectedLetters2 = await getSelectedLetters2();
+      //   setSelectedLetters1(storedSelectedLetters1);
+      //   setSelectedLetters2(storedSelectedLetters2);
 
-      }
+      // }
     };
 
     handleSelectedLetterTiles();
   }, []);
+
+  //Refresh selectedLetters so that no selected tile formatting after click "redo"
+  useEffect(()=>{
+    console.log("!!!!!!!!selectedLetters1", selectedLetters1)
+    console.log("!!!!!!!!selectedLetters2", selectedLetters2)
+    console.log("!!!!!!!!redoClicked", redoClicked)
+  },[])
+useEffect(() => {
+
+
+  console.log("!!!!$$$$ function for selected Letters running")
+  letterHand.forEach((letter, index) => {
+    if (
+      selectedLetters1.includes(index) ||
+      selectedLetters2.includes(index)
+    ) {
+      console.log("Letter has been selected %%%$$$£$£$£$$$$$", letter, index)
+      setLocalLetterSelected(true);
+    }
+  });
+}, []);
 
   //Allocate Letters
   useEffect(() => {
@@ -93,8 +118,9 @@ export function LetterTiles({
 
   function handlePress(letter, index) {
     const processLetters = async () => {
-      const storedSelectedLetters1 = await getSelectedLetters1();
-      const storedSelectedLetters2 = await getSelectedLetters2();
+//    let copyStoredSelectedLetters1 = [...selectedLetters1];
+// let copyStoredSelectedLetters2 = [...selectedLetters2];
+
 
       let inputString =
         wordNum === 1
@@ -112,7 +138,7 @@ export function LetterTiles({
           const newInputString1 = [...inputString1, letter];
           setInputString1(newInputString1);
           storeInputString1(newInputString1);
-          let copyStoredSelectedLetters1 = [...storedSelectedLetters1];
+          let copyStoredSelectedLetters1 = [...selectedLetters1];
 
           copyStoredSelectedLetters1.push(index);
 
@@ -122,7 +148,7 @@ export function LetterTiles({
           const newInputString2 = [...inputString2, letter];
           setInputString2(newInputString2);
           storeInputString2(newInputString2);
-          let copyStoredSelectedLetters2 = [...storedSelectedLetters2];
+          let copyStoredSelectedLetters2 = [...selectedLetters2];
 
           copyStoredSelectedLetters2.push(index);
 
@@ -140,26 +166,28 @@ export function LetterTiles({
     processLetters();
   }
 
-  return (
-    <View style={s.lettersContainer}>
-      {letterHand.map((letter, index) => (
-        <TouchableOpacity
-          key={index}
-          onPress={() => handlePress(letter, index)}
+return (
+  <View style={s.lettersContainer}>
+    {letterHand.map((letter, index) => (
+      <TouchableOpacity
+        key={index}
+        onPress={() => handlePress(letter, index)}
+      >
+        <Text
+          style={[
+            s.letter,
+            (selectedLetters1.includes(index) || selectedLetters2.includes(index))?
+           s.selectedLetter
+           :s.unselectedLetter
+
+         
+          ]}
         >
-          <Text
-            style={[
-              s.letter,
-              selectedLetters1.includes(index) ||
-              selectedLetters2.includes(index)
-                ? s.selectedLetter
-                : null,
-            ]}
-          >
-            {letter}
-          </Text>
-        </TouchableOpacity>
-      ))}
-    </View>
-  );
+          {letter}
+        </Text>
+      </TouchableOpacity>
+    ))}
+  </View>
+);
+
 }

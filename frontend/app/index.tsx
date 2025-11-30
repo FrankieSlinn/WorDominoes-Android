@@ -107,8 +107,14 @@ export default function Index() {
   const [showYouInHOF, setShowYouInHOF] = useState(false);
   const [minHOFScore, setMinHOFScore] = useState(0);
   const [entries, setEntries] = useState([]);
+  const [redoClicked, setRedoClicked] = useState(false);
 
   const keyboardOffset = useSharedValue(0);
+
+
+  //After Got not a valid word and clicked redo, letters still selected - Fixed
+//Test everything on different Androids. 
+
 //After wordomination - continue playing - tlie allocation doesn't work.
 
   
@@ -505,6 +511,8 @@ console.log("dominoesUsed in index", dominoesUsed)
                         setSelectedLetters1={setSelectedLetters1}
                         selectedLetters2={selectedLetters2}
                         setSelectedLetters2={setSelectedLetters2}
+                        redoClicked = {redoClicked}
+                        setRedoClicked={setRedoClicked}
                       />
                     ) : null}
                   </View>

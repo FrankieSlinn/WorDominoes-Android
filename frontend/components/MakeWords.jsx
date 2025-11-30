@@ -8,7 +8,7 @@ import { s } from "../App.style";
 
 export function MakeWords({displayDomino, setDisplayDomino, selectedDominoObject, setSelectedDominoObject,  showChooseDominoText, setShowChooseDominoText,
   gameStart, setGameStart, turnStart, setTurnStart, word1Success, setWord1Success, word2Success, setWord2Success, dominoesInGrid, tilePlaced, setTilePlaced, wordSubmitted, 
-  setWordSubmitted, selectedLetters1, setSelectedLetters1, selectedLetters2, setSelectedLetters2
+  setWordSubmitted, selectedLetters1, setSelectedLetters1, selectedLetters2, setSelectedLetters2, redoClicked, setRedoClicked
 
 }) {
   const [wordLength1, setWordLength1] = useState("");
@@ -116,6 +116,8 @@ loadSaveWord1Success()
     setTilePlaced={setTilePlaced}
     wordSubmitted={wordSubmitted}
     setWordSubmitted={setWordSubmitted}
+    redoClicked={redoClicked}
+    setRedoClicked={setRedoClicked}
  
     />
     <LetterTiles
@@ -137,6 +139,8 @@ loadSaveWord1Success()
         wordNum={wordNum}
         setWordNum={setWordNum}
         gameStart = {gameStart}
+        redoClicked={redoClicked}
+        setRedoClicked={setRedoClicked}
      
     
     />

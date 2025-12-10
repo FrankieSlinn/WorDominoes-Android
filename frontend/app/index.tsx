@@ -178,10 +178,10 @@ useEffect(() => {
 
 
 
-useEffect(() => {
-  NavigationBar.setBackgroundColorAsync("#f0f0f0"); // your color
-  NavigationBar.setButtonStyleAsync("dark");        // or "light"
-}, []);
+// useEffect(() => {
+//   NavigationBar.setBackgroundColorAsync("#f0f0f0"); // your color
+//   NavigationBar.setButtonStyleAsync("dark");        // or "light"
+// }, []);
 
 console.log("dominoesUsed in index", dominoesUsed)
 
@@ -267,7 +267,10 @@ console.log("dominoesUsed in index", dominoesUsed)
     <>
       <View style={s.statusBarBackground}>
         <Stack.Screen options={{ headerShown: false }} />
-        {/* <StatusBar translucent={false} /> */}
+             <StatusBar
+        style="dark"   // makes icons + text dark
+
+      />
       </View>
 
 

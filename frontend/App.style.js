@@ -7,7 +7,7 @@ export const s = StyleSheet.create({
   statusBarBackground: {
     paddingTop: 90,
     paddingBottom: 25,
-    backgroundColor: "#eee",
+    // backgroundColor: "#f0f0f0",
     position: "absolute",
     height: 70,
     top: 0,
@@ -56,7 +56,7 @@ export const s = StyleSheet.create({
     justifyContent: "space-evenly",
     alignItems: "baseline",
     marginTop: 10,
-    // backgroundColor: "pink"
+    backgroundColor: "#f0f0f0"
   },
   headerWorDominoes: {
     top: 60,
@@ -116,7 +116,7 @@ height: "92%",
     bottom: 0,
     height: 50,
     marginTop: 50,
-    backgroundColor: "hotpink",
+    // backgroundColor: "hotpink",
 
 
   },
@@ -621,7 +621,7 @@ height: "92%",
     width: "100%",
     alignItems: "center",
     marginBottom: -275,
-    paddingBottom: 25,
+    paddingBottom: 70,
      opacity: 1,
      backgroundColor: "#F0F0F0", 
   },

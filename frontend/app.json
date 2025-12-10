@@ -21,9 +21,14 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "foregroundImage": "./assets/images/FaviconWD.png",
+        "backgroundColor": "#f0f0f0"
+      },
+      "package": "com.fkissling.WorDominoes"
+    },
+        "androidNavigationBar": {
+      "backgroundColor": "#f0f0f0",
+      "barStyle": "dark-content"
     },
     "web": {
       "bundler": "metro",

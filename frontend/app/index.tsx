@@ -1,11 +1,16 @@
-import { Text, View, ScrollView, Keyboard } from "react-native";
+import { Text, View, ScrollView, Keyboard, Platform, Appearance } from "react-native";
 import { useState, useEffect } from "react";
+
+import React, { useCallback } from "react";
+import changeNavigationBarColor from "react-native-navigation-bar-color";
+
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withSpring,
 } from "react-native-reanimated";
-import { SafeAreaView } from 'react-native-safe-area-context';
+import * as NavigationBar from 'expo-navigation-bar';
+import { useFocusEffect } from "expo-router"; 
 import { StatusBar } from "expo-status-bar";
 import { s } from "../App.style.js";
 import { Header } from "../components/Header.jsx";
@@ -111,6 +116,9 @@ export default function Index() {
 
   const keyboardOffset = useSharedValue(0);
 
+  const colorScheme = Appearance.getColorScheme(); // 'light' or 'dark'
+
+
 
   //After Got not a valid word and clicked redo, letters still selected - Fixed
 //Test everything on different Androids. 
@@ -141,6 +149,39 @@ export default function Index() {
 
   //saw selected letter that wasn't in input
 
+useEffect(() => {
+  if (Platform.OS !== "android") return;
+
+  const change = async () => {
+    try {
+      await changeNavigationBarColor("#F0f0f0"); // pass color as argument
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  change();
+}, []);
+
+// useFocusEffect(
+//   useCallback(() => {
+//     (async () => {
+//       // reapply on focus — OEMs sometimes revert settings when app regains focus
+//       await NavigationBar.setPositionAsync("relative");
+//       await NavigationBar.setBehaviorAsync("inset-swipe");
+//       await NavigationBar.setBackgroundColorAsync("#f0f0f0");
+//       await NavigationBar.setButtonStyleAsync("dark");
+//     })();
+//   }, [])
+// );
+
+
+
+
+useEffect(() => {
+  NavigationBar.setBackgroundColorAsync("#f0f0f0"); // your color
+  NavigationBar.setButtonStyleAsync("dark");        // or "light"
+}, []);
 
 console.log("dominoesUsed in index", dominoesUsed)
 
@@ -226,7 +267,7 @@ console.log("dominoesUsed in index", dominoesUsed)
     <>
       <View style={s.statusBarBackground}>
         <Stack.Screen options={{ headerShown: false }} />
-        <StatusBar translucent={false} />
+        {/* <StatusBar translucent={false} /> */}
       </View>
 
 

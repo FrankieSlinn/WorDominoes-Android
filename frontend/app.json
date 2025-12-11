@@ -4,7 +4,7 @@
     "slug": "WorDominoes",
     "version": "1.0.1",
     "orientation": "portrait",
-    "icon": "./assets/images/FaviconWD.png",
+    "icon": "./assets/images/FaviconWD_v2.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -21,7 +21,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/FaviconWD.png",
+        "foregroundImage": "./assets/images/FaviconWD_v2.png",
         "backgroundColor": "#f0f0f0"
       },
       "package": "com.fkissling.WorDominoes"

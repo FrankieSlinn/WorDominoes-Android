@@ -167,6 +167,7 @@ useEffect(() => {
   }
 
 return (
+  <View style={s.lettersContainerOuter}>
   <View style={s.lettersContainer}>
     {letterHand.map((letter, index) => (
       <TouchableOpacity
@@ -187,6 +188,7 @@ return (
         </Text>
       </TouchableOpacity>
     ))}
+  </View>
   </View>
 );
 

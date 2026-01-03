@@ -119,6 +119,9 @@ export default function Index() {
   const colorScheme = Appearance.getColorScheme(); // 'light' or 'dark'
 
 
+//Check Score - stats look odd - Looks ok now. 
+//do wordomination - Android & take screenshot
+//Get screenshots for other Android size
 
   //After Got not a valid word and clicked redo, letters still selected - Fixed
 //Test everything on different Androids. 
@@ -163,25 +166,7 @@ useEffect(() => {
   change();
 }, []);
 
-// useFocusEffect(
-//   useCallback(() => {
-//     (async () => {
-//       // reapply on focus — OEMs sometimes revert settings when app regains focus
-//       await NavigationBar.setPositionAsync("relative");
-//       await NavigationBar.setBehaviorAsync("inset-swipe");
-//       await NavigationBar.setBackgroundColorAsync("#f0f0f0");
-//       await NavigationBar.setButtonStyleAsync("dark");
-//     })();
-//   }, [])
-// );
 
-
-
-
-// useEffect(() => {
-//   NavigationBar.setBackgroundColorAsync("#f0f0f0"); // your color
-//   NavigationBar.setButtonStyleAsync("dark");        // or "light"
-// }, []);
 
 console.log("dominoesUsed in index", dominoesUsed)
 

@@ -11,6 +11,7 @@ export const baseURL = `https://wordominoesapp-291825c038d8.herokuapp.com/api`; 
 async function fetchHOFEntries() {
   try {
     const response = await fetch(`${baseURL}/hofdataroute`);
+    console.log("HOF response", response)
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

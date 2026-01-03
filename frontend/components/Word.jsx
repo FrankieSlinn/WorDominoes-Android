@@ -111,7 +111,7 @@ function handleRedoPress() {
 
   return (
     <>
-      <View>
+      <View style = {s.makeWordContainer}>
         {word1Success === false 
         ? (
           <Text style={s.instructionText}>

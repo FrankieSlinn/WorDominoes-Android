@@ -5,7 +5,8 @@ import { s } from "../App.style";
   
   export function TextTileWin({ word2Success, tilePlaced, worDomination, gameFinished }) {
     return (
-      <View>
+      <View style = {s.tileWinOuter}>
+      <View style = {s.tileWin}>
         {word2Success === true && tilePlaced === false && gameFinished === false ? (
           <>
             <Text style={[s.instructionText, s.bold]}>
@@ -22,6 +23,7 @@ import { s } from "../App.style";
             </Text>
           </>
         ) : null}
+      </View>
       </View>
     );
   }

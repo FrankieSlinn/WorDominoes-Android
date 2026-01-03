@@ -1,4 +1,8 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions, Platform } from "react-native";
+import { letters } from "./utils/letters";
+
+const { width } = Dimensions.get('window');
+const isTablet = width >= 768;
 
 export const s = StyleSheet.create({
   appBody: {
@@ -98,10 +102,14 @@ export const s = StyleSheet.create({
   },
   helpTextContainer: {
 height: "92%",
+// alignItems: "center",
+// justifyContent: "center",
+
  marginBottom: 30,
    
   },
   helpTextContainerInner: {
+   marginHorizontal: isTablet ? 55 : 0,
 
   },
 
@@ -128,23 +136,38 @@ height: "92%",
   scoreMessageContainer: {
     marginTop: -20,
   },
+  chooseDominoContainerOuter:{
+    alignItems: "center",
+    justifyContent: "center",
+  },
   chooseDominoContainer: {
+    justifyContent: "center",
+    alignItems: "center",
     paddingHorizontal: 20,
 
     marginTop: 20,
+    width: isTablet ? '70%' : '100%',
   },
 
   instructionBox: {
+    flex: 1,
     margin: 20,
     marginBottom: -20,
     height: 95,
-    // alignItems: "center",
+    alignItems: "center",
+    textAlign: "center",
+    justifyContent: "center",
+
+  },
+  makeWordContainer: {
+    alignItems: "center",
     justifyContent: "center",
   },
   instructionText: {
     fontSize: 17,
     textAlign: "center",
-    // fontWeight: "bold",
+
+   width: isTablet ? '70%' : '100%',
   },
   errorMessageText: {
     backgroundColor: "lightorange",
@@ -278,9 +301,10 @@ height: "92%",
   inputContainer: {
     // flex: 1,
     alignItems: "center",
-    // justifyContent: "center",
-    // marginTop: -10,
-    // marginBottom: 5,
+    width: isTablet ? '50%' : '100%',
+    // height: isTablet? 40: "100%",
+    // marginBottom: isTablet? 15: 0,
+
   },
   inputText: {
     flex: 1,
@@ -290,6 +314,11 @@ height: "92%",
     // justifyContent: "center",
   },
 
+  lettersContainerOuter:{
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
   lettersContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
@@ -297,6 +326,7 @@ height: "92%",
     marginBottom: 70,
     alignItems: "center",
     justifyContent: "center",
+    width: isTablet? '50%':'100%',
   },
   letter: {
     width: 35,
@@ -326,6 +356,7 @@ height: "92%",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    width: isTablet? "60%":"100%"
   },
   wordButton: {
     backgroundColor: "#053e4c",
@@ -384,6 +415,7 @@ height: "92%",
   WorDominationCount: {
     marginTop: 0,
     fontWeight: "bold",
+    alignItems: "center",
   },
   HOFEntryOuterContainer: {
     alignItems: "center",
@@ -494,7 +526,7 @@ height: "92%",
     justifyContent: "center",
     alignItems: "center",
     marginTop: 125,
-    marginBottom: 68,
+    marginBottom: isTablet?500: 68,
     backgroundColor: "lightyellow",
     //"#bdc5c7",
     width: "85%",
@@ -600,6 +632,15 @@ height: "92%",
     fontWeight: "bold",
     flexDirection: "row",
     fontSize: 17,
+  },
+  tileWinOuter:{
+
+    alignItems: "center",
+  },
+  tileWin:{
+    alignItems: "center",
+    width: isTablet? "70%":"100%",
+
   },
 
   youInHOFContainer: {

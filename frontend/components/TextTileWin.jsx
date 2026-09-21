@@ -10,7 +10,7 @@ import { s } from "../App.style";
         {word2Success === true && tilePlaced === false && gameFinished === false ? (
           <>
             <Text style={[s.instructionText, s.bold]}>
-              Congratulations, you won a tile!
+              Congratulations, you won a domino!
               {"\n"}
             </Text>
             <Text style={s.instructionText}>

@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Linking } from "react-native";
 import { useEffect, useState } from "react";
 import { letters } from "../utils/letters";
 import {
@@ -39,6 +39,8 @@ export function LetterTiles({
   const [localLetterSelected, setLocalLetterSelected] = useState(false);
    const letterHandLength = 15;
 
+    const openWebsite = () => { Linking.openURL("https://wordsohard.com/"); };
+
 
   //reset and load seleted letters
   useEffect(() => {
@@ -53,13 +55,7 @@ export function LetterTiles({
         storeSelectedLetters2([]);
         setSelectedLetters2([]);
       } 
-      // else {
-      //   const storedSelectedLetters1 = await getSelectedLetters1();
-      //   const storedSelectedLetters2 = await getSelectedLetters2();
-      //   setSelectedLetters1(storedSelectedLetters1);
-      //   setSelectedLetters2(storedSelectedLetters2);
-
-      // }
+ 
     };
 
     handleSelectedLetterTiles();
@@ -118,8 +114,6 @@ useEffect(() => {
 
   function handlePress(letter, index) {
     const processLetters = async () => {
-//    let copyStoredSelectedLetters1 = [...selectedLetters1];
-// let copyStoredSelectedLetters2 = [...selectedLetters2];
 
 
       let inputString =
@@ -189,6 +183,10 @@ return (
       </TouchableOpacity>
     ))}
   </View>
+       <View style = {s.APILinkContainer}>
+      <Text style={s.APILinkText}>Word checks done by<Text style={s.APILink} onPress={openWebsite}> WordSoHard </Text></Text> 
+      </View>
+   
   </View>
 );
 

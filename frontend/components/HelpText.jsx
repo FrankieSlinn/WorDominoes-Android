@@ -30,14 +30,13 @@ export function HelpText({ showHelpText, setShowHelpText }) {
           <Text style={s.popupHeading}>About WorDominoes</Text>
           {"\n"}
           {"\n"}
-          Congratulations on choosing WorDominoes. It is truly an excellent game
-          to play. Difficult and excellent at the same time (depending on how
-          you define excellent).
+          Congratulations on choosing WorDominoes. It is a truly challenging game
+          to play. 
           {"\n"}
           {"\n"}
           The obvious goal is to achieve WORDOMINATION. Each WORDOMINATION is worth 30 points. 
           You can do this by
-          completing all the tiles of the dominoes grid. But it is difficult.
+          filling all the tiles of the dominoes grid. But it is difficult.
           You will not only need to be a master of word games but also an
           excellent dominoes strategist. If you possess both of these skills you
           have a chance at WORDOMINATION.
@@ -85,10 +84,10 @@ export function HelpText({ showHelpText, setShowHelpText }) {
           Word” Button. To submit the word, yes, it is the submit button. If
           your word has the right amount of letters and is considered valid by
           the(sometimes dubious) intelligence of the computer you can move on to
-          the next word for that tile.
+          the next word for that domino.
           {"\n"}
           {"\n"}
-          5. Once you have two valid words you have won a tile. Congratulations!
+          5. Once you have two valid words you have won a domino. Congratulations!
           You now place the domino on the grid. However you cannot just place it
           anywhere. The grid will only let you place a domino that has the same
           amount of dots on a side as the domino next to it. Or you can place

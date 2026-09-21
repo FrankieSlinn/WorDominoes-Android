@@ -2,7 +2,7 @@
   "expo": {
     "name": "WorDominoes",
     "slug": "WorDominoes",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/images/WORDOMINOES_ICON_512x512px_v1.png",
     "scheme": "myapp",
@@ -22,11 +22,12 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/WORDOMINOES_ICON_512x512px_v1.png",
-        "backgroundColor": "#f0f0f0"
+        "backgroundColor": "#f0f0f0",
+        "versionCode": 2
       },
       "package": "com.fkissling.WorDominoes"
     },
-        "androidNavigationBar": {
+    "androidNavigationBar": {
       "backgroundColor": "#f0f0f0",
       "barStyle": "dark-content"
     },
@@ -47,7 +48,8 @@
         }
       ],
       "expo-font",
-      "expo-web-browser"
+      "expo-web-browser",
+      "expo-status-bar"
     ],
     "experiments": {
       "typedRoutes": true

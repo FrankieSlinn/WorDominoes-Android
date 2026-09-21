@@ -119,52 +119,19 @@ export default function Index() {
   const colorScheme = Appearance.getColorScheme(); // 'light' or 'dark'
 
 
-//Check Score - stats look odd - Looks ok now. 
-//do wordomination - Android & take screenshot
-//Get screenshots for other Android size
+// useEffect(() => {
+//   if (Platform.OS !== "android") return;
 
-  //After Got not a valid word and clicked redo, letters still selected - Fixed
-//Test everything on different Androids. 
+  // const change = async () => {
+  //   try {
+  //     await changeNavigationBarColor("#eee"); // pass color as argument
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
-//After wordomination - continue playing - tlie allocation doesn't work.
-
-  
-  //Same tile appeared three times - Found after start game 0 initial hand: dominoesUsed correctly updated, then initial domino 
-  //no longer appeared there. Then dominoesUsed becomes empty
-  //Logo - center - Done
-  //HOF deletions - Prob Fixed
-//Testflight - finish game is slow ok, just needed to start backend
-//Testflight - HOF didn't work - ok, just needed to start backend
-//Beta - same domino shown twice(happened with different dominoes) - also happens in game. Dominoes used appears  ok
-  //Items in HOF deleted?
-  //after rotated a few times, tile errors, wrong values picked up for current tile for tile 0//male sure dominoesInHand cannot be modified - prob fixed
-  //can go from help section to stats, not vice versa
-//make sure worDomination / worDomination count kept if view help or stats in game - works
-  //after place tile and then do icon the tile unrotates - storage for grid? = prob fixed
-  //tiles allocated more than once - prob fixed.
-  //d2(32) showing as 23 - still issue. Shows in dominoes in hand - prob fixed.
-  //showed two or more of same tile, e.g. 55 - prob fixed.
-  //rotation state still issues - prob fixed.
-  //Runs out of dominoes after new game - prob fixed
-  //No 42 or 52 dominoes!!!! - prob fixed.
-  //ensure selected DominoObject unotated driven by originalSelectedDominoObject - prob fixed
-  //sometimes after click on tile that's already placed if something fts needs to click on that empty space twice(at first says tile doesn't fit) - prob fixed.
-
-  //saw selected letter that wasn't in input
-
-useEffect(() => {
-  if (Platform.OS !== "android") return;
-
-  const change = async () => {
-    try {
-      await changeNavigationBarColor("#F0f0f0"); // pass color as argument
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  change();
-}, []);
+//   change();
+// }, []);
 
 
 
@@ -721,6 +688,9 @@ console.log("dominoesUsed in index", dominoesUsed)
         />
       )}
             <Footer/>
+            <View style = {s.footerPlaceholder}>
+
+            </View>
    
 
   

@@ -1,93 +1,142 @@
-import { Alert } from "react-native";
-import {loadWord1Success, getWord1Success, storeWord1Success, getWord2Success, storeWord2Success} from "./asynchStorageUtils"
 
-//To ensure all words are included
-const dictionary = ["is", "be", "was", "look", "dose", "door", "touch", "kite", "our", "tow"];
-
-
-
-function validateWord(validationInformation, letterString, wordLength, wordNumber, setWord1Success, setWord2Success, setTilePlaced, setValidationError, storeWord1Success, 
+import {
+  storeWord1Success,
   storeWord2Success
+} from "./asynchStorageUtils";
+
+// Words that should be accepted
+const dictionary = [
+  "is",
+  "be",
+  "was",
+  "look",
+  "dose",
+  "door",
+  "touch",
+  "kite",
+  "our",
+  "tow"
+];
+
+
+function validateWord(
+  isValid,
+  letterString,
+  wordLength,
+  wordNumber,
+  setWord1Success,
+  setWord2Success,
+  setTilePlaced,
+  setValidationError
 ) {
- 
+  const word = letterString.toLowerCase().trim();
 
+  // Word is valid if:
+  // 1. WordSoHard says it is playable
+  // OR it is in our exception dictionary
+  // AND
+  // 2. It has the correct number of letters
 
-  if (
-    //check valid word(length of response isn't equal to error message length) - valid word
-    // or check that word in exception words(is / be) dictionary - valid word
-    //check number of letters is correct
+  const validWord =
+    (isValid || dictionary.includes(word)) &&
+    word.length === Number(wordLength);
 
-    (validationInformation != 14 || dictionary.includes(letterString)) &&
-    letterString.length === Number(wordLength)
-  ) {
-    console.log("word is validated in validatewd function");
-    if(wordNumber===1)
-    {storeWord1Success(true)
+  if (validWord) {
+
+    console.log("Word is valid:", word);
+
+    if (wordNumber === 1) {
+
+      storeWord1Success(true);
       setWord1Success(true);
-      //to ensure display domino doesn't disappear
-      setTilePlaced(false);
-   
-    console.log("word1Successful in validate word function")}
-    else if(wordNumber===2)
-      {storeWord2Success(true)
-        setWord2Success(true);
-        setTilePlaced(false);
-      }
-    
-  } else {
-    console.log("word could not be validated in validate word");
-    setValidationError(true)
-  
 
+      // Keep tile/domino displayed correctly
+      setTilePlaced(false);
+
+      console.log("Word 1 successful");
+
+    } else if (wordNumber === 2) {
+
+      storeWord2Success(true);
+      setWord2Success(true);
+
+      setTilePlaced(false);
+
+      console.log("Word 2 successful");
+    }
+
+  } else {
+
+    console.log("Word is not valid:", word);
+
+    setValidationError(true);
   }
 }
 
-async function submitWordToAPI(letterString, wordLength, wordNumber, setWord1Success, setWord2Success, setTilePlaced, setValidationError) {
 
-  console.log("inputString1 in submitWordToAPI:", letterString);
+async function submitWordToAPI(
+  letterString,
+  wordLength,
+  wordNumber,
+  setWord1Success,
+  setWord2Success,
+  setTilePlaced,
+  setValidationError
+) {
 
-  const url = `https://lingua-robot.p.rapidapi.com/language/v1/entries/en/${letterString}`;
-  console.log("url:", url);
+  console.log("Word being checked:", letterString);
 
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "9befc1d2a6msh43bf070da1abde6p1d37c1jsn616d294fe695",
-      "X-RapidAPI-Host": "lingua-robot.p.rapidapi.com",
-      Accept: "application/json",
-    },
-  };
+  // Clean up the word before sending it
+  const word = letterString.toLowerCase().trim();
+
+  const url =
+    `https://wordsohard.com/api/v1/define/${encodeURIComponent(word)}`;
+
+  console.log("URL:", url);
 
   try {
-    const response = await fetch(url, options);
+
+    const response = await fetch(url);
+
     console.log("Response status:", response.status);
 
+    // Get the response as JSON
+    const data = await response.json();
+
+    console.log("WordSoHard response:", data);
+
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+
+      throw new Error(
+        `API request failed (${response.status})`
+      );
     }
 
-    // ✅ Get response as text
-    const responseText = await response.text();
-    console.log("Raw API Response:", responseText);
+    // WordSoHard tells us whether the word
+    // is playable in its word-game dictionary.
+    const isValid = data.scrabble?.valid === true;
 
-    // ✅ Get length of response text
-    let validationInformation = responseText.length;
-    console.log(
-      "Validation Information (Response Length):",
-      validationInformation
+    console.log("Is valid word:", isValid);
+
+    // Validate the word
+    validateWord(
+      isValid,
+      word,
+      wordLength,
+      wordNumber,
+      setWord1Success,
+      setWord2Success,
+      setTilePlaced,
+      setValidationError
     );
 
-    // ✅ Parse response into JSON
-    const data = JSON.parse(responseText);
-    console.log("API Response (JSON):", data);
-
-    // Call validation function
-    validateWord(validationInformation, letterString, wordLength, wordNumber, setWord1Success, setWord2Success, setTilePlaced, setValidationError, storeWord1Success,
-      storeWord2Success
-    );
   } catch (error) {
+
     console.error("API Error:", error);
-   
+
+    // API failure is different from an invalid word,
+    // but for now we'll show the validation error.
+    setValidationError(true);
   }
 }
 

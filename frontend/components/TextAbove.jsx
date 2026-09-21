@@ -43,7 +43,7 @@ export function TextAbove({gameFinished, setGameFinished, tileFullError, wrongTi
       
           <View style={[s.instructionBox, {height:50, marginBottom: 10, marginTop:10}]}>
           <Text style={[s.instructionText, s.bold]}s>
-          Congratulations, you placed a tile!!!
+          Congratulations, you placed a domino!!!
         </Text>
         </View>
         :wrongTileError===true?

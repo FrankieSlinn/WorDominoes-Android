@@ -2,7 +2,10 @@ import { StyleSheet, Dimensions, Platform } from "react-native";
 import { letters } from "./utils/letters";
 
 const { width } = Dimensions.get('window');
-const isTablet = width >= 768;
+const isTablet = width >600;
+
+//Medium phone Android 36 - simulator 393 × 873 dp
+//iPhone 15 - 1179 × 2556 px
 
 export const s = StyleSheet.create({
   appBody: {
@@ -162,12 +165,13 @@ height: "92%",
   makeWordContainer: {
     alignItems: "center",
     justifyContent: "center",
+   
   },
   instructionText: {
     fontSize: 17,
     textAlign: "center",
 
-   width: isTablet ? '70%' : '100%',
+   width: isTablet ? '80%' : '100%',
   },
   errorMessageText: {
     backgroundColor: "lightorange",
@@ -301,7 +305,7 @@ height: "92%",
   inputContainer: {
     // flex: 1,
     alignItems: "center",
-    width: isTablet ? '50%' : '100%',
+    width: isTablet ? '70%' : '100%',
     // height: isTablet? 40: "100%",
     // marginBottom: isTablet? 15: 0,
 
@@ -326,13 +330,17 @@ height: "92%",
     marginBottom: 70,
     alignItems: "center",
     justifyContent: "center",
-    width: isTablet? '50%':'100%',
+    width: isTablet? '70%':'100%',
   },
   APILinkContainer:{
     alignItems: "center",
     justifyContent: "center",
     marginTop: -65,
     marginBottom: 30,
+  },
+  APILink:{
+    color:  "#2e7c66",
+
   },
   letter: {
     width: 35,
@@ -527,95 +535,77 @@ height: "92%",
     fontSize: 17,
   },
   HOFContainer: {
-    flex: 1,
+    
+    // flex: isTablet?0.65:0.76,
     // marginTop: 700,
     justifyContent: "center",
     alignItems: "center",
     marginTop: 125,
-    marginBottom: isTablet?500: 68,
+    paddingBottom: 15.3,
     backgroundColor: "lightyellow",
     //"#bdc5c7",
-    width: "85%",
+    width: isTablet?"55%":"82%",
     borderRadius: 15,
   },
 
-  HOFContentContainer: {
-    flex: 1,
-    flexDirection: "column",
-    // justifyContent: "space-evenly",
-    alignItems: "center",
-    width: "97%",
-    marginTop: 10,
-   paddingBottom: -20,
 
-  },
-  HOFHeadings: {
-    marginTop: 0,
-    // flex: 1,
-    paddingBottom: 0,
-    paddingHorizontal: -40,
-    marginHorizontal: -25,
+HOFHeadings: {
+  flexDirection: "row",
+  alignItems: "center",
+  paddingVertical: 15,
 
-    flexDirection: "row",
+},
+HOFHeadingText: {
 
-    justifyContent: "flex-start",
-  },
-  HOFHeadingText: {
-    flex: 0.28,
-    // justifyContent: "space-evenly",
+  fontWeight: "bold",
+  fontSize: 18,
+  color: "#353839",
+},
 
-    fontWeight: "bold",
-    fontSize: 20,
-    color: "#353839",
+HOFRow: {
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "center",
+  paddingVertical: 1,
+},
+
+HOFRankContainer: {
+  // backgroundColor: "lightgreen",
+  width: "20%",
+  alignItems: "center",
+  justifyContent: "center",
+  paddingLeft: 15,
+},
+
+HOFHandleContainer: {
+
+    // backgroundColor: "hotpink",
+  width: "53%",
+ textAlign: "center",
+  alignItems: "center",
+  justifyContent: "center",
+  paddingLeft: 0,
+},
+
+
+HOFScoreContainer: {
+  // backgroundColor: "lightblue",
+  width: "20%",
+  alignItems: "center",
+  justifyContent: "center",
+  paddingRight: 15
+},
+
+
+
+HOFEntryText: {
+  color: "#353839",
+  letterSpacing: -0.08,
+  lineHeight: 19,
+  fontWeight: "bold",
+  fontSize: 15,
     textAlign: "center",
-  },
-
-  HOFRows: {
-    marginTop: -7,
-    paddingVertical: 15,
-  },
-  HOFRow: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    textAlign: "left",
-    paddingLeft: "17%",
-  },
-
-  HOFEntryText: {
-    color: "#353839",
-    letterSpacing: -0.08,
-    lineHeight: 25,
-    fontWeight: "bold",
-    fontSize: 17,
-    TextAlign: "center",
-  },
-  HOFRankContainer: {
-    // backgroundColor: "lightgreen",
-    paddingRight: 20,
-    marginRight: 30,
-    marginLeft: -15,
-  },
-  HOFHandleContainer: {
-    alignItems: "center",
-    //  backgroundColor: "yellow",
-    textAlign: "left",
-    width: "57%",
-    marginLeft: -30,
-    marginRight: 35,
-
-    paddingLeft: -10,
-  },
-  HOFScoreContainer: {
-    // backgroundColor: "grey",
-    width: "14%",
-
-    alignItems: "center",
-
-    marginRight: 23,
-    marginLeft: -32,
-  },
+},
   //In main part
   HOFButtonContainer: {
     flex: 1,

@@ -7,10 +7,6 @@
     "icon": "./assets/images/WORDOMINOES_ICON_512x512px_v1.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
-    "packagerOpts": {
-      "hostType": "lan"
-    },
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.fkissling.WorDominoes",
@@ -22,14 +18,11 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/WORDOMINOES_ICON_512x512px_v1.png",
-        "backgroundColor": "#f0f0f0",
-        "versionCode": 2
+        "backgroundColor": "#f0f0f0"
       },
-      "package": "com.fkissling.WorDominoes"
-    },
-    "androidNavigationBar": {
-      "backgroundColor": "#f0f0f0",
-      "barStyle": "dark-content"
+      "versionCode": 2,
+      "package": "com.fkissling.WorDominoes",
+  
     },
     "web": {
       "bundler": "metro",

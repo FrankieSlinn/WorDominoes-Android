@@ -41,38 +41,51 @@ export function HallOfFame({
           </TouchableOpacity>
         </View>
         <View style={s.HOFContainer}>
-          <View
+          {/* <View
             style={[
               s.HOFContentContainer,
     
             ]}
-          >
-            <View style={s.HOFHeadings}>
-              <Text style={s.HOFHeadingText}>Rank</Text>
+          > */}
+           <View style={s.HOFHeadings}>
+  <View style={s.HOFRankContainer}>
+    <Text style={s.HOFHeadingText}>Rank</Text>
+  </View>
 
-              <Text style={s.HOFHeadingText}>Handle</Text>
+  <View style={s.HOFHandleContainer}>
+    <Text style={s.HOFHeadingText}>Handle</Text>
+  </View>
 
-              <Text style={s.HOFHeadingText}>Score</Text>
-            </View>
-            <ScrollView showsVerticalScrollIndicator={false}>
-              <View style={s.HOFRows}>
-                {entries.map((entry, index) => (
-                  <View key={index} style={s.HOFRow}>
-                    <View style={s.HOFRankContainer}>
-                      <Text style={s.HOFEntryText}>{index + 1}</Text>
-                    </View>
-                    <View style={s.HOFHandleContainer}>
-                      <Text style={s.HOFEntryText}>{entry.handle}</Text>
-                    </View>
-                    <View style={s.HOFScoreContainer}>
-                      <Text style={s.HOFEntryText}>{entry.score}</Text>
-                    </View>
-                  </View>
-                ))}
-              </View>
-            </ScrollView>
+  <View style={s.HOFScoreContainer}>
+    <Text style={s.HOFHeadingText}>Score</Text>
+  </View>
+</View>
+
+<ScrollView showsVerticalScrollIndicator={false}
+  style={{ width: "100%" }}
+  contentContainerStyle={{ width: "100%" }}
+  >
+  {entries.map((entry, index) => (
+    <View key={index} style={s.HOFRow}>
+      <View style={s.HOFRankContainer}>
+        <Text style={s.HOFEntryText}>{index + 1}</Text>
+      </View>
+    
+
+      <View style={s.HOFHandleContainer}>
+          <View style = {s.HOFHandleContainerInner}>
+        <Text style={s.HOFEntryText}>{entry.handle}</Text>
+      </View>
+      </View>
+
+      <View style={s.HOFScoreContainer}>
+        <Text style={s.HOFEntryText}>{entry.score}</Text>
+      </View>
+    </View>
+  ))}
+</ScrollView>
           </View>
-        </View>
+        {/* </View> */}
       </View>
     </>
   );

@@ -1,8 +1,8 @@
-import { Text, View, ScrollView, Keyboard, Platform, Appearance } from "react-native";
+import { Text, View, ScrollView, Keyboard, Platform, Appearance, Dimensions } from "react-native";
 import { useState, useEffect } from "react";
 
 import React, { useCallback } from "react";
-import changeNavigationBarColor from "react-native-navigation-bar-color";
+
 
 import Animated, {
   useSharedValue,
@@ -118,20 +118,18 @@ export default function Index() {
 
   const colorScheme = Appearance.getColorScheme(); // 'light' or 'dark'
 
+  //For tablet T80 width = 600.9
+  const { width } = Dimensions.get('window');
 
-// useEffect(() => {
-//   if (Platform.OS !== "android") return;
 
-  // const change = async () => {
-  //   try {
-  //     await changeNavigationBarColor("#eee"); // pass color as argument
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
+  const isTablet = width >600;
+    console.log("@!@£!@£@£@£@DEVICEWIDTH?", width)
+    console.log("@!@£!@£@£@£@ISTABLET?", isTablet)
 
-//   change();
-// }, []);
+  console.log("@!@£!@£@£@£@ISTABLET?", isTablet)
+
+
+//HOF in simulator bototm has square edges, too much space. 
 
 
 
